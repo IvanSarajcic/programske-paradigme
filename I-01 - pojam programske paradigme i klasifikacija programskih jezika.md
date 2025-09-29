@@ -69,7 +69,7 @@ for(int i = 1; i <= 10; i++) {
 **Пример језика:** Java, C++, C#, Python
 **Пример:**
 ```java
-class Student {
+class Ucenik {
     private String ime;
     public void postaviIme(String novoIme) {
         this.ime = novoIme;
