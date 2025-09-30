@@ -1,1 +1,10 @@
 *.pdf
+backup/*
+
+# Cache and temporary files
+.cache/
+*.tmp
+*.temp
+node_modules/
+.DS_Store
+Thumbs.db
