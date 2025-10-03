@@ -6,7 +6,6 @@
 
 ### Ask Claude to create a lesson:
 - Give it the lesson number and topic from `programske paradigme.md`
-- Reference templates: `template-lesson.md` and `template-slides.md`
 - Point to existing examples: I-01, I-02, I-03
 - Claude will create the folder and both files
 
@@ -41,10 +40,6 @@ lessons/[ID-Topic]/
 
 slides/
   └── [ID-Topic].html  ← Generated HTML presentation
-
-templates/
-  ├── template-lesson.md   ← Reference for AI generation
-  └── template-slides.md   ← Reference for AI generation
 ```
 
 ---
@@ -83,32 +78,12 @@ IV-20-Lambda-izrazi
 
 ---
 
-## 📝 Template Placeholders to Replace
-
-### In lesson.md
-- `[NUMBER]` → Lesson number (e.g., 4)
-- `[NAZIV LEKCIJE]` → Lesson title
-- `[Obrada novog gradiva / Utvrđivanje / ...]` → Choose lesson type
-- `[Исход 1]`, `[Исход 2]`, etc. → Specific learning outcomes
-- `[ТЕМА 1]`, `[ТЕМА 2]`, etc. → Topic sections
-- `[programming-language]` → cpp, java, python, etc.
-- All other `[...]` → Replace with actual content
-
-### In slides.md
-- `[НАСЛОВ ЛЕКЦИЈЕ]` → Presentation title
-- `[Концепт 1]`, `[Концепт 2]` → Main concepts
-- `[programming-language]` → cpp, java, python, etc.
-- All other `[...]` → Replace with actual content
-- Add/remove slides as needed (slides separated by `---`)
-
----
-
 ## 🔄 Complete Workflow (AI-Assisted)
 
 ```
 1. ASK CLAUDE
-   "Create lesson I-04 about [Topic] following the template structure"
-   Provide: programske paradigme.md, templates, existing examples
+   "Create lesson I-04 about [Topic] following existing lesson structure"
+   Provide: programske paradigme.md, existing examples (I-01, I-02, I-03)
 
 2. CLAUDE CREATES
    - Creates lessons/I-04-Topic/ folder
@@ -190,8 +165,6 @@ Get-ChildItem images | Where-Object {
 |------|---------|
 | **README.md** | Project overview, getting started |
 | **summary.md** | Detailed structure, workflows, file types |
-| **templates/README.md** | How to use templates |
-| **scripts/README.md** | Script documentation |
 | **PROJECT-UPDATES.md** | Recent changes summary |
 | **QUICK-REFERENCE.md** | This file - quick commands |
 | **programske paradigme.md** | All 99 lesson plans |
@@ -235,7 +208,6 @@ marp "lessons/I-04-Topic/slides.md" --html -o "slides/I-04-Topic.html"
 ## 📞 Quick Help
 
 ### Need help with:
-- **Templates**: See `templates/README.md`
 - **Structure**: See `summary.md`
 - **Overview**: See `README.md`
 - **Commands**: This file!

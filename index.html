@@ -1,31 +1,346 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="sr">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Programske Paradigme</title>
-    <link rel="stylesheet" href="styles.css">
+    <title>Програмске Парадигме - Четврти разред гимназије</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: #1a1a1a;
+            color: #ffffff;
+            line-height: 1.6;
+            padding: 20px;
+        }
+        header {
+            background: #2d2d2d;
+            padding: 2rem;
+            border-bottom: 3px solid #4fc3f7;
+            margin-bottom: 2rem;
+            border-radius: 8px;
+        }
+        h1 {
+            color: #4fc3f7;
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+        }
+        .subtitle {
+            color: #81d4fa;
+            font-size: 1.2rem;
+        }
+        main {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+        .intro {
+            background: #2d2d2d;
+            padding: 1.5rem;
+            border-radius: 8px;
+            margin-bottom: 2rem;
+            border-left: 4px solid #4fc3f7;
+        }
+        h2 {
+            color: #4fc3f7;
+            font-size: 2rem;
+            margin-bottom: 1rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 2px solid #4fc3f7;
+        }
+        h3 {
+            color: #81d4fa;
+            font-size: 1.5rem;
+            margin: 2rem 0 1rem 0;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 1rem 0;
+            background: #2d2d2d;
+            border-radius: 8px;
+            overflow: hidden;
+        }
+        th {
+            background: #333;
+            color: #4fc3f7;
+            padding: 1rem;
+            text-align: left;
+            font-weight: 600;
+            border-bottom: 2px solid #4fc3f7;
+        }
+        td {
+            padding: 1rem;
+            border-bottom: 1px solid #444;
+        }
+        tr:hover {
+            background: #353535;
+        }
+        tr:last-child td {
+            border-bottom: none;
+        }
+        .lesson-id {
+            font-weight: bold;
+            color: #4fc3f7;
+            white-space: nowrap;
+        }
+        .lesson-title {
+            color: #fff;
+        }
+        .lesson-type {
+            display: inline-block;
+            padding: 0.25rem 0.5rem;
+            border-radius: 4px;
+            font-size: 0.85rem;
+            font-weight: bold;
+        }
+        .type-o { background: #4caf50; color: white; }
+        .type-u { background: #2196f3; color: white; }
+        .type-pr { background: #ff9800; color: white; }
+        .type-k { background: #f44336; color: white; }
+        a {
+            color: #4fc3f7;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        a:hover {
+            color: #81d4fa;
+            text-decoration: underline;
+        }
+        .link-button {
+            display: inline-block;
+            padding: 0.4rem 0.8rem;
+            background: #4fc3f7;
+            color: #1a1a1a;
+            border-radius: 4px;
+            font-size: 0.9rem;
+            font-weight: 500;
+            margin-right: 0.5rem;
+            margin-bottom: 0.5rem;
+        }
+        .link-button:hover {
+            background: #81d4fa;
+            color: #1a1a1a;
+            text-decoration: none;
+        }
+        .link-button.lesson { background: #66bb6a; }
+        .link-button.slides-md { background: #ffa726; }
+        .link-button.slides-html { background: #42a5f5; }
+        .link-button.lesson:hover { background: #81c784; }
+        .link-button.slides-md:hover { background: #ffb74d; }
+        .link-button.slides-html:hover { background: #64b5f6; }
+        .links-cell {
+            white-space: nowrap;
+        }
+        footer {
+            text-align: center;
+            padding: 2rem;
+            margin-top: 3rem;
+            color: #999;
+            border-top: 1px solid #333;
+        }
+        .stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1rem;
+            margin: 2rem 0;
+        }
+        .stat-card {
+            background: #2d2d2d;
+            padding: 1.5rem;
+            border-radius: 8px;
+            border-left: 4px solid #4fc3f7;
+        }
+        .stat-number {
+            font-size: 2.5rem;
+            color: #4fc3f7;
+            font-weight: bold;
+        }
+        .stat-label {
+            color: #999;
+            font-size: 0.9rem;
+            margin-top: 0.5rem;
+        }
+    </style>
 </head>
 <body>
     <header>
-        <h1>Programske Paradigme</h1>
-        <nav>
-            <ul>
-                <li><a href="index.html">Početna</a></li>
-                <li><a href="lessons/I-01-Pojam-programske-paradigme.html">Lekcija 1</a></li>
-                <li><a href="lessons/I-02-Deklarativno-i-imperativno-programiranje.html">Lekcija 2</a></li>
-                <li><a href="lessons/I-03-Proceduralna-i-objektno-orijentisana-paradigma.html">Lekcija 3</a></li>
-            </ul>
-        </nav>
+        <h1>📚 Програмске Парадигме</h1>
+        <p class="subtitle">Четврти разред гимназије • 99 часова</p>
     </header>
+    
     <main>
-        <section>
-            <h2>Uvod</h2>
-            <p>Ovaj kurs pokriva osnovne koncepte programskih paradigma.</p>
-        </section>
+        <div class="intro">
+            <h2>О курсу</h2>
+            <p>Комплетан курс програмских парадигми који обухвата императивно, објектно-оријентисано и функционално програмирање. Курс је организован у 4 главне теме са теоријским и практичним часовима.</p>
+        </div>
+
+        <div class="stats">
+            <div class="stat-card">
+                <div class="stat-number">3</div>
+                <div class="stat-label">Завршено часова</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-number">96</div>
+                <div class="stat-label">Преостало часова</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-number">4</div>
+                <div class="stat-label">Главне теме</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-number">3%</div>
+                <div class="stat-label">Напредак курса</div>
+            </div>
+        </div>
+
+        <h3>📖 Тема I: Увод у програмске парадигме (5 часова)</h3>
+        <table>
+            <thead>
+                <tr>
+                    <th style="width: 8%;">ID</th>
+                    <th style="width: 5%;">Тип</th>
+                    <th style="width: 37%;">Назив</th>
+                    <th style="width: 50%;">Материјали</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td class="lesson-id">I-01</td>
+                    <td><span class="lesson-type type-o">O</span></td>
+                    <td class="lesson-title">Појам програмске парадигме и класификација програмских језика</td>
+                    <td class="links-cell">
+                        <a href="lessons/I-01-Pojam-programske-paradigme/lesson.md" class="link-button lesson">📄 План часа</a>
+                        <a href="lessons/I-01-Pojam-programske-paradigme/slides.md" class="link-button slides-md">📝 Slides MD</a>
+                        <a href="slides/I-01-Pojam-programske-paradigme.html" class="link-button slides-html" target="_blank">🎬 Презентација</a>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="lesson-id">I-02</td>
+                    <td><span class="lesson-type type-o">O</span></td>
+                    <td class="lesson-title">Декларативно и императивно програмирање</td>
+                    <td class="links-cell">
+                        <a href="lessons/I-02-Deklarativno-i-imperativno-programiranje/lesson.md" class="link-button lesson">📄 План часа</a>
+                        <span style="color: #666;">📝 Slides MD</span>
+                        <span style="color: #666;">🎬 Презентација</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="lesson-id">I-03</td>
+                    <td><span class="lesson-type type-o">O</span></td>
+                    <td class="lesson-title">Процедурална и објектно-оријентисана парадигма</td>
+                    <td class="links-cell">
+                        <a href="lessons/I-03-Proceduralna-i-objektno-orijentisana-paradigma/lesson.md" class="link-button lesson">📄 План часа</a>
+                        <span style="color: #666;">📝 Slides MD</span>
+                        <span style="color: #666;">🎬 Презентација</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="lesson-id">I-04</td>
+                    <td><span class="lesson-type type-u">U</span></td>
+                    <td class="lesson-title" style="color: #666;">Утврђивање - Препознавање парадигми</td>
+                    <td class="links-cell">
+                        <span style="color: #666;">📄 План часа</span>
+                        <span style="color: #666;">📝 Slides MD</span>
+                        <span style="color: #666;">🎬 Презентација</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="lesson-id">I-05</td>
+                    <td><span class="lesson-type type-k">K</span></td>
+                    <td class="lesson-title" style="color: #666;">Контролни час - Основни концепти</td>
+                    <td class="links-cell">
+                        <span style="color: #666;">📄 План часа</span>
+                        <span style="color: #666;">📝 Slides MD</span>
+                        <span style="color: #666;">🎬 Презентација</span>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+
+        <h3>💻 Тема II: Императивно и процедурално програмирање (26 часова)</h3>
+        <table>
+            <thead>
+                <tr>
+                    <th style="width: 8%;">ID</th>
+                    <th style="width: 5%;">Тип</th>
+                    <th style="width: 37%;">Назив</th>
+                    <th style="width: 50%;">Материјали</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td colspan="4" style="text-align: center; color: #666; padding: 2rem;">
+                        <em>Часови у припреми...</em>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+
+        <h3>🏗️ Тема III: Објектно-оријентисано програмирање (26 часова)</h3>
+        <table>
+            <thead>
+                <tr>
+                    <th style="width: 8%;">ID</th>
+                    <th style="width: 5%;">Тип</th>
+                    <th style="width: 37%;">Назив</th>
+                    <th style="width: 50%;">Материјали</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td colspan="4" style="text-align: center; color: #666; padding: 2rem;">
+                        <em>Часови у припреми...</em>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+
+        <h3>⚡ Тема IV: Функционално програмирање (42 часа)</h3>
+        <table>
+            <thead>
+                <tr>
+                    <th style="width: 8%;">ID</th>
+                    <th style="width: 5%;">Тип</th>
+                    <th style="width: 37%;">Назив</th>
+                    <th style="width: 50%;">Материјали</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td colspan="4" style="text-align: center; color: #666; padding: 2rem;">
+                        <em>Часови у припреми...</em>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+
+        <div class="intro" style="margin-top: 3rem;">
+            <h2>📌 Легенда</h2>
+            <p><strong>Типови часова:</strong></p>
+            <p>
+                <span class="lesson-type type-o">O</span> = Обрада новог градива (45 мин) •
+                <span class="lesson-type type-u">U</span> = Утврђивање и вежбање (45 мин) •
+                <span class="lesson-type type-pr">PR</span> = Praktične vežbe (45 мин) •
+                <span class="lesson-type type-k">K</span> = Контролни час (45 мин)
+            </p>
+            <p style="margin-top: 1rem;"><strong>Материјали:</strong></p>
+            <p>
+                📄 <strong>План часа</strong> = Детаљан план часа са циљевима, исходима и активностима<br>
+                📝 <strong>Slides MD</strong> = Marp извор презентације (за уређивање)<br>
+                🎬 <strong>Презентација</strong> = HTML презентација (за приказивање у настави)
+            </p>
+        </div>
     </main>
+    
     <footer>
-        <p>&copy; 2025 Ivan Sarajčić</p>
+        <p>&copy; 2025 Иван Сарајчић | Програмске Парадигме | Четврти разред гимназије</p>
+        <p style="margin-top: 0.5rem; font-size: 0.9rem;">
+            <a href="https://github.com/IvanSarajcic/programske-paradigme" target="_blank">GitHub Repository</a>
+        </p>
     </footer>
 </body>
 </html>
