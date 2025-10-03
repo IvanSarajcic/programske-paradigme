@@ -6,14 +6,16 @@
 ```
 ├── index.html                    # Navigation page listing all topics
 ├── lessons/                       # Source markdown files
-│   ├── I-01-Pojam-programske-paradigme.md                    # Lesson content
-│   ├── I-02-Deklarativno-i-imperativno-programiranje.md      # Lesson content
-│   └── I-03-Proceduralna-i-objektno-orijentisana-paradigma.md # Lesson content
-├── slides/
-│   ├── I-01-Pojam-programske-paradigme.md                    # Presentation content
-│   ├── I-02-Deklarativno-i-imperativno-programiranje.md      # Presentation content
-│   └── I-03-Proceduralna-i-objektno-orijentisana-paradigma.md # Presentation content
-├── slides-html/                       # Generated HTML presentations
+│   ├── I-01-Pojam-programske-paradigme/
+│   │   ├── lesson.md (lesson plan)
+│   │   └── slides.md (slide content)
+│   ├── I-02-Deklarativno-i-imperativno-programiranje/
+│   │   ├── lesson.md (lesson plan)
+│   │   └── slides.md (slide content)
+│   └── I-03-Proceduralna-i-objektno-orijentisana-paradigma/
+│       ├── lesson.md (lesson plan)
+│       └── slides.md (slide content)
+├── slides/                       # Generated HTML presentations
 │   ├── I-01-Pojam-programske-paradigme.html
 │   ├── I-02-Deklarativno-i-imperativno-programiranje.html
 │   └── I-03-Proceduralna-i-objektno-orijentisana-paradigma.html
@@ -23,7 +25,7 @@
 
 ## File Types & Differences
 
-### Lesson MD Files (e.g., `I-01-Pojam-programske-paradigme.md`)
+### Lesson MD Files (e.g., `I-01-Pojam-programske-paradigme/lesson.md`)
 **Folder:** `lessons/`
 **Purpose:** Detailed teaching materials for the instructor
 
@@ -36,7 +38,7 @@
 - Materials needed (images, links, etc.)
 - Assessment criteria
 
-### Slide MD Files (e.g., `I-01-Pojam-programske-paradigme-slides.md`)
+### Slide MD Files (e.g., `I-01-Pojam-programske-paradigme/slides.md`)
 **Folder:** `slides/`
 **Purpose:** Actual slides shown to students during class generated from lesson files
 
@@ -47,7 +49,7 @@
 - **Student-facing** language
 - **Interactive elements** and examples
 
-### Slide HTML Files (e.g., `I-01-Pojam-programske-paradigme-slides.html`)
+### Slide HTML Files (e.g., `I-01-Pojam-programske-paradigme.html`)
 **Folder:** `slides-html/`
 **Purpose:** Generated HTML presentations from Slide MD files for classroom use and sharing
 
@@ -69,8 +71,8 @@
 ## Workflow Instructions
 
 ### 1. Content Creation/Editing
-- Edit lesson content in `lessons/*.md` files (lesson plans)
-- Edit presentation content in `slides/*-slides.md` files (Marp presentations)
+- Edit lesson content in `lessons/*/lesson.md` files (lesson plans)
+- Edit presentation content in `slides/*/slides.md` files (Marp presentations)
 - Add images to `images/` folder
 
 ### 2. Generate HTML Presentations
