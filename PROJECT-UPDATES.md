@@ -54,68 +54,28 @@ Comprehensive guide with:
 - Quality checklist
 - PowerShell automation examples
 
-### 4. Created Automation Scripts ✅
+### 4. AI-Assisted Workflow (Simplified) ✅
 
-#### scripts/create-lesson.ps1
-**Purpose:** Create new lesson folder with templates
+**Decision:** Use Claude Sonnet 4.5 for lesson generation instead of scripts.
 
-**Features:**
-- Validates lesson ID format (I-01, II-15, etc.)
-- Creates folder: `lessons/[ID-Topic]/`
-- Copies both templates (lesson.md + slides.md)
-- Optional: Opens files in VS Code
-- Error handling for existing folders
-- Clear instructions for next steps
+**Why this approach:**
+- More flexible - AI can adapt to different lesson types
+- Better content quality - AI understands context and pedagogy
+- No maintenance of automation scripts needed
+- Templates serve as references for AI consistency
+- Simple Marp CLI command for HTML generation when needed
 
-**Usage:**
+**Manual commands you'll use:**
 ```powershell
-.\scripts\create-lesson.ps1 "I-04" "Topic-Name" -OpenInCode
+# Generate HTML for single lesson
+marp "lessons/[ID]/slides.md" --html -o "slides/[ID].html"
+
+# Generate all HTML at once
+Get-ChildItem -Path "lessons" -Filter "slides.md" -Recurse | ForEach-Object {
+    $lessonName = $_.Directory.Name
+    marp $_.FullName --html -o "slides/$lessonName.html"
+}
 ```
-
-#### scripts/generate-slides.ps1
-**Purpose:** Generate HTML presentations from slides.md files
-
-**Features:**
-- Finds all `slides.md` files in lessons/ folder
-- Generates HTML using Marp CLI
-- Can process all lessons or specific lesson
-- Skips existing files (unless -Force)
-- Shows progress with file sizes
-- Summary report (success/skip/error counts)
-
-**Usage:**
-```powershell
-.\scripts\generate-slides.ps1              # All lessons
-.\scripts\generate-slides.ps1 -LessonId "I-04"  # Specific
-.\scripts\generate-slides.ps1 -Force       # Regenerate all
-```
-
-#### scripts/validate-lessons.ps1
-**Purpose:** Validate lesson structure and completeness
-
-**Features:**
-- Checks folder naming conventions
-- Verifies required files exist (lesson.md, slides.md)
-- Detects placeholder text `[...]` not replaced
-- Checks if HTML presentations generated
-- Validates file sizes
-- Comprehensive summary report
-- Lists all issues with recommendations
-
-**Usage:**
-```powershell
-.\scripts\validate-lessons.ps1             # All lessons
-.\scripts\validate-lessons.ps1 -LessonId "I-04"  # Specific
-```
-
-#### scripts/README.md
-Complete documentation with:
-- Description of each script
-- Usage examples for each script
-- Workflow examples (single lesson, batch processing)
-- Tips & tricks (aliases, auto-generate, progress checks)
-- Troubleshooting section
-- Future enhancement ideas
 
 ### 5. Created Project README.md ✅
 
@@ -134,21 +94,19 @@ Comprehensive project overview with:
 
 ## 📊 Files Created/Updated Summary
 
-### Created Files (9 new files)
-1. ✅ `templates/template-lesson.md` (4,789 bytes)
-2. ✅ `templates/template-slides.md` (6,621 bytes)
-3. ✅ `templates/README.md` (7,148 bytes)
-4. ✅ `scripts/create-lesson.ps1` (2,969 bytes)
-5. ✅ `scripts/generate-slides.ps1` (3,756 bytes)
-6. ✅ `scripts/validate-lessons.ps1` (4,522 bytes)
-7. ✅ `scripts/README.md` (5,153 bytes)
-8. ✅ `README.md` (Project root overview)
-9. ✅ `PROJECT-UPDATES.md` (This file)
+### Created Files (5 key files)
+1. ✅ `templates/template-lesson.md` (4,789 bytes) - Reference for AI
+2. ✅ `templates/template-slides.md` (6,621 bytes) - Reference for AI
+3. ✅ `templates/README.md` (7,148 bytes) - Template guide
+4. ✅ `README.md` (Project root overview)
+5. ✅ `PROJECT-UPDATES.md` (This file)
 
-### Updated Files (1 file)
-1. ✅ `summary.md` - Complete rewrite with accurate structure
+### Updated Files (3 files)
+1. ✅ `summary.md` - Complete rewrite with accurate structure and AI workflow
+2. ✅ `README.md` - Updated for AI-assisted workflow
+3. ✅ `QUICK-REFERENCE.md` - Simplified for AI workflow
 
-**Total new content:** ~35 KB of templates, scripts, and documentation
+**Total content:** Templates and documentation for AI-assisted lesson generation
 
 ---
 
@@ -176,49 +134,40 @@ Comprehensive project overview with:
 
 ### Next Steps to Create Remaining 96 Lessons
 
-#### Option 1: One-by-One (Recommended for quality)
-```powershell
-# For each lesson in programske paradigme.md:
-.\scripts\create-lesson.ps1 "[ID]" "[Topic]" -OpenInCode
-# Edit lesson.md and slides.md
-.\scripts\generate-slides.ps1 -LessonId "[ID]"
-.\scripts\validate-lessons.ps1 -LessonId "[ID]"
-```
+#### AI-Assisted Approach (Recommended)
 
-#### Option 2: Batch Structure Creation
-```powershell
-# Create all lesson folders at once (from course plan)
-# Then fill in content systematically
-$lessons = @(
-    @{id="I-04"; topic="Topic-Name"},
-    @{id="I-05"; topic="Topic-Name"},
-    # ... all 96 remaining lessons
-)
+**For each lesson:**
+1. **Tell Claude:** "Create lesson [ID] about [Topic] from programske paradigme.md"
+2. **Provide context:**
+   - Reference templates (template-lesson.md, template-slides.md)
+   - Show examples (I-01, I-02, I-03 folders)
+   - Specify lesson type (O, U, PR, K)
+3. **Claude creates:**
+   - Folder: `lessons/[ID-Topic]/`
+   - File: `lesson.md` (teaching plan)
+   - File: `slides.md` (Marp presentation)
+4. **Generate HTML:**
+   ```powershell
+   marp "lessons/[ID]/slides.md" --html -o "slides/[ID].html"
+   ```
 
-foreach ($lesson in $lessons) {
-    .\scripts\create-lesson.ps1 $lesson.id $lesson.topic
-}
-```
-
-#### Option 3: Theme-by-Theme
-```powershell
-# Complete Theme I first (2 more lessons)
-# Then Theme II (26 lessons)
-# Then Theme III (26 lessons)
-# Finally Theme IV (42 lessons)
-```
+**Strategy:**
+- Start with Theme I (2 more lessons) to perfect the workflow
+- Move to Theme II (26 lessons) when confident
+- Continue with Theme III and IV
+- Generate all HTML at once periodically
 
 ---
 
 ## 💡 Recommendations
 
-### For Efficient Lesson Creation
+### For Efficient Lesson Creation with AI
 
-1. **Use the scripts** - They save time and ensure consistency
-2. **Follow templates** - Don't skip sections, they're there for a reason
-3. **Validate often** - Catch issues early
-4. **Commit frequently** - One lesson per commit
-5. **Review in browser** - Always check generated HTML
+1. **Use Claude consistently** - Provide same templates/examples each time
+2. **Reference existing lessons** - Point to I-01, I-02, I-03 as examples
+3. **Verify structure** - Check that AI followed conventions
+4. **Generate HTML regularly** - Test presentations in browser
+5. **Commit frequently** - One lesson per commit
 
 ### For Content Quality
 
@@ -262,12 +211,12 @@ foreach ($lesson in $lessons) {
 You have:
 - ✅ Clean, organized folder structure
 - ✅ Accurate documentation that matches reality
-- ✅ Professional templates for consistency
-- ✅ Automation scripts for efficiency
-- ✅ Validation tools for quality control
-- ✅ Comprehensive guides for reference
+- ✅ Professional templates for AI reference
+- ✅ AI-assisted workflow (Claude Sonnet 4.5)
+- ✅ Simple Marp CLI commands for HTML generation
+- ✅ Comprehensive guides and examples
 
-**You can confidently start creating the remaining 96 lessons using the established workflow.**
+**You can confidently ask Claude to create the remaining 96 lessons following the established structure!**
 
 ---
 

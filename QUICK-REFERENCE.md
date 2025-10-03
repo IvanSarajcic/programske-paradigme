@@ -1,30 +1,33 @@
 # 📋 Quick Reference Card - Programske Paradigme
 
-## 🚀 Most Common Commands
+## 🤖 AI-Assisted Workflow
 
-### Create New Lesson
-```powershell
-.\scripts\create-lesson.ps1 "I-04" "Topic-Name" -OpenInCode
-```
+**Use Claude Sonnet 4.5 to generate lessons!**
+
+### Ask Claude to create a lesson:
+- Give it the lesson number and topic from `programske paradigme.md`
+- Reference templates: `template-lesson.md` and `template-slides.md`
+- Point to existing examples: I-01, I-02, I-03
+- Claude will create the folder and both files
+
+## 🚀 Manual Commands (when needed)
 
 ### Generate HTML (Single Lesson)
 ```powershell
-.\scripts\generate-slides.ps1 -LessonId "I-04"
+marp "lessons/I-04-Topic-Name/slides.md" --html -o "slides/I-04-Topic-Name.html"
 ```
 
 ### Generate HTML (All Lessons)
 ```powershell
-.\scripts\generate-slides.ps1
+Get-ChildItem -Path "lessons" -Filter "slides.md" -Recurse | ForEach-Object {
+    $lessonName = $_.Directory.Name
+    marp $_.FullName --html -o "slides/$lessonName.html"
+}
 ```
 
-### Validate Lesson
+### Create Folder Manually
 ```powershell
-.\scripts\validate-lessons.ps1 -LessonId "I-04"
-```
-
-### Validate All Lessons
-```powershell
-.\scripts\validate-lessons.ps1
+New-Item -ItemType Directory -Path "lessons/I-04-Topic-Name"
 ```
 
 ---
@@ -40,13 +43,8 @@ slides/
   └── [ID-Topic].html  ← Generated HTML presentation
 
 templates/
-  ├── template-lesson.md   ← Copy this for new lessons
-  └── template-slides.md   ← Copy this for new slides
-
-scripts/
-  ├── create-lesson.ps1    ← Automate lesson creation
-  ├── generate-slides.ps1  ← Generate HTML
-  └── validate-lessons.ps1 ← Check structure
+  ├── template-lesson.md   ← Reference for AI generation
+  └── template-slides.md   ← Reference for AI generation
 ```
 
 ---
@@ -105,27 +103,25 @@ IV-20-Lambda-izrazi
 
 ---
 
-## 🔄 Complete Workflow
+## 🔄 Complete Workflow (AI-Assisted)
 
 ```
-1. CREATE
-   .\scripts\create-lesson.ps1 "I-04" "Topic" -OpenInCode
+1. ASK CLAUDE
+   "Create lesson I-04 about [Topic] following the template structure"
+   Provide: programske paradigme.md, templates, existing examples
 
-2. EDIT
-   - Fill lesson.md (detailed plan)
-   - Fill slides.md (presentation)
-   - Replace all [...] placeholders
+2. CLAUDE CREATES
+   - Creates lessons/I-04-Topic/ folder
+   - Generates lesson.md (teaching plan)
+   - Generates slides.md (presentation)
 
-3. GENERATE
-   .\scripts\generate-slides.ps1 -LessonId "I-04"
+3. GENERATE HTML
+   marp "lessons/I-04-Topic/slides.md" --html -o "slides/I-04-Topic.html"
 
-4. VALIDATE
-   .\scripts\validate-lessons.ps1 -LessonId "I-04"
+4. PREVIEW
+   Start-Process "slides/I-04-Topic.html"
 
-5. PREVIEW
-   Start-Process "slides\I-04-Topic.html"
-
-6. COMMIT
+5. COMMIT
    git add lessons/I-04-Topic/
    git add slides/I-04-Topic.html
    git commit -m "Add lesson I-04: Topic"
@@ -210,18 +206,7 @@ npm install -g @marp-team/marp-cli
 marp --version
 ```
 
-### Script execution disabled
-```powershell
-# Run as Administrator
-Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope CurrentUser
-```
 
-### Template not found
-```powershell
-# Make sure you're in project root
-cd "d:\Ivan\skola 2\programske paradigme"
-.\scripts\create-lesson.ps1 ...
-```
 
 ### HTML not generating
 ```powershell
@@ -251,10 +236,10 @@ marp "lessons/I-04-Topic/slides.md" --html -o "slides/I-04-Topic.html"
 
 ### Need help with:
 - **Templates**: See `templates/README.md`
-- **Scripts**: See `scripts/README.md`
 - **Structure**: See `summary.md`
 - **Overview**: See `README.md`
 - **Commands**: This file!
+- **AI Generation**: Just ask Claude!
 
 ---
 

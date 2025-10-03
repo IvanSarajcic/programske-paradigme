@@ -28,15 +28,10 @@ programske-paradigme/
 │   └── I-03-Proceduralna-i-objektno-orijentisana-paradigma.html
 ├── images/                       # Images used in presentations
 │   └── I-01-01-paradigme.jpg
-├── templates/                    # Templates for creating new lessons
+├── templates/                    # Reference templates for AI generation
 │   ├── README.md                 # Instructions for using templates
 │   ├── template-lesson.md        # Lesson plan template
 │   └── template-slides.md        # Marp slides template
-├── scripts/                      # Automation scripts
-│   ├── README.md                 # Script documentation
-│   ├── create-lesson.ps1         # Create new lesson from template
-│   ├── generate-slides.ps1       # Generate HTML from slides.md
-│   └── validate-lessons.ps1      # Validate lesson structure
 └── backup/                       # Backup of old files
 ```
 
@@ -129,42 +124,42 @@ marp "lessons/I-04-Topic-Name/slides.md" --html -o "slides/I-04-Topic-Name.html"
 
 See `templates/README.md` for detailed instructions and best practices.
 
-## Automation Scripts
+## AI-Assisted Lesson Generation
 
-PowerShell scripts in `scripts/` folder automate common tasks:
+This project uses **Claude Sonnet 4.5** for generating lessons on-demand. The templates serve as references for the AI to maintain consistency.
 
-### `create-lesson.ps1` - Create New Lesson
+### Workflow with AI
+
+1. **Reference existing lessons** (I-01, I-02, I-03) as examples
+2. **Provide templates** to Claude for structure guidance
+3. **Generate lesson content** directly through AI conversation
+4. **Generate HTML** manually when needed using Marp CLI
+
+### Key commands you'll use:
+
 ```powershell
-.\scripts\create-lesson.ps1 -LessonId "I-04" -TopicName "Topic-Name" [-OpenInCode]
+# Create new lesson folder manually
+New-Item -ItemType Directory -Path "lessons/I-04-Topic-Name"
+
+# Generate HTML from slides.md (after AI creates it)
+marp "lessons/I-04-Topic-Name/slides.md" --html -o "slides/I-04-Topic-Name.html"
+
+# Generate all slides at once
+Get-ChildItem -Path "lessons" -Filter "slides.md" -Recurse | ForEach-Object {
+    $lessonName = $_.Directory.Name
+    marp $_.FullName --html -o "slides/$lessonName.html"
+}
 ```
-Creates folder structure and copies templates automatically.
-
-### `generate-slides.ps1` - Generate HTML Presentations
-```powershell
-# Generate all lessons
-.\scripts\generate-slides.ps1
-
-# Generate specific lesson
-.\scripts\generate-slides.ps1 -LessonId "I-04" [-Force]
-```
-Converts all slides.md to HTML using Marp CLI.
-
-### `validate-lessons.ps1` - Validate Structure
-```powershell
-.\scripts\validate-lessons.ps1 [-LessonId "I-04"]
-```
-Checks if lessons are complete and properly structured.
-
-See `scripts/README.md` for detailed usage and examples.
 
 ## Workflow Instructions
 
-### 1. Content Creation/Editing
-- Edit lesson content in `lessons/*/lesson.md` files (detailed lesson plans for teachers)
-- Edit presentation content in `lessons/*/slides.md` files (Marp presentations for students)
+### 1. AI-Assisted Content Creation
+- Use Claude Sonnet 4.5 to generate lesson content based on templates
+- Reference existing lessons (I-01, I-02, I-03) for consistency
+- AI creates both `lesson.md` (teaching plan) and `slides.md` (presentation)
 - Add images to `images/` folder with naming convention: `[lesson-id]-[number]-[description].jpg`
 
-### 2. Generate HTML Presentations
+### 2. Generate HTML Presentations (Manual)
 Use Marp CLI to convert presentation markdown to HTML:
 ```powershell
 # Generate single presentation

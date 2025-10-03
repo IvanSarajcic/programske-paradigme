@@ -51,38 +51,29 @@ npm install -g @marp-team/marp-cli
 marp --version
 ```
 
-### Креирање нове лекције
+### Креирање нове лекције (са Claude AI)
 
-**Метода 1: Коришћење скрипте (препоручено)**
+**Workflow:**
+1. **Питај Claude** да генерише нову лекцију
+   - Дај му templates као референцу
+   - Дај му постојеће лекције (I-01, I-02, I-03) као примере
+   - Специфицирај тему и тип часа из `programske paradigme.md`
+
+2. **Claude креира** садржај директно:
+   - Креира фолдер структуру
+   - Генерише `lesson.md` и `slides.md`
+   - Прати утврђене конвенције
+
+3. **Генериши HTML презентацију:**
 ```powershell
-# Креирај нову лекцију
-.\scripts\create-lesson.ps1 "I-04" "Imperativno-programiranje" -OpenInCode
-
-# Уреди lesson.md и slides.md у VS Code
-# Замени све [...] placeholder-е
-
-# Генериши HTML презентацију
-.\scripts\generate-slides.ps1 -LessonId "I-04"
-
-# Валидирај структуру
-.\scripts\validate-lessons.ps1 -LessonId "I-04"
-```
-
-**Метода 2: Мануално**
-```powershell
-# 1. Креирај фолдер
-New-Item -ItemType Directory -Path "lessons/I-04-Topic-Name"
-
-# 2. Копирај темплејте
-Copy-Item "templates/template-lesson.md" "lessons/I-04-Topic-Name/lesson.md"
-Copy-Item "templates/template-slides.md" "lessons/I-04-Topic-Name/slides.md"
-
-# 3. Уреди фајлове
-code "lessons/I-04-Topic-Name/lesson.md"
-code "lessons/I-04-Topic-Name/slides.md"
-
-# 4. Генериши HTML
+# За једну лекцију
 marp "lessons/I-04-Topic-Name/slides.md" --html -o "slides/I-04-Topic-Name.html"
+
+# Или за све одједном
+Get-ChildItem -Path "lessons" -Filter "slides.md" -Recurse | ForEach-Object {
+    $lessonName = $_.Directory.Name
+    marp $_.FullName --html -o "slides/$lessonName.html"
+}
 ```
 
 ---
@@ -136,39 +127,36 @@ marp "lessons/I-04-Topic-Name/slides.md" --html -o "slides/I-04-Topic-Name.html"
 
 ---
 
-## ✅ Workflow за креирање часова
+## ✅ Workflow за креирање часова (са AI)
 
 ### 1. Планирање
 - Консултуј `programske paradigme.md` за преглед часова
 - Идентификуј број часа и тип (O, U, PR, K)
 - Дефиниши циљеве и исходе часа
 
-### 2. Креирање
-```powershell
-.\scripts\create-lesson.ps1 "[ID]" "[Topic]" -OpenInCode
-```
+### 2. Питај Claude да генерише лекцију
+Пошаљи Claude-у:
+- Број и назив лекције из `programske paradigme.md`
+- Референца на templates (`template-lesson.md`, `template-slides.md`)
+- Примере постојећих лекција (I-01, I-02, I-03)
+- Специфичне захтеве за садржај
 
-### 3. Писање садржаја
-- **lesson.md**: Детаљан план са временском поделом, примерима, домаћим
-- **slides.md**: Концизне презентације са кључним тачкама
-- Замени све `[...]` placeholder-е
+### 3. Claude креира фајлове
+- Креира фолдер: `lessons/[ID-Topic]/`
+- Генерише `lesson.md` (детаљан план часа)
+- Генерише `slides.md` (Marp презентација)
 
 ### 4. Генерисање HTML-а
 ```powershell
-.\scripts\generate-slides.ps1 -LessonId "[ID]"
+marp "lessons/[ID-Topic]/slides.md" --html -o "slides/[ID-Topic].html"
 ```
 
-### 5. Валидација
-```powershell
-.\scripts\validate-lessons.ps1 -LessonId "[ID]"
-```
-
-### 6. Преглед
+### 5. Преглед
 ```powershell
 Start-Process "slides/[ID-Topic].html"
 ```
 
-### 7. Commit
+### 6. Commit
 ```powershell
 git add lessons/[ID-Topic]/
 git add slides/[ID-Topic].html
@@ -182,7 +170,7 @@ git push
 
 ### Провера прогреса
 ```powershell
-# Број креирanih лекција
+# Број креираних лекција
 (Get-ChildItem lessons -Directory).Count
 
 # Број генерисаних презентација
@@ -194,16 +182,14 @@ Get-ChildItem lessons -Directory | Where-Object {
 }
 ```
 
-### Batch операције
+### Batch генерисање HTML-а
 ```powershell
-# Генериши све HTML презентације
-.\scripts\generate-slides.ps1
-
-# Форсирај регенерацију свих
-.\scripts\generate-slides.ps1 -Force
-
-# Валидирај све лекције
-.\scripts\validate-lessons.ps1
+# Генериши све HTML презентације одједном
+Get-ChildItem -Path "lessons" -Filter "slides.md" -Recurse | ForEach-Object {
+    $lessonName = $_.Directory.Name
+    Write-Host "Generating: $lessonName"
+    marp $_.FullName --html -o "slides/$lessonName.html"
+}
 ```
 
 ### Тражење у садржају
