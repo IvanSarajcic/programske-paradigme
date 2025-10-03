@@ -5,19 +5,20 @@
 ### Folder Structure
 ```
 ├── index.html                    # Navigation page listing all topics
-├── source/                       # Source markdown files
+├── lessons/                       # Source markdown files
 │   ├── I-01-Pojam-programske-paradigme.md                    # Lesson content
-│   ├── I-01-Pojam-programske-paradigme-slides.md             # Presentation slides
 │   ├── I-02-Deklarativno-i-imperativno-programiranje.md      # Lesson content
-│   ├── I-02-Deklarativno-i-imperativno-programiranje-slides.md # Presentation slides
 │   └── I-03-Proceduralna-i-objektno-orijentisana-paradigma.md # Lesson content
-│   └── I-03-Proceduralna-i-objektno-orijentisana-paradigma-slides.md # Presentation slides
-├── slides/                       # Generated HTML presentations
+├── slides/
+│   ├── I-01-Pojam-programske-paradigme.md                    # Presentation content
+│   ├── I-02-Deklarativno-i-imperativno-programiranje.md      # Presentation content
+│   └── I-03-Proceduralna-i-objektno-orijentisana-paradigma.md # Presentation content
+├── slides-html/                       # Generated HTML presentations
 │   ├── I-01-Pojam-programske-paradigme.html
 │   ├── I-02-Deklarativno-i-imperativno-programiranje.html
 │   └── I-03-Proceduralna-i-objektno-orijentisana-paradigma.html
 └── images/                       # Images for presentations
-    └── Paradigms2-1024x551.jpg
+    └── I-01-01-paradigme.jpg
 ```
 
 ## File Types & Differences
