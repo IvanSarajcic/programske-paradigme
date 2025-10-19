@@ -18,17 +18,15 @@
 име формуле, статус (са <cite>axiom</cite> обележавамо претпоставке, а са
 <cite>conjecture</cite> закључке) и на крају сама формула. Приметимо да се
 импликација обележава са <cite>=&gt;</cite>, а универзални квантификатор sa <cite>!</cite>.</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>fof(premisa1, axiom, ![X]: (grk(X) =&gt; covek(X))).
+<pre class="code" data-lang="default"><code>fof(premisa1, axiom, ![X]: (grk(X) =&gt; covek(X))).
 fof(premisa2, axiom, ![X]: (covek(X) =&gt; smrtan(X))).
 fof(zakljucak, conjecture, ![X]: (grk(X) =&gt; smrtan(X))).
-</pre></div>
-</div>
+</code></pre>
 <p>Ако ово сачувамо у датотеку <cite>syllogysm1.tptp</cite> и затим покренемо
 <em>Vampire</em> из командне линије, командом <cite>vampire syllogysm1.tptp</cite>
 добијамо поруку:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>% Refutation found. Thanks to Tanya!
-</pre></div>
-</div>
+<pre class="code" data-lang="default"><code>% Refutation found. Thanks to Tanya!
+</code></pre>
 <p>Ово значи да је формула успешно доказана.</p>
 
     <div class="note-wrapper questionnote-type">
@@ -42,42 +40,38 @@ fof(zakljucak, conjecture, ![X]: (grk(X) =&gt; smrtan(X))).
 <li><p>Све змије су рептили.</p></li>
 <li><p>Дакле, ниједна змија нема крзно.</p></li>
 </ul>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>fof(prem1, axiom, ~(?[X]: (reptil(X) &amp; krzno(X)))).
+<pre class="code" data-lang="default"><code>fof(prem1, axiom, ~(?[X]: (reptil(X) &amp; krzno(X)))).
 fof(prem2, axiom, ![X]: (zmija(X) =&gt; reptil(X))).
 fof(concl, conjecture, ~(?[X]: (zmija(X) &amp; krzno(X)))).
-</pre></div>
-</div>
+</code></pre>
 <ul class="simple">
 <li><p>Сви зечеви имају крзно.</p></li>
 <li><p>Неки љубимци су зечеви.</p></li>
 <li><p>Дакле, неки љубимци имају крзно.</p></li>
 </ul>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>fof(prem1, axiom, ![X]: (zec(X) =&gt; krzno(X))).
+<pre class="code" data-lang="default"><code>fof(prem1, axiom, ![X]: (zec(X) =&gt; krzno(X))).
 fof(prem2, axiom, ?[X]: ljubimac(X) &amp; zec(X)).
 fof(concl, conjecture, ?[X]: (zec(X) &amp; krzno(X))).
-</pre></div>
-</div>
+</code></pre>
 <ul class="simple">
 <li><p>Нема забавног домаћег.</p></li>
 <li><p>Неке књиге се читају за домаћи.</p></li>
 <li><p>Неке књиге нису забавне.</p></li>
 </ul>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>fof(prem1, axiom, ~(?[X]: (domaci(X) &amp; zabavan(X)))).
+<pre class="code" data-lang="default"><code>fof(prem1, axiom, ~(?[X]: (domaci(X) &amp; zabavan(X)))).
 fof(prem2, axiom, ?[X]: knjiga(X) &amp; domaci(X)).
 fof(concl, conjecture, ?[X]: (knjiga(X) &amp; ~zabavan(X))).
-</pre></div>
-</div>
+</code></pre>
 <ul class="simple">
 <li><p>Сви људи су смртни.</p></li>
 <li><p>Сви Грци су људи.</p></li>
 <li><p>Неки Грци су смртни.</p></li>
 </ul>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>fof(premisa1, axiom, ![X]: (grk(X) =&gt; covek(X))).
+<pre class="code" data-lang="default"><code>fof(premisa1, axiom, ![X]: (grk(X) =&gt; covek(X))).
 fof(premisa2, axiom, ![X]: (covek(X) =&gt; smrtan(X))).
 fof(dodatna_premisa, axiom, ?[X]: grk(X)).
 fof(zakljucak, conjecture, ?[X]: (grk(X) &amp; smrtan(X))).
-</pre></div>
-</div>
+</code></pre>
 <p>Приметимо да је у овом примеру било неопходно додати претпоставку
 да постоји бар један Грк. Наиме, Аристотел је подразумевао
 имплицитно да сваки предикат о коме се говори мора да буде
@@ -203,7 +197,7 @@ SAT решавача).</p>
 \mathrm{muz}</script></span> итд. и само један од њих ће успети да буде доказан
 (једино решење је да је муж убио брата, да је Алиса била са сином
 у бару, а да је ћерка била сама код куће).</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>% Alisa, njen muž, sin, ćerka i brat su likovi u romanu Agate Kristi.
+<pre class="code" data-lang="default"><code>% Alisa, njen muž, sin, ćerka i brat su likovi u romanu Agate Kristi.
 % Jedno od njih petoro je ubilo nekog od preostalih četvoro.
 fof(osoba_def, axiom, ![X] : (osoba(X) &lt;=&gt;
                X = alisa | X = muz | X = sin | X = cerka | X = brat)).
@@ -253,8 +247,7 @@ fof(solution, conjecture,
       u_baru_zensko = alisa &amp;
       u_baru_musko = sin &amp;
       samo(cerka)).
-</pre></div>
-</div>
+</code></pre>
     </div>
 </section>
 </main>

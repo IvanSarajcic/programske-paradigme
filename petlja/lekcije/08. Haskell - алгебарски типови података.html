@@ -15,95 +15,82 @@
 типове података</strong>, који се дефинишу помоћу кључне речи <code class="docutils literal notranslate"><span class="pre">data</span></code>.</p>
 <p>Најједноставнија употреба алгебарских типова је дефинисање набројивих
 типова. На пример,</p>
-<div class="highlight-haskell notranslate"><div class="highlight"><pre><span></span><span class="kr">data</span><span class="w"> </span><span class="kt">Color</span><span class="w"> </span><span class="ow">=</span><span class="w"> </span><span class="kt">Red</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="kt">Green</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="kt">Blue</span>
-</pre></div>
-</div>
+<pre class="code" data-lang="haskell"><code><span class="kr">data</span><span class="w"> </span><span class="kt">Color</span><span class="w"> </span><span class="ow">=</span><span class="w"> </span><span class="kt">Red</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="kt">Green</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="kt">Blue</span>
+</code></pre>
 <p>Овим смо дефинисали тип <code class="docutils literal notranslate"><span class="pre">Color</span></code> и три константе (<code class="docutils literal notranslate"><span class="pre">Red</span></code>, <code class="docutils literal notranslate"><span class="pre">Green</span></code>
 и <code class="docutils literal notranslate"><span class="pre">Blue</span></code>) које су овог типа.</p>
 <p>Алгебарске типове можемо користити и за дефинисање структурних типова
 података (по узору на <code class="docutils literal notranslate"><span class="pre">struct</span></code> у језику C#). На пример,</p>
-<div class="highlight-haskell notranslate"><div class="highlight"><pre><span></span><span class="kr">data</span><span class="w"> </span><span class="kt">Person</span><span class="w"> </span><span class="ow">=</span><span class="w"> </span><span class="kt">Person</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="n">name</span><span class="ow">::</span><span class="kt">String</span><span class="p">,</span><span class="w"> </span><span class="n">yearOfBirth</span><span class="ow">::</span><span class="kt">Int</span><span class="w"> </span><span class="p">}</span>
-</pre></div>
-</div>
+<pre class="code" data-lang="haskell"><code><span class="kr">data</span><span class="w"> </span><span class="kt">Person</span><span class="w"> </span><span class="ow">=</span><span class="w"> </span><span class="kt">Person</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="n">name</span><span class="ow">::</span><span class="kt">String</span><span class="p">,</span><span class="w"> </span><span class="n">yearOfBirth</span><span class="ow">::</span><span class="kt">Int</span><span class="w"> </span><span class="p">}</span>
+</code></pre>
 <p>Овим смо дефинисали тип <code class="docutils literal notranslate"><span class="pre">Person</span></code>. Свака особа има име и годину
 рођења. Уз тип смо добили и функцију (тзв. конструктор) <code class="docutils literal notranslate"><span class="pre">Person</span></code>,
 која прави податак типа <code class="docutils literal notranslate"><span class="pre">Person</span></code> од ниске и броја. На пример,</p>
-<div class="highlight-haskell notranslate"><div class="highlight"><pre><span></span><span class="kt">Person</span><span class="w"> </span><span class="s">"Petar Petrović"</span><span class="w"> </span><span class="mi">2007</span>
-</pre></div>
-</div>
+<pre class="code" data-lang="haskell"><code><span class="kt">Person</span><span class="w"> </span><span class="s">"Petar Petrović"</span><span class="w"> </span><span class="mi">2007</span>
+</code></pre>
 <p>је податак типа <code class="docutils literal notranslate"><span class="pre">Person</span></code> (немојте се збунити тиме што смо име типа и
 име конструктора означили исто – на то сте навикли и у
 објектно–оријентисаним језицима). Имена поља <code class="docutils literal notranslate"><span class="pre">name</span></code> и
 <code class="docutils literal notranslate"><span class="pre">yearOfBirth</span></code> се могу користити за јаснију дефиницију података типа
 <code class="docutils literal notranslate"><span class="pre">Person</span></code>.</p>
-<div class="highlight-haskell notranslate"><div class="highlight"><pre><span></span><span class="kt">Person</span><span class="w"> </span><span class="p">{</span><span class="n">name</span><span class="ow">=</span><span class="s">"Petar Petrović"</span><span class="p">,</span><span class="w"> </span><span class="n">yearOfBirth</span><span class="ow">=</span><span class="mi">2007</span><span class="p">}</span>
-</pre></div>
-</div>
+<pre class="code" data-lang="haskell"><code><span class="kt">Person</span><span class="w"> </span><span class="p">{</span><span class="n">name</span><span class="ow">=</span><span class="s">"Petar Petrović"</span><span class="p">,</span><span class="w"> </span><span class="n">yearOfBirth</span><span class="ow">=</span><span class="mi">2007</span><span class="p">}</span>
+</code></pre>
 <p>Имена поља су уједно функције које читају одговарајућа поља. На
 пример, <code class="docutils literal notranslate"><span class="pre">name</span></code> је функција типа <code class="docutils literal notranslate"><span class="pre">name</span> <span class="pre">::</span> <span class="pre">Person</span> <span class="pre">-&gt;</span> <span class="pre">String</span></code>.</p>
-<div class="highlight-haskell notranslate"><div class="highlight"><pre><span></span><span class="kt">Prelude</span><span class="o">&gt;</span><span class="w"> </span><span class="n">name</span><span class="w"> </span><span class="p">(</span><span class="kt">Person</span><span class="w"> </span><span class="s">"Petar Petrović"</span><span class="w"> </span><span class="mi">2007</span><span class="p">)</span>
+<pre class="code" data-lang="haskell"><code><span class="kt">Prelude</span><span class="o">&gt;</span><span class="w"> </span><span class="n">name</span><span class="w"> </span><span class="p">(</span><span class="kt">Person</span><span class="w"> </span><span class="s">"Petar Petrović"</span><span class="w"> </span><span class="mi">2007</span><span class="p">)</span>
 <span class="s">"Petar Petrović"</span>
-</pre></div>
-</div>
+</code></pre>
 <p>Имена поља се могу изоставити приликом дефиниције типа:</p>
-<div class="highlight-haskell notranslate"><div class="highlight"><pre><span></span><span class="kr">data</span><span class="w"> </span><span class="kt">Person</span><span class="w"> </span><span class="ow">=</span><span class="w"> </span><span class="kt">Person</span><span class="w"> </span><span class="kt">String</span><span class="w"> </span><span class="kt">Int</span>
-</pre></div>
-</div>
+<pre class="code" data-lang="haskell"><code><span class="kr">data</span><span class="w"> </span><span class="kt">Person</span><span class="w"> </span><span class="ow">=</span><span class="w"> </span><span class="kt">Person</span><span class="w"> </span><span class="kt">String</span><span class="w"> </span><span class="kt">Int</span>
+</code></pre>
 <p>Тип може имати и више конструктора. На пример, особа је или запослена
 или је студент.</p>
-<div class="highlight-haskell notranslate"><div class="highlight"><pre><span></span><span class="kr">data</span><span class="w"> </span><span class="kt">Person</span><span class="w"> </span><span class="ow">=</span>
+<pre class="code" data-lang="haskell"><code><span class="kr">data</span><span class="w"> </span><span class="kt">Person</span><span class="w"> </span><span class="ow">=</span>
 <span class="w">   </span><span class="kt">Employee</span><span class="w"> </span><span class="p">{</span><span class="n">name</span><span class="ow">::</span><span class="kt">String</span><span class="p">,</span><span class="w"> </span><span class="n">salary</span><span class="ow">::</span><span class="kt">Double</span><span class="p">}</span>
 <span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="kt">Student</span><span class="w"> </span><span class="p">{</span><span class="n">name</span><span class="ow">::</span><span class="kt">String</span><span class="p">,</span><span class="w"> </span><span class="n">int</span><span class="ow">::</span><span class="n">year</span><span class="p">}</span>
-</pre></div>
-</div>
+</code></pre>
 <p>Дефинисање функција над алгебарским типовима је обично засновано на
 уклапању шаблона по разним конструкторима. На пример:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">hello</span> <span class="p">::</span> <span class="n">Person</span> <span class="o">-&gt;</span> <span class="n">String</span>
+<pre class="code" data-lang="default"><code><span class="n">hello</span> <span class="p">::</span> <span class="n">Person</span> <span class="o">-&gt;</span> <span class="n">String</span>
 <span class="n">hello</span> <span class="p">(</span><span class="n">Employee</span> <span class="n">name</span> <span class="n">salary</span><span class="p">)</span> <span class="o">=</span> <span class="s2">"Hello, my name is "</span> <span class="o">++</span> <span class="n">name</span>
 <span class="n">hello</span> <span class="p">(</span><span class="n">Student</span> <span class="n">name</span> <span class="n">year</span><span class="p">)</span> <span class="o">=</span> <span class="s2">"Hello, I am "</span> <span class="o">++</span> <span class="n">show</span> <span class="n">year</span> <span class="o">++</span> <span class="s2">". year student"</span>
-</pre></div>
-</div>
+</code></pre>
 <p>Приметимо да смо за конверзију године у ниску карактера морали
 употребити функцију <code class="docutils literal notranslate"><span class="pre">show</span></code>. Ова функција је дефинисана за различите
 типове података (све типове који припадају класи типова <code class="docutils literal notranslate"><span class="pre">Show</span></code>) и
 служи да се они могу приказати тј. да се податак тог типа претвори у
 ниску карактера којом се представља.</p>
 <p>Уклапање шаблона може да се врши и у склопу израза <code class="docutils literal notranslate"><span class="pre">case-of</span></code>. На пример:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">personType</span> <span class="p">::</span> <span class="n">Person</span> <span class="o">-&gt;</span> <span class="n">String</span>
+<pre class="code" data-lang="default"><code><span class="n">personType</span> <span class="p">::</span> <span class="n">Person</span> <span class="o">-&gt;</span> <span class="n">String</span>
 <span class="n">personType</span> <span class="n">person</span> <span class="o">=</span> <span class="n">case</span> <span class="n">person</span> <span class="n">of</span>
                       <span class="n">Employee</span> <span class="n">_</span> <span class="n">_</span> <span class="o">-&gt;</span> <span class="s2">"employee"</span>
                       <span class="n">Student</span> <span class="n">_</span> <span class="n">year</span> <span class="o">-&gt;</span> <span class="n">show</span> <span class="n">year</span> <span class="o">++</span> <span class="s2">". year student"</span>
-</pre></div>
-</div>
+</code></pre>
 <p>Наравно, исто је могло бити урађено на једноставнији начин:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">personType</span> <span class="p">::</span> <span class="n">Person</span> <span class="o">-&gt;</span> <span class="n">String</span>
+<pre class="code" data-lang="default"><code><span class="n">personType</span> <span class="p">::</span> <span class="n">Person</span> <span class="o">-&gt;</span> <span class="n">String</span>
 <span class="n">personType</span> <span class="p">(</span><span class="n">Employee</span> <span class="n">_</span> <span class="n">_</span><span class="p">)</span> <span class="o">=</span> <span class="s2">"employee"</span>
 <span class="n">personType</span> <span class="p">(</span><span class="n">Student</span> <span class="n">_</span> <span class="n">year</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">show</span> <span class="n">year</span> <span class="o">++</span> <span class="s2">". year student"</span>
-</pre></div>
-</div>
+</code></pre>
 <p>Пуна снага алгебарских типова података види се у случају рекурзивних
 (каже се и индуктивних) типова података. Листа је основни пример
 таквог типа података. Листа је или празна или се добија надовезивањем
 елемента на почетак неке листе (репа). Тип листе целих бројева би се
 могао дефинисати на следећи начин:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">data</span> <span class="n">List</span> <span class="o">=</span>
+<pre class="code" data-lang="default"><code><span class="n">data</span> <span class="n">List</span> <span class="o">=</span>
   <span class="n">Empty</span>
 <span class="o">|</span> <span class="n">Cons</span> <span class="n">Int</span> <span class="n">List</span>
-</pre></div>
-</div>
+</code></pre>
 <p>Листа је или празна (конструктор <code class="docutils literal notranslate"><span class="pre">Empty</span></code>) или се добија
 надовезивањем броја на листу (конструктор <code class="docutils literal notranslate"><span class="pre">Cons</span></code>). Пример податка
 овог типа је</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Cons</span> <span class="mi">1</span> <span class="p">(</span><span class="n">Cons</span> <span class="mi">2</span> <span class="p">(</span><span class="n">Cons</span> <span class="mi">3</span> <span class="n">Empty</span><span class="p">))</span>
-</pre></div>
-</div>
+<pre class="code" data-lang="default"><code><span class="n">Cons</span> <span class="mi">1</span> <span class="p">(</span><span class="n">Cons</span> <span class="mi">2</span> <span class="p">(</span><span class="n">Cons</span> <span class="mi">3</span> <span class="n">Empty</span><span class="p">))</span>
+</code></pre>
 <p>којим се суштински представља листа <code class="docutils literal notranslate"><span class="pre">[1,</span> <span class="pre">2,</span> <span class="pre">3]</span></code>. Функције које
 обрађују индуктивне типове података обично су рекурзивне.</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="nb">sum</span> <span class="p">::</span> <span class="n">List</span> <span class="o">-&gt;</span> <span class="n">Int</span>
+<pre class="code" data-lang="default"><code><span class="nb">sum</span> <span class="p">::</span> <span class="n">List</span> <span class="o">-&gt;</span> <span class="n">Int</span>
 <span class="nb">sum</span> <span class="n">Empty</span> <span class="o">=</span> <span class="mi">0</span>
 <span class="nb">sum</span> <span class="p">(</span><span class="n">Cons</span> <span class="n">x</span> <span class="n">xs</span><span class="p">)</span> <span class="o">=</span> <span class="n">x</span> <span class="o">+</span> <span class="nb">sum</span> <span class="n">xs</span>
-</pre></div>
-</div>
+</code></pre>
 <p>Примећујете велику сличност са рекурзивним функцијама за обраду
 уграђених листа (једина разлика је то што се тамо празна листа
 обележава са <code class="docutils literal notranslate"><span class="pre">[]</span></code> уместо са <code class="docutils literal notranslate"><span class="pre">Empty</span></code>, а надовезивање са <code class="docutils literal notranslate"><span class="pre">x:xs</span></code>
@@ -123,29 +110,26 @@
 десно се налазе мања дрвета. Излаз из ове рекурзије представља празно
 дрво које нема ни вредност ни наследнике. Тип података за представљање
 дрвета може бити дефинисан на следећи начин:</p>
-<div class="highlight-haskell notranslate"><div class="highlight"><pre><span></span><span class="kr">data</span><span class="w"> </span><span class="kt">Tree</span><span class="w"> </span><span class="ow">=</span>
+<pre class="code" data-lang="haskell"><code><span class="kr">data</span><span class="w"> </span><span class="kt">Tree</span><span class="w"> </span><span class="ow">=</span>
 <span class="w">   </span><span class="kt">Empty</span><span class="w"> </span><span class="o">|</span>
 <span class="w">   </span><span class="kt">Node</span><span class="w"> </span><span class="kt">Tree</span><span class="w"> </span><span class="kt">Int</span><span class="w"> </span><span class="kt">Tree</span>
-</pre></div>
-</div>
+</code></pre>
 <p>Дрво је, дакле, или празно (<code class="docutils literal notranslate"><span class="pre">Empty</span></code>) или је у питању чвор који
 садржи три податка: лево поддрво, вредност типа <code class="docutils literal notranslate"><span class="pre">int</span></code> и десно
 поддрво.</p>
 <p>Сада можемо да формирамо изразе чији је тип <code class="docutils literal notranslate"><span class="pre">Tree</span></code>. На пример</p>
-<div class="highlight-haskell notranslate"><div class="highlight"><pre><span></span><span class="kt">Node</span><span class="w"> </span><span class="p">(</span><span class="kt">Node</span><span class="w"> </span><span class="kt">Empty</span><span class="w"> </span><span class="mi">2</span><span class="w"> </span><span class="kt">Empty</span><span class="p">)</span><span class="w"> </span><span class="mi">3</span><span class="w"> </span><span class="p">(</span><span class="kt">Node</span><span class="w"> </span><span class="kt">Empty</span><span class="w"> </span><span class="mi">5</span><span class="w"> </span><span class="p">(</span><span class="kt">Node</span><span class="w"> </span><span class="kt">Empty</span><span class="w"> </span><span class="mi">7</span><span class="w"> </span><span class="kt">Empty</span><span class="p">))</span>
-</pre></div>
-</div>
+<pre class="code" data-lang="haskell"><code><span class="kt">Node</span><span class="w"> </span><span class="p">(</span><span class="kt">Node</span><span class="w"> </span><span class="kt">Empty</span><span class="w"> </span><span class="mi">2</span><span class="w"> </span><span class="kt">Empty</span><span class="p">)</span><span class="w"> </span><span class="mi">3</span><span class="w"> </span><span class="p">(</span><span class="kt">Node</span><span class="w"> </span><span class="kt">Empty</span><span class="w"> </span><span class="mi">5</span><span class="w"> </span><span class="p">(</span><span class="kt">Node</span><span class="w"> </span><span class="kt">Empty</span><span class="w"> </span><span class="mi">7</span><span class="w"> </span><span class="kt">Empty</span><span class="p">))</span>
+</code></pre>
 <a class="reference internal image-reference" href="https://petljamediastorage.blob.core.windows.net/root/Media/Default/Kursevi/OnlineNastava/specit4_paradigme_logicko/tree.png" target="_blank"><img alt="https://petljamediastorage.blob.core.windows.net/root/Media/Default/Kursevi/OnlineNastava/specit4_paradigme_logicko/tree.png" class="align-center" src="https://petljamediastorage.blob.core.windows.net/root/Media/Default/Kursevi/OnlineNastava/specit4_paradigme_logicko/tree.png" style="width: 180px;"></a>
 <p>Нажалост, приликом њиховог уноса у интерпретатор добићемо поруку да
 систем не уме да прикаже дрво. Најједноставнији начин да се то реши је
 да се аутоматски генерише функција за приказ дрвета, што се постиже
 тиме што се након дефиниције типа дода <code class="docutils literal notranslate"><span class="pre">deriving</span> <span class="pre">Show</span></code>.</p>
-<div class="highlight-haskell notranslate"><div class="highlight"><pre><span></span><span class="kr">data</span><span class="w"> </span><span class="kt">Tree</span><span class="w"> </span><span class="ow">=</span>
+<pre class="code" data-lang="haskell"><code><span class="kr">data</span><span class="w"> </span><span class="kt">Tree</span><span class="w"> </span><span class="ow">=</span>
 <span class="w">   </span><span class="kt">Empty</span><span class="w"> </span><span class="o">|</span>
 <span class="w">   </span><span class="kt">Node</span><span class="w"> </span><span class="kt">Tree</span><span class="w"> </span><span class="kt">Int</span><span class="w"> </span><span class="kt">Tree</span>
 <span class="w">   </span><span class="kr">deriving</span><span class="w"> </span><span class="kt">Show</span>
-</pre></div>
-</div>
+</code></pre>
 <p>На овај начин је аутоматски дефинисана функција <code class="docutils literal notranslate"><span class="pre">show</span> <span class="pre">::</span> <span class="pre">Tree</span> <span class="pre">-&gt;</span> <span class="pre">String</span></code>
 која на основу датог дрвета гради ниску карактера која представља дрво
 у истом формату у ком се оно може задати у програму (нпр.
@@ -182,7 +166,7 @@
 садржај ниске (ако је ниска исправна, преостали садржај ће бити
 празан). Наредна имплементација претпоставља да је ниска која се
 парсира увек исправно задата.</p>
-<div class="highlight-haskell notranslate"><div class="highlight"><pre><span></span><span class="kr">import</span><span class="w"> </span><span class="nn">Data.Char</span><span class="w"> </span><span class="p">(</span><span class="nf">isDigit</span><span class="p">)</span>
+<pre class="code" data-lang="haskell"><code><span class="kr">import</span><span class="w"> </span><span class="nn">Data.Char</span><span class="w"> </span><span class="p">(</span><span class="nf">isDigit</span><span class="p">)</span>
 
 <span class="nf">parseTree</span><span class="w"> </span><span class="ow">::</span><span class="w"> </span><span class="kt">String</span><span class="w"> </span><span class="ow">-&gt;</span><span class="w"> </span><span class="kt">Tree</span>
 <span class="nf">parseTree</span><span class="w"> </span><span class="n">str</span><span class="w"> </span><span class="ow">=</span><span class="w"> </span><span class="n">fst</span><span class="w"> </span><span class="p">(</span><span class="n">parseTree'</span><span class="w"> </span><span class="n">str</span><span class="p">)</span>
@@ -198,8 +182,7 @@
 <span class="w">            </span><span class="p">(</span><span class="n">right</span><span class="p">,</span><span class="w"> </span><span class="n">str4</span><span class="p">)</span><span class="w"> </span><span class="ow">=</span><span class="w"> </span><span class="n">parseTree'</span><span class="w"> </span><span class="n">str3</span><span class="w">        </span><span class="c1">-- read right subtree</span>
 <span class="w">            </span><span class="n">str5</span><span class="w"> </span><span class="ow">=</span><span class="w"> </span><span class="n">tail</span><span class="w"> </span><span class="n">str4</span><span class="w">                       </span><span class="c1">-- skip )</span>
 <span class="w">        </span><span class="kr">in</span><span class="w"> </span><span class="p">(</span><span class="kt">Node</span><span class="w"> </span><span class="n">left</span><span class="w"> </span><span class="p">(</span><span class="n">read</span><span class="w"> </span><span class="n">valueStr</span><span class="p">)</span><span class="w"> </span><span class="n">right</span><span class="p">,</span><span class="w"> </span><span class="n">str5</span><span class="p">)</span>
-</pre></div>
-</div>
+</code></pre>
 <p>Обратимо пажњу на примену функције <code class="docutils literal notranslate"><span class="pre">span</span> <span class="pre">isDigit</span></code>. Функција
 <code class="docutils literal notranslate"><span class="pre">isDigit</span> <span class="pre">::</span> <span class="pre">Char</span> <span class="pre">-&gt;</span> <span class="pre">Bool</span></code> је увезена из библиотеке <code class="docutils literal notranslate"><span class="pre">Data.Char</span></code>
 (зато је на почетку програма морала бити наведена декларација
@@ -230,21 +213,19 @@
 поддрво (вредност у корену и лево поддрво остају неизмењени), а ако је
 једнако вредности у корену, онда се цело дрво враћа неизмењено (не
 желимо да убацујемо дупликате).</p>
-<div class="highlight-haskell notranslate"><div class="highlight"><pre><span></span><span class="nf">insert</span><span class="w"> </span><span class="ow">::</span><span class="w"> </span><span class="kt">Tree</span><span class="w"> </span><span class="ow">-&gt;</span><span class="w"> </span><span class="kt">Int</span><span class="w"> </span><span class="ow">-&gt;</span><span class="w"> </span><span class="kt">Tree</span>
+<pre class="code" data-lang="haskell"><code><span class="nf">insert</span><span class="w"> </span><span class="ow">::</span><span class="w"> </span><span class="kt">Tree</span><span class="w"> </span><span class="ow">-&gt;</span><span class="w"> </span><span class="kt">Int</span><span class="w"> </span><span class="ow">-&gt;</span><span class="w"> </span><span class="kt">Tree</span>
 <span class="nf">insert</span><span class="w"> </span><span class="kt">Empty</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="ow">=</span><span class="w"> </span><span class="kt">Node</span><span class="w"> </span><span class="kt">Empty</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="kt">Empty</span>
 <span class="nf">insert</span><span class="w"> </span><span class="p">(</span><span class="kt">Node</span><span class="w"> </span><span class="n">left</span><span class="w"> </span><span class="n">root</span><span class="w"> </span><span class="n">right</span><span class="p">)</span><span class="w"> </span><span class="n">x</span>
 <span class="w">   </span><span class="o">|</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">root</span><span class="w">  </span><span class="ow">=</span><span class="w">  </span><span class="kt">Node</span><span class="w"> </span><span class="p">(</span><span class="n">insert</span><span class="w"> </span><span class="n">left</span><span class="w"> </span><span class="n">x</span><span class="p">)</span><span class="w"> </span><span class="n">root</span><span class="w"> </span><span class="n">right</span>
 <span class="w">   </span><span class="o">|</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="n">root</span><span class="w">  </span><span class="ow">=</span><span class="w">  </span><span class="kt">Node</span><span class="w"> </span><span class="n">left</span><span class="w"> </span><span class="n">root</span><span class="w"> </span><span class="p">(</span><span class="n">insert</span><span class="w"> </span><span class="n">right</span><span class="w"> </span><span class="n">x</span><span class="p">)</span>
 <span class="w">   </span><span class="o">|</span><span class="w"> </span><span class="n">otherwise</span><span class="w"> </span><span class="ow">=</span><span class="w">  </span><span class="kt">Node</span><span class="w"> </span><span class="n">left</span><span class="w"> </span><span class="n">root</span><span class="w"> </span><span class="n">right</span>
-</pre></div>
-</div>
+</code></pre>
 <p>Понављањем ове функције лако можемо да формирамо дрво од листе
 бројева. Тај поступак можемо имплементирати кроз функцију која формира
 дрво од елемената листе.</p>
-<div class="highlight-haskell notranslate"><div class="highlight"><pre><span></span><span class="nf">treeOfList</span><span class="w"> </span><span class="ow">::</span><span class="w"> </span><span class="p">[</span><span class="kt">Int</span><span class="p">]</span><span class="w"> </span><span class="ow">-&gt;</span><span class="w"> </span><span class="kt">Tree</span>
+<pre class="code" data-lang="haskell"><code><span class="nf">treeOfList</span><span class="w"> </span><span class="ow">::</span><span class="w"> </span><span class="p">[</span><span class="kt">Int</span><span class="p">]</span><span class="w"> </span><span class="ow">-&gt;</span><span class="w"> </span><span class="kt">Tree</span>
 <span class="nf">treeOfList</span><span class="w"> </span><span class="ow">=</span><span class="w"> </span><span class="n">foldl</span><span class="w"> </span><span class="n">insert</span><span class="w"> </span><span class="kt">Empty</span>
-</pre></div>
-</div>
+</code></pre>
 <p>Сложеност функције <code class="docutils literal notranslate"><span class="pre">insert</span></code> и <code class="docutils literal notranslate"><span class="pre">treeOfList</span></code> зависи од распореда
 чворова дрвета. У најгорем случају, када је листа од које се формира
 дрво сортирана, сви чворови ће завршити на једној страни (увек ће лево
@@ -273,20 +254,19 @@
 вредност мања од корена, тражимо је рекурзивно у левом поддрвету, ако
 је већа, у десном, а ако је једнака вредности у корену, онда знамо да
 дрво садржи тражену вредност.</p>
-<div class="highlight-haskell notranslate"><div class="highlight"><pre><span></span><span class="nf">contains</span><span class="w"> </span><span class="ow">::</span><span class="w"> </span><span class="kt">Tree</span><span class="w"> </span><span class="ow">-&gt;</span><span class="w"> </span><span class="kt">Int</span><span class="w"> </span><span class="ow">-&gt;</span><span class="w"> </span><span class="kt">Bool</span>
+<pre class="code" data-lang="haskell"><code><span class="nf">contains</span><span class="w"> </span><span class="ow">::</span><span class="w"> </span><span class="kt">Tree</span><span class="w"> </span><span class="ow">-&gt;</span><span class="w"> </span><span class="kt">Int</span><span class="w"> </span><span class="ow">-&gt;</span><span class="w"> </span><span class="kt">Bool</span>
 <span class="nf">contains</span><span class="w"> </span><span class="kt">Empty</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="ow">=</span><span class="w"> </span><span class="kt">False</span>
 <span class="nf">contains</span><span class="w"> </span><span class="p">(</span><span class="kt">Node</span><span class="w"> </span><span class="n">left</span><span class="w"> </span><span class="n">root</span><span class="w"> </span><span class="n">right</span><span class="p">)</span><span class="w"> </span><span class="n">x</span>
 <span class="w">  </span><span class="o">|</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">root</span><span class="w">    </span><span class="ow">=</span><span class="w"> </span><span class="n">contains</span><span class="w"> </span><span class="n">left</span><span class="w"> </span><span class="n">x</span>
 <span class="w">  </span><span class="o">|</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="n">root</span><span class="w">    </span><span class="ow">=</span><span class="w"> </span><span class="n">contains</span><span class="w"> </span><span class="n">right</span><span class="w"> </span><span class="n">x</span>
 <span class="w">  </span><span class="o">|</span><span class="w"> </span><span class="n">otherwise</span><span class="w">   </span><span class="ow">=</span><span class="w"> </span><span class="kt">True</span>
-</pre></div>
-</div>
+</code></pre>
         <div class="course-content info">
             
 <p>Ово је вероватно добар тренутак да упоредимо приказано решење у
 језику Haskell са решењем у традиционалном императивном програмском
 језику, какав је C.</p>
-<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;stdio.h&gt;</span>
+<pre class="code" data-lang="c"><code><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;stdio.h&gt;</span>
 <span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;stdlib.h&gt;</span>
 
 <span class="k">struct</span><span class="w"> </span><span class="nc">Node</span><span class="w"> </span><span class="p">{</span>
@@ -351,8 +331,7 @@
 <span class="w">    </span><span class="n">printTree</span><span class="p">(</span><span class="n">root</span><span class="p">);</span>
 <span class="w">    </span><span class="n">freeNode</span><span class="p">(</span><span class="n">root</span><span class="p">);</span>
 <span class="p">}</span>
-</pre></div>
-</div>
+</code></pre>
 <p>Примећујемо да су алгоритми који се користе исти као у
 одговарајућим Hakell функцијама, али да је кôд оптерећен многим
 техничким детаљима о којима није било потребе водити рачуна у
@@ -368,23 +347,21 @@ Haskell имплементацији. На пример, у језику C је 
     </div>
 <p>У уређеном дрвету је лако пронаћи минимални и максимални елемент (они
 се налазе у крајњем левом и крајњем десном чвору).</p>
-<div class="highlight-haskell notranslate"><div class="highlight"><pre><span></span><span class="nf">minTree</span><span class="w"> </span><span class="ow">::</span><span class="w"> </span><span class="kt">Tree</span><span class="w"> </span><span class="ow">-&gt;</span><span class="w"> </span><span class="kt">Int</span>
+<pre class="code" data-lang="haskell"><code><span class="nf">minTree</span><span class="w"> </span><span class="ow">::</span><span class="w"> </span><span class="kt">Tree</span><span class="w"> </span><span class="ow">-&gt;</span><span class="w"> </span><span class="kt">Int</span>
 <span class="nf">minTree</span><span class="w"> </span><span class="p">(</span><span class="kt">Node</span><span class="w"> </span><span class="kt">Empty</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="kr">_</span><span class="p">)</span><span class="w"> </span><span class="ow">=</span><span class="w"> </span><span class="n">x</span>
 <span class="nf">minTree</span><span class="w"> </span><span class="p">(</span><span class="kt">Node</span><span class="w"> </span><span class="n">left</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="kr">_</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="ow">=</span><span class="w"> </span><span class="n">minTree</span><span class="w"> </span><span class="n">left</span>
-</pre></div>
-</div>
+</code></pre>
 <p>Дефинишимо и функцију која уклања тај најмањи елемент дрвета (под
 претпоставком да је дрво непразно). Функција враћа уређени пар, који
 се састоји од уклоњене вредности и измењеног дрвета. Ако не постоји
 лево поддрво корен дрвета је најмањи елемент, а његовим брисањем
 остаје само десно поддрво. У супротном бришемо најмањи елемент левог
 поддрвета.</p>
-<div class="highlight-haskell notranslate"><div class="highlight"><pre><span></span><span class="nf">deleteMin</span><span class="w"> </span><span class="ow">::</span><span class="w"> </span><span class="kt">Tree</span><span class="w"> </span><span class="ow">-&gt;</span><span class="w"> </span><span class="p">(</span><span class="kt">Int</span><span class="p">,</span><span class="w"> </span><span class="kt">Tree</span><span class="p">)</span>
+<pre class="code" data-lang="haskell"><code><span class="nf">deleteMin</span><span class="w"> </span><span class="ow">::</span><span class="w"> </span><span class="kt">Tree</span><span class="w"> </span><span class="ow">-&gt;</span><span class="w"> </span><span class="p">(</span><span class="kt">Int</span><span class="p">,</span><span class="w"> </span><span class="kt">Tree</span><span class="p">)</span>
 <span class="nf">deleteMin</span><span class="w"> </span><span class="p">(</span><span class="kt">Node</span><span class="w"> </span><span class="kt">Empty</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="n">right</span><span class="p">)</span><span class="w"> </span><span class="ow">=</span><span class="w"> </span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="w"> </span><span class="n">right</span><span class="p">)</span>
 <span class="nf">deleteMin</span><span class="w"> </span><span class="p">(</span><span class="kt">Node</span><span class="w"> </span><span class="n">left</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="n">right</span><span class="p">)</span><span class="w">  </span><span class="ow">=</span><span class="w"> </span><span class="kr">let</span><span class="w"> </span><span class="p">(</span><span class="n">m</span><span class="p">,</span><span class="w"> </span><span class="n">left'</span><span class="p">)</span><span class="w"> </span><span class="ow">=</span><span class="w"> </span><span class="n">deleteMin</span><span class="w"> </span><span class="n">left</span>
 <span class="w">                                  </span><span class="kr">in</span><span class="w"> </span><span class="p">(</span><span class="n">m</span><span class="p">,</span><span class="w"> </span><span class="kt">Node</span><span class="w"> </span><span class="n">left'</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="n">right</span><span class="p">)</span>
-</pre></div>
-</div>
+</code></pre>
 <p>Ова се функција може искористити и за уклањање дате вредности из скупа
 (тј. дрвета). Брисањем било чега из празног дрвета дрво остаје празно.
 Ако је дрво непразно, а вредност која се брише мања од корена,
@@ -397,7 +374,7 @@ Haskell имплементацији. На пример, у језику C је 
 обрисати највећу вредност из левог поддрвета и њу ставити на место
 корена). Да бисмо анализирали да ли је десно поддрво празно или
 непразно, можемо употребити израз <code class="docutils literal notranslate"><span class="pre">case-of</span></code>.</p>
-<div class="highlight-haskell notranslate"><div class="highlight"><pre><span></span><span class="nf">delete</span><span class="w"> </span><span class="ow">::</span><span class="w"> </span><span class="kt">Int</span><span class="w"> </span><span class="ow">-&gt;</span><span class="w"> </span><span class="kt">Tree</span><span class="w"> </span><span class="ow">-&gt;</span><span class="w"> </span><span class="kt">Tree</span>
+<pre class="code" data-lang="haskell"><code><span class="nf">delete</span><span class="w"> </span><span class="ow">::</span><span class="w"> </span><span class="kt">Int</span><span class="w"> </span><span class="ow">-&gt;</span><span class="w"> </span><span class="kt">Tree</span><span class="w"> </span><span class="ow">-&gt;</span><span class="w"> </span><span class="kt">Tree</span>
 <span class="nf">delete</span><span class="w"> </span><span class="kr">_</span><span class="w"> </span><span class="kt">Empty</span><span class="w"> </span><span class="ow">=</span><span class="w"> </span><span class="kt">Empty</span>
 <span class="nf">delete</span><span class="w"> </span><span class="n">x'</span><span class="w"> </span><span class="p">(</span><span class="kt">Node</span><span class="w"> </span><span class="n">left</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="n">right</span><span class="p">)</span>
 <span class="w">   </span><span class="o">|</span><span class="w"> </span><span class="n">x'</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">x</span><span class="w">      </span><span class="ow">=</span><span class="w"> </span><span class="kt">Node</span><span class="w"> </span><span class="p">(</span><span class="n">delete</span><span class="w"> </span><span class="n">x'</span><span class="w"> </span><span class="n">left</span><span class="p">)</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="n">right</span>
@@ -405,47 +382,43 @@ Haskell имплементацији. На пример, у језику C је 
 <span class="w">   </span><span class="o">|</span><span class="w"> </span><span class="n">otherwise</span><span class="w">   </span><span class="ow">=</span><span class="w"> </span><span class="kr">case</span><span class="w"> </span><span class="n">r</span><span class="w"> </span><span class="kr">of</span><span class="w"> </span><span class="kt">Empty</span><span class="w"> </span><span class="ow">-&gt;</span><span class="w"> </span><span class="n">left</span>
 <span class="w">                             </span><span class="kr">_</span><span class="w">     </span><span class="ow">-&gt;</span><span class="w"> </span><span class="kr">let</span><span class="w"> </span><span class="p">(</span><span class="n">m</span><span class="p">,</span><span class="w"> </span><span class="n">right'</span><span class="p">)</span><span class="w"> </span><span class="ow">=</span><span class="w"> </span><span class="n">deleteMin</span><span class="w"> </span><span class="n">right</span>
 <span class="w">                                       </span><span class="kr">in</span><span class="w"> </span><span class="kt">Node</span><span class="w"> </span><span class="n">left</span><span class="w"> </span><span class="n">m</span><span class="w"> </span><span class="n">right'</span>
-</pre></div>
-</div>
+</code></pre>
 <p>Од елемената дрвета можемо формирати листу. Ако прво покупимо елементе
 из левог поддрвета, затим корен, па затим елементе из десног
 поддрвета, захваљујући уређености дрвета добијена листа ће бити
 сортирана. На тај начин добијамо још један алгоритам сортирања
 (енг. <em>tree sort</em>).</p>
-<div class="highlight-haskell notranslate"><div class="highlight"><pre><span></span><span class="nf">listOfTree</span><span class="w"> </span><span class="ow">::</span><span class="w"> </span><span class="kt">Tree</span><span class="w"> </span><span class="ow">-&gt;</span><span class="w"> </span><span class="p">[</span><span class="kt">Int</span><span class="p">]</span>
+<pre class="code" data-lang="haskell"><code><span class="nf">listOfTree</span><span class="w"> </span><span class="ow">::</span><span class="w"> </span><span class="kt">Tree</span><span class="w"> </span><span class="ow">-&gt;</span><span class="w"> </span><span class="p">[</span><span class="kt">Int</span><span class="p">]</span>
 <span class="nf">listOfTree</span><span class="w"> </span><span class="kt">Empty</span><span class="w"> </span><span class="ow">=</span><span class="w"> </span><span class="kt">[]</span>
 <span class="nf">listOfTree</span><span class="w"> </span><span class="p">(</span><span class="kt">Node</span><span class="w"> </span><span class="n">left</span><span class="w"> </span><span class="n">root</span><span class="w"> </span><span class="n">right</span><span class="p">)</span><span class="w"> </span><span class="ow">=</span>
 <span class="w">   </span><span class="n">listOfTree</span><span class="w"> </span><span class="n">left</span><span class="w"> </span><span class="o">++</span><span class="w"> </span><span class="p">[</span><span class="n">root</span><span class="p">]</span><span class="w"> </span><span class="o">++</span><span class="w"> </span><span class="n">listOfTree</span><span class="w"> </span><span class="n">right</span>
 
 <span class="nf">treeSort</span><span class="w"> </span><span class="ow">::</span><span class="w"> </span><span class="p">[</span><span class="kt">Int</span><span class="p">]</span><span class="w"> </span><span class="ow">-&gt;</span><span class="w"> </span><span class="p">[</span><span class="kt">Int</span><span class="p">]</span>
 <span class="w">   </span><span class="n">treeSort</span><span class="w"> </span><span class="ow">=</span><span class="w"> </span><span class="n">listOfTree</span><span class="w"> </span><span class="o">.</span><span class="w"> </span><span class="n">treeOfList</span>
-</pre></div>
-</div>
+</code></pre>
 <p>У дрвету које смо дефинисали налазе се увек подаци типа <code class="docutils literal notranslate"><span class="pre">Int</span></code>,
 међутим, јасно је да би се на исти начин могли чувати и подаци других
 типова. Могуће је дефинисати и дрво којем је тип података записаних у
 чвору параметар (навикли сте на овакве „генеричке“ типове у језику C#
 где сте користили типове попут <code class="docutils literal notranslate"><span class="pre">List&lt;int&gt;</span></code> где је тип елемената
 колекције задат као параметарски тип те колекције).</p>
-<div class="highlight-haskell notranslate"><div class="highlight"><pre><span></span><span class="kr">data</span><span class="w"> </span><span class="kt">Tree</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="ow">=</span>
+<pre class="code" data-lang="haskell"><code><span class="kr">data</span><span class="w"> </span><span class="kt">Tree</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="ow">=</span>
 <span class="w">   </span><span class="kt">Empty</span>
 <span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="kt">Node</span><span class="w"> </span><span class="p">(</span><span class="kt">Tree</span><span class="w"> </span><span class="n">a</span><span class="p">)</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="p">(</span><span class="kt">Tree</span><span class="w"> </span><span class="n">a</span><span class="p">)</span>
 <span class="kr">deriving</span><span class="w"> </span><span class="kt">Show</span>
-</pre></div>
-</div>
+</code></pre>
 <p>У овом случају тип означен са <code class="docutils literal notranslate"><span class="pre">a</span></code> је параметар типа дрво. Дрво
 садржи лево и десно поддрво (која такође имају елементе типа <code class="docutils literal notranslate"><span class="pre">a</span></code>) и
 вредност типа <code class="docutils literal notranslate"><span class="pre">a</span></code>.</p>
 <p>Да бисмо могли формирати претраживачко дрво, тип <code class="docutils literal notranslate"><span class="pre">a</span></code> мора да подржи
 поређење елемената, тј. мора бити класе <code class="docutils literal notranslate"><span class="pre">Ord</span></code>.</p>
-<div class="highlight-haskell notranslate"><div class="highlight"><pre><span></span><span class="nf">insert</span><span class="w"> </span><span class="ow">::</span><span class="w"> </span><span class="kt">Ord</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="ow">=&gt;</span><span class="w"> </span><span class="kt">Tree</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="ow">-&gt;</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="ow">-&gt;</span><span class="w"> </span><span class="kt">Tree</span><span class="w"> </span><span class="n">a</span>
+<pre class="code" data-lang="haskell"><code><span class="nf">insert</span><span class="w"> </span><span class="ow">::</span><span class="w"> </span><span class="kt">Ord</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="ow">=&gt;</span><span class="w"> </span><span class="kt">Tree</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="ow">-&gt;</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="ow">-&gt;</span><span class="w"> </span><span class="kt">Tree</span><span class="w"> </span><span class="n">a</span>
 <span class="nf">insert</span><span class="w"> </span><span class="kt">Empty</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="ow">=</span><span class="w"> </span><span class="kt">Node</span><span class="w"> </span><span class="kt">Empty</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="kt">Empty</span>
 <span class="nf">insert</span><span class="w"> </span><span class="p">(</span><span class="kt">Node</span><span class="w"> </span><span class="n">left</span><span class="w"> </span><span class="n">root</span><span class="w"> </span><span class="n">right</span><span class="p">)</span><span class="w"> </span><span class="n">x</span>
 <span class="w">   </span><span class="o">|</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">root</span><span class="w">  </span><span class="ow">=</span><span class="w">  </span><span class="kt">Node</span><span class="w"> </span><span class="p">(</span><span class="n">insert</span><span class="w"> </span><span class="n">left</span><span class="w"> </span><span class="n">x</span><span class="p">)</span><span class="w"> </span><span class="n">root</span><span class="w"> </span><span class="n">right</span>
 <span class="w">   </span><span class="o">|</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="n">root</span><span class="w">  </span><span class="ow">=</span><span class="w">  </span><span class="kt">Node</span><span class="w"> </span><span class="n">left</span><span class="w"> </span><span class="n">root</span><span class="w"> </span><span class="p">(</span><span class="n">insert</span><span class="w"> </span><span class="n">right</span><span class="w"> </span><span class="n">x</span><span class="p">)</span>
 <span class="w">   </span><span class="o">|</span><span class="w"> </span><span class="n">otherwise</span><span class="w"> </span><span class="ow">=</span><span class="w">  </span><span class="kt">Node</span><span class="w"> </span><span class="n">left</span><span class="w"> </span><span class="n">root</span><span class="w"> </span><span class="n">right</span>
-</pre></div>
-</div>
+</code></pre>
 </section>
 <section id="id3">
 <h2>Ред</h2>
@@ -458,20 +431,17 @@ Haskell имплементацији. На пример, у језику C је 
 добро имплементирати помоћу листе. Уобичајени начин имплементације
 реда у функционалним језицима је тзв. <strong>амортизовани ред</strong>
 (енг. <em>amortized queue</em>) који се састоји од две листе.</p>
-<div class="highlight-haskell notranslate"><div class="highlight"><pre><span></span><span class="kr">data</span><span class="w"> </span><span class="kt">Queue</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="ow">=</span><span class="w"> </span><span class="kt">Queue</span><span class="w"> </span><span class="p">[</span><span class="n">a</span><span class="p">]</span><span class="w"> </span><span class="p">[</span><span class="n">a</span><span class="p">]</span>
-</pre></div>
-</div>
+<pre class="code" data-lang="haskell"><code><span class="kr">data</span><span class="w"> </span><span class="kt">Queue</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="ow">=</span><span class="w"> </span><span class="kt">Queue</span><span class="w"> </span><span class="p">[</span><span class="n">a</span><span class="p">]</span><span class="w"> </span><span class="p">[</span><span class="n">a</span><span class="p">]</span>
+</code></pre>
 <p>У празном реду су обе листе празне.</p>
-<div class="highlight-haskell notranslate"><div class="highlight"><pre><span></span><span class="nf">emptyQueue</span><span class="w"> </span><span class="ow">::</span><span class="w"> </span><span class="kt">Queue</span><span class="w"> </span><span class="n">a</span>
+<pre class="code" data-lang="haskell"><code><span class="nf">emptyQueue</span><span class="w"> </span><span class="ow">::</span><span class="w"> </span><span class="kt">Queue</span><span class="w"> </span><span class="n">a</span>
 <span class="nf">emptyQueue</span><span class="w"> </span><span class="ow">=</span><span class="w"> </span><span class="kt">Queue</span><span class="w"> </span><span class="kt">[]</span><span class="w"> </span><span class="kt">[]</span>
-</pre></div>
-</div>
+</code></pre>
 <p>Елементи се увек додају на почетак прве листе, а скидају са почетка друге.</p>
 <p>Операцију додавања елемента у ред је тривијално имплементирати.</p>
-<div class="highlight-haskell notranslate"><div class="highlight"><pre><span></span><span class="nf">push</span><span class="w"> </span><span class="ow">::</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="ow">-&gt;</span><span class="w"> </span><span class="kt">Queue</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="ow">-&gt;</span><span class="w"> </span><span class="kt">Queue</span><span class="w"> </span><span class="n">a</span>
+<pre class="code" data-lang="haskell"><code><span class="nf">push</span><span class="w"> </span><span class="ow">::</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="ow">-&gt;</span><span class="w"> </span><span class="kt">Queue</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="ow">-&gt;</span><span class="w"> </span><span class="kt">Queue</span><span class="w"> </span><span class="n">a</span>
 <span class="nf">push</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="p">(</span><span class="kt">Queue</span><span class="w"> </span><span class="n">left</span><span class="w"> </span><span class="n">right</span><span class="p">)</span><span class="w"> </span><span class="ow">=</span><span class="w"> </span><span class="kt">Queue</span><span class="w"> </span><span class="p">(</span><span class="n">x</span><span class="w"> </span><span class="kt">:</span><span class="w"> </span><span class="n">left</span><span class="p">)</span><span class="w"> </span><span class="n">right</span>
-</pre></div>
-</div>
+</code></pre>
 <p>Уклањање елемента из реда је мало компликованије. Функцију ћемо
 дефинисати тако да врати уклоњени елемент и нови ред. Пошто уклањање
 из празног реда није могуће, потребно је да се некако у повратној
@@ -497,11 +467,10 @@ Haskell имплементацији. На пример, у језику C је 
 <code class="docutils literal notranslate"><span class="pre">null</span></code> је то што је једини начин да се до исправне вредности дође
 тај да се експлицитно испита да ли је вредност исправна. Ово се
 обично имплементира или поклапањем шаблона или изразом <code class="docutils literal notranslate"><span class="pre">case</span></code>.</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">g</span> <span class="n">x</span> <span class="o">=</span> <span class="n">case</span> <span class="n">f</span> <span class="n">x</span> <span class="n">of</span>
+<pre class="code" data-lang="default"><code><span class="n">g</span> <span class="n">x</span> <span class="o">=</span> <span class="n">case</span> <span class="n">f</span> <span class="n">x</span> <span class="n">of</span>
          <span class="n">Nothing</span> <span class="o">-&gt;</span> <span class="o">-</span><span class="mi">1</span>
          <span class="n">Just</span> <span class="n">value</span> <span class="o">-&gt;</span> <span class="n">value</span>
-</pre></div>
-</div>
+</code></pre>
     </div>
 <p>Пошто није могуће скидање вредности из празног реда, Уместо да
 функција <code class="docutils literal notranslate"><span class="pre">pop</span></code> враћа пар типа <code class="docutils literal notranslate"><span class="pre">(a,</span> <span class="pre">Queue</span> <span class="pre">a)</span></code>, она ће враћати пар
@@ -512,13 +481,12 @@ Haskell имплементацији. На пример, у језику C је 
 листа остаје неизмењена, а десна скраћена за њен почетни елемент. Ако
 је само десна листа празна, тада обрћемо леву листу и пребацујемо је
 на десну страну и затим уклањамо први елемент тако добијене листе.</p>
-<div class="highlight-haskell notranslate"><div class="highlight"><pre><span></span><span class="nf">pop</span><span class="w"> </span><span class="ow">::</span><span class="w"> </span><span class="kt">Queue</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="ow">-&gt;</span><span class="w"> </span><span class="p">(</span><span class="kt">Maybe</span><span class="w"> </span><span class="n">a</span><span class="p">,</span><span class="w"> </span><span class="kt">Queue</span><span class="w"> </span><span class="n">a</span><span class="p">)</span>
+<pre class="code" data-lang="haskell"><code><span class="nf">pop</span><span class="w"> </span><span class="ow">::</span><span class="w"> </span><span class="kt">Queue</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="ow">-&gt;</span><span class="w"> </span><span class="p">(</span><span class="kt">Maybe</span><span class="w"> </span><span class="n">a</span><span class="p">,</span><span class="w"> </span><span class="kt">Queue</span><span class="w"> </span><span class="n">a</span><span class="p">)</span>
 <span class="nf">pop</span><span class="w"> </span><span class="p">(</span><span class="kt">Queue</span><span class="w"> </span><span class="kt">[]</span><span class="w"> </span><span class="kt">[]</span><span class="p">)</span><span class="w"> </span><span class="ow">=</span><span class="w"> </span><span class="p">(</span><span class="kt">Nothing</span><span class="p">,</span><span class="w"> </span><span class="kt">Queue</span><span class="w"> </span><span class="kt">[]</span><span class="w"> </span><span class="kt">[]</span><span class="p">)</span>
 <span class="nf">pop</span><span class="w"> </span><span class="p">(</span><span class="kt">Queue</span><span class="w"> </span><span class="n">left</span><span class="w"> </span><span class="p">(</span><span class="n">x</span><span class="kt">:</span><span class="n">xs</span><span class="p">))</span><span class="w"> </span><span class="ow">=</span><span class="w"> </span><span class="p">(</span><span class="kt">Just</span><span class="w"> </span><span class="n">x</span><span class="p">,</span><span class="w"> </span><span class="kt">Queue</span><span class="w"> </span><span class="n">left</span><span class="w"> </span><span class="n">xs</span><span class="p">)</span>
 <span class="nf">pop</span><span class="w"> </span><span class="p">(</span><span class="kt">Queue</span><span class="w"> </span><span class="n">left</span><span class="w"> </span><span class="kt">[]</span><span class="p">)</span><span class="w"> </span><span class="ow">=</span><span class="w"> </span><span class="kr">let</span><span class="w"> </span><span class="n">x</span><span class="kt">:</span><span class="n">xs</span><span class="w"> </span><span class="ow">=</span><span class="w"> </span><span class="n">reverse</span><span class="w"> </span><span class="n">left</span>
 <span class="w">                       </span><span class="kr">in</span><span class="w"> </span><span class="p">(</span><span class="kt">Just</span><span class="w"> </span><span class="n">x</span><span class="p">,</span><span class="w"> </span><span class="kt">Queue</span><span class="w"> </span><span class="kt">[]</span><span class="w"> </span><span class="n">xs</span><span class="p">)</span>
-</pre></div>
-</div>
+</code></pre>
 <p>Сложеност најгорег случаја операције <code class="docutils literal notranslate"><span class="pre">pop</span></code> је линеарна, јер је
 функција <code class="docutils literal notranslate"><span class="pre">reverse</span></code> линеарне сложености. Ипак, након једног
 пребацивања елемената са леве на десну страну, много наредних
@@ -540,10 +508,9 @@ Haskell имплементацији. На пример, у језику C је 
 онако како га замишљамо, а не како је имплементиран), можемо
 дефинисати своју функцију приказа у облику ниске карактера. То можемо
 урадити на следећи начин.</p>
-<div class="highlight-haskell notranslate"><div class="highlight"><pre><span></span><span class="nf">show</span><span class="w"> </span><span class="ow">::</span><span class="w"> </span><span class="kt">Queue</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="ow">-&gt;</span><span class="w"> </span><span class="kt">String</span>
+<pre class="code" data-lang="haskell"><code><span class="nf">show</span><span class="w"> </span><span class="ow">::</span><span class="w"> </span><span class="kt">Queue</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="ow">-&gt;</span><span class="w"> </span><span class="kt">String</span>
 <span class="nf">show</span><span class="w"> </span><span class="p">(</span><span class="kt">Queue</span><span class="w"> </span><span class="n">left</span><span class="w"> </span><span class="n">right</span><span class="p">)</span><span class="w"> </span><span class="ow">=</span><span class="w"> </span><span class="n">show</span><span class="w"> </span><span class="p">(</span><span class="n">right</span><span class="w"> </span><span class="o">++</span><span class="w"> </span><span class="n">reverse</span><span class="w"> </span><span class="n">left</span><span class="p">)</span>
-</pre></div>
-</div>
+</code></pre>
 <p>Ниску добијамо тако што спојимо десну и обрнуту леву листу (тиме је
 елемент који је први на реду за скидање приказан на
 почетку). Приметите да ту листу претварамо у ниску позивом функције
@@ -559,11 +526,10 @@ Haskell имплементацији. На пример, у језику C је 
 користи аутоматски генерисана функција (добијена клаузулом
 <code class="docutils literal notranslate"><span class="pre">deriving</span> <span class="pre">Show</span></code>), већ специфична функција коју ми дефинишемо.  Да
 би се то урадило, користи се клаузула <code class="docutils literal notranslate"><span class="pre">instance</span></code>.</p>
-<div class="highlight-haskell notranslate"><div class="highlight"><pre><span></span><span class="kr">instance</span><span class="w"> </span><span class="kt">Show</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="ow">=&gt;</span><span class="w"> </span><span class="kt">Show</span><span class="w"> </span><span class="p">(</span><span class="kt">Queue</span><span class="w"> </span><span class="n">a</span><span class="p">)</span><span class="w"> </span><span class="kr">where</span>
+<pre class="code" data-lang="haskell"><code><span class="kr">instance</span><span class="w"> </span><span class="kt">Show</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="ow">=&gt;</span><span class="w"> </span><span class="kt">Show</span><span class="w"> </span><span class="p">(</span><span class="kt">Queue</span><span class="w"> </span><span class="n">a</span><span class="p">)</span><span class="w"> </span><span class="kr">where</span>
 <span class="w">   </span><span class="n">show</span><span class="w"> </span><span class="ow">::</span><span class="w"> </span><span class="kt">Queue</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="ow">-&gt;</span><span class="w"> </span><span class="kt">String</span>
 <span class="w">   </span><span class="n">show</span><span class="w"> </span><span class="p">(</span><span class="kt">Queue</span><span class="w"> </span><span class="n">left</span><span class="w"> </span><span class="n">right</span><span class="p">)</span><span class="w"> </span><span class="ow">=</span><span class="w"> </span><span class="n">show</span><span class="w"> </span><span class="p">(</span><span class="n">right</span><span class="w"> </span><span class="o">++</span><span class="w"> </span><span class="n">reverse</span><span class="w"> </span><span class="n">left</span><span class="p">)</span>
-</pre></div>
-</div>
+</code></pre>
 <p>Овим смо рекли да тип <code class="docutils literal notranslate"><span class="pre">Queue</span> <span class="pre">a</span></code> припада класи типова <code class="docutils literal notranslate"><span class="pre">Show</span></code>
 тј. може да се прикаже (део <code class="docutils literal notranslate"><span class="pre">Show</span> <span class="pre">(Queue</span> <span class="pre">a)</span></code>), међутим, то важи
 само под условом да тип <code class="docutils literal notranslate"><span class="pre">а</span></code> припада класи <code class="docutils literal notranslate"><span class="pre">Show</span></code> тј. може да се
@@ -584,11 +550,10 @@ Haskell имплементацији. На пример, у језику C је 
 типа <code class="docutils literal notranslate"><span class="pre">k</span></code> у елементе типа <code class="docutils literal notranslate"><span class="pre">v</span></code>. Речник треба да буде реализован
 помоћу уређеног бинарног дрвета.</p>
     </div>
-<div class="highlight-haskell notranslate"><div class="highlight"><pre><span></span><span class="kr">data</span><span class="w"> </span><span class="kt">Map</span><span class="w"> </span><span class="n">k</span><span class="w"> </span><span class="n">v</span><span class="w"> </span><span class="ow">=</span><span class="w">  </span><span class="kt">Null</span>
+<pre class="code" data-lang="haskell"><code><span class="kr">data</span><span class="w"> </span><span class="kt">Map</span><span class="w"> </span><span class="n">k</span><span class="w"> </span><span class="n">v</span><span class="w"> </span><span class="ow">=</span><span class="w">  </span><span class="kt">Null</span>
 <span class="w">              </span><span class="o">|</span><span class="w"> </span><span class="kt">Node</span><span class="w"> </span><span class="n">k</span><span class="w"> </span><span class="n">v</span><span class="w"> </span><span class="p">(</span><span class="kt">Map</span><span class="w"> </span><span class="n">k</span><span class="w"> </span><span class="n">v</span><span class="p">)</span><span class="w"> </span><span class="p">(</span><span class="kt">Map</span><span class="w"> </span><span class="n">k</span><span class="w"> </span><span class="n">v</span><span class="p">)</span>
 <span class="w">              </span><span class="kr">deriving</span><span class="w"> </span><span class="kt">Show</span>
-</pre></div>
-</div>
+</code></pre>
 
     <div class="note-wrapper questionnote-type">
         <div class="note-icon-holder"> </div>
@@ -596,11 +561,10 @@ Haskell имплементацији. На пример, у језику C је 
         <div class="course-content">
 <p>Дефинисати функцију која проверава да ли је речник празан.</p>
     </div>
-<div class="highlight-haskell notranslate"><div class="highlight"><pre><span></span><span class="nf">empty</span><span class="w"> </span><span class="ow">::</span><span class="w"> </span><span class="kt">Map</span><span class="w"> </span><span class="n">k</span><span class="w"> </span><span class="n">v</span><span class="w"> </span><span class="ow">-&gt;</span><span class="w"> </span><span class="kt">Bool</span>
+<pre class="code" data-lang="haskell"><code><span class="nf">empty</span><span class="w"> </span><span class="ow">::</span><span class="w"> </span><span class="kt">Map</span><span class="w"> </span><span class="n">k</span><span class="w"> </span><span class="n">v</span><span class="w"> </span><span class="ow">-&gt;</span><span class="w"> </span><span class="kt">Bool</span>
 <span class="nf">empty</span><span class="w"> </span><span class="kt">Null</span><span class="w"> </span><span class="ow">=</span><span class="w"> </span><span class="kt">True</span>
 <span class="nf">empty</span><span class="w"> </span><span class="kr">_</span><span class="w">    </span><span class="ow">=</span><span class="w"> </span><span class="kt">False</span>
-</pre></div>
-</div>
+</code></pre>
 
     <div class="note-wrapper questionnote-type">
         <div class="note-icon-holder"> </div>
@@ -617,7 +581,7 @@ Haskell имплементацији. На пример, у језику C је 
 већ постоји у речнику, стара вредност се занемарује).</p></li>
 </ul>
     </div>
-<div class="highlight-haskell notranslate"><div class="highlight"><pre><span></span><span class="nf">insertWithKey</span><span class="w"> </span><span class="ow">::</span><span class="w"> </span><span class="kt">Ord</span><span class="w"> </span><span class="n">k</span><span class="w"> </span><span class="ow">=&gt;</span><span class="w"> </span><span class="p">(</span><span class="n">k</span><span class="w"> </span><span class="ow">-&gt;</span><span class="w"> </span><span class="n">v</span><span class="w"> </span><span class="ow">-&gt;</span><span class="w"> </span><span class="n">v</span><span class="w"> </span><span class="ow">-&gt;</span><span class="w"> </span><span class="n">v</span><span class="p">)</span><span class="w"> </span><span class="ow">-&gt;</span><span class="w"> </span><span class="n">k</span><span class="w"> </span><span class="ow">-&gt;</span><span class="w"> </span><span class="n">v</span><span class="w"> </span><span class="ow">-&gt;</span><span class="w"> </span><span class="kt">Map</span><span class="w"> </span><span class="n">k</span><span class="w"> </span><span class="n">v</span><span class="w"> </span><span class="ow">-&gt;</span><span class="w"> </span><span class="kt">Map</span><span class="w"> </span><span class="n">k</span><span class="w"> </span><span class="n">v</span>
+<pre class="code" data-lang="haskell"><code><span class="nf">insertWithKey</span><span class="w"> </span><span class="ow">::</span><span class="w"> </span><span class="kt">Ord</span><span class="w"> </span><span class="n">k</span><span class="w"> </span><span class="ow">=&gt;</span><span class="w"> </span><span class="p">(</span><span class="n">k</span><span class="w"> </span><span class="ow">-&gt;</span><span class="w"> </span><span class="n">v</span><span class="w"> </span><span class="ow">-&gt;</span><span class="w"> </span><span class="n">v</span><span class="w"> </span><span class="ow">-&gt;</span><span class="w"> </span><span class="n">v</span><span class="p">)</span><span class="w"> </span><span class="ow">-&gt;</span><span class="w"> </span><span class="n">k</span><span class="w"> </span><span class="ow">-&gt;</span><span class="w"> </span><span class="n">v</span><span class="w"> </span><span class="ow">-&gt;</span><span class="w"> </span><span class="kt">Map</span><span class="w"> </span><span class="n">k</span><span class="w"> </span><span class="n">v</span><span class="w"> </span><span class="ow">-&gt;</span><span class="w"> </span><span class="kt">Map</span><span class="w"> </span><span class="n">k</span><span class="w"> </span><span class="n">v</span>
 <span class="nf">insertWithKey</span><span class="w"> </span><span class="n">f</span><span class="w"> </span><span class="n">k</span><span class="w"> </span><span class="n">v</span><span class="w"> </span><span class="kt">Null</span><span class="w"> </span><span class="ow">=</span><span class="w"> </span><span class="kt">Node</span><span class="w"> </span><span class="n">k</span><span class="w"> </span><span class="n">v</span><span class="w"> </span><span class="kt">Null</span><span class="w"> </span><span class="kt">Null</span>
 <span class="nf">insertWithKey</span><span class="w"> </span><span class="n">f</span><span class="w"> </span><span class="n">k</span><span class="w"> </span><span class="n">v</span><span class="w"> </span><span class="p">(</span><span class="kt">Node</span><span class="w"> </span><span class="n">k'</span><span class="w"> </span><span class="n">v'</span><span class="w"> </span><span class="n">l</span><span class="w"> </span><span class="n">r</span><span class="p">)</span>
 <span class="w">  </span><span class="o">|</span><span class="w"> </span><span class="n">k</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">k'</span><span class="w">   </span><span class="ow">=</span><span class="w"> </span><span class="kt">Node</span><span class="w"> </span><span class="n">k'</span><span class="w"> </span><span class="n">v'</span><span class="w"> </span><span class="p">(</span><span class="n">insertWithKey</span><span class="w"> </span><span class="n">f</span><span class="w"> </span><span class="n">k</span><span class="w"> </span><span class="n">v</span><span class="w"> </span><span class="n">l</span><span class="p">)</span><span class="w"> </span><span class="n">r</span>
@@ -626,8 +590,7 @@ Haskell имплементацији. На пример, у језику C је 
 
 <span class="nf">insert</span><span class="w"> </span><span class="ow">::</span><span class="w"> </span><span class="kt">Ord</span><span class="w"> </span><span class="n">k</span><span class="w"> </span><span class="ow">=&gt;</span><span class="w"> </span><span class="n">k</span><span class="w"> </span><span class="ow">-&gt;</span><span class="w"> </span><span class="n">v</span><span class="w"> </span><span class="ow">-&gt;</span><span class="w"> </span><span class="kt">Map</span><span class="w"> </span><span class="n">k</span><span class="w"> </span><span class="n">v</span><span class="w"> </span><span class="ow">-&gt;</span><span class="w"> </span><span class="kt">Map</span><span class="w"> </span><span class="n">k</span><span class="w"> </span><span class="n">v</span>
 <span class="nf">insert</span><span class="w"> </span><span class="ow">=</span><span class="w"> </span><span class="n">insertWith</span><span class="w"> </span><span class="p">(</span><span class="nf">\</span><span class="w"> </span><span class="n">v</span><span class="w"> </span><span class="n">v'</span><span class="w"> </span><span class="ow">-&gt;</span><span class="w"> </span><span class="n">v'</span><span class="p">)</span>
-</pre></div>
-</div>
+</code></pre>
 
     <div class="note-wrapper questionnote-type">
         <div class="note-icon-holder"> </div>
@@ -636,10 +599,9 @@ Haskell имплементацији. На пример, у језику C је 
 <p>Дефинисати функцију која листу парова (кључ, вредност) претвара у
 речник.</p>
     </div>
-<div class="highlight-haskell notranslate"><div class="highlight"><pre><span></span><span class="nf">fromList</span><span class="w"> </span><span class="ow">::</span><span class="w"> </span><span class="kt">Ord</span><span class="w"> </span><span class="n">k</span><span class="w"> </span><span class="ow">=&gt;</span><span class="w"> </span><span class="p">[(</span><span class="n">k</span><span class="p">,</span><span class="w"> </span><span class="n">v</span><span class="p">)]</span><span class="w"> </span><span class="ow">-&gt;</span><span class="w"> </span><span class="kt">Map</span><span class="w"> </span><span class="n">k</span><span class="w"> </span><span class="n">v</span>
+<pre class="code" data-lang="haskell"><code><span class="nf">fromList</span><span class="w"> </span><span class="ow">::</span><span class="w"> </span><span class="kt">Ord</span><span class="w"> </span><span class="n">k</span><span class="w"> </span><span class="ow">=&gt;</span><span class="w"> </span><span class="p">[(</span><span class="n">k</span><span class="p">,</span><span class="w"> </span><span class="n">v</span><span class="p">)]</span><span class="w"> </span><span class="ow">-&gt;</span><span class="w"> </span><span class="kt">Map</span><span class="w"> </span><span class="n">k</span><span class="w"> </span><span class="n">v</span>
 <span class="nf">fromList</span><span class="w"> </span><span class="ow">=</span><span class="w"> </span><span class="n">foldl</span><span class="w"> </span><span class="p">(</span><span class="nf">\</span><span class="n">m</span><span class="w"> </span><span class="p">(</span><span class="n">k</span><span class="p">,</span><span class="w"> </span><span class="n">v</span><span class="p">)</span><span class="w"> </span><span class="ow">-&gt;</span><span class="w"> </span><span class="n">insert</span><span class="w"> </span><span class="n">k</span><span class="w"> </span><span class="n">v</span><span class="w"> </span><span class="n">m</span><span class="p">)</span><span class="w"> </span><span class="kt">Null</span>
-</pre></div>
-</div>
+</code></pre>
 
     <div class="note-wrapper questionnote-type">
         <div class="note-icon-holder"> </div>
@@ -656,7 +618,7 @@ Haskell имплементацији. На пример, у језику C је 
 која за дату мапу враћа функцију која проверава да ли кључ постоји
 у речнику.</p>
     </div>
-<div class="highlight-haskell notranslate"><div class="highlight"><pre><span></span><span class="nf">find</span><span class="w"> </span><span class="ow">::</span><span class="w"> </span><span class="kt">Ord</span><span class="w"> </span><span class="n">k</span><span class="w"> </span><span class="ow">=&gt;</span><span class="w"> </span><span class="kt">Map</span><span class="w"> </span><span class="n">k</span><span class="w"> </span><span class="n">v</span><span class="w"> </span><span class="ow">-&gt;</span><span class="w"> </span><span class="n">k</span><span class="w"> </span><span class="ow">-&gt;</span><span class="w"> </span><span class="kt">Maybe</span><span class="w"> </span><span class="n">v</span>
+<pre class="code" data-lang="haskell"><code><span class="nf">find</span><span class="w"> </span><span class="ow">::</span><span class="w"> </span><span class="kt">Ord</span><span class="w"> </span><span class="n">k</span><span class="w"> </span><span class="ow">=&gt;</span><span class="w"> </span><span class="kt">Map</span><span class="w"> </span><span class="n">k</span><span class="w"> </span><span class="n">v</span><span class="w"> </span><span class="ow">-&gt;</span><span class="w"> </span><span class="n">k</span><span class="w"> </span><span class="ow">-&gt;</span><span class="w"> </span><span class="kt">Maybe</span><span class="w"> </span><span class="n">v</span>
 <span class="nf">find</span><span class="w"> </span><span class="kt">Null</span><span class="w"> </span><span class="kr">_</span><span class="w"> </span><span class="ow">=</span><span class="w"> </span><span class="kt">Nothing</span>
 <span class="nf">find</span><span class="w"> </span><span class="p">(</span><span class="kt">Node</span><span class="w"> </span><span class="n">k</span><span class="w"> </span><span class="n">v</span><span class="w"> </span><span class="n">l</span><span class="w"> </span><span class="n">r</span><span class="p">)</span><span class="w"> </span><span class="n">k'</span>
 <span class="w">  </span><span class="o">|</span><span class="w"> </span><span class="n">k'</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">k</span><span class="w">  </span><span class="ow">=</span><span class="w"> </span><span class="n">find</span><span class="w"> </span><span class="n">l</span><span class="w"> </span><span class="n">k'</span>
@@ -670,8 +632,7 @@ Haskell имплементацији. На пример, у језику C је 
 <span class="nf">containsKey</span><span class="w"> </span><span class="ow">::</span><span class="w"> </span><span class="kt">Ord</span><span class="w"> </span><span class="n">k</span><span class="w"> </span><span class="ow">=&gt;</span><span class="w"> </span><span class="kt">Map</span><span class="w"> </span><span class="n">k</span><span class="w"> </span><span class="n">v</span><span class="w"> </span><span class="ow">-&gt;</span><span class="w"> </span><span class="p">(</span><span class="n">k</span><span class="w"> </span><span class="ow">-&gt;</span><span class="w"> </span><span class="kt">Bool</span><span class="p">)</span>
 <span class="nf">containsKey</span><span class="w"> </span><span class="n">m</span><span class="w"> </span><span class="n">k</span><span class="w"> </span><span class="ow">=</span><span class="w"> </span><span class="kr">case</span><span class="w"> </span><span class="n">search</span><span class="w"> </span><span class="n">m</span><span class="w"> </span><span class="n">k</span><span class="w"> </span><span class="kr">of</span><span class="w"> </span><span class="kt">Nothing</span><span class="w"> </span><span class="ow">-&gt;</span><span class="w"> </span><span class="kt">False</span>
 <span class="w">                                     </span><span class="kt">Just</span><span class="w"> </span><span class="kr">_</span><span class="w"> </span><span class="ow">-&gt;</span><span class="w"> </span><span class="kt">True</span>
-</pre></div>
-</div>
+</code></pre>
 
     <div class="note-wrapper questionnote-type">
         <div class="note-icon-holder"> </div>
@@ -681,14 +642,13 @@ Haskell имплементацији. На пример, у језику C је 
 кључу тако што нову вредност одређује применом дате функције на
 кључ и стару вредност.</p>
     </div>
-<div class="highlight-haskell notranslate"><div class="highlight"><pre><span></span><span class="nf">adjustWithKey</span><span class="w"> </span><span class="ow">::</span><span class="w"> </span><span class="kt">Ord</span><span class="w"> </span><span class="n">k</span><span class="w"> </span><span class="ow">=&gt;</span><span class="w"> </span><span class="p">(</span><span class="n">k</span><span class="w"> </span><span class="ow">-&gt;</span><span class="w"> </span><span class="n">v</span><span class="w"> </span><span class="ow">-&gt;</span><span class="w"> </span><span class="n">v</span><span class="p">)</span><span class="w"> </span><span class="ow">-&gt;</span><span class="w"> </span><span class="n">k</span><span class="w"> </span><span class="ow">-&gt;</span><span class="w"> </span><span class="kt">Map</span><span class="w"> </span><span class="n">k</span><span class="w"> </span><span class="n">v</span><span class="w"> </span><span class="ow">-&gt;</span><span class="w"> </span><span class="kt">Map</span><span class="w"> </span><span class="n">k</span><span class="w"> </span><span class="n">v</span>
+<pre class="code" data-lang="haskell"><code><span class="nf">adjustWithKey</span><span class="w"> </span><span class="ow">::</span><span class="w"> </span><span class="kt">Ord</span><span class="w"> </span><span class="n">k</span><span class="w"> </span><span class="ow">=&gt;</span><span class="w"> </span><span class="p">(</span><span class="n">k</span><span class="w"> </span><span class="ow">-&gt;</span><span class="w"> </span><span class="n">v</span><span class="w"> </span><span class="ow">-&gt;</span><span class="w"> </span><span class="n">v</span><span class="p">)</span><span class="w"> </span><span class="ow">-&gt;</span><span class="w"> </span><span class="n">k</span><span class="w"> </span><span class="ow">-&gt;</span><span class="w"> </span><span class="kt">Map</span><span class="w"> </span><span class="n">k</span><span class="w"> </span><span class="n">v</span><span class="w"> </span><span class="ow">-&gt;</span><span class="w"> </span><span class="kt">Map</span><span class="w"> </span><span class="n">k</span><span class="w"> </span><span class="n">v</span>
 <span class="nf">adjustWithKey</span><span class="w"> </span><span class="n">f</span><span class="w"> </span><span class="n">k</span><span class="w"> </span><span class="kt">Null</span><span class="w"> </span><span class="ow">=</span><span class="w"> </span><span class="kt">Null</span>
 <span class="nf">adjustWithKey</span><span class="w"> </span><span class="n">f</span><span class="w"> </span><span class="n">k</span><span class="w"> </span><span class="p">(</span><span class="kt">Node</span><span class="w"> </span><span class="n">k'</span><span class="w"> </span><span class="n">v'</span><span class="w"> </span><span class="n">l</span><span class="w"> </span><span class="n">r</span><span class="p">)</span>
 <span class="w">  </span><span class="o">|</span><span class="w"> </span><span class="n">k</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">k'</span><span class="w">   </span><span class="ow">=</span><span class="w"> </span><span class="kt">Node</span><span class="w"> </span><span class="n">k'</span><span class="w"> </span><span class="n">v'</span><span class="w"> </span><span class="p">(</span><span class="n">adjustWithKey</span><span class="w"> </span><span class="n">f</span><span class="w"> </span><span class="n">k</span><span class="w"> </span><span class="n">l</span><span class="p">)</span><span class="w"> </span><span class="n">r</span>
 <span class="w">  </span><span class="o">|</span><span class="w"> </span><span class="n">k</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="n">k'</span><span class="w">   </span><span class="ow">=</span><span class="w"> </span><span class="kt">Node</span><span class="w"> </span><span class="n">k'</span><span class="w"> </span><span class="n">v'</span><span class="w"> </span><span class="n">l</span><span class="w"> </span><span class="p">(</span><span class="n">adjustWithKey</span><span class="w"> </span><span class="n">f</span><span class="w"> </span><span class="n">k</span><span class="w"> </span><span class="n">r</span><span class="p">)</span>
 <span class="w">  </span><span class="o">|</span><span class="w"> </span><span class="n">k</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">k'</span><span class="w">  </span><span class="ow">=</span><span class="w"> </span><span class="kt">Node</span><span class="w"> </span><span class="n">k'</span><span class="w"> </span><span class="p">(</span><span class="n">f</span><span class="w"> </span><span class="n">k</span><span class="w"> </span><span class="n">v'</span><span class="p">)</span><span class="w"> </span><span class="n">l</span><span class="w"> </span><span class="n">r</span>
-</pre></div>
-</div>
+</code></pre>
 
     <div class="note-wrapper questionnote-type">
         <div class="note-icon-holder"> </div>
@@ -697,7 +657,7 @@ Haskell имплементацији. На пример, у језику C је 
 <p>Дефинисати функцију која уклања најмањи кључ из речника.</p>
 <p>Дефинисати затим функцију која уклања дати кључ из речника.</p>
     </div>
-<div class="highlight-haskell notranslate"><div class="highlight"><pre><span></span><span class="nf">deleteMin</span><span class="w"> </span><span class="ow">::</span><span class="w"> </span><span class="kt">Map</span><span class="w"> </span><span class="n">k</span><span class="w"> </span><span class="n">v</span><span class="w"> </span><span class="ow">-&gt;</span><span class="w"> </span><span class="p">((</span><span class="n">k</span><span class="p">,</span><span class="w"> </span><span class="n">v</span><span class="p">),</span><span class="w"> </span><span class="kt">Map</span><span class="w"> </span><span class="n">k</span><span class="w"> </span><span class="n">v</span><span class="p">)</span>
+<pre class="code" data-lang="haskell"><code><span class="nf">deleteMin</span><span class="w"> </span><span class="ow">::</span><span class="w"> </span><span class="kt">Map</span><span class="w"> </span><span class="n">k</span><span class="w"> </span><span class="n">v</span><span class="w"> </span><span class="ow">-&gt;</span><span class="w"> </span><span class="p">((</span><span class="n">k</span><span class="p">,</span><span class="w"> </span><span class="n">v</span><span class="p">),</span><span class="w"> </span><span class="kt">Map</span><span class="w"> </span><span class="n">k</span><span class="w"> </span><span class="n">v</span><span class="p">)</span>
 <span class="nf">deleteMin</span><span class="w"> </span><span class="p">(</span><span class="kt">Node</span><span class="w"> </span><span class="n">k</span><span class="w"> </span><span class="n">v</span><span class="w"> </span><span class="kt">Null</span><span class="w"> </span><span class="n">r</span><span class="p">)</span><span class="w"> </span><span class="ow">=</span><span class="w"> </span><span class="p">((</span><span class="n">k</span><span class="p">,</span><span class="w"> </span><span class="n">v</span><span class="p">),</span><span class="w"> </span><span class="n">r</span><span class="p">)</span>
 <span class="nf">deleteMin</span><span class="w"> </span><span class="p">(</span><span class="kt">Node</span><span class="w"> </span><span class="n">k</span><span class="w"> </span><span class="n">v</span><span class="w"> </span><span class="n">l</span><span class="w"> </span><span class="n">r</span><span class="p">)</span><span class="w"> </span><span class="ow">=</span><span class="w"> </span><span class="kr">let</span><span class="w"> </span><span class="p">((</span><span class="n">k'</span><span class="p">,</span><span class="w"> </span><span class="n">v'</span><span class="p">),</span><span class="w"> </span><span class="n">d</span><span class="p">)</span><span class="w"> </span><span class="ow">=</span><span class="w"> </span><span class="n">deleteMin</span><span class="w"> </span><span class="n">l</span>
 <span class="w">                            </span><span class="kr">in</span><span class="w"> </span><span class="p">((</span><span class="n">k'</span><span class="p">,</span><span class="w"> </span><span class="n">v'</span><span class="p">),</span><span class="w"> </span><span class="kt">Node</span><span class="w"> </span><span class="n">k</span><span class="w"> </span><span class="n">v</span><span class="w"> </span><span class="n">d</span><span class="w"> </span><span class="n">r</span><span class="p">)</span>
@@ -710,8 +670,7 @@ Haskell имплементацији. На пример, у језику C је 
 <span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="n">k</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">k'</span><span class="w"> </span><span class="ow">=</span><span class="w"> </span><span class="kr">case</span><span class="w"> </span><span class="n">r</span><span class="w"> </span><span class="kr">of</span><span class="w"> </span><span class="kt">Null</span><span class="w"> </span><span class="ow">-&gt;</span><span class="w"> </span><span class="n">l</span>
 <span class="w">                       </span><span class="kr">_</span><span class="w">    </span><span class="ow">-&gt;</span><span class="w"> </span><span class="kr">let</span><span class="w"> </span><span class="p">((</span><span class="n">k'</span><span class="p">,</span><span class="w"> </span><span class="n">v'</span><span class="p">),</span><span class="w"> </span><span class="n">d</span><span class="p">)</span><span class="w"> </span><span class="ow">=</span><span class="w"> </span><span class="n">deleteMin</span><span class="w"> </span><span class="n">r</span>
 <span class="w">                                </span><span class="kr">in</span><span class="w"> </span><span class="kt">Node</span><span class="w"> </span><span class="n">k'</span><span class="w"> </span><span class="n">v'</span><span class="w"> </span><span class="n">l</span><span class="w"> </span><span class="n">d</span>
-</pre></div>
-</div>
+</code></pre>
 
     <div class="note-wrapper questionnote-type">
         <div class="note-icon-holder"> </div>
@@ -729,7 +688,7 @@ Haskell имплементацији. На пример, у језику C је 
 <code class="docutils literal notranslate"><span class="pre">union</span></code> која прави унију два речника (ако кључ постоји у оба
 речника потребно је придружити му вредност из другог).</p>
     </div>
-<div class="highlight-haskell notranslate"><div class="highlight"><pre><span></span><span class="nf">foldMap</span><span class="w"> </span><span class="ow">::</span><span class="w"> </span><span class="p">(</span><span class="n">a</span><span class="w"> </span><span class="ow">-&gt;</span><span class="w"> </span><span class="n">k</span><span class="w"> </span><span class="ow">-&gt;</span><span class="w"> </span><span class="n">v</span><span class="w"> </span><span class="ow">-&gt;</span><span class="w"> </span><span class="n">a</span><span class="p">)</span><span class="w"> </span><span class="ow">-&gt;</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="ow">-&gt;</span><span class="w"> </span><span class="kt">Map</span><span class="w"> </span><span class="n">k</span><span class="w"> </span><span class="n">v</span><span class="w"> </span><span class="ow">-&gt;</span><span class="w"> </span><span class="n">a</span>
+<pre class="code" data-lang="haskell"><code><span class="nf">foldMap</span><span class="w"> </span><span class="ow">::</span><span class="w"> </span><span class="p">(</span><span class="n">a</span><span class="w"> </span><span class="ow">-&gt;</span><span class="w"> </span><span class="n">k</span><span class="w"> </span><span class="ow">-&gt;</span><span class="w"> </span><span class="n">v</span><span class="w"> </span><span class="ow">-&gt;</span><span class="w"> </span><span class="n">a</span><span class="p">)</span><span class="w"> </span><span class="ow">-&gt;</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="ow">-&gt;</span><span class="w"> </span><span class="kt">Map</span><span class="w"> </span><span class="n">k</span><span class="w"> </span><span class="n">v</span><span class="w"> </span><span class="ow">-&gt;</span><span class="w"> </span><span class="n">a</span>
 <span class="nf">foldMap</span><span class="w"> </span><span class="kr">_</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="kt">Null</span><span class="w"> </span><span class="ow">=</span><span class="w"> </span><span class="n">i</span>
 <span class="nf">foldMap</span><span class="w"> </span><span class="n">f</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="p">(</span><span class="kt">Node</span><span class="w"> </span><span class="n">k</span><span class="w"> </span><span class="n">v</span><span class="w"> </span><span class="n">l</span><span class="w"> </span><span class="n">r</span><span class="p">)</span><span class="w"> </span><span class="ow">=</span>
 <span class="w">  </span><span class="n">foldlMap</span><span class="w"> </span><span class="n">f</span><span class="w"> </span><span class="p">(</span><span class="n">f</span><span class="w"> </span><span class="p">(</span><span class="n">foldlMap</span><span class="w"> </span><span class="n">f</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="n">l</span><span class="p">)</span><span class="w"> </span><span class="n">k</span><span class="w"> </span><span class="n">v</span><span class="p">)</span><span class="w"> </span><span class="n">r</span>
@@ -742,8 +701,7 @@ Haskell имплементацији. На пример, у језику C је 
 
 <span class="nf">union</span><span class="w"> </span><span class="ow">::</span><span class="w"> </span><span class="kt">Ord</span><span class="w"> </span><span class="n">k</span><span class="w"> </span><span class="ow">=&gt;</span><span class="w"> </span><span class="kt">Map</span><span class="w"> </span><span class="n">k</span><span class="w"> </span><span class="n">v</span><span class="w"> </span><span class="ow">-&gt;</span><span class="w"> </span><span class="kt">Map</span><span class="w"> </span><span class="n">k</span><span class="w"> </span><span class="n">v</span><span class="w"> </span><span class="ow">-&gt;</span><span class="w"> </span><span class="kt">Map</span><span class="w"> </span><span class="n">k</span><span class="w"> </span><span class="n">v</span>
 <span class="nf">union</span><span class="w"> </span><span class="n">m1</span><span class="w"> </span><span class="n">m2</span><span class="w"> </span><span class="ow">=</span><span class="w"> </span><span class="n">foldlMap</span><span class="w"> </span><span class="p">(</span><span class="nf">\</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">k</span><span class="w"> </span><span class="n">v</span><span class="w"> </span><span class="ow">-&gt;</span><span class="w"> </span><span class="n">insert</span><span class="w"> </span><span class="n">k</span><span class="w"> </span><span class="n">v</span><span class="w"> </span><span class="n">a</span><span class="p">)</span><span class="w"> </span><span class="n">m1</span><span class="w"> </span><span class="n">m2</span>
-</pre></div>
-</div>
+</code></pre>
 </section>
 </section>
 </main>

@@ -19,7 +19,7 @@
 које садржи сва решења упита. Оно може да се нацрта на основу следећих
 правила.</p>
 <p>Размотримо неколико примера над следећом базом знања.</p>
-<div class="highlight-prolog notranslate"><div class="highlight"><pre><span></span><span class="nf">musko</span><span class="p">(</span><span class="s s-Atom">homer</span><span class="p">).</span>
+<pre class="code" data-lang="prolog"><code><span class="nf">musko</span><span class="p">(</span><span class="s s-Atom">homer</span><span class="p">).</span>
 <span class="nf">musko</span><span class="p">(</span><span class="s s-Atom">bart</span><span class="p">).</span>
 <span class="nf">zensko</span><span class="p">(</span><span class="s s-Atom">mardz</span><span class="p">).</span>
 <span class="nf">zensko</span><span class="p">(</span><span class="s s-Atom">liza</span><span class="p">).</span>
@@ -29,8 +29,7 @@
 <span class="nf">osoba</span><span class="p">(</span><span class="nv">X</span><span class="p">)</span> <span class="p">:-</span> <span class="nf">musko</span><span class="p">(</span><span class="nv">X</span><span class="p">).</span>
 <span class="nf">osoba</span><span class="p">(</span><span class="nv">X</span><span class="p">)</span> <span class="p">:-</span> <span class="nf">zensko</span><span class="p">(</span><span class="nv">X</span><span class="p">).</span>
 <span class="nf">rodjak</span><span class="p">(</span><span class="nv">X</span><span class="p">,</span> <span class="nv">Y</span><span class="p">)</span> <span class="p">:-</span> <span class="nf">roditelj</span><span class="p">(</span><span class="nv">Z</span><span class="p">,</span> <span class="nv">X</span><span class="p">),</span> <span class="nf">roditelj</span><span class="p">(</span><span class="nv">Z</span><span class="p">,</span> <span class="nv">Y</span><span class="p">).</span>
-</pre></div>
-</div>
+</code></pre>
 <p>Наредно дрво описује израчунавање резултата  упита <code class="docutils literal notranslate"><span class="pre">osoba(bart).</span></code></p>
 <a class="reference internal image-reference" href="https://petljamediastorage.blob.core.windows.net/root/Media/Default/Kursevi/OnlineNastava/specit4_paradigme_logicko/prolog_svedrvo1.png" target="_blank"><img alt="https://petljamediastorage.blob.core.windows.net/root/Media/Default/Kursevi/OnlineNastava/specit4_paradigme_logicko/prolog_svedrvo1.png" class="align-center" src="https://petljamediastorage.blob.core.windows.net/root/Media/Default/Kursevi/OnlineNastava/specit4_paradigme_logicko/prolog_svedrvo1.png" style="width: 400px;"></a>
 <p>У корену дрвета се налази упит. Пошто постоје две дефиниције за
@@ -106,10 +105,9 @@ Prolog – поред све теорије на којој се заснива 
 <p>Максимум се може дефинисати на следећи начин (релацијски оператори
 <code class="docutils literal notranslate"><span class="pre">=&lt;</span></code> и <code class="docutils literal notranslate"><span class="pre">&lt;</span></code>, наравно, представљају релације <em>мање једнако</em> и <em>мање</em>
 и детаљније су описане у поглављу о аритметици).</p>
-<div class="highlight-prolog notranslate"><div class="highlight"><pre><span></span><span class="nf">min</span><span class="p">(</span><span class="nv">X</span><span class="p">,</span> <span class="nv">Y</span><span class="p">,</span> <span class="nv">X</span><span class="p">)</span> <span class="p">:-</span> <span class="nv">X</span> <span class="o">=&lt;</span> <span class="nv">Y</span><span class="p">.</span>
+<pre class="code" data-lang="prolog"><code><span class="nf">min</span><span class="p">(</span><span class="nv">X</span><span class="p">,</span> <span class="nv">Y</span><span class="p">,</span> <span class="nv">X</span><span class="p">)</span> <span class="p">:-</span> <span class="nv">X</span> <span class="o">=&lt;</span> <span class="nv">Y</span><span class="p">.</span>
 <span class="nf">min</span><span class="p">(</span><span class="nv">X</span><span class="p">,</span> <span class="nv">Y</span><span class="p">,</span> <span class="nv">Y</span><span class="p">)</span> <span class="p">:-</span> <span class="nv">Y</span> <span class="o">&lt;</span> <span class="nv">X</span><span class="p">.</span>
-</pre></div>
-</div>
+</code></pre>
 <p>Израчунавање резултата упита <code class="docutils literal notranslate"><span class="pre">max(3,</span> <span class="pre">5,</span> <span class="pre">M).</span></code> и упита <code class="docutils literal notranslate"><span class="pre">max(5,</span> <span class="pre">3,</span>
 <span class="pre">M).</span></code> су представљени следећим дрветима израчунавања.</p>
 <img alt="https://petljamediastorage.blob.core.windows.net/root/Media/Default/Kursevi/OnlineNastava/specit4_paradigme_logicko/prolog_svedrvo_max.png" class="align-center" src="https://petljamediastorage.blob.core.windows.net/root/Media/Default/Kursevi/OnlineNastava/specit4_paradigme_logicko/prolog_svedrvo_max.png">
@@ -118,10 +116,9 @@ Prolog – поред све теорије на којој се заснива 
 потребе приликом бектрекинга проверавати друго правило јер унапред
 знамо да његов услов неће бити испуњен. Зато се програм може убрзати
 тако што се иза услова у првом правилу дода рез.</p>
-<div class="highlight-prolog notranslate"><div class="highlight"><pre><span></span><span class="nf">min</span><span class="p">(</span><span class="nv">X</span><span class="p">,</span> <span class="nv">Y</span><span class="p">,</span> <span class="nv">X</span><span class="p">)</span> <span class="p">:-</span> <span class="nv">X</span> <span class="o">=&lt;</span> <span class="nv">Y</span><span class="p">,</span> <span class="p">!.</span>
+<pre class="code" data-lang="prolog"><code><span class="nf">min</span><span class="p">(</span><span class="nv">X</span><span class="p">,</span> <span class="nv">Y</span><span class="p">,</span> <span class="nv">X</span><span class="p">)</span> <span class="p">:-</span> <span class="nv">X</span> <span class="o">=&lt;</span> <span class="nv">Y</span><span class="p">,</span> <span class="p">!.</span>
 <span class="nf">min</span><span class="p">(</span><span class="nv">X</span><span class="p">,</span> <span class="nv">Y</span><span class="p">,</span> <span class="nv">Y</span><span class="p">)</span> <span class="p">:-</span> <span class="nv">Y</span> <span class="o">&lt;</span> <span class="nv">X</span><span class="p">.</span>
-</pre></div>
-</div>
+</code></pre>
 <p>Приликом упита <code class="docutils literal notranslate"><span class="pre">?-</span> <span class="pre">max(3,</span> <span class="pre">5,</span> <span class="pre">M)</span></code> извршиће се унификација којом ће се
 везати променљива <code class="docutils literal notranslate"><span class="pre">X</span></code> са вредношћу 3, <code class="docutils literal notranslate"><span class="pre">Y</span></code> са вредношћу 5 и <code class="docutils literal notranslate"><span class="pre">M</span></code>
 са вредношћу <code class="docutils literal notranslate"><span class="pre">X</span></code>, тј. 3, провериће се услов <code class="docutils literal notranslate"><span class="pre">3</span> <span class="pre">=&lt;</span> <span class="pre">5</span></code> који ће бити
@@ -140,10 +137,9 @@ Prolog – поред све теорије на којој се заснива 
 <span class="pre">X</span></code>. Наиме, пошто у првом правилу постоји сечење, јасно је да ће се до
 провере другог правила стићи само ако услов првог правила није испуњен,
 тј. ако не важи <code class="docutils literal notranslate"><span class="pre">X</span> <span class="pre">=&lt;</span> <span class="pre">Y</span></code>, тј. сигурно тада знамо да важи <code class="docutils literal notranslate"><span class="pre">Y</span> <span class="pre">&gt;</span> <span class="pre">X</span></code>.</p>
-<div class="highlight-prolog notranslate"><div class="highlight"><pre><span></span><span class="nf">max</span><span class="p">(</span><span class="nv">X</span><span class="p">,</span> <span class="nv">Y</span><span class="p">,</span> <span class="nv">X</span><span class="p">)</span> <span class="p">:-</span> <span class="nv">X</span> <span class="o">=&lt;</span> <span class="nv">Y</span><span class="p">,</span> <span class="p">!.</span>
+<pre class="code" data-lang="prolog"><code><span class="nf">max</span><span class="p">(</span><span class="nv">X</span><span class="p">,</span> <span class="nv">Y</span><span class="p">,</span> <span class="nv">X</span><span class="p">)</span> <span class="p">:-</span> <span class="nv">X</span> <span class="o">=&lt;</span> <span class="nv">Y</span><span class="p">,</span> <span class="p">!.</span>
 <span class="nf">max</span><span class="p">(</span><span class="nv">X</span><span class="p">,</span> <span class="nv">Y</span><span class="p">,</span> <span class="nv">Y</span><span class="p">).</span>
-</pre></div>
-</div>
+</code></pre>
 <p>Вредност максимума бројева 3 и 5 можемо израчунати у било ком
 редоследу да су задати.</p>
 <ul class="simple">
@@ -162,9 +158,8 @@ Prolog – поред све теорије на којој се заснива 
 <p>Ипак, ова употреба реза је <strong>црвена</strong>, јер се резом мења значење
 програма. Заиста, наредни упит сасвим неочекивано враћа нетачан
 одговор <code class="docutils literal notranslate"><span class="pre">true</span></code>.</p>
-<div class="highlight-prolog notranslate"><div class="highlight"><pre><span></span><span class="s s-Atom">?-</span> <span class="nf">min</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">5</span><span class="p">).</span>
-</pre></div>
-</div>
+<pre class="code" data-lang="prolog"><code><span class="s s-Atom">?-</span> <span class="nf">min</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">5</span><span class="p">).</span>
+</code></pre>
 <p>Приликом његовог извршавања, покушава се унификација са левом страном
 првог правила, што не успева. Унификација са левом страном другог
 правила успева и пошто више нема услова на десној страни тог правила,
@@ -179,7 +174,7 @@ Prolog – поред све теорије на којој се заснива 
 поједностављивање наших програма. У тим ситуацијама ће то бити
 наглашено и додатно објашњено.</p>
 <p>Размотримо још један, мало компликованији пример.</p>
-<div class="highlight-prolog notranslate"><div class="highlight"><pre><span></span><span class="nf">zivotinja</span><span class="p">(</span><span class="nv">X</span><span class="p">)</span> <span class="p">:-</span> <span class="nf">kicmenjak</span><span class="p">(</span><span class="nv">X</span><span class="p">).</span>
+<pre class="code" data-lang="prolog"><code><span class="nf">zivotinja</span><span class="p">(</span><span class="nv">X</span><span class="p">)</span> <span class="p">:-</span> <span class="nf">kicmenjak</span><span class="p">(</span><span class="nv">X</span><span class="p">).</span>
 <span class="nf">zivotinja</span><span class="p">(</span><span class="nv">X</span><span class="p">)</span> <span class="p">:-</span> <span class="nf">beskicmenjak</span><span class="p">(</span><span class="nv">X</span><span class="p">).</span>
 <span class="nf">kicmenjak</span><span class="p">(</span><span class="nv">X</span><span class="p">)</span> <span class="p">:-</span> <span class="nf">sisar</span><span class="p">(</span><span class="nv">X</span><span class="p">).</span>
 <span class="nf">kicmenjak</span><span class="p">(</span><span class="nv">X</span><span class="p">)</span> <span class="p">:-</span> <span class="nf">ptica</span><span class="p">(</span><span class="nv">X</span><span class="p">).</span>
@@ -188,17 +183,15 @@ Prolog – поред све теорије на којој се заснива 
 <span class="nf">sisar</span><span class="p">(</span><span class="s s-Atom">mis</span><span class="p">).</span>
 <span class="nf">sisar</span><span class="p">(</span><span class="s s-Atom">slon</span><span class="p">).</span>
 <span class="nf">ptica</span><span class="p">(</span><span class="s s-Atom">soko</span><span class="p">).</span>
-</pre></div>
-</div>
+</code></pre>
 <p>Наредно стабло израчунавања приказује израчунавање резултата упита
 <code class="docutils literal notranslate"><span class="pre">zivotinja(X).</span></code></p>
 <img alt="https://petljamediastorage.blob.core.windows.net/root/Media/Default/Kursevi/OnlineNastava/specit4_paradigme_logicko/prolog_svedrvo_zivotinje.png" class="align-center" src="https://petljamediastorage.blob.core.windows.net/root/Media/Default/Kursevi/OnlineNastava/specit4_paradigme_logicko/prolog_svedrvo_zivotinje.png">
 <p>Види се да се исправно проналази свих пет решења.  Вежбе ради,
 размотримо шта би се догодило да се у једну од клаузула дода рез.
 На пример,</p>
-<div class="highlight-prolog notranslate"><div class="highlight"><pre><span></span><span class="nf">kicmenjak</span><span class="p">(</span><span class="nv">X</span><span class="p">)</span> <span class="p">:-</span> <span class="nf">sisar</span><span class="p">(</span><span class="nv">X</span><span class="p">),</span> <span class="p">!.</span>
-</pre></div>
-</div>
+<pre class="code" data-lang="prolog"><code><span class="nf">kicmenjak</span><span class="p">(</span><span class="nv">X</span><span class="p">)</span> <span class="p">:-</span> <span class="nf">sisar</span><span class="p">(</span><span class="nv">X</span><span class="p">),</span> <span class="p">!.</span>
+</code></pre>
 <p>Стабло израчунавања које се добија у том случају је приказано на
 следећој слици.</p>
 <img alt="https://petljamediastorage.blob.core.windows.net/root/Media/Default/Kursevi/OnlineNastava/specit4_paradigme_logicko/prolog_svedrvo_zivotinje_rez.png" class="align-center" src="https://petljamediastorage.blob.core.windows.net/root/Media/Default/Kursevi/OnlineNastava/specit4_paradigme_logicko/prolog_svedrvo_zivotinje_rez.png">

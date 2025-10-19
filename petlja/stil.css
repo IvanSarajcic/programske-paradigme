@@ -29,3 +29,104 @@ main {
     padding: 3rem;
     background-color: white;
 }
+
+/* Code block styling - dark IDE theme */
+pre.code {
+    background-color: #1e1e1e;
+    color: #d4d4d4;
+    padding: 1.5rem;
+    border-radius: 8px;
+    overflow-x: auto;
+    position: relative;
+    margin: 2rem 0;
+    line-height: 1.5;
+    font-family: 'Consolas', 'Monaco', 'Courier New', monospace;
+    font-size: 0.9rem;
+}
+
+/* Language tag in top-right corner */
+pre.code::before {
+    content: attr(data-lang);
+    position: absolute;
+    top: 0.5rem;
+    right: 0.75rem;
+    background-color: #2d2d30;
+    color: #ffd52c;
+    padding: 0.25rem 0.75rem;
+    border-radius: 4px;
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    font-weight: bold;
+    letter-spacing: 0.05em;
+}
+
+/* Syntax highlighting - Pygments token classes */
+/* Keywords */
+pre.code .k,   /* keyword */
+pre.code .kr,  /* keyword reserved */
+pre.code .kd   /* keyword declaration */
+{ color: #569cd6; }
+
+/* Types */
+pre.code .kt,  /* keyword type */
+pre.code .nc   /* name class */
+{ color: #4ec9b0; }
+
+/* Strings */
+pre.code .s,   /* string */
+pre.code .s2,  /* string double */
+pre.code .s-Atom /* prolog atom */
+{ color: #ce9178; }
+
+/* Numbers */
+pre.code .mi,  /* number integer */
+pre.code .il   /* number integer long */
+{ color: #b5cea8; }
+
+/* Functions */
+pre.code .nf,  /* name function */
+pre.code .nb   /* name builtin */
+{ color: #dcdcaa; }
+
+/* Variables & identifiers */
+pre.code .n,   /* name */
+pre.code .nx,  /* name other */
+pre.code .nv,  /* name variable */
+pre.code .vg   /* variable global */
+{ color: #9cdcfe; }
+
+/* Operators */
+pre.code .o,   /* operator */
+pre.code .ow   /* operator word */
+{ color: #d4d4d4; }
+
+/* Punctuation */
+pre.code .p    /* punctuation */
+{ color: #d4d4d4; }
+
+/* Comments */
+pre.code .c1,  /* comment single */
+pre.code .c,   /* comment */
+pre.code .cm   /* comment multi */
+{ color: #6a9955; font-style: italic; }
+
+/* Preprocessor */
+pre.code .cp,  /* comment preproc */
+pre.code .cpf  /* comment preproc file */
+{ color: #9b9b9b; }
+
+/* Labels & line numbers */
+pre.code .nl   /* name label */
+{ color: #c586c0; }
+
+/* Whitespace (keep invisible but preserve structure) */
+pre.code .w { color: transparent; }
+
+/* simple all border table */
+table.docutils  {
+    border-collapse: collapse;
+}
+table.docutils th, table.docutils td {
+    border: 1px solid rgb(179, 168, 168);
+    padding: 0.5rem;
+}

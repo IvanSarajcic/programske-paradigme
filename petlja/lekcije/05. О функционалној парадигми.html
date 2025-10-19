@@ -35,7 +35,7 @@
 позитивног природног броја. То је задатак какав сте сигурно сретали у
 првом разреду и сигурно бисте га коришћењем императивне парадигме
 решили на следећи начин.</p>
-<div class="highlight-csharp notranslate"><div class="highlight"><pre><span></span><span class="k">using</span><span class="w"> </span><span class="nn">System</span><span class="p">;</span>
+<pre class="code" data-lang="csharp"><code><span class="k">using</span><span class="w"> </span><span class="nn">System</span><span class="p">;</span>
 
 <span class="k">class</span><span class="w"> </span><span class="nc">Program</span>
 <span class="p">{</span>
@@ -59,8 +59,7 @@
 <span class="w">         </span><span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="n">ZbirKvadrataNeparnihCifara</span><span class="p">(</span><span class="n">n</span><span class="p">));</span>
 <span class="w">    </span><span class="p">}</span>
 <span class="p">}</span>
-</pre></div>
-</div>
+</code></pre>
 </section>
 <section id="id3">
 <h3>Декомпозиција проблема</h3>
@@ -76,13 +75,12 @@
 рачунамо збир тако добијених квадрата. Разлагањем овог алгоритма на
 саставне делове, за улаз 12345 се добија следећа секвенца
 међурезултата.</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>12345 → [5, 4, 3, 2, 1] → [5, 3, 1] → [25, 9, 1] → 35.
-</pre></div>
-</div>
+<pre class="code" data-lang="default"><code>12345 → [5, 4, 3, 2, 1] → [5, 3, 1] → [25, 9, 1] → 35.
+</code></pre>
 <p>Кључна идеја је да извршимо декомпозицију проблема, тј. да сложени
 алгоритам изразимо као композицију једноставнијих алгоритама. Хајде
 сада да напишемо кôд који ради на овај начин.</p>
-<div class="highlight-csharp notranslate"><div class="highlight"><pre><span></span><span class="k">using</span><span class="w"> </span><span class="nn">System</span><span class="p">;</span>
+<pre class="code" data-lang="csharp"><code><span class="k">using</span><span class="w"> </span><span class="nn">System</span><span class="p">;</span>
 <span class="k">using</span><span class="w"> </span><span class="nn">System.Collections.Generic</span><span class="p">;</span>
 
 <span class="k">class</span><span class="w"> </span><span class="nc">Program</span>
@@ -135,8 +133,7 @@
 <span class="w">         </span><span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="n">ZbirKvadrataNeparnihCifara</span><span class="p">(</span><span class="n">n</span><span class="p">));</span>
 <span class="w">    </span><span class="p">}</span>
 <span class="p">}</span>
-</pre></div>
-</div>
+</code></pre>
 <p>Програм је много дужи, али је свака појединачна функција доста
 једноставнија него она у полазном решењу и исказује само један
 појединачан алгоритам. Можемо рећи да је овај програм знатно
@@ -171,23 +168,21 @@
 <li><p>Write programs to handle text streams, because that is a universal interface.</p></li>
 </ul>
 <p>Композиција се остварује компоновањем програма. На пример,</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>cat datumi.txt | egrep “januar” | sort -n | uniq
-</pre></div>
-</div>
+<pre class="code" data-lang="default"><code>cat datumi.txt | egrep “januar” | sort -n | uniq
+</code></pre>
 <p>Овим излиставамо датотеку <code class="docutils literal notranslate"><span class="pre">datumi.txt</span></code> затим одређујемо све њене
 линије које садрже реч <code class="docutils literal notranslate"><span class="pre">januar</span></code>, сортирамо их и на крају
 елиминишемо дупликате. Оператор | (чита се пајп) изражава
 композицију тако што излаз свог првог аргумента усмерава на улаз
 свог другог аргумента.</p>
 <p>Рецимо да датотека <code class="docutils literal notranslate"><span class="pre">datumi.txt</span></code> садржи следећи текст:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="mf">4.</span> <span class="n">januar</span> <span class="mf">2017.</span>
+<pre class="code" data-lang="default"><code><span class="mf">4.</span> <span class="n">januar</span> <span class="mf">2017.</span>
 <span class="mf">1.</span> <span class="n">januar</span> <span class="mf">1993.</span>
 <span class="mf">13.</span> <span class="n">jul</span> <span class="mf">2008.</span>
 <span class="mf">17.</span> <span class="n">februar</span> <span class="mf">2023.</span>
 <span class="mf">4.</span> <span class="n">januar</span> <span class="mf">2017.</span>
 <span class="mf">19.</span> <span class="n">decembar</span> <span class="mf">2005.</span>
-</pre></div>
-</div>
+</code></pre>
 <p>Команда <code class="docutils literal notranslate"><span class="pre">cat</span></code> чита садржај те датотеке и исписује га на свој
 стандардни излаз. Када бисмо издали команду <code class="docutils literal notranslate"><span class="pre">cat</span> <span class="pre">datumi.txt</span></code> овај
 садржај би се појавио на екрану. Команда <code class="docutils literal notranslate"><span class="pre">egrep</span></code> чита линију по
@@ -196,26 +191,23 @@
 команде <code class="docutils literal notranslate"><span class="pre">cat</span></code> тј. садржај наше датотеке, на улаз команде
 <code class="docutils literal notranslate"><span class="pre">egrep</span></code>, која затим филтрира линије и исписује на свој излаз само
 оне које садрже реч <code class="docutils literal notranslate"><span class="pre">januar</span></code>.</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="mf">4.</span> <span class="n">januar</span> <span class="mf">2017.</span>
+<pre class="code" data-lang="default"><code><span class="mf">4.</span> <span class="n">januar</span> <span class="mf">2017.</span>
 <span class="mf">1.</span> <span class="n">januar</span> <span class="mf">1993.</span>
 <span class="mf">4.</span> <span class="n">januar</span> <span class="mf">2017.</span>
-</pre></div>
-</div>
+</code></pre>
 <p>Новом применом оператора <code class="docutils literal notranslate"><span class="pre">|</span></code> овај излаз се уместо да се прикаже
 на екрану преусмерава на улаз наредне команде, <code class="docutils literal notranslate"><span class="pre">sort</span> <span class="pre">-n</span></code>, која
 сортира линије. Параметар <code class="docutils literal notranslate"><span class="pre">-n</span></code> служи да би се сортирање извршило
 нумерички, а не лексикографски. Након сортирања добија се</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="mf">1.</span> <span class="n">januar</span> <span class="mf">1993.</span>
+<pre class="code" data-lang="default"><code><span class="mf">1.</span> <span class="n">januar</span> <span class="mf">1993.</span>
 <span class="mf">4.</span> <span class="n">januar</span> <span class="mf">2017.</span>
 <span class="mf">4.</span> <span class="n">januar</span> <span class="mf">2017.</span>
-</pre></div>
-</div>
+</code></pre>
 <p>На крају, овај се излаз предаје команди <code class="docutils literal notranslate"><span class="pre">uniq</span></code> која елиминише
 дупликате и која на екран исписује</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="mf">1.</span> <span class="n">januar</span> <span class="mf">1993.</span>
+<pre class="code" data-lang="default"><code><span class="mf">1.</span> <span class="n">januar</span> <span class="mf">1993.</span>
 <span class="mf">4.</span> <span class="n">januar</span> <span class="mf">2017.</span>
-</pre></div>
-</div>
+</code></pre>
 <p>Дакле, можемо да кажемо да функционално програмирање и UNIX деле
 исту филозофију композионалности једноставних целина која се током
 година показала веома успешном. Кључни моменат је то што је
@@ -257,7 +249,7 @@
 тек када је позиваоцу потребан наредни елемент (не извршава се цела
 функција одједном, већ само по потреби и зато кажемо да се она
 извршава лењо).</p>
-<div class="highlight-csharp notranslate"><div class="highlight"><pre><span></span><span class="k">using</span><span class="w"> </span><span class="nn">System</span><span class="p">;</span>
+<pre class="code" data-lang="csharp"><code><span class="k">using</span><span class="w"> </span><span class="nn">System</span><span class="p">;</span>
 <span class="k">using</span><span class="w"> </span><span class="nn">System.Collections.Generic</span><span class="p">;</span>
 
 <span class="k">class</span><span class="w"> </span><span class="nc">Program</span>
@@ -304,8 +296,7 @@
 <span class="w">         </span><span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="n">ZbirKvadrataNeparnihCifara</span><span class="p">(</span><span class="n">n</span><span class="p">));</span>
 <span class="w">    </span><span class="p">}</span>
 <span class="p">}</span>
-</pre></div>
-</div>
+</code></pre>
 <p>Лењост нам доноси много боље решење од претходног и омогућава да
 декомпозицију извршимо без меморијских и временских неефикасности које
 би нам суштински спречиле декомпозицију у језицима у којима лењост
@@ -358,7 +349,7 @@
 1, 4, 2, 1, 4, 2, 1, …</p>
 <p>Размотримо следећу имплементацију функције која враћа (бесконачну)
 серију Колацових бројева.</p>
-<div class="highlight-csharp notranslate"><div class="highlight"><pre><span></span><span class="k">using</span><span class="w"> </span><span class="nn">System</span><span class="p">;</span>
+<pre class="code" data-lang="csharp"><code><span class="k">using</span><span class="w"> </span><span class="nn">System</span><span class="p">;</span>
 <span class="k">using</span><span class="w"> </span><span class="nn">System.Collections.Generic</span><span class="p">;</span>
 
 <span class="k">class</span><span class="w"> </span><span class="nc">Program</span><span class="w"> </span><span class="p">{</span>
@@ -380,8 +371,7 @@
 <span class="w">        </span><span class="k">foreach</span><span class="w"> </span><span class="p">(</span><span class="kt">ulong</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="n">Collatz</span><span class="p">(</span><span class="n">n</span><span class="p">))</span>
 <span class="w">            </span><span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="n">x</span><span class="p">);</span>
 <span class="w">    </span><span class="p">}</span>
-</pre></div>
-</div>
+</code></pre>
 <p>Програм се никада не зауставља и примећујемо да после неколико
 почетних бројева креће да стално исписује 1, 4, 2, 1, 4, 2, …</p>
 <p>Ако желимо да испишемо само првих неколико елемената секвенце
@@ -392,7 +382,7 @@
 неинтересантна након што се појави прва јединица могли бисмо у
 функцији <code class="docutils literal notranslate"><span class="pre">Collatz</span></code>, која је генерише, можемо додати прекид петље
 након што је враћен елемент 1.</p>
-<div class="highlight-csharp notranslate"><div class="highlight"><pre><span></span><span class="k">static</span><span class="w"> </span><span class="n">IEnumerable</span><span class="o">&lt;</span><span class="kt">ulong</span><span class="o">&gt;</span><span class="w"> </span><span class="n">Collatz</span><span class="p">(</span><span class="kt">ulong</span><span class="w"> </span><span class="n">n</span><span class="p">)</span>
+<pre class="code" data-lang="csharp"><code><span class="k">static</span><span class="w"> </span><span class="n">IEnumerable</span><span class="o">&lt;</span><span class="kt">ulong</span><span class="o">&gt;</span><span class="w"> </span><span class="n">Collatz</span><span class="p">(</span><span class="kt">ulong</span><span class="w"> </span><span class="n">n</span><span class="p">)</span>
 <span class="p">{</span>
 <span class="w">    </span><span class="k">while</span><span class="w"> </span><span class="p">(</span><span class="k">true</span><span class="p">)</span>
 <span class="w">    </span><span class="p">{</span>
@@ -405,8 +395,7 @@
 <span class="w">           </span><span class="n">n</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">3</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">n</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span>
 <span class="w">    </span><span class="p">}</span>
 <span class="p">}</span>
-</pre></div>
-</div>
+</code></pre>
 <p>На овај начин делује да ће колекција која се овом функцијом враћа
 увек бити коначна. Међутим, то не знамо. Наиме, нико до сада није
 успео нити да докаже нити да оповргне да ће се за било који избор
@@ -440,7 +429,7 @@
 направимо одређену апстракцију. Размотримо шта би се разликовало код
 наше функције која издваја непарне бројеве и функције која би
 издвајала негативне бројеве из неке серије (лењог тока).</p>
-<div class="highlight-csharp notranslate"><div class="highlight"><pre><span></span><span class="k">static</span><span class="w"> </span><span class="n">IEnumerable</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span><span class="w"> </span><span class="n">IzdvojNeparne</span><span class="p">(</span><span class="n">IEnumerable</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span><span class="w"> </span><span class="n">brojevi</span><span class="p">)</span>
+<pre class="code" data-lang="csharp"><code><span class="k">static</span><span class="w"> </span><span class="n">IEnumerable</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span><span class="w"> </span><span class="n">IzdvojNeparne</span><span class="p">(</span><span class="n">IEnumerable</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span><span class="w"> </span><span class="n">brojevi</span><span class="p">)</span>
 <span class="p">{</span>
 <span class="w">    </span><span class="k">foreach</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">broj</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="n">brojevi</span><span class="p">)</span>
 <span class="w">       </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">broj</span><span class="w"> </span><span class="o">%</span><span class="w"> </span><span class="mi">2</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span>
@@ -453,8 +442,7 @@
 <span class="w">       </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">broj</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span>
 <span class="w">          </span><span class="k">yield</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="n">broj</span><span class="p">;</span>
 <span class="p">}</span>
-</pre></div>
-</div>
+</code></pre>
 <p>Примећујемо да се разликује само услов наредбе <code class="docutils literal notranslate"><span class="pre">if</span></code>. Да ли постоји
 начин да тај услов проследимо некако функцији као параметар? На основу
 онога што смо до сада користили, не постоји (осим да евентуално
@@ -471,28 +459,26 @@
 елементе који задовољавају дати услов, при чему се тај услов наводи
 као параметар у облику функције која прима <code class="docutils literal notranslate"><span class="pre">int</span></code> и враћа <code class="docutils literal notranslate"><span class="pre">bool</span></code>
 тј.  као податак типа <code class="docutils literal notranslate"><span class="pre">Func&lt;int,</span> <span class="pre">bool&gt;</span></code>.</p>
-<div class="highlight-csharp notranslate"><div class="highlight"><pre><span></span><span class="k">static</span><span class="w"> </span><span class="n">IEnumerable</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span><span class="w"> </span><span class="n">Izdvoj</span><span class="p">(</span><span class="n">IEnumerable</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span><span class="w"> </span><span class="n">brojevi</span><span class="p">,</span>
+<pre class="code" data-lang="csharp"><code><span class="k">static</span><span class="w"> </span><span class="n">IEnumerable</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span><span class="w"> </span><span class="n">Izdvoj</span><span class="p">(</span><span class="n">IEnumerable</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span><span class="w"> </span><span class="n">brojevi</span><span class="p">,</span>
 <span class="w">                               </span><span class="n">Func</span><span class="o">&lt;</span><span class="kt">int</span><span class="p">,</span><span class="w"> </span><span class="kt">bool</span><span class="o">&gt;</span><span class="w"> </span><span class="n">uslov</span><span class="p">)</span>
 <span class="p">{</span>
 <span class="w">    </span><span class="k">foreach</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">broj</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="n">brojevi</span><span class="p">)</span>
 <span class="w">       </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">uslov</span><span class="p">(</span><span class="n">broj</span><span class="p">))</span>
 <span class="w">          </span><span class="k">yield</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="n">broj</span><span class="p">;</span>
 <span class="p">}</span>
-</pre></div>
-</div>
+</code></pre>
 <p>Слично, функција која је квадрирала сваки елемент серије се може
 једноставно апстраховати до функционала који би примењивао задату
 функцију која слика int у int на сваки елемент серије.</p>
-<div class="highlight-csharp notranslate"><div class="highlight"><pre><span></span><span class="k">static</span><span class="w"> </span><span class="n">IEnumerable</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span><span class="w"> </span><span class="n">Preslikaj</span><span class="p">(</span><span class="n">IEnumerable</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span><span class="w"> </span><span class="n">brojevi</span><span class="p">,</span>
+<pre class="code" data-lang="csharp"><code><span class="k">static</span><span class="w"> </span><span class="n">IEnumerable</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span><span class="w"> </span><span class="n">Preslikaj</span><span class="p">(</span><span class="n">IEnumerable</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span><span class="w"> </span><span class="n">brojevi</span><span class="p">,</span>
 <span class="w">                                  </span><span class="n">Func</span><span class="o">&lt;</span><span class="kt">int</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="o">&gt;</span><span class="w"> </span><span class="n">f</span><span class="p">)</span>
 <span class="p">{</span>
 <span class="w">    </span><span class="k">foreach</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">broj</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="n">brojevi</span><span class="p">)</span>
 <span class="w">          </span><span class="k">yield</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="nf">f</span><span class="p">(</span><span class="n">broj</span><span class="p">);</span>
 <span class="p">}</span>
-</pre></div>
-</div>
+</code></pre>
 <p>У оваквој варијанти наш програм изгледа овако.</p>
-<div class="highlight-csharp notranslate"><div class="highlight"><pre><span></span><span class="k">using</span><span class="w"> </span><span class="nn">System</span><span class="p">;</span>
+<pre class="code" data-lang="csharp"><code><span class="k">using</span><span class="w"> </span><span class="nn">System</span><span class="p">;</span>
 <span class="k">using</span><span class="w"> </span><span class="nn">System.Collections.Generic</span><span class="p">;</span>
 
 <span class="k">class</span><span class="w"> </span><span class="nc">Program</span>
@@ -551,8 +537,7 @@
 <span class="w">         </span><span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="n">ZbirKvadrataNeparnihCifara</span><span class="p">(</span><span class="n">n</span><span class="p">));</span>
 <span class="w">    </span><span class="p">}</span>
 <span class="p">}</span>
-</pre></div>
-</div>
+</code></pre>
 <p>Функције <code class="docutils literal notranslate"><span class="pre">Izdvoj</span></code> и <code class="docutils literal notranslate"><span class="pre">Preslikaj</span></code> су већ прилично опште, употребљиве
 у разним програмима и имало би смисла убацити их у библиотеку.  Остаје
 проблем то што раде само над токовима типа <code class="docutils literal notranslate"><span class="pre">int</span></code>. Међутим, то би се
@@ -563,12 +548,11 @@
 дефинишемо посебне функције <code class="docutils literal notranslate"><span class="pre">neparan</span></code> и <code class="docutils literal notranslate"><span class="pre">kvadrat</span></code>. Да би се
 избегло прављење таквих једнократних функција, на располагању нам
 стоје <strong>анонимне функције</strong>, тј. <strong>ламбда–изрази</strong>.</p>
-<div class="highlight-csharp notranslate"><div class="highlight"><pre><span></span><span class="k">static</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="nf">ZbirKvadrataNeparnihCifara</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">n</span><span class="p">)</span>
+<pre class="code" data-lang="csharp"><code><span class="k">static</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="nf">ZbirKvadrataNeparnihCifara</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">n</span><span class="p">)</span>
 <span class="p">{</span>
 <span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="nf">Saberi</span><span class="p">(</span><span class="n">Preslikaj</span><span class="p">(</span><span class="n">Izdvoj</span><span class="p">(</span><span class="n">Cifre</span><span class="p">(</span><span class="n">n</span><span class="p">),</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">%</span><span class="w"> </span><span class="mi">2</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="mi">0</span><span class="p">),</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">x</span><span class="p">));</span>
 <span class="p">}</span>
-</pre></div>
-</div>
+</code></pre>
 <p>Израз <code class="docutils literal notranslate"><span class="pre">x</span> <span class="pre">=&gt;</span> <span class="pre">x</span> <span class="pre">*</span> <span class="pre">x</span></code> представља функцију која прима број <code class="docutils literal notranslate"><span class="pre">x</span></code>, а
 враћа његов квадрат. Приметимо да није потребно да наведемо тип, већ
 га компилатор одређује из контекста (врши се дедукција типова, слично
@@ -611,7 +595,7 @@ C# и није је потребно посебно инсталирати.</p>
 долазимо до финалне C# верзије нашег програма. Имена <code class="docutils literal notranslate"><span class="pre">Select</span></code> и
 <code class="docutils literal notranslate"><span class="pre">Where</span></code> долазе од везе библиотеке Linq и база података, али се том
 везом сада нећемо бавити.</p>
-<div class="highlight-csharp notranslate"><div class="highlight"><pre><span></span><span class="k">using</span><span class="w"> </span><span class="nn">System</span><span class="p">;</span>
+<pre class="code" data-lang="csharp"><code><span class="k">using</span><span class="w"> </span><span class="nn">System</span><span class="p">;</span>
 <span class="k">using</span><span class="w"> </span><span class="nn">System.Collections.Generic</span><span class="p">;</span>
 <span class="k">using</span><span class="w"> </span><span class="nn">System.Linq</span><span class="p">;</span>
 
@@ -638,8 +622,7 @@ C# и није је потребно посебно инсталирати.</p>
 <span class="w">         </span><span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="n">ZbirKvadrataNeparnihCifara</span><span class="p">(</span><span class="n">n</span><span class="p">));</span>
 <span class="w">    </span><span class="p">}</span>
 <span class="p">}</span>
-</pre></div>
-</div>
+</code></pre>
 <p>Иако није написан у функционалном програмском језику, овај програм је
 написан у функционалном програмском стилу. Резимирајмо основе концепте
 које смо кроз овај једноставан пример упознали:</p>
@@ -690,15 +673,14 @@ C# и није је потребно посебно инсталирати.</p>
 решавајући тамо задате задатке, а затим се на крају вратити на овај
 пример.</p>
 <p>Једно решење претходног задатка у језику Haskell је следеће.</p>
-<div class="highlight-haskell notranslate"><div class="highlight"><pre><span></span><span class="nf">cifre</span><span class="w"> </span><span class="ow">::</span><span class="w"> </span><span class="kt">Int</span><span class="w"> </span><span class="ow">-&gt;</span><span class="w"> </span><span class="p">[</span><span class="kt">Int</span><span class="p">]</span>
+<pre class="code" data-lang="haskell"><code><span class="nf">cifre</span><span class="w"> </span><span class="ow">::</span><span class="w"> </span><span class="kt">Int</span><span class="w"> </span><span class="ow">-&gt;</span><span class="w"> </span><span class="p">[</span><span class="kt">Int</span><span class="p">]</span>
 <span class="nf">cifre</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="ow">=</span><span class="w"> </span><span class="kt">[]</span>
 <span class="nf">cifre</span><span class="w"> </span><span class="n">n</span><span class="w"> </span><span class="ow">=</span><span class="w"> </span><span class="p">(</span><span class="n">n</span><span class="w"> </span><span class="p">`</span><span class="n">mod</span><span class="p">`</span><span class="w"> </span><span class="mi">10</span><span class="p">)</span><span class="w"> </span><span class="kt">:</span><span class="w"> </span><span class="n">cifre</span><span class="w"> </span><span class="p">(</span><span class="n">n</span><span class="w"> </span><span class="p">`</span><span class="n">div</span><span class="p">`</span><span class="w"> </span><span class="mi">10</span><span class="p">)</span>
 
 <span class="nf">zbirKvadrataNeparnihCifara</span><span class="w"> </span><span class="ow">::</span><span class="w"> </span><span class="kt">Int</span><span class="w"> </span><span class="ow">-&gt;</span><span class="w"> </span><span class="kt">Int</span>
 <span class="nf">zbirKvadrataNeparnihCifara</span><span class="w"> </span><span class="n">n</span><span class="w"> </span><span class="ow">=</span>
 <span class="w">    </span><span class="n">sum</span><span class="w"> </span><span class="p">(</span><span class="n">map</span><span class="w"> </span><span class="p">(</span><span class="nf">\</span><span class="n">x</span><span class="w"> </span><span class="ow">-&gt;</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">x</span><span class="p">)</span><span class="w"> </span><span class="p">(</span><span class="n">filter</span><span class="w"> </span><span class="p">(</span><span class="nf">\</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="ow">-&gt;</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="p">`</span><span class="n">mod</span><span class="p">`</span><span class="w"> </span><span class="mi">2</span><span class="w"> </span><span class="o">/=</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span><span class="w"> </span><span class="p">(</span><span class="n">cifre</span><span class="w"> </span><span class="n">n</span><span class="p">)))</span>
-</pre></div>
-</div>
+</code></pre>
 <p>Видећемо да је, осим синтаксичких разлика, овај програм у свом духу
 прилично сличан програму који смо написали у језику C#.</p>
 <section id="id6">
@@ -753,10 +735,9 @@ C# и није је потребно посебно инсталирати.</p>
 интензивно причати у наставку курса. У првом случају је примењена
 техника која се зове поклапање шаблона (енг. <em>pattern
 matching</em>).</p>
-<div class="highlight-haskell notranslate"><div class="highlight"><pre><span></span><span class="nf">cifre</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="ow">=</span><span class="w"> </span><span class="kt">[]</span>
+<pre class="code" data-lang="haskell"><code><span class="nf">cifre</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="ow">=</span><span class="w"> </span><span class="kt">[]</span>
 <span class="nf">cifre</span><span class="w"> </span><span class="n">n</span><span class="w"> </span><span class="ow">=</span><span class="w"> </span><span class="p">(</span><span class="n">n</span><span class="w"> </span><span class="p">`</span><span class="n">mod</span><span class="p">`</span><span class="w"> </span><span class="mi">10</span><span class="p">)</span><span class="w"> </span><span class="kt">:</span><span class="w"> </span><span class="n">cifre</span><span class="w"> </span><span class="p">(</span><span class="n">n</span><span class="w"> </span><span class="p">`</span><span class="n">div</span><span class="p">`</span><span class="w"> </span><span class="mi">10</span><span class="p">)</span>
-</pre></div>
-</div>
+</code></pre>
 <p>Наиме, приликом израчунавања функције <code class="docutils literal notranslate"><span class="pre">cifre</span></code>, редом се проверавају
 наведене једнакости и ако се аргумент може уклопити у шаблон дат првом
 левом страном (у овом случају то је <code class="docutils literal notranslate"><span class="pre">cifre</span> <span class="pre">0</span></code>), примењиваће се та
@@ -765,9 +746,8 @@ matching</em>).</p>
 на случај када је параметар различит од нуле, без потребе да се то
 експлицитно нагласи. Уместо овога могли смо користити гранање (што би
 више одговарало рекурзивној дефиницији у језику C#).</p>
-<div class="highlight-haskell notranslate"><div class="highlight"><pre><span></span><span class="nf">cifre</span><span class="w"> </span><span class="n">n</span><span class="w"> </span><span class="ow">=</span><span class="w"> </span><span class="kr">if</span><span class="w"> </span><span class="n">n</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="kr">then</span><span class="w"> </span><span class="kt">[]</span><span class="w"> </span><span class="kr">else</span><span class="w"> </span><span class="p">(</span><span class="n">n</span><span class="w"> </span><span class="p">`</span><span class="n">mod</span><span class="p">`</span><span class="w"> </span><span class="mi">10</span><span class="p">)</span><span class="w"> </span><span class="kt">:</span><span class="w"> </span><span class="n">cifre</span><span class="w"> </span><span class="p">(</span><span class="n">n</span><span class="w"> </span><span class="p">`</span><span class="n">div</span><span class="p">`</span><span class="w"> </span><span class="mi">10</span><span class="p">)</span>
-</pre></div>
-</div>
+<pre class="code" data-lang="haskell"><code><span class="nf">cifre</span><span class="w"> </span><span class="n">n</span><span class="w"> </span><span class="ow">=</span><span class="w"> </span><span class="kr">if</span><span class="w"> </span><span class="n">n</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="kr">then</span><span class="w"> </span><span class="kt">[]</span><span class="w"> </span><span class="kr">else</span><span class="w"> </span><span class="p">(</span><span class="n">n</span><span class="w"> </span><span class="p">`</span><span class="n">mod</span><span class="p">`</span><span class="w"> </span><span class="mi">10</span><span class="p">)</span><span class="w"> </span><span class="kt">:</span><span class="w"> </span><span class="n">cifre</span><span class="w"> </span><span class="p">(</span><span class="n">n</span><span class="w"> </span><span class="p">`</span><span class="n">div</span><span class="p">`</span><span class="w"> </span><span class="mi">10</span><span class="p">)</span>
+</code></pre>
 <p>Оператор if-then-else прави условни израз и одговара оператору <code class="docutils literal notranslate"><span class="pre">?:</span></code>
 у језику C# (а не наредби if-else). Сагласићете се да је решење са
 уклапањем шаблона обично елегантније.</p>
@@ -787,13 +767,12 @@ matching</em>).</p>
 Рекурзивна функција којом се израчунава Колацова секвенца (за коју
 заправо не знамо да ли увек враћа коначну или некад враћа
 бесконачну секвенцу) се може дефинисати на следећи начин.</p>
-<div class="highlight-haskell notranslate"><div class="highlight"><pre><span></span><span class="nf">collatz</span><span class="w"> </span><span class="ow">::</span><span class="w"> </span><span class="kt">Integer</span><span class="w"> </span><span class="ow">-&gt;</span><span class="w"> </span><span class="p">[</span><span class="kt">Integer</span><span class="p">]</span>
+<pre class="code" data-lang="haskell"><code><span class="nf">collatz</span><span class="w"> </span><span class="ow">::</span><span class="w"> </span><span class="kt">Integer</span><span class="w"> </span><span class="ow">-&gt;</span><span class="w"> </span><span class="p">[</span><span class="kt">Integer</span><span class="p">]</span>
 <span class="nf">collatz</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="ow">=</span><span class="w"> </span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
 <span class="nf">collatz</span><span class="w"> </span><span class="n">n</span><span class="w"> </span><span class="ow">=</span><span class="w"> </span><span class="kr">if</span><span class="w"> </span><span class="n">n</span><span class="w"> </span><span class="p">`</span><span class="n">mod</span><span class="p">`</span><span class="w"> </span><span class="mi">2</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">0</span>
 <span class="w">            </span><span class="kr">then</span><span class="w"> </span><span class="n">n</span><span class="w"> </span><span class="kt">:</span><span class="w"> </span><span class="n">collatz</span><span class="w"> </span><span class="p">(</span><span class="n">n</span><span class="w"> </span><span class="p">`</span><span class="n">div</span><span class="p">`</span><span class="w"> </span><span class="mi">2</span><span class="p">)</span>
 <span class="w">            </span><span class="kr">else</span><span class="w"> </span><span class="n">n</span><span class="w"> </span><span class="kt">:</span><span class="w"> </span><span class="n">collatz</span><span class="w"> </span><span class="p">(</span><span class="mi">3</span><span class="o">*</span><span class="n">n</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="p">)</span>
-</pre></div>
-</div>
+</code></pre>
 <p>Првих 10 елемената секвенце која почиње од броја 100 можемо добити
 изразом <code class="docutils literal notranslate"><span class="pre">take</span> <span class="pre">10</span> <span class="pre">(collatz</span> <span class="pre">100)</span></code> (функцијом <code class="docutils literal notranslate"><span class="pre">take</span></code> се издвајају
 почетни елементи листе).</p>
@@ -803,9 +782,8 @@ matching</em>).</p>
 <h3>Функција sum, функционали map и filter и ламбда изрази</h3>
 <p>Размотримо сада израз помоћу којег је дефинисана функција
 <code class="docutils literal notranslate"><span class="pre">zbirNeparnihCifaraBroja</span></code>.</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>sum (map (\x -&gt; x * x) (filter (\ x -&gt; x `mod` 2 /= 0) (cifre n)))
-</pre></div>
-</div>
+<pre class="code" data-lang="default"><code>sum (map (\x -&gt; x * x) (filter (\ x -&gt; x `mod` 2 /= 0) (cifre n)))
+</code></pre>
 <p>У њему се користе библиотечке функције <code class="docutils literal notranslate"><span class="pre">sum</span></code>, <code class="docutils literal notranslate"><span class="pre">map</span></code> и <code class="docutils literal notranslate"><span class="pre">filter</span></code>.</p>
 <ul class="simple">
 <li><p>Функција <code class="docutils literal notranslate"><span class="pre">sum</span></code>, очекивано, израчунава збир елемената дате листе.</p></li>
@@ -840,11 +818,10 @@ matching</em>).</p>
 <p>Пресликавање и филтрирање тј. функционали <code class="docutils literal notranslate"><span class="pre">map</span></code> и <code class="docutils literal notranslate"><span class="pre">filter</span></code> су
 толико чести да су имплицитно присутни у математичкој
 нотацији. Размотримо следеће решење истог задатка.</p>
-<div class="highlight-haskell notranslate"><div class="highlight"><pre><span></span><span class="nf">zbirKvadrataNeparnihCifara</span><span class="w"> </span><span class="ow">::</span><span class="w"> </span><span class="kt">Int</span><span class="w"> </span><span class="ow">-&gt;</span><span class="w"> </span><span class="kt">Int</span>
+<pre class="code" data-lang="haskell"><code><span class="nf">zbirKvadrataNeparnihCifara</span><span class="w"> </span><span class="ow">::</span><span class="w"> </span><span class="kt">Int</span><span class="w"> </span><span class="ow">-&gt;</span><span class="w"> </span><span class="kt">Int</span>
 <span class="nf">zbirKvadrataNeparnihCifara</span><span class="w"> </span><span class="n">n</span><span class="w"> </span><span class="ow">=</span>
 <span class="w">    </span><span class="n">sum</span><span class="w"> </span><span class="p">[</span><span class="n">x</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="ow">&lt;-</span><span class="w"> </span><span class="n">cifre</span><span class="w"> </span><span class="n">n</span><span class="p">,</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="p">`</span><span class="n">mod</span><span class="p">`</span><span class="w"> </span><span class="mi">2</span><span class="w"> </span><span class="o">/=</span><span class="w"> </span><span class="mi">0</span><span class="p">]</span>
-</pre></div>
-</div>
+</code></pre>
 <p>Приметите колико се овде Haskell приближио традиционалној
 математици. У овом решењу користили смо тзв. компрехенсију листа која
 одговара скуповној компрехенсији из математике (довољно је замислити
@@ -885,10 +862,9 @@ matching</em>).</p>
 <p>Језик Haskell подржава директно оператор композиције функција (означен
 је тачкицом <code class="docutils literal notranslate"><span class="pre">.</span></code>) и у њему је такође могуће користити нотацију без
 тачака. Размотримо следећу дефиницију нашег текућег примера.</p>
-<div class="highlight-haskell notranslate"><div class="highlight"><pre><span></span><span class="nf">zbirKvadrataNeparnihCifara</span><span class="w"> </span><span class="ow">=</span>
+<pre class="code" data-lang="haskell"><code><span class="nf">zbirKvadrataNeparnihCifara</span><span class="w"> </span><span class="ow">=</span>
 <span class="w">     </span><span class="n">sum</span><span class="w"> </span><span class="o">.</span><span class="w"> </span><span class="n">map</span><span class="w"> </span><span class="p">(</span><span class="nf">\</span><span class="n">x</span><span class="w"> </span><span class="ow">-&gt;</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">x</span><span class="p">)</span><span class="w"> </span><span class="o">.</span><span class="w"> </span><span class="n">filter</span><span class="w"> </span><span class="p">(</span><span class="nf">\</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="ow">-&gt;</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="p">`</span><span class="n">mod</span><span class="p">`</span><span class="w"> </span><span class="mi">2</span><span class="w"> </span><span class="o">/=</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span><span class="w"> </span><span class="o">.</span><span class="w"> </span><span class="n">cifre</span>
-</pre></div>
-</div>
+</code></pre>
 <p>Функција <code class="docutils literal notranslate"><span class="pre">zbirKvadrataNeparnihCifara</span></code> је експлицитно дефинисана као
 композиција 4 функције. У композицији се функције примењују здесна
 налево.</p>
@@ -927,9 +903,8 @@ matching</em>).</p>
 другачије. Приметимо да синтакса језика уместо очекиваног позива
 облика <code class="docutils literal notranslate"><span class="pre">filter(uslov,</span> <span class="pre">lista)</span></code> захтева навођење израза облика
 <code class="docutils literal notranslate"><span class="pre">filter</span> <span class="pre">uslov</span> <span class="pre">lista</span></code>. На пример, вредност израза</p>
-<div class="highlight-haskell notranslate"><div class="highlight"><pre><span></span><span class="nf">filter</span><span class="w"> </span><span class="p">(</span><span class="nf">\</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="ow">-&gt;</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="p">`</span><span class="n">mod</span><span class="p">`</span><span class="w"> </span><span class="mi">2</span><span class="w"> </span><span class="o">/=</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span><span class="w"> </span><span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w"> </span><span class="mi">4</span><span class="p">,</span><span class="w"> </span><span class="mi">5</span><span class="p">,</span><span class="w"> </span><span class="mi">6</span><span class="p">]</span>
-</pre></div>
-</div>
+<pre class="code" data-lang="haskell"><code><span class="nf">filter</span><span class="w"> </span><span class="p">(</span><span class="nf">\</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="ow">-&gt;</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="p">`</span><span class="n">mod</span><span class="p">`</span><span class="w"> </span><span class="mi">2</span><span class="w"> </span><span class="o">/=</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span><span class="w"> </span><span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w"> </span><span class="mi">4</span><span class="p">,</span><span class="w"> </span><span class="mi">5</span><span class="p">,</span><span class="w"> </span><span class="mi">6</span><span class="p">]</span>
+</code></pre>
 <p>је листа <code class="docutils literal notranslate"><span class="pre">[1,</span> <span class="pre">3,</span> <span class="pre">5]</span></code>.</p>
 <p>У изразу <code class="docutils literal notranslate"><span class="pre">filter</span> <span class="pre">(x</span> <span class="pre">-&gt;</span> <span class="pre">x</span> <span class="pre">`mod`</span> <span class="pre">2</span> <span class="pre">/=</span> <span class="pre">0)</span></code> смо функцији
 <code class="docutils literal notranslate"><span class="pre">filter</span></code> задали само један аргумент (услов провере). На тај начин смо
@@ -940,13 +915,11 @@ matching</em>).</p>
 постоје функције више аргумената, већ су оне представљене као функције
 које пресликавају свој први аргумент у неку конкретнију функцију. Тип
 функције <code class="docutils literal notranslate"><span class="pre">filter</span></code> је:</p>
-<div class="highlight-haskell notranslate"><div class="highlight"><pre><span></span><span class="nf">filter</span><span class="w"> </span><span class="ow">::</span><span class="w"> </span><span class="p">(</span><span class="n">a</span><span class="w"> </span><span class="ow">-&gt;</span><span class="w"> </span><span class="n">bool</span><span class="p">)</span><span class="w"> </span><span class="ow">-&gt;</span><span class="w"> </span><span class="p">[</span><span class="n">a</span><span class="p">]</span><span class="w"> </span><span class="ow">-&gt;</span><span class="w"> </span><span class="p">[</span><span class="n">a</span><span class="p">]</span>
-</pre></div>
-</div>
+<pre class="code" data-lang="haskell"><code><span class="nf">filter</span><span class="w"> </span><span class="ow">::</span><span class="w"> </span><span class="p">(</span><span class="n">a</span><span class="w"> </span><span class="ow">-&gt;</span><span class="w"> </span><span class="n">bool</span><span class="p">)</span><span class="w"> </span><span class="ow">-&gt;</span><span class="w"> </span><span class="p">[</span><span class="n">a</span><span class="p">]</span><span class="w"> </span><span class="ow">-&gt;</span><span class="w"> </span><span class="p">[</span><span class="n">a</span><span class="p">]</span>
+</code></pre>
 <p>Овај тип се чита здесна налево:</p>
-<div class="highlight-haskell notranslate"><div class="highlight"><pre><span></span><span class="nf">filter</span><span class="w"> </span><span class="ow">::</span><span class="w"> </span><span class="p">(</span><span class="n">a</span><span class="w"> </span><span class="ow">-&gt;</span><span class="w"> </span><span class="n">bool</span><span class="p">)</span><span class="w"> </span><span class="ow">-&gt;</span><span class="w"> </span><span class="p">([</span><span class="n">a</span><span class="p">]</span><span class="w"> </span><span class="ow">-&gt;</span><span class="w"> </span><span class="p">[</span><span class="n">a</span><span class="p">])</span>
-</pre></div>
-</div>
+<pre class="code" data-lang="haskell"><code><span class="nf">filter</span><span class="w"> </span><span class="ow">::</span><span class="w"> </span><span class="p">(</span><span class="n">a</span><span class="w"> </span><span class="ow">-&gt;</span><span class="w"> </span><span class="n">bool</span><span class="p">)</span><span class="w"> </span><span class="ow">-&gt;</span><span class="w"> </span><span class="p">([</span><span class="n">a</span><span class="p">]</span><span class="w"> </span><span class="ow">-&gt;</span><span class="w"> </span><span class="p">[</span><span class="n">a</span><span class="p">])</span>
+</code></pre>
 <p>То значи да је (једини) аргумент функције <code class="docutils literal notranslate"><span class="pre">filter</span></code> функција типа
 <code class="docutils literal notranslate"><span class="pre">a</span> <span class="pre">-&gt;</span> <span class="pre">bool</span></code> (тј. услов који је моделован функцијом која пресликава
 елементе неког типа <code class="docutils literal notranslate"><span class="pre">a</span></code> у тип <code class="docutils literal notranslate"><span class="pre">bool</span></code>), а повратна вредност јој је
@@ -959,9 +932,8 @@ matching</em>).</p>
 примеру, јер смо такву функцију могли укључити у ланац композиције.</p>
 <p>Када се функција <code class="docutils literal notranslate"><span class="pre">filter</span></code> примењује на два аргумента, примена се
 врши слева надесно.</p>
-<div class="highlight-haskell notranslate"><div class="highlight"><pre><span></span><span class="p">(</span><span class="n">filter</span><span class="w"> </span><span class="p">(</span><span class="nf">\</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="ow">-&gt;</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="nf">\</span><span class="p">`</span><span class="n">mod</span><span class="nf">\</span><span class="p">`</span><span class="w"> </span><span class="mi">2</span><span class="w"> </span><span class="o">/=</span><span class="w"> </span><span class="mi">0</span><span class="p">))</span><span class="w"> </span><span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w"> </span><span class="mi">4</span><span class="p">,</span><span class="w"> </span><span class="mi">5</span><span class="p">,</span><span class="w"> </span><span class="mi">6</span><span class="p">]</span>
-</pre></div>
-</div>
+<pre class="code" data-lang="haskell"><code><span class="p">(</span><span class="n">filter</span><span class="w"> </span><span class="p">(</span><span class="nf">\</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="ow">-&gt;</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="nf">\</span><span class="p">`</span><span class="n">mod</span><span class="nf">\</span><span class="p">`</span><span class="w"> </span><span class="mi">2</span><span class="w"> </span><span class="o">/=</span><span class="w"> </span><span class="mi">0</span><span class="p">))</span><span class="w"> </span><span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w"> </span><span class="mi">4</span><span class="p">,</span><span class="w"> </span><span class="mi">5</span><span class="p">,</span><span class="w"> </span><span class="mi">6</span><span class="p">]</span>
+</code></pre>
 <p>Дакле, прво се примењује функција <code class="docutils literal notranslate"><span class="pre">filter</span></code> типа
 <code class="docutils literal notranslate"><span class="pre">(a</span> <span class="pre">-&gt;</span> <span class="pre">bool)</span> <span class="pre">-&gt;</span> <span class="pre">([a]</span> <span class="pre">-&gt;</span> <span class="pre">[a])</span></code> на аргумент
 <code class="docutils literal notranslate"><span class="pre">(x</span> <span class="pre">-&gt;</span> <span class="pre">x</span> <span class="pre">`mod`</span> <span class="pre">2</span> <span class="pre">/=</span> <span class="pre">0)</span></code> типа <code class="docutils literal notranslate"><span class="pre">a</span> <span class="pre">-&gt;</span> <span class="pre">bool</span></code>, добија се конкретна
@@ -1010,10 +982,9 @@ matching</em>).</p>
 применом уобичајених математичких метода (пре свега математичке
 индукције и једнакосног резоновања). Размотримо пример рекурзивне
 функције која израчунава степен датог броја.</p>
-<div class="highlight-haskell notranslate"><div class="highlight"><pre><span></span><span class="nf">stepen</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="ow">=</span><span class="w"> </span><span class="mi">1</span>
+<pre class="code" data-lang="haskell"><code><span class="nf">stepen</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="ow">=</span><span class="w"> </span><span class="mi">1</span>
 <span class="nf">stepen</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="n">n</span><span class="w"> </span><span class="ow">=</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">stepen</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="p">(</span><span class="n">n</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mi">1</span><span class="p">)</span>
-</pre></div>
-</div>
+</code></pre>
 <p>Овај програм у потпуности одговара математичкој дефиницији:</p>
 <div class="math notranslate nohighlight">
 <span class="MathJax_Preview" style="color: inherit;"></span><span class="mjx-chtml MJXc-display" style="text-align: center;"><span id="MathJax-Element-21-Frame" class="mjx-chtml MathJax_CHTML" tabindex="0" style="font-size: 110%; text-align: center; position: relative;" data-mathml="&lt;math xmlns=&quot;http://www.w3.org/1998/Math/MathML&quot; display=&quot;block&quot;&gt;&lt;mtable columnalign=&quot;right left&quot; rowspacing=&quot;3pt&quot; columnspacing=&quot;0em&quot; displaystyle=&quot;true&quot;&gt;&lt;mtr&gt;&lt;mtd&gt;&lt;msup&gt;&lt;mi&gt;x&lt;/mi&gt;&lt;mi&gt;n&lt;/mi&gt;&lt;/msup&gt;&lt;mo&gt;=&lt;/mo&gt;&lt;mrow&gt;&lt;mo&gt;{&lt;/mo&gt;&lt;mtable columnalign=&quot;left left&quot; rowspacing=&quot;.2em&quot; columnspacing=&quot;1em&quot; displaystyle=&quot;false&quot;&gt;&lt;mtr&gt;&lt;mtd&gt;&lt;mn&gt;1&lt;/mn&gt;&lt;/mtd&gt;&lt;mtd&gt;&lt;mtext&gt;&amp;#x437;&amp;#x430;&amp;#xA0;&lt;/mtext&gt;&lt;mi&gt;n&lt;/mi&gt;&lt;mo&gt;=&lt;/mo&gt;&lt;mn&gt;0&lt;/mn&gt;&lt;/mtd&gt;&lt;/mtr&gt;&lt;mtr&gt;&lt;mtd&gt;&lt;mi&gt;x&lt;/mi&gt;&lt;mo&gt;&amp;#x22C5;&lt;/mo&gt;&lt;msup&gt;&lt;mi&gt;x&lt;/mi&gt;&lt;mrow class=&quot;MJX-TeXAtom-ORD&quot;&gt;&lt;mi&gt;n&lt;/mi&gt;&lt;mo&gt;&amp;#x2212;&lt;/mo&gt;&lt;mn&gt;1&lt;/mn&gt;&lt;/mrow&gt;&lt;/msup&gt;&lt;/mtd&gt;&lt;mtd&gt;&lt;mtext&gt;&amp;#x437;&amp;#x430;&amp;#xA0;&lt;/mtext&gt;&lt;mi&gt;n&lt;/mi&gt;&lt;mo&gt;&amp;gt;&lt;/mo&gt;&lt;mn&gt;0&lt;/mn&gt;&lt;/mtd&gt;&lt;/mtr&gt;&lt;/mtable&gt;&lt;mo fence=&quot;true&quot; stretchy=&quot;true&quot; symmetric=&quot;true&quot;&gt;&lt;/mo&gt;&lt;/mrow&gt;&lt;/mtd&gt;&lt;/mtr&gt;&lt;/mtable&gt;&lt;/math&gt;" role="presentation"><span id="MJXc-Node-137" class="mjx-math" aria-hidden="true"><span id="MJXc-Node-138" class="mjx-mrow"><span id="MJXc-Node-139" class="mjx-mtable" style="vertical-align: -0.974em; padding: 0px 0.167em;"><span class="mjx-table"><span id="MJXc-Node-140" class="mjx-mtr" style="height: 2.449em;"><span id="MJXc-Node-141" class="mjx-mtd" style="padding: 0px; text-align: right; width: 11.271em;"><span id="MJXc-Node-142" class="mjx-mrow"><span id="MJXc-Node-143" class="mjx-msubsup"><span class="mjx-base"><span id="MJXc-Node-144" class="mjx-mi"><span class="mjx-char MJXc-TeX-math-I" style="padding-top: 0.23em; padding-bottom: 0.287em;">x</span></span></span><span class="mjx-sup" style="font-size: 70.7%; vertical-align: 0.584em; padding-left: 0px; padding-right: 0.071em;"><span id="MJXc-Node-145" class="mjx-mi" style=""><span class="mjx-char MJXc-TeX-math-I" style="padding-top: 0.23em; padding-bottom: 0.287em;">n</span></span></span></span><span id="MJXc-Node-146" class="mjx-mo MJXc-space3"><span class="mjx-char MJXc-TeX-main-R" style="padding-top: 0.06em; padding-bottom: 0.344em;">=</span></span><span id="MJXc-Node-147" class="mjx-mrow MJXc-space3"><span id="MJXc-Node-148" class="mjx-mo"><span class="mjx-char MJXc-TeX-size3-R" style="padding-top: 1.253em; padding-bottom: 1.253em;">{</span></span><span id="MJXc-Node-149" class="mjx-mtable" style="vertical-align: -0.913em; padding: 0px 0.167em;"><span class="mjx-table"><span id="MJXc-Node-150" class="mjx-mtr" style="height: 1.15em;"><span id="MJXc-Node-151" class="mjx-mtd" style="padding: 0px 0.5em 0px 0px; text-align: left; width: 3.23em;"><span id="MJXc-Node-152" class="mjx-mrow" style="margin-top: -0.175em;"><span id="MJXc-Node-153" class="mjx-mn"><span class="mjx-char MJXc-TeX-main-R" style="padding-top: 0.401em; padding-bottom: 0.344em;">1</span></span><span class="mjx-strut"></span></span></span><span id="MJXc-Node-154" class="mjx-mtd" style="padding: 0px 0px 0px 0.5em; text-align: left; width: 3.593em;"><span id="MJXc-Node-155" class="mjx-mrow" style="margin-top: -0.175em;"><span id="MJXc-Node-156" class="mjx-mtext"><span class="mjx-char" style="padding-top: 0.514em; padding-bottom: 0.23em;"><span class="mjx-charbox MJXc-TeX-unknown-R" style="padding-bottom: 0.261em; width: 0.443em;">з</span><span class="mjx-charbox MJXc-TeX-unknown-R" style="padding-bottom: 0.261em; width: 0.466em;">а</span><span class="mjx-charbox MJXc-TeX-main-R" style="padding-bottom: 0.314em;">&nbsp;</span></span></span><span id="MJXc-Node-157" class="mjx-mi"><span class="mjx-char MJXc-TeX-math-I" style="padding-top: 0.23em; padding-bottom: 0.287em;">n</span></span><span id="MJXc-Node-158" class="mjx-mo MJXc-space3"><span class="mjx-char MJXc-TeX-main-R" style="padding-top: 0.06em; padding-bottom: 0.344em;">=</span></span><span id="MJXc-Node-159" class="mjx-mn MJXc-space3"><span class="mjx-char MJXc-TeX-main-R" style="padding-top: 0.401em; padding-bottom: 0.344em;">0</span></span><span class="mjx-strut"></span></span></span></span><span id="MJXc-Node-160" class="mjx-mtr" style="height: 1.177em;"><span id="MJXc-Node-161" class="mjx-mtd" style="padding: 0.1em 0.5em 0px 0px; text-align: left;"><span id="MJXc-Node-162" class="mjx-mrow" style="margin-top: -0.148em;"><span id="MJXc-Node-163" class="mjx-mi"><span class="mjx-char MJXc-TeX-math-I" style="padding-top: 0.23em; padding-bottom: 0.287em;">x</span></span><span id="MJXc-Node-164" class="mjx-mo MJXc-space2"><span class="mjx-char MJXc-TeX-main-R" style="padding-top: 0.003em; padding-bottom: 0.344em;">⋅</span></span><span id="MJXc-Node-165" class="mjx-msubsup MJXc-space2"><span class="mjx-base"><span id="MJXc-Node-166" class="mjx-mi"><span class="mjx-char MJXc-TeX-math-I" style="padding-top: 0.23em; padding-bottom: 0.287em;">x</span></span></span><span class="mjx-sup" style="font-size: 70.7%; vertical-align: 0.513em; padding-left: 0px; padding-right: 0.071em;"><span id="MJXc-Node-167" class="mjx-texatom" style=""><span id="MJXc-Node-168" class="mjx-mrow"><span id="MJXc-Node-169" class="mjx-mi"><span class="mjx-char MJXc-TeX-math-I" style="padding-top: 0.23em; padding-bottom: 0.287em;">n</span></span><span id="MJXc-Node-170" class="mjx-mo"><span class="mjx-char MJXc-TeX-main-R" style="padding-top: 0.287em; padding-bottom: 0.401em;">−</span></span><span id="MJXc-Node-171" class="mjx-mn"><span class="mjx-char MJXc-TeX-main-R" style="padding-top: 0.401em; padding-bottom: 0.344em;">1</span></span></span></span></span></span><span class="mjx-strut"></span></span></span><span id="MJXc-Node-172" class="mjx-mtd" style="padding: 0.1em 0px 0px 0.5em; text-align: left;"><span id="MJXc-Node-173" class="mjx-mrow" style="margin-top: -0.148em;"><span id="MJXc-Node-174" class="mjx-mtext"><span class="mjx-char" style="padding-top: 0.514em; padding-bottom: 0.23em;"><span class="mjx-charbox MJXc-TeX-unknown-R" style="padding-bottom: 0.261em; width: 0.443em;">з</span><span class="mjx-charbox MJXc-TeX-unknown-R" style="padding-bottom: 0.261em; width: 0.466em;">а</span><span class="mjx-charbox MJXc-TeX-main-R" style="padding-bottom: 0.314em;">&nbsp;</span></span></span><span id="MJXc-Node-175" class="mjx-mi"><span class="mjx-char MJXc-TeX-math-I" style="padding-top: 0.23em; padding-bottom: 0.287em;">n</span></span><span id="MJXc-Node-176" class="mjx-mo MJXc-space3"><span class="mjx-char MJXc-TeX-main-R" style="padding-top: 0.23em; padding-bottom: 0.401em;">&gt;</span></span><span id="MJXc-Node-177" class="mjx-mn MJXc-space3"><span class="mjx-char MJXc-TeX-main-R" style="padding-top: 0.401em; padding-bottom: 0.344em;">0</span></span><span class="mjx-strut"></span></span></span></span></span></span><span id="MJXc-Node-178" class="mjx-mo" style="width: 0.12em;"></span></span><span class="mjx-strut"></span></span></span></span></span></span></span></span><span class="MJX_Assistive_MathML MJX_Assistive_MathML_Block" role="presentation"><math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><mtable columnalign="right left" rowspacing="3pt" columnspacing="0em" displaystyle="true"><mtr><mtd><msup><mi>x</mi><mi>n</mi></msup><mo>=</mo><mrow><mo>{</mo><mtable columnalign="left left" rowspacing=".2em" columnspacing="1em" displaystyle="false"><mtr><mtd><mn>1</mn></mtd><mtd><mtext>за&nbsp;</mtext><mi>n</mi><mo>=</mo><mn>0</mn></mtd></mtr><mtr><mtd><mi>x</mi><mo>⋅</mo><msup><mi>x</mi><mrow class="MJX-TeXAtom-ORD"><mi>n</mi><mo>−</mo><mn>1</mn></mrow></msup></mtd><mtd><mtext>за&nbsp;</mtext><mi>n</mi><mo>&gt;</mo><mn>0</mn></mtd></mtr></mtable><mo fence="true" stretchy="true" symmetric="true"></mo></mrow></mtd></mtr></mtable></math></span></span></span><script type="math/tex; mode=display" id="MathJax-Element-21">\begin{split}x^n  = \begin{cases}

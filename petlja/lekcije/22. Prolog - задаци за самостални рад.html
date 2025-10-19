@@ -20,10 +20,9 @@
     </div>
 
     <div><div id="prologresenje1" style="display: none;">
-    <div class="highlight-prolog notranslate"><div class="highlight"><pre><span></span><span class="nf">same_length</span><span class="p">([],</span> <span class="p">[]).</span>
+    <pre class="code" data-lang="prolog"><code><span class="nf">same_length</span><span class="p">([],</span> <span class="p">[]).</span>
 <span class="nf">same_length</span><span class="p">([</span><span class="k">_</span><span class="p">|</span><span class="nv">T1</span><span class="p">],</span> <span class="p">[</span><span class="k">_</span><span class="p">|</span><span class="nv">T2</span><span class="p">])</span> <span class="p">:-</span> <span class="nf">same_length</span><span class="p">(</span><span class="nv">T1</span><span class="p">,</span> <span class="nv">T2</span><span class="p">).</span>
-</pre></div>
-</div>
+</code></pre>
 
     </div><button class="btn btn-default reveal_button" id="prologresenje1_show" style="margin-bottom: 10px;">Прикажи решење</button><button class="btn btn-default reveal_button" id="prologresenje1_hide" style="display: none; margin-bottom: 10px;">Сакриј решење</button></div>
     
@@ -36,10 +35,9 @@
     </div>
 
     <div><div id="prologresenje2" style="display: none;">
-    <div class="highlight-prolog notranslate"><div class="highlight"><pre><span></span><span class="nf">sum</span><span class="p">([],</span> <span class="mi">0</span><span class="p">).</span>
+    <pre class="code" data-lang="prolog"><code><span class="nf">sum</span><span class="p">([],</span> <span class="mi">0</span><span class="p">).</span>
 <span class="nf">sum</span><span class="p">([</span><span class="nv">H</span><span class="p">|</span><span class="nv">T</span><span class="p">],</span> <span class="nv">S</span><span class="p">)</span> <span class="p">:-</span> <span class="nf">sum</span><span class="p">(</span><span class="nv">T</span><span class="p">,</span> <span class="nv">ST</span><span class="p">),</span> <span class="nv">S</span> <span class="o">is</span> <span class="nv">H</span> <span class="o">+</span> <span class="nv">ST</span><span class="p">.</span>
-</pre></div>
-</div>
+</code></pre>
 
     </div><button class="btn btn-default reveal_button" id="prologresenje2_show" style="margin-bottom: 10px;">Прикажи решење</button><button class="btn btn-default reveal_button" id="prologresenje2_hide" style="display: none; margin-bottom: 10px;">Сакриј решење</button></div>
     
@@ -52,12 +50,11 @@
     </div>
 
     <div><div id="prologresenje3" style="display: none;">
-    <div class="highlight-prolog notranslate"><div class="highlight"><pre><span></span><span class="nf">min</span><span class="p">(</span><span class="nv">X</span><span class="p">,</span> <span class="nv">Y</span><span class="p">,</span> <span class="nv">X</span><span class="p">)</span> <span class="p">:-</span> <span class="nv">X</span> <span class="o">=&lt;</span> <span class="nv">Y</span><span class="p">.</span>
+    <pre class="code" data-lang="prolog"><code><span class="nf">min</span><span class="p">(</span><span class="nv">X</span><span class="p">,</span> <span class="nv">Y</span><span class="p">,</span> <span class="nv">X</span><span class="p">)</span> <span class="p">:-</span> <span class="nv">X</span> <span class="o">=&lt;</span> <span class="nv">Y</span><span class="p">.</span>
 <span class="nf">min</span><span class="p">(</span><span class="nv">X</span><span class="p">,</span> <span class="nv">Y</span><span class="p">,</span> <span class="nv">Y</span><span class="p">)</span> <span class="s s-Atom">:=</span> <span class="nv">X</span> <span class="o">&gt;</span> <span class="nv">Y</span><span class="p">.</span>
 <span class="nf">min_list</span><span class="p">([</span><span class="nv">X</span><span class="p">],</span> <span class="nv">X</span><span class="p">).</span>
 <span class="nf">min_list</span><span class="p">([</span><span class="nv">H</span><span class="p">|</span><span class="nv">T</span><span class="p">],</span> <span class="nv">M</span><span class="p">)</span> <span class="p">:-</span> <span class="nf">min_list</span><span class="p">(</span><span class="nv">T</span><span class="p">,</span> <span class="nv">MT</span><span class="p">),</span> <span class="nf">min</span><span class="p">(</span><span class="nv">H</span><span class="p">,</span> <span class="nv">MT</span><span class="p">,</span> <span class="nv">M</span><span class="p">).</span>
-</pre></div>
-</div>
+</code></pre>
 
     </div><button class="btn btn-default reveal_button" id="prologresenje3_show" style="margin-bottom: 10px;">Прикажи решење</button><button class="btn btn-default reveal_button" id="prologresenje3_hide" style="display: none; margin-bottom: 10px;">Сакриј решење</button></div>
     
@@ -70,10 +67,9 @@
     </div>
 
     <div><div id="prologresenje4" style="display: none;">
-    <div class="highlight-prolog notranslate"><div class="highlight"><pre><span></span><span class="nf">digits</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="p">[]).</span>
+    <pre class="code" data-lang="prolog"><code><span class="nf">digits</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="p">[]).</span>
 <span class="nf">digits</span><span class="p">(</span><span class="nv">N</span><span class="p">,</span> <span class="p">[</span><span class="nv">D</span><span class="p">|</span><span class="nv">T</span><span class="p">])</span> <span class="p">:-</span> <span class="nv">N</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">,</span> <span class="nv">D</span> <span class="o">is</span> <span class="nv">N</span> <span class="o">mod</span> <span class="mi">10</span><span class="p">,</span> <span class="nv">N1</span> <span class="o">is</span> <span class="nv">N</span> <span class="o">div</span> <span class="mi">10</span><span class="p">,</span> <span class="nf">digits</span><span class="p">(</span><span class="nv">N1</span><span class="p">,</span> <span class="nv">T</span><span class="p">).</span>
-</pre></div>
-</div>
+</code></pre>
 
     </div><button class="btn btn-default reveal_button" id="prologresenje4_show" style="margin-bottom: 10px;">Прикажи решење</button><button class="btn btn-default reveal_button" id="prologresenje4_hide" style="display: none; margin-bottom: 10px;">Сакриј решење</button></div>
     
@@ -86,11 +82,10 @@
     </div>
 
     <div><div id="prologresenje5" style="display: none;">
-    <div class="highlight-prolog notranslate"><div class="highlight"><pre><span></span><span class="nf">odd_elements</span><span class="p">([],</span> <span class="p">[]).</span>
+    <pre class="code" data-lang="prolog"><code><span class="nf">odd_elements</span><span class="p">([],</span> <span class="p">[]).</span>
 <span class="nf">odd_elements</span><span class="p">([</span><span class="nv">H</span><span class="p">|</span><span class="nv">T</span><span class="p">],</span> <span class="p">[</span><span class="nv">H</span><span class="p">|</span><span class="nv">T1</span><span class="p">])</span> <span class="p">:-</span> <span class="nv">H1</span> <span class="o">is</span> <span class="nv">H</span> <span class="o">mod</span> <span class="mi">2</span><span class="p">,</span> <span class="nv">H1</span> <span class="o">==</span> <span class="mi">1</span><span class="p">,</span> <span class="nf">odd_elements</span><span class="p">(</span><span class="nv">T</span><span class="p">,</span> <span class="nv">T1</span><span class="p">),</span> <span class="p">!.</span>
 <span class="nf">odd_elements</span><span class="p">([</span><span class="k">_</span><span class="p">|</span><span class="nv">T</span><span class="p">],</span> <span class="nv">T1</span><span class="p">)</span> <span class="p">:-</span> <span class="nf">odd_elements</span><span class="p">(</span><span class="nv">T</span><span class="p">,</span> <span class="nv">T1</span><span class="p">).</span>
-</pre></div>
-</div>
+</code></pre>
 
     </div><button class="btn btn-default reveal_button" id="prologresenje5_show" style="margin-bottom: 10px;">Прикажи решење</button><button class="btn btn-default reveal_button" id="prologresenje5_hide" style="display: none; margin-bottom: 10px;">Сакриј решење</button></div>
     
@@ -103,10 +98,9 @@
     </div>
 
     <div><div id="prologresenje6" style="display: none;">
-    <div class="highlight-prolog notranslate"><div class="highlight"><pre><span></span><span class="nf">squares</span><span class="p">([],</span> <span class="p">[]).</span>
+    <pre class="code" data-lang="prolog"><code><span class="nf">squares</span><span class="p">([],</span> <span class="p">[]).</span>
 <span class="nf">squares</span><span class="p">([</span><span class="nv">H</span><span class="p">|</span><span class="nv">T</span><span class="p">],</span> <span class="p">[</span><span class="nv">H1</span><span class="p">|</span><span class="nv">T1</span><span class="p">])</span> <span class="p">:-</span> <span class="nv">H1</span> <span class="o">is</span> <span class="nv">H</span><span class="o">*</span><span class="nv">H</span><span class="p">,</span> <span class="nf">squares</span><span class="p">(</span><span class="nv">T</span><span class="p">,</span> <span class="nv">T1</span><span class="p">).</span>
-</pre></div>
-</div>
+</code></pre>
 
     </div><button class="btn btn-default reveal_button" id="prologresenje6_show" style="margin-bottom: 10px;">Прикажи решење</button><button class="btn btn-default reveal_button" id="prologresenje6_hide" style="display: none; margin-bottom: 10px;">Сакриј решење</button></div>
     
@@ -120,10 +114,9 @@
 
     <div><div id="prologresenje7" style="display: none;">
     <p>У решењу употребити све функције из претходних задатака.</p>
-<div class="highlight-prolog notranslate"><div class="highlight"><pre><span></span><span class="nf">sum_squares_odd_digits</span><span class="p">(</span><span class="nv">N</span><span class="p">,</span> <span class="nv">M</span><span class="p">)</span> <span class="p">:-</span>
+<pre class="code" data-lang="prolog"><code><span class="nf">sum_squares_odd_digits</span><span class="p">(</span><span class="nv">N</span><span class="p">,</span> <span class="nv">M</span><span class="p">)</span> <span class="p">:-</span>
     <span class="nf">digits</span><span class="p">(</span><span class="nv">N</span><span class="p">,</span> <span class="nv">D</span><span class="p">),</span> <span class="nf">odd_elements</span><span class="p">(</span><span class="nv">D</span><span class="p">,</span> <span class="nv">DO</span><span class="p">),</span> <span class="nf">squares</span><span class="p">(</span><span class="nv">DO</span><span class="p">,</span> <span class="nv">DOS</span><span class="p">),</span> <span class="nf">sum</span><span class="p">(</span><span class="nv">DOS</span><span class="p">,</span> <span class="nv">M</span><span class="p">).</span>
-</pre></div>
-</div>
+</code></pre>
 <p>Решење без коришћења помоћних предиката би било веома компликовано.</p>
 
     </div><button class="btn btn-default reveal_button" id="prologresenje7_show" style="margin-bottom: 10px;">Прикажи решење</button><button class="btn btn-default reveal_button" id="prologresenje7_hide" style="display: none; margin-bottom: 10px;">Сакриј решење</button></div>
@@ -138,14 +131,13 @@
     </div>
 
     <div><div id="prologresenje8" style="display: none;">
-    <div class="highlight-prolog notranslate"><div class="highlight"><pre><span></span><span class="nf">insert</span><span class="p">(</span><span class="nv">X</span><span class="p">,</span> <span class="p">[],</span> <span class="p">[</span><span class="nv">X</span><span class="p">]).</span>
+    <pre class="code" data-lang="prolog"><code><span class="nf">insert</span><span class="p">(</span><span class="nv">X</span><span class="p">,</span> <span class="p">[],</span> <span class="p">[</span><span class="nv">X</span><span class="p">]).</span>
 <span class="nf">insert</span><span class="p">(</span><span class="nv">X</span><span class="p">,</span> <span class="p">[</span><span class="nv">H</span><span class="p">|</span><span class="nv">T</span><span class="p">],</span> <span class="p">[</span><span class="nv">X</span><span class="p">,</span><span class="nv">H</span><span class="p">|</span><span class="nv">T</span><span class="p">])</span> <span class="p">:-</span> <span class="nv">X</span> <span class="o">&lt;</span> <span class="nv">H</span><span class="p">,</span> <span class="p">!.</span>
 <span class="nf">insert</span><span class="p">(</span><span class="nv">X</span><span class="p">,</span> <span class="p">[</span><span class="nv">H</span><span class="p">|</span><span class="nv">T</span><span class="p">],</span> <span class="p">[</span><span class="nv">H</span><span class="p">|</span><span class="nv">T1</span><span class="p">])</span> <span class="p">:-</span> <span class="nf">insert</span><span class="p">(</span><span class="nv">X</span><span class="p">,</span> <span class="nv">T</span><span class="p">,</span> <span class="nv">T1</span><span class="p">).</span>
 
 <span class="nf">insertion_sort</span><span class="p">([],</span> <span class="p">[]).</span>
 <span class="nf">insertion_sort</span><span class="p">([</span><span class="nv">H</span><span class="p">|</span><span class="nv">T</span><span class="p">],</span> <span class="nv">S</span><span class="p">)</span> <span class="p">:-</span> <span class="nf">insertion_sort</span><span class="p">(</span><span class="nv">T</span><span class="p">,</span> <span class="nv">ST</span><span class="p">),</span> <span class="nf">insert</span><span class="p">(</span><span class="nv">H</span><span class="p">,</span> <span class="nv">ST</span><span class="p">,</span> <span class="nv">S</span><span class="p">).</span>
-</pre></div>
-</div>
+</code></pre>
 
     </div><button class="btn btn-default reveal_button" id="prologresenje8_show" style="margin-bottom: 10px;">Прикажи решење</button><button class="btn btn-default reveal_button" id="prologresenje8_hide" style="display: none; margin-bottom: 10px;">Сакриј решење</button></div>
     
@@ -164,13 +156,12 @@
 Пермутације добијамо тако што на све могуће начине одаберемо први
 елемент у пермутацији, а затим рекурзивно пермутујемо остале
 елементе листе.</p>
-<div class="highlight-prolog notranslate"><div class="highlight"><pre><span></span><span class="nf">permutations</span><span class="p">([],</span> <span class="p">[]).</span>
+<pre class="code" data-lang="prolog"><code><span class="nf">permutations</span><span class="p">([],</span> <span class="p">[]).</span>
 <span class="nf">permutations</span><span class="p">(</span><span class="nv">L</span><span class="p">,</span> <span class="p">[</span><span class="nv">H</span><span class="p">|</span><span class="nv">T</span><span class="p">])</span> <span class="p">:-</span> <span class="nf">select</span><span class="p">(</span><span class="nv">H</span><span class="p">,</span> <span class="nv">L</span><span class="p">,</span> <span class="nv">L1</span><span class="p">),</span> <span class="nf">permutations</span><span class="p">(</span><span class="nv">L1</span><span class="p">,</span> <span class="nv">T</span><span class="p">).</span>
 
 <span class="nf">select</span><span class="p">(</span><span class="nv">H</span><span class="p">,</span> <span class="p">[</span><span class="nv">H</span><span class="p">|</span><span class="nv">T</span><span class="p">],</span> <span class="nv">T</span><span class="p">).</span>
 <span class="nf">select</span><span class="p">(</span><span class="nv">X</span><span class="p">,</span> <span class="p">[</span><span class="nv">H</span><span class="p">|</span><span class="nv">T</span><span class="p">],</span> <span class="p">[</span><span class="nv">H</span><span class="p">|</span><span class="nv">T1</span><span class="p">])</span> <span class="p">:-</span>  <span class="nf">select</span><span class="p">(</span><span class="nv">X</span><span class="p">,</span> <span class="nv">T</span><span class="p">,</span> <span class="nv">T1</span><span class="p">).</span>
-</pre></div>
-</div>
+</code></pre>
 <p>Друго могуће решење се заснива на убацивању датог елемента на
 произвољну позицију у листи, што реализујемо помоћу предиката
 <code class="docutils literal notranslate"><span class="pre">interleave</span></code>. Каква год да је листа, елемент се може убацити на
@@ -179,13 +170,12 @@
 <p>Пермутације празне листе чини једино празна листа. Ако је листа
 непразна, онда можемо рекурзивно да пермутујемо њен реп, а главу да
 убацимо на произвољно место у листи.</p>
-<div class="highlight-prolog notranslate"><div class="highlight"><pre><span></span><span class="nf">interleave</span><span class="p">(</span><span class="nv">X</span><span class="p">,</span> <span class="nv">L</span><span class="p">,[</span><span class="nv">X</span><span class="p">|</span><span class="nv">L</span><span class="p">]).</span>
+<pre class="code" data-lang="prolog"><code><span class="nf">interleave</span><span class="p">(</span><span class="nv">X</span><span class="p">,</span> <span class="nv">L</span><span class="p">,[</span><span class="nv">X</span><span class="p">|</span><span class="nv">L</span><span class="p">]).</span>
 <span class="nf">interleave</span><span class="p">(</span><span class="nv">X</span><span class="p">,</span> <span class="p">[</span><span class="nv">H</span><span class="p">|</span><span class="nv">T</span><span class="p">],</span> <span class="p">[</span><span class="nv">H</span><span class="p">|</span><span class="nv">T1</span><span class="p">])</span> <span class="p">:-</span> <span class="nf">interleave</span><span class="p">(</span><span class="nv">X</span><span class="p">,</span> <span class="nv">T</span><span class="p">,</span> <span class="nv">T1</span><span class="p">).</span>
 
 <span class="nf">permutations</span><span class="p">([],</span> <span class="p">[]).</span>
 <span class="nf">permutations</span><span class="p">([</span><span class="nv">H</span><span class="p">|</span><span class="nv">T</span><span class="p">],</span> <span class="nv">P</span><span class="p">)</span> <span class="p">:-</span> <span class="nf">permutations</span><span class="p">(</span><span class="nv">T</span><span class="p">,</span> <span class="nv">T1</span><span class="p">),</span> <span class="nf">interleave</span><span class="p">(</span><span class="nv">H</span><span class="p">,</span> <span class="nv">T1</span><span class="p">,</span> <span class="nv">P</span><span class="p">).</span>
-</pre></div>
-</div>
+</code></pre>
 
     </div><button class="btn btn-default reveal_button" id="prologresenje9_show" style="margin-bottom: 10px;">Прикажи решење</button><button class="btn btn-default reveal_button" id="prologresenje9_hide" style="display: none; margin-bottom: 10px;">Сакриј решење</button></div>
     
@@ -200,11 +190,10 @@
     </div>
 
     <div><div id="prologresenje10" style="display: none;">
-    <div class="highlight-prolog notranslate"><div class="highlight"><pre><span></span><span class="nf">podskup</span><span class="p">([],</span> <span class="p">[]).</span>
+    <pre class="code" data-lang="prolog"><code><span class="nf">podskup</span><span class="p">([],</span> <span class="p">[]).</span>
 <span class="nf">podskup</span><span class="p">([</span><span class="nv">X</span><span class="p">|</span><span class="nv">Xs</span><span class="p">],</span> <span class="p">[</span><span class="nv">Y</span><span class="p">|</span><span class="nv">Ys</span><span class="p">])</span> <span class="p">:-</span> <span class="nv">X</span> <span class="o">=</span> <span class="nv">Y</span><span class="p">,</span> <span class="nf">podskup</span><span class="p">(</span><span class="nv">Xs</span><span class="p">,</span> <span class="nv">Ys</span><span class="p">).</span>
 <span class="nf">podskup</span><span class="p">(</span><span class="nv">Xs</span><span class="p">,</span> <span class="p">[</span><span class="k">_</span><span class="p">|</span><span class="nv">Ys</span><span class="p">])</span> <span class="p">:-</span> <span class="nf">podskup</span><span class="p">(</span><span class="nv">Xs</span><span class="p">,</span> <span class="nv">Ys</span><span class="p">)</span>
-</pre></div>
-</div>
+</code></pre>
 
     </div><button class="btn btn-default reveal_button" id="prologresenje10_show" style="margin-bottom: 10px;">Прикажи решење</button><button class="btn btn-default reveal_button" id="prologresenje10_hide" style="display: none; margin-bottom: 10px;">Сакриј решење</button></div>
     
@@ -234,7 +223,7 @@
 под бројем 6 се онда могу веома једноставно кодирати. За услов из
 тачке 6 дефинишемо помоћу функцију која проверава колико се пута
 двочлана подлиста јавља унутар дате листе.</p>
-<div class="highlight-prolog notranslate"><div class="highlight"><pre><span></span><span class="nf">brojPojavljivanjaPara</span><span class="p">([],</span> <span class="k">_</span><span class="p">,</span> <span class="mi">0</span><span class="p">).</span>
+<pre class="code" data-lang="prolog"><code><span class="nf">brojPojavljivanjaPara</span><span class="p">([],</span> <span class="k">_</span><span class="p">,</span> <span class="mi">0</span><span class="p">).</span>
 <span class="nf">brojPojavljivanjaPara</span><span class="p">([</span><span class="nv">X1</span><span class="p">,</span><span class="nv">X2</span><span class="p">|</span><span class="nv">XS</span><span class="p">],</span> <span class="p">[</span><span class="nv">X1</span><span class="p">,</span><span class="nv">X2</span><span class="p">],</span> <span class="nv">N</span><span class="p">)</span> <span class="p">:-</span>
     <span class="nf">brojPojavljivanjaPara</span><span class="p">(</span><span class="nv">XS</span><span class="p">,</span> <span class="p">[</span><span class="nv">X1</span><span class="p">,</span> <span class="nv">X2</span><span class="p">],</span> <span class="nv">N1</span><span class="p">),</span> <span class="nv">N</span> <span class="o">is</span> <span class="nv">N1</span> <span class="o">+</span> <span class="mi">1</span><span class="p">,</span> <span class="p">!.</span>
 <span class="nf">brojPojavljivanjaPara</span><span class="p">([</span><span class="k">_</span><span class="p">|</span><span class="nv">XS</span><span class="p">],</span> <span class="p">[</span><span class="nv">X1</span><span class="p">,</span><span class="nv">X2</span><span class="p">],</span> <span class="nv">N</span><span class="p">)</span> <span class="p">:-</span>
@@ -248,8 +237,7 @@
     <span class="nv">Kairo</span> <span class="o">&gt;</span> <span class="nv">Dzakarta</span><span class="p">,</span>
     <span class="nf">brojPojavljivanjaPara</span><span class="p">(</span><span class="nv">Gradovi</span><span class="p">,</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="p">],</span> <span class="mi">2</span><span class="p">),</span>
     <span class="p">(</span><span class="nv">Dzakarta</span> <span class="o">is</span> <span class="p">(</span><span class="nv">London</span><span class="o">-</span><span class="mi">1</span><span class="p">);</span> <span class="nv">Dzakarta</span> <span class="o">is</span> <span class="p">(</span><span class="nv">Peking</span><span class="o">-</span><span class="mi">1</span><span class="p">)).</span>
-</pre></div>
-</div>
+</code></pre>
 
     </div><button class="btn btn-default reveal_button" id="prologresenje11_show" style="margin-bottom: 10px;">Прикажи решење</button><button class="btn btn-default reveal_button" id="prologresenje11_hide" style="display: none; margin-bottom: 10px;">Сакриј решење</button></div>
     
@@ -259,7 +247,7 @@
         <div class="course-content">
 <p>Напиши Prolog решење следеће логичке загонетке, дате у облику
 песме.</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>1  Four couples in all
+<pre class="code" data-lang="default"><code>1  Four couples in all
    Attended a costume ball.
 2  The lady dressed as a cat
    Arrived with her husband Matt.
@@ -275,8 +263,7 @@
    Neither is wed to Batman.
 8  If Snow White arrived after Tess,
    Then how was each couple dressed?
-</pre></div>
-</div>
+</code></pre>
     </div>
 </section>
 </main>

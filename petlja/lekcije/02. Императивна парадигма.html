@@ -27,17 +27,22 @@
 гранања). Алгоритам се описује низом наредби које рачунар извршава
 секвенцијално, једну за другом (при чему гранање и петље дефинишу
 другачију контролу тока).</p>
-<p>На пример, размотримо наредни фрагмент императивног кода у језику C#:</p>
-<div class="highlight-csharp notranslate"><div class="highlight"><pre><span></span><span class="kt">int</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">3</span><span class="p">;</span>
-<span class="kt">int</span><span class="w"> </span><span class="n">n</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">4</span><span class="p">;</span>
-<span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
-<span class="kt">int</span><span class="w"> </span><span class="n">stepen</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span>
-<span class="k">while</span><span class="w"> </span><span class="p">(</span><span class="n">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">n</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<span class="w">    </span><span class="n">stepen</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">stepen</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">x</span><span class="p">;</span>
-<span class="w">    </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span>
+<p>На пример, размотримо наредни фрагмент императивног кода:</p>
+<pre class="code" data-lang="cpp"><code><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;iostream&gt;</span>
+
+<span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">3</span><span class="p">;</span>
+<span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">n</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">4</span><span class="p">;</span>
+<span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+<span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">stepen</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span>
+<span class="w">    </span><span class="k">while</span><span class="w"> </span><span class="p">(</span><span class="n">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">n</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="n">stepen</span><span class="w"> </span><span class="o">*=</span><span class="w"> </span><span class="n">x</span><span class="p">;</span>
+<span class="w">        </span><span class="n">i</span><span class="o">++</span><span class="p">;</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">    </span><span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">stepen</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
 <span class="p">}</span>
-</pre></div>
-</div>
+</code></pre>
 <p>У њему учествују 4 променљиве (<code class="docutils literal notranslate"><span class="pre">x</span></code>, <code class="docutils literal notranslate"><span class="pre">n</span></code>, <code class="docutils literal notranslate"><span class="pre">i</span></code> и <code class="docutils literal notranslate"><span class="pre">stepen</span></code>). На
 почетку програма врши се њихова иницијализација и пре уласка у петљу
 вредности ових променљивих су редом 3, 4, 0 и 1. Током петље стање
@@ -116,7 +121,7 @@
 неку лабелу под неким условом (ако тај услов није испуњен, онда се
 програм наставља нормалним током, од инструкције која се налази иза
 инструкције скока). На пример:</p>
-<div class="highlight-asm notranslate"><div class="highlight"><pre><span></span><span class="w">   </span><span class="nf">mov</span><span class="w"> </span><span class="no">eax</span><span class="p">,</span><span class="w"> </span><span class="mi">5</span>
+<pre class="code" data-lang="asm"><code><span class="w">   </span><span class="nf">mov</span><span class="w"> </span><span class="no">eax</span><span class="p">,</span><span class="w"> </span><span class="mi">5</span>
 <span class="nl">pocetak:</span>
 <span class="w">   </span><span class="nf">cmp</span><span class="w"> </span><span class="no">eax</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span>
 <span class="w">   </span><span class="nf">je</span><span class="w"> </span><span class="no">kraj</span>
@@ -124,8 +129,7 @@
 <span class="w">   </span><span class="nf">jmp</span><span class="w"> </span><span class="no">pocetak</span>
 <span class="nl">kraj:</span>
 <span class="w">   </span><span class="nf">call</span><span class="w"> </span><span class="no">print</span>
-</pre></div>
-</div>
+</code></pre>
 <p>У претходном асемблерском програму је реализована једна једноставна
 петља. У првој инструкцији уписује се вредност 5 у регистар <code class="docutils literal notranslate"><span class="pre">eax</span></code>.
 У наредној се помоћу инструкције <code class="docutils literal notranslate"><span class="pre">cmp</span></code> пореди вредност у регистру
@@ -143,30 +147,28 @@
 скока која је обично називана GOTO. Она је била карактеристична за
 језике попут језика Fortran и BASIC. Претходна петља би се у језику
 BASIC могла записати овако.</p>
-<div class="highlight-basic notranslate"><div class="highlight"><pre><span></span><span class="nl">10</span><span class="w"> </span><span class="vg">X</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="il">5</span>
+<pre class="code" data-lang="basic"><code><span class="nl">10</span><span class="w"> </span><span class="vg">X</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="il">5</span>
 <span class="nl">20</span><span class="w"> </span><span class="kr">IF</span><span class="w"> </span><span class="vg">X</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="il">0</span><span class="w"> </span><span class="kr">THEN</span><span class="w"> </span><span class="kr">GOTO</span><span class="w"> </span><span class="nl">50</span>
 <span class="nl">30</span><span class="w"> </span><span class="vg">X</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="vg">X</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="il">1</span>
 <span class="nl">40</span><span class="w"> </span><span class="kr">GOTO</span><span class="w"> </span><span class="nl">20</span>
 <span class="nl">50</span><span class="w"> </span><span class="kr">PRINT</span><span class="p">(</span><span class="vg">X</span><span class="p">)</span>
-</pre></div>
-</div>
+</code></pre>
 <p>Свака наредба има свој број и наредбом GOTO врши се скок на наредбу са
 задатим бројем.</p>
 <p>Парадигма у којој се наредбе извршавају секвенцијално, једна за
 другом, а ток програма се мења наредбом скока (GOTO) назива се понекад
 <strong>композитна парадигма</strong>.</p>
 <p>У савременом програмском језику претходни програм би се записао као</p>
-<div class="highlight-csharp notranslate"><div class="highlight"><pre><span></span><span class="kt">int</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">5</span><span class="p">;</span>
+<pre class="code" data-lang="csharp"><code><span class="kt">int</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">5</span><span class="p">;</span>
 <span class="k">while</span><span class="w"> </span><span class="p">(</span><span class="n">x</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span>
 <span class="w">    </span><span class="n">x</span><span class="o">--</span><span class="p">;</span>
 <span class="n">print</span><span class="p">(</span><span class="n">x</span><span class="p">);</span>
-</pre></div>
-</div>
+</code></pre>
 <p>Иако је овакав стил програмирања успешно коришћен у раном развоју
 рачунарства, врло брзо је уочено да програми који користе наредбу GOTO
 могу да постану веома тешки за разумевање и одржавање. Размотримо
 следећи пример.</p>
-<div class="highlight-basic notranslate"><div class="highlight"><pre><span></span><span class="nl">10</span><span class="w"> </span><span class="kr">INPUT</span><span class="p">(</span><span class="vg">A</span><span class="p">)</span>
+<pre class="code" data-lang="basic"><code><span class="nl">10</span><span class="w"> </span><span class="kr">INPUT</span><span class="p">(</span><span class="vg">A</span><span class="p">)</span>
 <span class="nl">20</span><span class="w"> </span><span class="kr">IF</span><span class="w"> </span><span class="vg">A</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="il">0</span><span class="w"> </span><span class="kr">THEN</span><span class="w"> </span><span class="kr">GOTO</span><span class="w"> </span><span class="nl">60</span>
 <span class="nl">30</span><span class="w"> </span><span class="kr">IF</span><span class="w"> </span><span class="vg">A</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="il">0</span><span class="w"> </span><span class="kr">THEN</span><span class="w"> </span><span class="kr">GOTO</span><span class="w"> </span><span class="nl">80</span>
 <span class="nl">40</span><span class="w"> </span><span class="kr">PRINT</span><span class="p">(</span><span class="s2">"NULA"</span><span class="p">)</span>
@@ -176,12 +178,11 @@ BASIC могла записати овако.</p>
 <span class="nl">80</span><span class="w"> </span><span class="kr">PRINT</span><span class="p">(</span><span class="s2">"POZITIVAN"</span><span class="p">)</span>
 <span class="nl">90</span><span class="w"> </span><span class="kr">GOTO</span><span class="w"> </span><span class="nl">10</span>
 <span class="nl">100</span><span class="w"> </span><span class="kr">END</span>
-</pre></div>
-</div>
+</code></pre>
 <p>Да ли можете да погодите шта овај програм ради? Размислите како би се
 он могао записати у савременом језику? Ево еквивалентног кода у језику
 C#.</p>
-<div class="highlight-csharp notranslate"><div class="highlight"><pre><span></span><span class="kt">int</span><span class="w"> </span><span class="n">a</span><span class="p">;</span>
+<pre class="code" data-lang="csharp"><code><span class="kt">int</span><span class="w"> </span><span class="n">a</span><span class="p">;</span>
 <span class="k">do</span><span class="w"> </span><span class="p">{</span>
 <span class="w">   </span><span class="n">a</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kt">int</span><span class="p">.</span><span class="n">Parse</span><span class="p">(</span><span class="n">Console</span><span class="p">.</span><span class="n">ReadLine</span><span class="p">());</span>
 <span class="w">   </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">a</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span>
@@ -191,8 +192,7 @@ C#.</p>
 <span class="w">   </span><span class="k">else</span>
 <span class="w">      </span><span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="s">"NULA"</span><span class="p">);</span>
 <span class="p">}</span><span class="w"> </span><span class="k">while</span><span class="w"> </span><span class="p">(</span><span class="n">a</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="mi">0</span><span class="p">);</span>
-</pre></div>
-</div>
+</code></pre>
 <p>Из овог доба долазе и чувени дијаграми тока програма на којима се
 графички приказују скокови и везе измећу наредби.</p>
 <a class="reference internal image-reference" href="https://petljamediastorage.blob.core.windows.net/root/Media/Default/Kursevi/OnlineNastava/specit4_paradigme_logicko/flowchart.jpg" target="_blank"><img alt="https://petljamediastorage.blob.core.windows.net/root/Media/Default/Kursevi/OnlineNastava/specit4_paradigme_logicko/flowchart.jpg" class="align-center" src="https://petljamediastorage.blob.core.windows.net/root/Media/Default/Kursevi/OnlineNastava/specit4_paradigme_logicko/flowchart.jpg" style="width: 500px;"></a>
@@ -244,7 +244,7 @@ C). Структурирано програмирање уноси дисцип�
 <p>Можда једини „оправдани“ случај коришћења GOTO може бити ситуација
 у којој се жели прекид неколико угнежђених петљи, мада се и та
 ситуација релативно једноставно решава без наредбе GOTO.</p>
-<div class="highlight-csharp notranslate"><div class="highlight"><pre><span></span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">n</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="o">++</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<pre class="code" data-lang="csharp"><code><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">n</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="o">++</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
 <span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">j</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">j</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">n</span><span class="p">;</span><span class="w"> </span><span class="n">j</span><span class="o">++</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
 <span class="w">        </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">k</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">k</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">n</span><span class="p">;</span><span class="w"> </span><span class="n">k</span><span class="o">++</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
 <span class="w">            </span><span class="n">obrada</span><span class="p">(</span><span class="n">i</span><span class="p">,</span><span class="w"> </span><span class="n">j</span><span class="p">,</span><span class="w"> </span><span class="n">k</span><span class="p">)</span>
@@ -254,10 +254,9 @@ C). Структурирано програмирање уноси дисцип�
 <span class="w">    </span><span class="p">}</span>
 <span class="p">}</span>
 <span class="n">kraj</span><span class="p">:</span>
-</pre></div>
-</div>
+</code></pre>
 <p>GOTO можемо уклонити коришћењем помоћне логичке променљиве.</p>
-<div class="highlight-csharp notranslate"><div class="highlight"><pre><span></span><span class="kt">bool</span><span class="w"> </span><span class="n">kraj</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">false</span><span class="p">;</span>
+<pre class="code" data-lang="csharp"><code><span class="kt">bool</span><span class="w"> </span><span class="n">kraj</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">false</span><span class="p">;</span>
 <span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">n</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="o">!</span><span class="n">kraj</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="o">++</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
 <span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">j</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">j</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">n</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="o">!</span><span class="n">kraj</span><span class="p">;</span><span class="w"> </span><span class="n">j</span><span class="o">++</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
 <span class="w">        </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">k</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">k</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">n</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="o">!</span><span class="n">kraj</span><span class="p">;</span><span class="w"> </span><span class="n">k</span><span class="o">++</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
@@ -267,8 +266,7 @@ C). Структурирано програмирање уноси дисцип�
 <span class="w">        </span><span class="p">}</span>
 <span class="w">    </span><span class="p">}</span>
 <span class="p">}</span>
-</pre></div>
-</div>
+</code></pre>
 <p>Закључимо ову дискусију једноставним саветом – нема потребе да у
 својим програмима користите наредбу GOTO.</p>
     </div>
@@ -383,20 +381,18 @@ C). Структурирано програмирање уноси дисцип�
 алгоритама, који је често много једноставнији.</p>
 <p>На пример, упоредимо класичну итеративну имплементацију алгоритма
 степеновања и рекурзивну:</p>
-<div class="highlight-csharp notranslate"><div class="highlight"><pre><span></span><span class="kt">long</span><span class="w"> </span><span class="nf">stepen</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">x</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">n</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<pre class="code" data-lang="csharp"><code><span class="kt">long</span><span class="w"> </span><span class="nf">stepen</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">x</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">n</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
 <span class="w">     </span><span class="kt">long</span><span class="w"> </span><span class="n">s</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span>
 <span class="w">     </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">n</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="o">++</span><span class="p">)</span>
 <span class="w">         </span><span class="n">s</span><span class="w"> </span><span class="o">*=</span><span class="w"> </span><span class="n">x</span><span class="p">;</span>
 <span class="w">     </span><span class="k">return</span><span class="w"> </span><span class="n">s</span><span class="p">;</span>
 <span class="p">}</span>
-</pre></div>
-</div>
-<div class="highlight-csharp notranslate"><div class="highlight"><pre><span></span><span class="kt">long</span><span class="w"> </span><span class="nf">stepen</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">x</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">n</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+</code></pre>
+<pre class="code" data-lang="csharp"><code><span class="kt">long</span><span class="w"> </span><span class="nf">stepen</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">x</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">n</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
 <span class="w">   </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">n</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span>
 <span class="w">   </span><span class="k">return</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">stepen</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="w"> </span><span class="n">n</span><span class="o">-</span><span class="mi">1</span><span class="p">);</span>
 <span class="p">}</span>
-</pre></div>
-</div>
+</code></pre>
 <p>Друга, рекурзивна, дефинција је веома блиска класичној математичкој
 дефиницији степена:</p>
 <div class="math notranslate nohighlight">
@@ -426,7 +422,7 @@ C). Структурирано програмирање уноси дисцип�
 функција позове са истим аргументима више пута и да сваки пут да
 различит резултат и произведе различит ефекат.  Размотримо следећи
 пример функције за генерисање насумичних бројева.</p>
-<div class="highlight-csharp notranslate"><div class="highlight"><pre><span></span><span class="k">class</span><span class="w"> </span><span class="nc">Program</span><span class="w"> </span><span class="p">{</span>
+<pre class="code" data-lang="csharp"><code><span class="k">class</span><span class="w"> </span><span class="nc">Program</span><span class="w"> </span><span class="p">{</span>
 <span class="w">    </span><span class="k">const</span><span class="w"> </span><span class="kt">uint</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1664525</span><span class="p">;</span>
 <span class="w">    </span><span class="k">const</span><span class="w"> </span><span class="kt">uint</span><span class="w"> </span><span class="n">c</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1013904223</span><span class="p">;</span>
 <span class="w">    </span><span class="kt">uint</span><span class="w"> </span><span class="n">num</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
@@ -447,8 +443,7 @@ C). Структурирано програмирање уноси дисцип�
 <span class="w">          </span><span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="s">"Različito"</span><span class="p">);</span>
 <span class="w">    </span><span class="p">}</span>
 <span class="p">}</span>
-</pre></div>
-</div>
+</code></pre>
 <p>Сваки пут када се та функција позове, она ће да врати различит
 резултат (што је у овом случају управо оно што и желимо). Она мења
 глобално стање (променљиву <code class="docutils literal notranslate"><span class="pre">num</span></code>) и сваки наредни резултат зависи од
@@ -457,7 +452,7 @@ C). Структурирано програмирање уноси дисцип�
 очекивати да је ово математичка истина (у математици увек важи да је
 <span class="math notranslate nohighlight"><span class="MathJax_Preview" style="color: inherit;"></span><span id="MathJax-Element-2-Frame" class="mjx-chtml MathJax_CHTML" tabindex="0" style="font-size: 110%; position: relative;" data-mathml="&lt;math xmlns=&quot;http://www.w3.org/1998/Math/MathML&quot;&gt;&lt;mn&gt;2&lt;/mn&gt;&lt;mi&gt;f&lt;/mi&gt;&lt;mo stretchy=&quot;false&quot;&gt;(&lt;/mo&gt;&lt;mi&gt;x&lt;/mi&gt;&lt;mo stretchy=&quot;false&quot;&gt;)&lt;/mo&gt;&lt;mo&gt;=&lt;/mo&gt;&lt;mi&gt;f&lt;/mi&gt;&lt;mo stretchy=&quot;false&quot;&gt;(&lt;/mo&gt;&lt;mi&gt;x&lt;/mi&gt;&lt;mo stretchy=&quot;false&quot;&gt;)&lt;/mo&gt;&lt;mo&gt;+&lt;/mo&gt;&lt;mi&gt;f&lt;/mi&gt;&lt;mo stretchy=&quot;false&quot;&gt;(&lt;/mo&gt;&lt;mi&gt;x&lt;/mi&gt;&lt;mo stretchy=&quot;false&quot;&gt;)&lt;/mo&gt;&lt;/math&gt;" role="presentation"><span id="MJXc-Node-41" class="mjx-math" aria-hidden="true"><span id="MJXc-Node-42" class="mjx-mrow"><span id="MJXc-Node-43" class="mjx-mn"><span class="mjx-char MJXc-TeX-main-R" style="padding-top: 0.401em; padding-bottom: 0.344em;">2</span></span><span id="MJXc-Node-44" class="mjx-mi"><span class="mjx-char MJXc-TeX-math-I" style="padding-top: 0.457em; padding-bottom: 0.457em; padding-right: 0.06em;">f</span></span><span id="MJXc-Node-45" class="mjx-mo"><span class="mjx-char MJXc-TeX-main-R" style="padding-top: 0.457em; padding-bottom: 0.571em;">(</span></span><span id="MJXc-Node-46" class="mjx-mi"><span class="mjx-char MJXc-TeX-math-I" style="padding-top: 0.23em; padding-bottom: 0.287em;">x</span></span><span id="MJXc-Node-47" class="mjx-mo"><span class="mjx-char MJXc-TeX-main-R" style="padding-top: 0.457em; padding-bottom: 0.571em;">)</span></span><span id="MJXc-Node-48" class="mjx-mo MJXc-space3"><span class="mjx-char MJXc-TeX-main-R" style="padding-top: 0.06em; padding-bottom: 0.344em;">=</span></span><span id="MJXc-Node-49" class="mjx-mi MJXc-space3"><span class="mjx-char MJXc-TeX-math-I" style="padding-top: 0.457em; padding-bottom: 0.457em; padding-right: 0.06em;">f</span></span><span id="MJXc-Node-50" class="mjx-mo"><span class="mjx-char MJXc-TeX-main-R" style="padding-top: 0.457em; padding-bottom: 0.571em;">(</span></span><span id="MJXc-Node-51" class="mjx-mi"><span class="mjx-char MJXc-TeX-math-I" style="padding-top: 0.23em; padding-bottom: 0.287em;">x</span></span><span id="MJXc-Node-52" class="mjx-mo"><span class="mjx-char MJXc-TeX-main-R" style="padding-top: 0.457em; padding-bottom: 0.571em;">)</span></span><span id="MJXc-Node-53" class="mjx-mo MJXc-space2"><span class="mjx-char MJXc-TeX-main-R" style="padding-top: 0.287em; padding-bottom: 0.401em;">+</span></span><span id="MJXc-Node-54" class="mjx-mi MJXc-space2"><span class="mjx-char MJXc-TeX-math-I" style="padding-top: 0.457em; padding-bottom: 0.457em; padding-right: 0.06em;">f</span></span><span id="MJXc-Node-55" class="mjx-mo"><span class="mjx-char MJXc-TeX-main-R" style="padding-top: 0.457em; padding-bottom: 0.571em;">(</span></span><span id="MJXc-Node-56" class="mjx-mi"><span class="mjx-char MJXc-TeX-math-I" style="padding-top: 0.23em; padding-bottom: 0.287em;">x</span></span><span id="MJXc-Node-57" class="mjx-mo"><span class="mjx-char MJXc-TeX-main-R" style="padding-top: 0.457em; padding-bottom: 0.571em;">)</span></span></span></span><span class="MJX_Assistive_MathML" role="presentation"><math xmlns="http://www.w3.org/1998/Math/MathML"><mn>2</mn><mi>f</mi><mo stretchy="false">(</mo><mi>x</mi><mo stretchy="false">)</mo><mo>=</mo><mi>f</mi><mo stretchy="false">(</mo><mi>x</mi><mo stretchy="false">)</mo><mo>+</mo><mi>f</mi><mo stretchy="false">(</mo><mi>x</mi><mo stretchy="false">)</mo></math></span></span><script type="math/tex" id="MathJax-Element-2">2f(x) = f(x) + f(x)</script></span>).</p>
 <p>Размотримо и следећи скрипт написан у језику JavaScript.</p>
-<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="kd">const</span><span class="w"> </span><span class="nx">canvas</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">document</span><span class="p">.</span><span class="nx">getElementById</span><span class="p">(</span><span class="s2">"myCanvas"</span><span class="p">);</span>
+<pre class="code" data-lang="javascript"><code><span class="kd">const</span><span class="w"> </span><span class="nx">canvas</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">document</span><span class="p">.</span><span class="nx">getElementById</span><span class="p">(</span><span class="s2">"myCanvas"</span><span class="p">);</span>
 <span class="kd">const</span><span class="w"> </span><span class="nx">context</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">canvas</span><span class="p">.</span><span class="nx">getContext</span><span class="p">(</span><span class="s2">"2d"</span><span class="p">);</span>
 
 <span class="kd">function</span><span class="w"> </span><span class="nx">drawCircle</span><span class="p">(</span><span class="nx">x</span><span class="p">,</span><span class="w"> </span><span class="nx">y</span><span class="p">,</span><span class="w"> </span><span class="nx">radius</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
@@ -474,8 +469,7 @@ C). Структурирано програмирање уноси дисцип�
 <span class="w">   </span><span class="c1">// Crtamo pravougaonik</span>
 <span class="w">   </span><span class="nx">context</span><span class="p">.</span><span class="nx">fillRect</span><span class="p">(</span><span class="nx">x</span><span class="p">,</span><span class="w"> </span><span class="nx">y</span><span class="p">,</span><span class="w"> </span><span class="nx">width</span><span class="p">,</span><span class="w"> </span><span class="nx">height</span><span class="p">);</span>
 <span class="p">}</span>
-</pre></div>
-</div>
+</code></pre>
 <p>У овом коду су дате две функције: прва која црта црвени круг, а друга
 која црта правоугаоник. Само цртање је, наравно, бочни ефекат,
 међутим, у овом имплементацији је нарочито проблематична наредба
@@ -558,14 +552,13 @@ C). Структурирано програмирање уноси дисцип�
 на примеру. Наредба GOTO је заиста елиминисана, мада је програм
 остао веома непрегледан. Да ли можеш да осмислиш трансформацију
 која би довела до боље структурираног програма?</p>
-<div class="highlight-basic notranslate"><div class="highlight"><pre><span></span><span class="nl">10</span><span class="w"> </span><span class="vg">X</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="il">5</span>
+<pre class="code" data-lang="basic"><code><span class="nl">10</span><span class="w"> </span><span class="vg">X</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="il">5</span>
 <span class="nl">20</span><span class="w"> </span><span class="kr">IF</span><span class="w"> </span><span class="vg">X</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="il">0</span><span class="w"> </span><span class="kr">THEN</span><span class="w"> </span><span class="kr">GOTO</span><span class="w"> </span><span class="nl">50</span>
 <span class="nl">30</span><span class="w"> </span><span class="vg">X</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="vg">X</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="il">1</span>
 <span class="nl">40</span><span class="w"> </span><span class="kr">GOTO</span><span class="w"> </span><span class="nl">20</span>
 <span class="nl">50</span><span class="w"> </span><span class="kr">PRINT</span><span class="p">(</span><span class="vg">X</span><span class="p">)</span>
-</pre></div>
-</div>
-<div class="highlight-basic notranslate"><div class="highlight"><pre><span></span><span class="vg">naredba</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="il">10</span><span class="p">;</span>
+</code></pre>
+<pre class="code" data-lang="basic"><code><span class="vg">naredba</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="il">10</span><span class="p">;</span>
 <span class="vg">while</span><span class="w"> </span><span class="p">(</span><span class="vg">naredba</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="il">0</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
 <span class="w">   </span><span class="vg">if</span><span class="w"> </span><span class="p">(</span><span class="vg">naredba</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="il">10</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
 <span class="w">       </span><span class="vg">X</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="il">5</span><span class="p">;</span>
@@ -593,8 +586,7 @@ C). Структурирано програмирање уноси дисцип�
 <span class="w">      </span><span class="vg">naredba</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="il">0</span><span class="p">;</span>
 <span class="w">   </span><span class="p">}</span>
 <span class="p">}</span>
-</pre></div>
-</div>
+</code></pre>
 </li>
 <li><p>Механизам потпрограма (функција и процедура) увео је и нова правила
 везана за област видљивости (тзв. <strong>досег</strong>, енгл. scope) и

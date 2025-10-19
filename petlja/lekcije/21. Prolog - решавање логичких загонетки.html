@@ -55,7 +55,7 @@
 има тек око 5000. Сваки даљи услов, осим услова 6, веома се директно
 кодира. Што се тиче услова 6, дефинишемо помоћни предикат који броји
 појављивања пара бројева у листи.</p>
-<div class="highlight-prolog notranslate"><div class="highlight"><pre><span></span><span class="nf">brojPojavljivanjaPara</span><span class="p">([],</span> <span class="k">_</span><span class="p">,</span> <span class="mi">0</span><span class="p">).</span>
+<pre class="code" data-lang="prolog"><code><span class="nf">brojPojavljivanjaPara</span><span class="p">([],</span> <span class="k">_</span><span class="p">,</span> <span class="mi">0</span><span class="p">).</span>
 <span class="nf">brojPojavljivanjaPara</span><span class="p">([</span><span class="nv">X1</span><span class="p">,</span><span class="nv">X2</span><span class="p">|</span><span class="nv">T</span><span class="p">],</span> <span class="p">[</span><span class="nv">X1</span><span class="p">,</span><span class="nv">X2</span><span class="p">],</span> <span class="nv">N</span><span class="p">)</span> <span class="p">:-</span>
    <span class="nf">brojPojavljivanjaPara</span><span class="p">(</span><span class="nv">T</span><span class="p">,</span> <span class="p">[</span><span class="nv">X1</span><span class="p">,</span><span class="nv">X2</span><span class="p">],</span> <span class="nv">N1</span><span class="p">),</span> <span class="nv">N</span> <span class="o">is</span> <span class="nv">N1</span> <span class="o">+</span> <span class="mi">1</span><span class="p">,</span> <span class="p">!.</span>
 <span class="nf">brojPojavljivanjaPara</span><span class="p">([</span><span class="k">_</span><span class="p">|</span><span class="nv">T</span><span class="p">],</span> <span class="p">[</span><span class="nv">X1</span><span class="p">,</span><span class="nv">X2</span><span class="p">],</span> <span class="nv">N</span><span class="p">)</span> <span class="p">:-</span>
@@ -69,8 +69,7 @@
   <span class="nv">Kairo</span> <span class="o">&gt;</span> <span class="nv">Dzakarta</span><span class="p">,</span>
   <span class="nf">brojPojavljivanjaPara</span><span class="p">(</span><span class="nv">Gradovi</span><span class="p">,</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="p">],</span> <span class="mi">2</span><span class="p">),</span>
   <span class="p">(</span><span class="nv">Dzakarta</span> <span class="o">is</span> <span class="p">(</span><span class="nv">London</span><span class="o">-</span><span class="mi">1</span><span class="p">);</span> <span class="nv">Dzakarta</span> <span class="o">is</span> <span class="p">(</span><span class="nv">Peking</span><span class="o">-</span><span class="mi">1</span><span class="p">)).</span>
-</pre></div>
-</div>
+</code></pre>
 <p>Тачно решење <code class="docutils literal notranslate"><span class="pre">Gradovi</span> <span class="pre">=</span> <span class="pre">[4,</span> <span class="pre">0,</span> <span class="pre">2,</span> <span class="pre">0,</span> <span class="pre">2,</span> <span class="pre">1,</span> <span class="pre">1]</span></code> се пријављује
 неколико пута, јер функција за проналажење пермутација неколико
 пута проналази исту пермутацију (зато што листа садржи дупликате).</p>
@@ -124,7 +123,7 @@
 ко пије воду пије воду). Покретањем предиката <code class="docutils literal notranslate"><span class="pre">zebraZagonetka</span></code>
 добијамо јединствено решење да Јапанац има зебру, а да Норвежанин пије
 воду.</p>
-<div class="highlight-prolog notranslate"><div class="highlight"><pre><span></span><span class="nf">desnoOd</span><span class="p">(</span><span class="nv">X</span><span class="p">,</span> <span class="nv">Y</span><span class="p">,</span> <span class="p">[</span><span class="nv">Y</span><span class="p">,</span> <span class="nv">X</span><span class="p">|</span> <span class="k">_</span><span class="p">]).</span>
+<pre class="code" data-lang="prolog"><code><span class="nf">desnoOd</span><span class="p">(</span><span class="nv">X</span><span class="p">,</span> <span class="nv">Y</span><span class="p">,</span> <span class="p">[</span><span class="nv">Y</span><span class="p">,</span> <span class="nv">X</span><span class="p">|</span> <span class="k">_</span><span class="p">]).</span>
 <span class="nf">desnoOd</span><span class="p">(</span><span class="nv">X</span><span class="p">,</span> <span class="nv">Y</span><span class="p">,</span> <span class="p">[</span><span class="k">_</span><span class="p">|</span><span class="nv">T</span><span class="p">])</span> <span class="p">:-</span> <span class="nf">desnoOd</span><span class="p">(</span><span class="nv">X</span><span class="p">,</span> <span class="nv">Y</span><span class="p">,</span> <span class="nv">T</span><span class="p">).</span>
 <span class="nf">pored</span><span class="p">(</span><span class="nv">X</span><span class="p">,</span> <span class="nv">Y</span><span class="p">,</span> <span class="nv">L</span><span class="p">)</span> <span class="p">:-</span> <span class="nf">desnoOd</span><span class="p">(</span><span class="nv">X</span><span class="p">,</span> <span class="nv">Y</span><span class="p">,</span> <span class="nv">L</span><span class="p">)</span> <span class="p">;</span> <span class="nf">desnoOd</span><span class="p">(</span><span class="nv">Y</span><span class="p">,</span> <span class="nv">X</span><span class="p">,</span> <span class="nv">L</span><span class="p">).</span>
 
@@ -144,8 +143,7 @@
    <span class="nf">member</span><span class="p">(</span><span class="nf">kuca</span><span class="p">(</span><span class="s s-Atom">japanac</span><span class="p">,</span> <span class="k">_</span><span class="p">,</span> <span class="k">_</span><span class="p">,</span> <span class="k">_</span><span class="p">,</span> <span class="s s-Atom">parlament</span><span class="p">),</span> <span class="nv">Kuce</span><span class="p">),</span>
    <span class="nf">member</span><span class="p">(</span><span class="nf">kuca</span><span class="p">(</span><span class="nv">VlasnikZebre</span><span class="p">,</span> <span class="k">_</span><span class="p">,</span> <span class="s s-Atom">zebra</span><span class="p">,</span> <span class="k">_</span><span class="p">,</span> <span class="k">_</span><span class="p">),</span> <span class="nv">Kuce</span><span class="p">),</span>
    <span class="nf">member</span><span class="p">(</span><span class="nf">kuca</span><span class="p">(</span><span class="nv">PijeVodu</span><span class="p">,</span> <span class="k">_</span><span class="p">,</span> <span class="k">_</span><span class="p">,</span> <span class="s s-Atom">voda</span><span class="p">,</span> <span class="k">_</span><span class="p">),</span> <span class="nv">Kuce</span><span class="p">).</span>
-</pre></div>
-</div>
+</code></pre>
 <section id="id2">
 <h2>Судоку решавач</h2>
 <p>У претходним поглављима смо видели неколико решења загонетке Судоку у
@@ -162,7 +160,7 @@ Prolog може да наброји све исправне Судоку таб�
 језицима, она није видљива у програмском коду. Програм је сасвим
 декларативан и процедура претраге решења је у потпуности сакривена од
 програмера.</p>
-<div class="highlight-prolog notranslate"><div class="highlight"><pre><span></span><span class="nf">permutacija</span><span class="p">(</span><span class="nv">Xs</span><span class="p">)</span> <span class="p">:-</span> <span class="nf">permutation</span><span class="p">(</span><span class="nv">Xs</span><span class="p">,</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">]).</span>
+<pre class="code" data-lang="prolog"><code><span class="nf">permutacija</span><span class="p">(</span><span class="nv">Xs</span><span class="p">)</span> <span class="p">:-</span> <span class="nf">permutation</span><span class="p">(</span><span class="nv">Xs</span><span class="p">,</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">]).</span>
 
 <span class="nf">sudoku</span><span class="p">(</span><span class="nv">Xs</span><span class="p">)</span> <span class="p">:-</span> <span class="nv">Xs</span> <span class="o">=</span> <span class="p">[[</span><span class="nv">A11</span><span class="p">,</span> <span class="nv">A12</span><span class="p">,</span> <span class="nv">A13</span><span class="p">,</span> <span class="nv">A14</span><span class="p">],</span>
                     <span class="p">[</span><span class="nv">A21</span><span class="p">,</span> <span class="nv">A22</span><span class="p">,</span> <span class="nv">A23</span><span class="p">,</span> <span class="nv">A24</span><span class="p">],</span>
@@ -183,8 +181,7 @@ Prolog може да наброји све исправне Судоку таб�
     <span class="nf">permutacija</span><span class="p">([</span><span class="nv">A13</span><span class="p">,</span> <span class="nv">A14</span><span class="p">,</span> <span class="nv">A23</span><span class="p">,</span> <span class="nv">A24</span><span class="p">]),</span>
     <span class="nf">permutacija</span><span class="p">([</span><span class="nv">A31</span><span class="p">,</span> <span class="nv">A32</span><span class="p">,</span> <span class="nv">A41</span><span class="p">,</span> <span class="nv">A42</span><span class="p">]),</span>
     <span class="nf">permutacija</span><span class="p">([</span><span class="nv">A33</span><span class="p">,</span> <span class="nv">A34</span><span class="p">,</span> <span class="nv">A43</span><span class="p">,</span> <span class="nv">A44</span><span class="p">]).</span>
-</pre></div>
-</div>
+</code></pre>
 <p>Уопштавање овог проблем на таблу веће димензије, нажалост, не даје
 програм који је довољно ефикасан.</p>
         <div class="course-content info">
@@ -195,7 +192,7 @@ Prolog може да наброји све исправне Судоку таб�
 domains). SWI Prolog подржава ово проширење, ако се укључи
 одговарајућа библиотека. Наредно решење је управо и приказано на
 сајту SWI Prologa, као пример употребе ове библиотеке.</p>
-<div class="highlight-prolog notranslate"><div class="highlight"><pre><span></span><span class="p">:-</span> <span class="nf">use_module</span><span class="p">(</span><span class="nf">library</span><span class="p">(</span><span class="s s-Atom">clpz</span><span class="p">)).</span>
+<pre class="code" data-lang="prolog"><code><span class="p">:-</span> <span class="nf">use_module</span><span class="p">(</span><span class="nf">library</span><span class="p">(</span><span class="s s-Atom">clpz</span><span class="p">)).</span>
 <span class="p">:-</span> <span class="nf">use_module</span><span class="p">(</span><span class="nf">library</span><span class="p">(</span><span class="s s-Atom">lists</span><span class="p">)).</span>
 
 <span class="nf">sudoku</span><span class="p">(</span><span class="nv">Rows</span><span class="p">)</span> <span class="p">:-</span>
@@ -222,8 +219,7 @@ domains). SWI Prolog подржава ово проширење, ако се у�
             <span class="p">[</span><span class="mi">5</span><span class="p">,</span><span class="k">_</span><span class="p">,</span><span class="k">_</span><span class="p">,</span><span class="k">_</span><span class="p">,</span><span class="k">_</span><span class="p">,</span><span class="k">_</span><span class="p">,</span><span class="k">_</span><span class="p">,</span><span class="mi">7</span><span class="p">,</span><span class="mi">3</span><span class="p">],</span>
             <span class="p">[</span><span class="k">_</span><span class="p">,</span><span class="k">_</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="k">_</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="k">_</span><span class="p">,</span><span class="k">_</span><span class="p">,</span><span class="k">_</span><span class="p">,</span><span class="k">_</span><span class="p">],</span>
             <span class="p">[</span><span class="k">_</span><span class="p">,</span><span class="k">_</span><span class="p">,</span><span class="k">_</span><span class="p">,</span><span class="k">_</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="k">_</span><span class="p">,</span><span class="k">_</span><span class="p">,</span><span class="k">_</span><span class="p">,</span><span class="mi">9</span><span class="p">]]).</span>
-</pre></div>
-</div>
+</code></pre>
 <p>Ово решење користи неколико библиотечких предиката.</p>
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">length(Rows,</span> <span class="pre">9)</span></code> каже да је решење листа дужине 9</p></li>

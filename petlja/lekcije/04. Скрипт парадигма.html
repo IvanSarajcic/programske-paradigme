@@ -34,7 +34,7 @@
             
 <p>Размотримо један мали пример скрипта написаног у језику JavaScript (о
 овом језику ћете детаљније учити у курсу веб-програмирање).</p>
-<div class="highlight-html notranslate"><div class="highlight"><pre><span></span><span class="p">&lt;</span><span class="nt">p</span> <span class="na">id</span><span class="o">=</span><span class="s">"pasus"</span><span class="p">&gt;</span>Tekst u ovom pasusu se može sakriti.<span class="p">&lt;/</span><span class="nt">p</span><span class="p">&gt;</span>
+<pre class="code" data-lang="html"><code><span class="p">&lt;</span><span class="nt">p</span> <span class="na">id</span><span class="o">=</span><span class="s">"pasus"</span><span class="p">&gt;</span>Tekst u ovom pasusu se može sakriti.<span class="p">&lt;/</span><span class="nt">p</span><span class="p">&gt;</span>
 <span class="p">&lt;</span><span class="nt">button</span> <span class="na">id</span><span class="o">=</span><span class="s">"dugme"</span><span class="p">&gt;</span>Sakrij pasus<span class="p">&lt;/</span><span class="nt">button</span><span class="p">&gt;</span>
 <span class="p">&lt;</span><span class="nt">script</span> <span class="na">type</span><span class="o">=</span><span class="s">"text/javascript"</span><span class="p">&gt;</span>
 <span class="w">   </span><span class="kd">const</span><span class="w"> </span><span class="nx">dugme</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">document</span><span class="p">.</span><span class="nx">getElementById</span><span class="p">(</span><span class="s2">"dugme"</span><span class="p">);</span>
@@ -43,8 +43,7 @@
 <span class="w">         </span><span class="nx">pasus</span><span class="p">.</span><span class="nx">style</span><span class="p">.</span><span class="nx">display</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">"none"</span><span class="p">;</span>
 <span class="w">   </span><span class="p">});</span>
 <span class="p">&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
-</pre></div>
-</div>
+</code></pre>
 <p>Веб-страница садржи пасус и дугме. Када корисник притиска дугме,
 пасус се сакрива. Цео скрипт ћеш разумети када научиш JavaScript, а
 за сада је довољно само да видиш како отприлике изгледа додавање
@@ -81,7 +80,7 @@ Node.js</strong> итд. Ти скриптови обично примају п�
             
 <p>Размотримо један пример скрипта написаног у језику Lua за игру
 World of Warcraft.</p>
-<div class="highlight-lua notranslate"><div class="highlight"><pre><span></span><span class="kr">function</span><span class="w"> </span><span class="nf">castFire</span><span class="p">(</span><span class="nv">pUnit</span><span class="p">,</span><span class="w"> </span><span class="nv">Event</span><span class="p">)</span>
+<pre class="code" data-lang="lua"><code><span class="kr">function</span><span class="w"> </span><span class="nf">castFire</span><span class="p">(</span><span class="nv">pUnit</span><span class="p">,</span><span class="w"> </span><span class="nv">Event</span><span class="p">)</span>
 <span class="w">   </span><span class="kr">if</span><span class="w"> </span><span class="nv">pUnit</span><span class="p">:</span><span class="nf">GetHealthPct</span><span class="p">()</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="mi">50</span><span class="w"> </span><span class="kr">then</span>
 <span class="w">      </span><span class="nv">pUnit</span><span class="p">:</span><span class="nf">RemoveEvents</span><span class="p">();</span>
 <span class="w">      </span><span class="nv">pUnit</span><span class="p">:</span><span class="nf">SendChatMessage</span><span class="p">(</span><span class="mi">12</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="s2">"Burning Fire!"</span><span class="p">)</span>
@@ -94,8 +93,7 @@ World of Warcraft.</p>
 <span class="kr">end</span>
 
 <span class="nf">RegisterpUnitEvent</span><span class="p">(</span><span class="nv">ID</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="s2">"OnCombat"</span><span class="p">)</span>
-</pre></div>
-</div>
+</code></pre>
 <p>Играчу са идентификатором 1 се придружује додатно понашање – када
 му проценат здравља падне испод 50%, он аутоматски баца ватрену чин
 (и обавештава све о томе поруком „Burnihg Fire!”). Ако те занима да
@@ -116,14 +114,12 @@ World of Warcraft.</p>
 Console). На пример, ако желимо да направимо резервну копију сваке
 текстуалне датотеке у командој линији система Windows можемо
 употребити наредну команду:</p>
-<div class="highlight-batch notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="se">%%</span>i <span class="k">in</span> <span class="p">(</span>*.txt<span class="p">)</span> <span class="k">do</span> <span class="p">(</span><span class="k">copy</span> <span class="s2">"</span><span class="se">%%</span><span class="s2">i"</span> <span class="s2">"</span><span class="se">%%</span><span class="s2">i.bak"</span><span class="p">)</span>
-</pre></div>
-</div>
+<pre class="code" data-lang="batch"><code><span class="k">for</span> <span class="se">%%</span>i <span class="k">in</span> <span class="p">(</span>*.txt<span class="p">)</span> <span class="k">do</span> <span class="p">(</span><span class="k">copy</span> <span class="s2">"</span><span class="se">%%</span><span class="s2">i"</span> <span class="s2">"</span><span class="se">%%</span><span class="s2">i.bak"</span><span class="p">)</span>
+</code></pre>
 <p>Исти задатак би се у оперативном систему и његовом командом
 интерпретатору <strong>Bash</strong> извршио следећом командом:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="k">for</span><span class="w"> </span>f<span class="w"> </span><span class="k">in</span><span class="w"> </span>*.txt<span class="p">;</span><span class="w"> </span><span class="k">do</span><span class="w"> </span>cp<span class="w"> </span><span class="nv">$f</span><span class="w"> </span><span class="nv">$f</span>.bak<span class="p">;</span><span class="w"> </span><span class="k">done</span>
-</pre></div>
-</div>
+<pre class="code" data-lang="bash"><code><span class="k">for</span><span class="w"> </span>f<span class="w"> </span><span class="k">in</span><span class="w"> </span>*.txt<span class="p">;</span><span class="w"> </span><span class="k">do</span><span class="w"> </span>cp<span class="w"> </span><span class="nv">$f</span><span class="w"> </span><span class="nv">$f</span>.bak<span class="p">;</span><span class="w"> </span><span class="k">done</span>
+</code></pre>
 <p>Дужи скриптови се често смештају у такозване <strong>беч датотеке</strong>
 (енгл. <em>batch files</em>). У систему Windows оне имају екстензију
 <code class="docutils literal notranslate"><span class="pre">bat</span></code>. У систему Линукс се оне обично чувају у датотекама које имају
@@ -146,7 +142,7 @@ Console). На пример, ако желимо да направимо рез�
 разумети све детаље наведених скриптова, али на основу наведених
 коментара у коду можете стећи неку идеју како изгледају командни
 скриптови.</p>
-<div class="highlight-batch notranslate"><div class="highlight"><pre><span></span><span class="p">@</span><span class="k">echo</span> off
+<pre class="code" data-lang="batch"><code><span class="p">@</span><span class="k">echo</span> off
 
 <span class="c1">rem Ime datoteke se zadaje kao argument komandne linije</span>
 <span class="k">set</span> <span class="s2">"sourceFile=</span><span class="nv">%1</span><span class="s2">"</span>
@@ -181,11 +177,10 @@ Console). На пример, ако желимо да направимо рез�
 
 <span class="c1">rem Ispisujemo poruku da je napravljena rezervna kopija</span>
 <span class="k">echo</span> Backed up <span class="s2">"</span><span class="nv">%sourceFile%</span><span class="s2">"</span> to <span class="s2">"</span><span class="nv">%backupFolder%</span><span class="s2">\</span><span class="nv">%backupFile%</span><span class="s2">"</span>
-</pre></div>
-</div>
+</code></pre>
 <p>Наведимо и еквивалентан скрипт написан за командни интерпретатор
 Bash који се користи у систему Linux.</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="ch">#!/bin/bash</span>
+<pre class="code" data-lang="bash"><code><span class="ch">#!/bin/bash</span>
 
 <span class="c1"># Ime datoteke se zadaje kao argument komandne linije</span>
 <span class="nv">sourceFile</span><span class="o">=</span><span class="s2">"</span><span class="nv">$1</span><span class="s2">"</span>
@@ -218,8 +213,7 @@ cp<span class="w"> </span><span class="s2">"</span><span class="nv">$sourceFile<
 
 <span class="c1"># Ispisujemo poruku da je napravljena rezervna kopija</span>
 <span class="nb">echo</span><span class="w"> </span><span class="s2">"Backed up \"</span><span class="nv">$sourceFile</span><span class="s2">\" to \"</span><span class="nv">$backupFolder</span><span class="s2">/</span><span class="nv">$backupFile</span><span class="s2">\""</span>
-</pre></div>
-</div>
+</code></pre>
     </div>
 <p>Још један чест избор за писање командних скриптова данас је језик
 <strong>Python</strong>. У његовој стандардној библиотеци присутна је подршка за
@@ -231,7 +225,7 @@ cp<span class="w"> </span><span class="s2">"</span><span class="nv">$sourceFile<
         <div class="course-content info">
             
 <p>Претходни скрипт се може написати у језику Python на следећи начин.</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">os</span>
+<pre class="code" data-lang="python"><code><span class="kn">import</span><span class="w"> </span><span class="nn">os</span>
 <span class="kn">import</span><span class="w"> </span><span class="nn">sys</span>
 <span class="kn">import</span><span class="w"> </span><span class="nn">shutil</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">datetime</span><span class="w"> </span><span class="kn">import</span> <span class="n">datetime</span>
@@ -269,8 +263,7 @@ cp<span class="w"> </span><span class="s2">"</span><span class="nv">$sourceFile<
 
 <span class="c1"># Ispisujemo poruku da je napravljena rezervna kopija</span>
 <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Backed up '</span><span class="si">{</span><span class="n">source_file</span><span class="si">}</span><span class="s2">' to '</span><span class="si">{</span><span class="n">destination_file</span><span class="si">}</span><span class="s2">'"</span><span class="p">)</span>
-</pre></div>
-</div>
+</code></pre>
     </div>
 </section>
 </section>

@@ -102,7 +102,7 @@
 </li>
 </ol>
 <p>Подсетимо се ових концепата кроз следећи једноставан пример.</p>
-<div class="highlight-csharp notranslate"><div class="highlight"><pre><span></span><span class="k">using</span><span class="w"> </span><span class="nn">System</span><span class="p">;</span>
+<pre class="code" data-lang="csharp"><code><span class="k">using</span><span class="w"> </span><span class="nn">System</span><span class="p">;</span>
 
 <span class="k">public</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="nc">Circle</span>
 <span class="p">{</span>
@@ -160,8 +160,7 @@
 <span class="w">        </span><span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="s">$"Circumference: {circle.CalculateCircumference()}"</span><span class="p">);</span>
 <span class="w">    </span><span class="p">}</span>
 <span class="p">}</span>
-</pre></div>
-</div>
+</code></pre>
 <ol class="arabic" start="4">
 <li><p><strong>Наслеђивање:</strong> Наслеђивање омогућава креирање нових класа на
 основу већ постојећих класа. Ова парадигма подржава идеју да нове
@@ -231,7 +230,7 @@
 </ol>
 <p>Подсетимо се наслеђивања и полиморфизма тако што ћемо увести
 апстрактну класу за облике.</p>
-<div class="highlight-csharp notranslate"><div class="highlight"><pre><span></span><span class="k">using</span><span class="w"> </span><span class="nn">System</span><span class="p">;</span>
+<pre class="code" data-lang="csharp"><code><span class="k">using</span><span class="w"> </span><span class="nn">System</span><span class="p">;</span>
 
 <span class="c1">// Apstraktna bazna klasa za predstavljanje bilo kog oblika</span>
 <span class="k">public</span><span class="w"> </span><span class="k">abstract</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="nc">Shape</span>
@@ -305,11 +304,10 @@
 <span class="w">       </span><span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="s">$"Total Area of Shapes: {totalArea}"</span><span class="p">);</span>
 <span class="w">   </span><span class="p">}</span>
 <span class="p">}</span>
-</pre></div>
-</div>
+</code></pre>
 <p>Упоредимо овај програм са еквивалентним програмом написаном у духу
 императивне парадигме.</p>
-<div class="highlight-csharp notranslate"><div class="highlight"><pre><span></span><span class="k">class</span><span class="w"> </span><span class="nc">Program</span><span class="w"> </span><span class="p">{</span>
+<pre class="code" data-lang="csharp"><code><span class="k">class</span><span class="w"> </span><span class="nc">Program</span><span class="w"> </span><span class="p">{</span>
 <span class="w">    </span><span class="k">struct</span><span class="w"> </span><span class="nc">Circle</span><span class="w"> </span><span class="p">{</span>
 <span class="w">        </span><span class="k">public</span><span class="w"> </span><span class="kt">double</span><span class="w"> </span><span class="n">radius</span><span class="p">;</span>
 <span class="w">    </span><span class="p">}</span>
@@ -343,14 +341,13 @@
 <span class="w">       </span><span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="s">$"Total Area of Shapes: {totalArea}"</span><span class="p">);</span>
 <span class="w">    </span><span class="p">}</span>
 <span class="p">}</span>
-</pre></div>
-</div>
+</code></pre>
 <p>Примећујемо да су структуре за представљање круга и правоугаоника
 (<code class="docutils literal notranslate"><span class="pre">Circle</span></code> и <code class="docutils literal notranslate"><span class="pre">Rectangle</span></code>) потпуно неповезане и да стога нисмо могли
 направити низ облика. Могли бисмо увести наткласу за облик и тако
 омогућити креирање низа облика, али наредно решење, као и претходно,
 не користи полиморфизам и не може се сматрати написаним у духу ООП.</p>
-<div class="highlight-csharp notranslate"><div class="highlight"><pre><span></span><span class="k">class</span><span class="w"> </span><span class="nc">Program</span><span class="w"> </span><span class="p">{</span>
+<pre class="code" data-lang="csharp"><code><span class="k">class</span><span class="w"> </span><span class="nc">Program</span><span class="w"> </span><span class="p">{</span>
 <span class="w">    </span><span class="k">class</span><span class="w"> </span><span class="nc">Shape</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="p">}</span>
 
 <span class="w">    </span><span class="k">class</span><span class="w"> </span><span class="nc">Circle</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="n">Shape</span><span class="w"> </span><span class="p">{</span>
@@ -401,8 +398,7 @@
 <span class="w">       </span><span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="s">$"Total Area of Shapes: {totalArea}"</span><span class="p">);</span>
 <span class="w">    </span><span class="p">}</span>
 <span class="p">}</span>
-</pre></div>
-</div>
+</code></pre>
 <p>Гранање на основу типа је веома проблематично, јер ствара проблеме
 приликом проширивања система новим класама. Ако бисмо, на пример,
 додали класу за представљање троуглова, у правом ООП решењу заснованом

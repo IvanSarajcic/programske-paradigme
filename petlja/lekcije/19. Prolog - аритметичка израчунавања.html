@@ -17,88 +17,75 @@
 потребно користити посебну подршку.</p>
 <p>Кренимо од употребе релацијских оператора. Дефинишимо предикате којима
 се одређује агрегатно стање воде.</p>
-<div class="highlight-prolog notranslate"><div class="highlight"><pre><span></span><span class="nf">cvrsto</span><span class="p">(</span><span class="nv">X</span><span class="p">)</span> <span class="p">:-</span> <span class="nv">X</span> <span class="o">&lt;</span> <span class="mf">0.</span>
+<pre class="code" data-lang="prolog"><code><span class="nf">cvrsto</span><span class="p">(</span><span class="nv">X</span><span class="p">)</span> <span class="p">:-</span> <span class="nv">X</span> <span class="o">&lt;</span> <span class="mf">0.</span>
 <span class="nf">tecno</span><span class="p">(</span><span class="nv">X</span><span class="p">)</span> <span class="p">:-</span> <span class="nv">X</span> <span class="o">&gt;=</span> <span class="mi">0</span><span class="p">,</span> <span class="nv">X</span> <span class="o">&lt;</span> <span class="mf">100.</span>
 <span class="nf">gasovito</span><span class="p">(</span><span class="nv">X</span><span class="p">)</span> <span class="p">:-</span> <span class="nv">X</span> <span class="o">&gt;=</span> <span class="mf">100.</span>
-</pre></div>
-</div>
+</code></pre>
 <p>Ови предикати су коректно дефинисани и дају исправан резултат за сваку
 проверу.</p>
 <p>Интересантан је и следећи пример. У бази знања памтимо почетак и крај
 владавине неколико краљева из династије Немањића. Затим дефинишемо да
 је неко био краљ током дате године, ако је та година унутар интервала
 његове владавине.</p>
-<div class="highlight-prolog notranslate"><div class="highlight"><pre><span></span><span class="nf">kralj_od_do</span><span class="p">(</span><span class="s s-Atom">stefan</span><span class="p">,</span> <span class="mi">1217</span><span class="p">,</span> <span class="mi">1228</span><span class="p">).</span>
+<pre class="code" data-lang="prolog"><code><span class="nf">kralj_od_do</span><span class="p">(</span><span class="s s-Atom">stefan</span><span class="p">,</span> <span class="mi">1217</span><span class="p">,</span> <span class="mi">1228</span><span class="p">).</span>
 <span class="nf">kralj_od_do</span><span class="p">(</span><span class="s s-Atom">radoslav</span><span class="p">,</span> <span class="mi">1228</span><span class="p">,</span> <span class="mi">1233</span><span class="p">).</span>
 <span class="nf">kralj_od_do</span><span class="p">(</span><span class="s s-Atom">vladislav</span><span class="p">,</span> <span class="mi">1234</span><span class="p">,</span> <span class="mi">1243</span><span class="p">).</span>
 <span class="nf">kralj_od_do</span><span class="p">(</span><span class="s s-Atom">uros</span><span class="p">,</span> <span class="mi">1243</span><span class="p">,</span> <span class="mi">1276</span><span class="p">).</span>
 <span class="nf">kralj_od_do</span><span class="p">(</span><span class="s s-Atom">dragutin</span><span class="p">,</span> <span class="mi">1276</span><span class="p">,</span> <span class="mi">1282</span><span class="p">).</span>
 <span class="nf">kralj</span><span class="p">(</span><span class="nv">Ime</span><span class="p">,</span> <span class="nv">Godina</span><span class="p">)</span> <span class="p">:-</span> <span class="nf">kralj_od_do</span><span class="p">(</span><span class="nv">Ime</span><span class="p">,</span> <span class="nv">GodinaOd</span><span class="p">,</span> <span class="nv">GodinaDo</span><span class="p">),</span>
                       <span class="nv">GodinaOd</span> <span class="o">=&lt;</span> <span class="nv">Godina</span><span class="p">,</span> <span class="nv">Godina</span> <span class="o">=&lt;</span> <span class="nv">GodinaDo</span><span class="p">.</span>
-</pre></div>
-</div>
+</code></pre>
 <p>Сада можемо да питамо и ко је био краљ током 1250. године.</p>
-<div class="highlight-prolog notranslate"><div class="highlight"><pre><span></span><span class="s s-Atom">?-</span> <span class="nf">kralj</span><span class="p">(</span><span class="nv">Ime</span><span class="p">,</span> <span class="mi">1250</span><span class="p">).</span>
-</pre></div>
-</div>
+<pre class="code" data-lang="prolog"><code><span class="s s-Atom">?-</span> <span class="nf">kralj</span><span class="p">(</span><span class="nv">Ime</span><span class="p">,</span> <span class="mi">1250</span><span class="p">).</span>
+</code></pre>
 <p>Систем исправно изводи закључак да је једини краљ током те године био
 Урош.</p>
 <p>Релацијски оператори се, дакле, на први поглед понашају прилично
 очекивано. Међутим, Prolog неће успети да нам одговори током којих је
 све година Стефан био краљ.</p>
-<div class="highlight-prolog notranslate"><div class="highlight"><pre><span></span><span class="s s-Atom">?-</span> <span class="nf">kralj</span><span class="p">(</span><span class="s s-Atom">stefan</span><span class="p">,</span> <span class="nv">Godina</span><span class="p">).</span>
-</pre></div>
-</div>
+<pre class="code" data-lang="prolog"><code><span class="s s-Atom">?-</span> <span class="nf">kralj</span><span class="p">(</span><span class="s s-Atom">stefan</span><span class="p">,</span> <span class="nv">Godina</span><span class="p">).</span>
+</code></pre>
 <p>На овај упит добијамо одговор</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Arguments</span> <span class="n">are</span> <span class="ow">not</span> <span class="n">sufficiently</span> <span class="n">instantiated</span>
+<pre class="code" data-lang="default"><code><span class="n">Arguments</span> <span class="n">are</span> <span class="ow">not</span> <span class="n">sufficiently</span> <span class="n">instantiated</span>
 <span class="n">In</span><span class="p">:</span>
 <span class="p">[</span><span class="mi">2</span><span class="p">]</span> <span class="mi">1217</span> <span class="o">=&lt;</span> <span class="n">_1702</span>
 <span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="n">kralj</span><span class="p">(</span><span class="n">stefan</span><span class="p">,</span><span class="n">_1756</span><span class="p">)</span> <span class="n">at</span>  <span class="n">line</span> <span class="mi">7</span>
-</pre></div>
-</div>
+</code></pre>
 <p>који нам каже да није могуће да се релацијски оператор примени на
 променљиву којој још није одређена вредност (у нашем случају то је
 променљива <code class="docutils literal notranslate"><span class="pre">Godina</span></code>).</p>
 <p>Размотримо сада следећи пример предиката који користи операцију
 сабирања.</p>
-<div class="highlight-prolog notranslate"><div class="highlight"><pre><span></span><span class="nf">zbir</span><span class="p">(</span><span class="nv">X</span><span class="p">,</span> <span class="nv">Y</span><span class="p">,</span> <span class="nv">Z</span><span class="p">)</span> <span class="p">:-</span> <span class="nv">Z</span> <span class="o">==</span> <span class="nv">X</span> <span class="o">+</span> <span class="nv">Y</span><span class="p">.</span>
-</pre></div>
-</div>
+<pre class="code" data-lang="prolog"><code><span class="nf">zbir</span><span class="p">(</span><span class="nv">X</span><span class="p">,</span> <span class="nv">Y</span><span class="p">,</span> <span class="nv">Z</span><span class="p">)</span> <span class="p">:-</span> <span class="nv">Z</span> <span class="o">==</span> <span class="nv">X</span> <span class="o">+</span> <span class="nv">Y</span><span class="p">.</span>
+</code></pre>
 <p>Ова дефиниција је синтаксички исправна, што значи да Prolog зна нешто
 о сабирању и једнакости. Међутим, ако поставимо следећи упит</p>
-<div class="highlight-prolog notranslate"><div class="highlight"><pre><span></span><span class="s s-Atom">?-</span> <span class="nf">zbir</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">8</span><span class="p">).</span>
-</pre></div>
-</div>
+<pre class="code" data-lang="prolog"><code><span class="s s-Atom">?-</span> <span class="nf">zbir</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">8</span><span class="p">).</span>
+</code></pre>
 <p>неочекивано добијамо неисправан одговор <code class="docutils literal notranslate"><span class="pre">false</span></code>. И на упит</p>
-<div class="highlight-prolog notranslate"><div class="highlight"><pre><span></span><span class="s s-Atom">?-</span> <span class="nf">zbir</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="nv">X</span><span class="p">).</span>
-</pre></div>
-</div>
+<pre class="code" data-lang="prolog"><code><span class="s s-Atom">?-</span> <span class="nf">zbir</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="nv">X</span><span class="p">).</span>
+</code></pre>
 <p>добијамо одговор <code class="docutils literal notranslate"><span class="pre">false</span></code>. Међутим, ако поставимо упит</p>
-<div class="highlight-prolog notranslate"><div class="highlight"><pre><span></span><span class="s s-Atom">?-</span> <span class="nf">zbir</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">3</span> <span class="o">+</span> <span class="mi">5</span><span class="p">).</span>
-</pre></div>
-</div>
+<pre class="code" data-lang="prolog"><code><span class="s s-Atom">?-</span> <span class="nf">zbir</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">3</span> <span class="o">+</span> <span class="mi">5</span><span class="p">).</span>
+</code></pre>
 <p>добијамо одговор <code class="docutils literal notranslate"><span class="pre">true</span></code>.</p>
 <p>Нешто очигледно није како треба. Покушајмо да променимо дефиницију
 предиката <code class="docutils literal notranslate"><span class="pre">zbir</span></code> и да уместо оператора <code class="docutils literal notranslate"><span class="pre">==</span></code> употребимо оператор
 <code class="docutils literal notranslate"><span class="pre">=</span></code>.</p>
-<div class="highlight-prolog notranslate"><div class="highlight"><pre><span></span><span class="nf">zbir</span><span class="p">(</span><span class="nv">X</span><span class="p">,</span> <span class="nv">Y</span><span class="p">,</span> <span class="nv">Z</span><span class="p">)</span> <span class="p">:-</span> <span class="nv">Z</span> <span class="o">=</span> <span class="nv">X</span> <span class="o">+</span> <span class="nv">Y</span><span class="p">.</span>
-</pre></div>
-</div>
+<pre class="code" data-lang="prolog"><code><span class="nf">zbir</span><span class="p">(</span><span class="nv">X</span><span class="p">,</span> <span class="nv">Y</span><span class="p">,</span> <span class="nv">Z</span><span class="p">)</span> <span class="p">:-</span> <span class="nv">Z</span> <span class="o">=</span> <span class="nv">X</span> <span class="o">+</span> <span class="nv">Y</span><span class="p">.</span>
+</code></pre>
 <p>И ова дефиниција је синтаксички исправна, што значи да Prolog користи
 и оператор <code class="docutils literal notranslate"><span class="pre">==</span></code> и <code class="docutils literal notranslate"><span class="pre">=</span></code> (и видећемо да они означавају различите
 ствари). Међутим, ако поставимо следећи упит</p>
-<div class="highlight-prolog notranslate"><div class="highlight"><pre><span></span><span class="s s-Atom">?-</span> <span class="nf">zbir</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">8</span><span class="p">).</span>
-</pre></div>
-</div>
+<pre class="code" data-lang="prolog"><code><span class="s s-Atom">?-</span> <span class="nf">zbir</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">8</span><span class="p">).</span>
+</code></pre>
 <p>поново добијамо неисправан одговор <code class="docutils literal notranslate"><span class="pre">false</span></code>. Са друге стране, на упит</p>
-<div class="highlight-prolog notranslate"><div class="highlight"><pre><span></span><span class="s s-Atom">?-</span> <span class="nf">zbir</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="nv">X</span><span class="p">).</span>
-</pre></div>
-</div>
+<pre class="code" data-lang="prolog"><code><span class="s s-Atom">?-</span> <span class="nf">zbir</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="nv">X</span><span class="p">).</span>
+</code></pre>
 <p>сада добијамо одговор <code class="docutils literal notranslate"><span class="pre">3+5</span></code>, што је делимично тачно (јер, наравно,
 очекујемо одговор <code class="docutils literal notranslate"><span class="pre">8</span></code>). Поново на упит</p>
-<div class="highlight-prolog notranslate"><div class="highlight"><pre><span></span><span class="s s-Atom">?-</span> <span class="nf">zbir</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">3</span> <span class="o">+</span> <span class="mi">5</span><span class="p">).</span>
-</pre></div>
-</div>
+<pre class="code" data-lang="prolog"><code><span class="s s-Atom">?-</span> <span class="nf">zbir</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">3</span> <span class="o">+</span> <span class="mi">5</span><span class="p">).</span>
+</code></pre>
 <p>добијамо тачан одговор <code class="docutils literal notranslate"><span class="pre">true</span></code>.</p>
 <p>Шта се заправо овде догађа? Оператор <code class="docutils literal notranslate"><span class="pre">==</span></code> је <strong>оператор провере
 једнакости</strong> два терма и он враћа вредност тачно ако и само ако су
@@ -133,9 +120,8 @@
 аритметичка операција), потребно је да се употреби оператор <code class="docutils literal notranslate"><span class="pre">is</span></code>.
 Њиме се проверава да ли се термови са леве и десне стране могу
 унификовати, али тек након што се терм са десне стране израчуна.</p>
-<div class="highlight-prolog notranslate"><div class="highlight"><pre><span></span><span class="nf">zbir</span><span class="p">(</span><span class="nv">X</span><span class="p">,</span> <span class="nv">Y</span><span class="p">,</span> <span class="nv">Z</span><span class="p">)</span> <span class="p">:-</span> <span class="nv">Z</span> <span class="o">is</span> <span class="nv">X</span> <span class="o">+</span> <span class="nv">Y</span><span class="p">.</span>
-</pre></div>
-</div>
+<pre class="code" data-lang="prolog"><code><span class="nf">zbir</span><span class="p">(</span><span class="nv">X</span><span class="p">,</span> <span class="nv">Y</span><span class="p">,</span> <span class="nv">Z</span><span class="p">)</span> <span class="p">:-</span> <span class="nv">Z</span> <span class="o">is</span> <span class="nv">X</span> <span class="o">+</span> <span class="nv">Y</span><span class="p">.</span>
+</code></pre>
 <ul class="simple">
 <li><p>Упит <code class="docutils literal notranslate"><span class="pre">?-</span> <span class="pre">zbir(3,</span> <span class="pre">5,</span> <span class="pre">8)</span></code> се своди на <code class="docutils literal notranslate"><span class="pre">8</span> <span class="pre">is</span> <span class="pre">3+5</span></code>. Када се израчуна
 вредност терма са десне стране, добија се вредност 8, па пошто су
@@ -243,23 +229,20 @@
     </div>
 <p>Основна идеја је да пратимо рекурзивну дефиницију која је у језику
 Haskell била изражена на следећи начин:</p>
-<div class="highlight-haskell notranslate"><div class="highlight"><pre><span></span><span class="nf">stepen</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="ow">=</span><span class="w"> </span><span class="mi">1</span>
+<pre class="code" data-lang="haskell"><code><span class="nf">stepen</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="ow">=</span><span class="w"> </span><span class="mi">1</span>
 <span class="nf">stepen</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="n">n</span><span class="w"> </span><span class="ow">=</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">stepen</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="p">(</span><span class="n">n</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mi">1</span><span class="p">)</span>
-</pre></div>
-</div>
+</code></pre>
 <p>Уместо функције у језику Prolog дефинишемо предикат, тј. релацију.
 Поново имамо два случаја (излаз из рекурзије и рекурзивни корак).</p>
-<div class="highlight-prolog notranslate"><div class="highlight"><pre><span></span><span class="nf">stepen</span><span class="p">(</span><span class="nv">X</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">).</span>
+<pre class="code" data-lang="prolog"><code><span class="nf">stepen</span><span class="p">(</span><span class="nv">X</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">).</span>
 <span class="nf">stepen</span><span class="p">(</span><span class="nv">X</span><span class="p">,</span> <span class="nv">N</span><span class="p">,</span> <span class="nv">S</span><span class="p">)</span> <span class="p">:-</span> <span class="nv">N</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">,</span> <span class="nv">N1</span> <span class="o">is</span> <span class="nv">N</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="nf">stepen</span><span class="p">(</span><span class="nv">X</span><span class="p">,</span> <span class="nv">N1</span><span class="p">,</span> <span class="nv">S1</span><span class="p">),</span> <span class="nv">S</span> <span class="o">is</span> <span class="nv">X</span> <span class="o">*</span> <span class="nv">S1</span><span class="p">.</span>
-</pre></div>
-</div>
+</code></pre>
 <p>Пошто се у првом правилу вредност променљиве <code class="docutils literal notranslate"><span class="pre">X</span></code> не користи,
 добијамо упозорење <code class="docutils literal notranslate"><span class="pre">Singleton</span> <span class="pre">variable</span> <span class="pre">X</span></code>. Да би се оно избегло,
 уместо назива <code class="docutils literal notranslate"><span class="pre">X</span></code> можемо употребити анонимну променљиву која се
 обележава подвлаком.</p>
-<div class="highlight-prolog notranslate"><div class="highlight"><pre><span></span><span class="nf">stepen</span><span class="p">(</span><span class="k">_</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">).</span>
-</pre></div>
-</div>
+<pre class="code" data-lang="prolog"><code><span class="nf">stepen</span><span class="p">(</span><span class="k">_</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">).</span>
+</code></pre>
 <p>Прво правило можемо читати као:</p>
 <ul class="simple">
 <li><p>нулти степен било ког броја је 1*</p></li>
@@ -280,22 +263,20 @@ Haskell била изражена на следећи начин:</p>
 јер не би било услова који би спречио да се друго правило примењује на
 <code class="docutils literal notranslate"><span class="pre">N=0</span></code> а затим и на негативне вредности променљиве <code class="docutils literal notranslate"><span class="pre">N</span></code>.</p>
 <p>Можемо дефинисати и ефикаснију имплементацију степеновања.</p>
-<div class="highlight-prolog notranslate"><div class="highlight"><pre><span></span><span class="nf">stepen</span><span class="p">(</span><span class="nv">X</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">).</span>
+<pre class="code" data-lang="prolog"><code><span class="nf">stepen</span><span class="p">(</span><span class="nv">X</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">).</span>
 <span class="nf">stepen</span><span class="p">(</span><span class="nv">X</span><span class="p">,</span> <span class="nv">N</span><span class="p">,</span> <span class="nv">S</span><span class="p">)</span> <span class="p">:-</span> <span class="nv">N</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">,</span> <span class="nv">N</span> <span class="o">mod</span> <span class="mi">2</span> <span class="o">=:=</span> <span class="mi">0</span><span class="p">,</span>
                    <span class="nv">N1</span> <span class="o">is</span> <span class="nv">N</span> <span class="o">//</span> <span class="mi">2</span><span class="p">,</span> <span class="nv">X2</span> <span class="o">is</span> <span class="nv">X</span> <span class="o">*</span> <span class="nv">X</span><span class="p">,</span> <span class="nf">stepen</span><span class="p">(</span><span class="nv">X2</span><span class="p">,</span> <span class="nv">N1</span><span class="p">,</span> <span class="nv">S</span><span class="p">).</span>
 <span class="nf">stepen</span><span class="p">(</span><span class="nv">X</span><span class="p">,</span> <span class="nv">N</span><span class="p">,</span> <span class="nv">S</span><span class="p">)</span> <span class="p">:-</span> <span class="nv">N</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">,</span> <span class="nv">N</span> <span class="o">mod</span> <span class="mi">2</span> <span class="s s-Atom">=\=</span> <span class="mi">0</span><span class="p">,</span>
                    <span class="nv">N1</span> <span class="o">is</span> <span class="nv">N</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="nf">stepen</span><span class="p">(</span><span class="nv">X</span><span class="p">,</span> <span class="nv">N1</span><span class="p">,</span> <span class="nv">S1</span><span class="p">),</span> <span class="nv">S</span> <span class="o">is</span> <span class="nv">S1</span> <span class="o">*</span> <span class="nv">X</span><span class="p">.</span>
-</pre></div>
-</div>
+</code></pre>
 <p>Сечење (додуше црвено) нам може помоћи да поједноставимо неке од
 претходних дефиниција и да избегнемо експлицитно навођење додатних
 услова. На пример, дефиниција степеновања се упрошћава.</p>
-<div class="highlight-prolog notranslate"><div class="highlight"><pre><span></span><span class="nf">stepen</span><span class="p">(</span><span class="k">_</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span> <span class="p">:-</span> <span class="p">!.</span>
+<pre class="code" data-lang="prolog"><code><span class="nf">stepen</span><span class="p">(</span><span class="k">_</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span> <span class="p">:-</span> <span class="p">!.</span>
 <span class="nf">stepen</span><span class="p">(</span><span class="nv">X</span><span class="p">,</span> <span class="nv">N</span><span class="p">,</span> <span class="nv">S</span><span class="p">)</span> <span class="p">:-</span> <span class="nv">N</span> <span class="o">mod</span> <span class="mi">2</span> <span class="o">=:=</span> <span class="mi">0</span><span class="p">,</span>
                    <span class="nv">N1</span> <span class="o">is</span> <span class="nv">N</span> <span class="o">//</span> <span class="mi">2</span><span class="p">,</span> <span class="nv">X2</span> <span class="o">is</span> <span class="nv">X</span> <span class="o">*</span> <span class="nv">X</span><span class="p">,</span> <span class="nf">stepen</span><span class="p">(</span><span class="nv">X2</span><span class="p">,</span> <span class="nv">N1</span><span class="p">,</span> <span class="nv">S</span><span class="p">),</span> <span class="p">!.</span>
 <span class="nf">stepen</span><span class="p">(</span><span class="nv">X</span><span class="p">,</span> <span class="nv">N</span><span class="p">,</span> <span class="nv">S</span><span class="p">)</span> <span class="p">:-</span> <span class="nv">N1</span> <span class="o">is</span> <span class="nv">N</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="nf">stepen</span><span class="p">(</span><span class="nv">X</span><span class="p">,</span> <span class="nv">N1</span><span class="p">,</span> <span class="nv">S1</span><span class="p">),</span> <span class="nv">S</span> <span class="o">is</span> <span class="nv">S1</span> <span class="o">*</span> <span class="nv">X</span><span class="p">.</span>
-</pre></div>
-</div>
+</code></pre>
 
     <div class="note-wrapper questionnote-type">
         <div class="note-icon-holder"> </div>
@@ -304,10 +285,9 @@ Haskell била изражена на следећи начин:</p>
 <p>Дефинисати предикат који Еуклидовим алгоритмом израчунава НЗД два
 дата природна броја.</p>
     </div>
-<div class="highlight-prolog notranslate"><div class="highlight"><pre><span></span><span class="nf">nzd</span><span class="p">(</span><span class="nv">A</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="nv">A</span><span class="p">).</span>
+<pre class="code" data-lang="prolog"><code><span class="nf">nzd</span><span class="p">(</span><span class="nv">A</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="nv">A</span><span class="p">).</span>
 <span class="nf">nzd</span><span class="p">(</span><span class="nv">A</span><span class="p">,</span> <span class="nv">B</span><span class="p">,</span> <span class="nv">N</span><span class="p">)</span> <span class="p">:-</span> <span class="nv">B</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">,</span> <span class="nv">M</span> <span class="o">is</span> <span class="nv">A</span> <span class="o">mod</span> <span class="nv">B</span><span class="p">,</span> <span class="nf">nzd</span><span class="p">(</span><span class="nv">B</span><span class="p">,</span> <span class="nv">M</span><span class="p">,</span> <span class="nv">N</span><span class="p">).</span>
-</pre></div>
-</div>
+</code></pre>
 <p>Дефинишимо и функцију којом се проверава да ли је дати број прост.
 Број је прост ако је већи од 1 и ако нема ниједан прост фактор између
 два и свог корена. У дефиницији ћемо зато користити негацију тј. израз
@@ -322,13 +302,12 @@ Haskell била изражена на следећи начин:</p>
 којим се постиже да се пре поређења обе вредности израчунају. Обратимо
 пажњу и на то да број 2 мора да се третира као специјални случај (јер
 се провера дељивости врши увек за фактор 2).</p>
-<div class="highlight-prolog notranslate"><div class="highlight"><pre><span></span><span class="nf">prost</span><span class="p">(</span><span class="mi">2</span><span class="p">).</span>
+<pre class="code" data-lang="prolog"><code><span class="nf">prost</span><span class="p">(</span><span class="mi">2</span><span class="p">).</span>
 <span class="nf">prost</span><span class="p">(</span><span class="nv">N</span><span class="p">)</span> <span class="p">:-</span> <span class="nv">N</span> <span class="o">&gt;</span> <span class="mi">1</span><span class="p">,</span> <span class="o">not</span><span class="p">(</span><span class="nf">faktor</span><span class="p">(</span><span class="nv">N</span><span class="p">,</span> <span class="mi">2</span><span class="p">)).</span>
 
 <span class="nf">faktor</span><span class="p">(</span><span class="nv">N</span><span class="p">,</span> <span class="nv">X</span><span class="p">)</span> <span class="p">:-</span> <span class="nv">N</span> <span class="o">mod</span> <span class="nv">X</span> <span class="o">=:=</span> <span class="mf">0.</span>
 <span class="nf">faktor</span><span class="p">(</span><span class="nv">N</span><span class="p">,</span> <span class="nv">X</span><span class="p">)</span> <span class="p">:-</span> <span class="nv">X</span><span class="o">*</span><span class="nv">X</span> <span class="o">&lt;</span> <span class="nv">N</span><span class="p">,</span> <span class="nv">X1</span> <span class="o">is</span> <span class="nv">X</span> <span class="o">+</span> <span class="mi">1</span><span class="p">,</span> <span class="nf">faktor</span><span class="p">(</span><span class="nv">N</span><span class="p">,</span> <span class="nv">X1</span><span class="p">).</span>
-</pre></div>
-</div>
+</code></pre>
 </section>
 </main>
 </body>
