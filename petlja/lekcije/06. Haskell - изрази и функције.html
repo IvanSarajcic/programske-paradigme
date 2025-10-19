@@ -1,13 +1,22 @@
+﻿<!DOCTYPE html>
+<html lang="sr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Основни појмови језика Haskell - Програмске парадигме</title>
+    <link rel="stylesheet" href="../stil.css">
+</head>
+<body>
 <div id="lectureContent-7786" class="lectureContentMaterial active">
 
 
 
     
-  <section id="haskell">
-<h1>Основни појмови језика Haskell<a class="headerlink" href="#haskell" title="Permalink to this heading" target="_blank">¶</a></h1>
+  <nav style="margin-bottom: 1em;"><a href="../programske_paradigme.html">← Назад на листу лекција</a></nav><section id="haskell">
+<h1>Основни појмови језика Haskell</h1>
 </section>
 <section id="id1">
-<h1>Изрази<a class="headerlink" href="#id1" title="Permalink to this heading" target="_blank">¶</a></h1>
+<h1>Изрази</h1>
 <p>Језик Haskell је чист функционални језик и као такав он не подржава
 наредбе. Основни концепт чине изрази. Изрази се граде од променљивих и
 константи применом разних операција и функција. Кренимо од
@@ -105,7 +114,7 @@
 <p>О нискама ће бити више речи у поглављу о листама.</p>
 </section>
 <section id="id2">
-<h1>Дефинисање функција<a class="headerlink" href="#id2" title="Permalink to this heading" target="_blank">¶</a></h1>
+<h1>Дефинисање функција</h1>
 <p>Кренимо од једноставне функције којом се израчунава обим квадрата чија
 је дужина странице <span class="math notranslate nohighlight"><span class="MathJax_Preview" style="color: inherit;"></span><span id="MathJax-Element-1-Frame" class="mjx-chtml MathJax_CHTML" tabindex="0" style="font-size: 110%; position: relative;" data-mathml="&lt;math xmlns=&quot;http://www.w3.org/1998/Math/MathML&quot;&gt;&lt;mi&gt;a&lt;/mi&gt;&lt;/math&gt;" role="presentation"><span id="MJXc-Node-1" class="mjx-math" aria-hidden="true"><span id="MJXc-Node-2" class="mjx-mrow"><span id="MJXc-Node-3" class="mjx-mi"><span class="mjx-char MJXc-TeX-math-I" style="padding-top: 0.23em; padding-bottom: 0.287em;">a</span></span></span></span><span class="MJX_Assistive_MathML" role="presentation"><math xmlns="http://www.w3.org/1998/Math/MathML"><mi>a</mi></math></span></span><script type="math/tex" id="MathJax-Element-1">a</script></span>. Обим се израчунава на основу формуле
 <span class="math notranslate nohighlight"><span class="MathJax_Preview" style="color: inherit;"></span><span id="MathJax-Element-2-Frame" class="mjx-chtml MathJax_CHTML" tabindex="0" style="font-size: 110%; position: relative;" data-mathml="&lt;math xmlns=&quot;http://www.w3.org/1998/Math/MathML&quot;&gt;&lt;mi&gt;O&lt;/mi&gt;&lt;mo&gt;=&lt;/mo&gt;&lt;mn&gt;4&lt;/mn&gt;&lt;mo&gt;&amp;#x22C5;&lt;/mo&gt;&lt;mi&gt;a&lt;/mi&gt;&lt;/math&gt;" role="presentation"><span id="MJXc-Node-4" class="mjx-math" aria-hidden="true"><span id="MJXc-Node-5" class="mjx-mrow"><span id="MJXc-Node-6" class="mjx-mi"><span class="mjx-char MJXc-TeX-math-I" style="padding-top: 0.457em; padding-bottom: 0.287em;">O</span></span><span id="MJXc-Node-7" class="mjx-mo MJXc-space3"><span class="mjx-char MJXc-TeX-main-R" style="padding-top: 0.06em; padding-bottom: 0.344em;">=</span></span><span id="MJXc-Node-8" class="mjx-mn MJXc-space3"><span class="mjx-char MJXc-TeX-main-R" style="padding-top: 0.401em; padding-bottom: 0.344em;">4</span></span><span id="MJXc-Node-9" class="mjx-mo MJXc-space2"><span class="mjx-char MJXc-TeX-main-R" style="padding-top: 0.003em; padding-bottom: 0.344em;">⋅</span></span><span id="MJXc-Node-10" class="mjx-mi MJXc-space2"><span class="mjx-char MJXc-TeX-math-I" style="padding-top: 0.23em; padding-bottom: 0.287em;">a</span></span></span></span><span class="MJX_Assistive_MathML" role="presentation"><math xmlns="http://www.w3.org/1998/Math/MathML"><mi>O</mi><mo>=</mo><mn>4</mn><mo>⋅</mo><mi>a</mi></math></span></span><script type="math/tex" id="MathJax-Element-2">O = 4\cdot a</script></span>. Претпоставимо за почетак да је дужина квадрата
@@ -252,7 +261,7 @@
 (подразумевајући да претходни нису) и одговара грани <code class="docutils literal notranslate"><span class="pre">else</span></code>.</p>
 </section>
 <section id="id3">
-<h1>Рекурзивне функције<a class="headerlink" href="#id3" title="Permalink to this heading" target="_blank">¶</a></h1>
+<h1>Рекурзивне функције</h1>
 <p>Пошто је Haskell чист функционални језик, није могућа измена вредности
 променљивих и самим тим није могуће коришћење петљи. Уместо тога,
 контрола тока се може постићи коришћењем рекурзивних функција
@@ -358,7 +367,7 @@
 </pre></div>
 </div>
 <section id="id4">
-<h2>Репна рекурзија<a class="headerlink" href="#id4" title="Permalink to this heading" target="_blank">¶</a></h2>
+<h2>Репна рекурзија</h2>
 <p>Приметимо да се приликом израчунавања вредности факторијела све
 вредности првог чиноица морају сложити на стек и да се тек при изласку
 из рекурзије рачуна производ. У случају дубоке рекурзије овакво
@@ -546,3 +555,5 @@ F_n &=& F_{n-1} + F_{n-2}, \quad n \geq 2
                     </button>
                 </div>
             </div>
+</body>
+</html>

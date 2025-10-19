@@ -1,10 +1,19 @@
+﻿<!DOCTYPE html>
+<html lang="sr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SAT решавачи - Програмске парадигме</title>
+    <link rel="stylesheet" href="../stil.css">
+</head>
+<body>
 <div id="lectureContent-8411" class="lectureContentMaterial active">
 
 
 
     
-  <section id="sat">
-<h1>SAT решавачи<a class="headerlink" href="#sat" title="Permalink to this heading" target="_blank">¶</a></h1>
+  <nav style="margin-bottom: 1em;"><a href="../programske_paradigme.html">← Назад на листу лекција</a></nav><section id="sat">
+<h1>SAT решавачи</h1>
 <p>Постоји веома ефикасан софтвер који може да испита задовољивост
 исказне формуле (који је, наравно, заснован на коришћењу другачијих
 метода). Такви програми се називају <strong>SAT решавачи</strong> (енг. <em>SAT
@@ -160,7 +169,7 @@ s_4 \\
 <p>Ово значи да је формула задовољива и једна валуација у којој је та
 формула тачна је <span class="math notranslate nohighlight"><span class="MathJax_Preview" style="color: inherit;"></span><span id="MathJax-Element-41-Frame" class="mjx-chtml MathJax_CHTML" tabindex="0" style="font-size: 110%; position: relative;" data-mathml="&lt;math xmlns=&quot;http://www.w3.org/1998/Math/MathML&quot;&gt;&lt;mi&gt;p&lt;/mi&gt;&lt;mo stretchy=&quot;false&quot;&gt;&amp;#x21A6;&lt;/mo&gt;&lt;mn&gt;0&lt;/mn&gt;&lt;mo&gt;,&lt;/mo&gt;&lt;mi&gt;q&lt;/mi&gt;&lt;mo stretchy=&quot;false&quot;&gt;&amp;#x21A6;&lt;/mo&gt;&lt;mn&gt;0&lt;/mn&gt;&lt;mo&gt;,&lt;/mo&gt;&lt;mi&gt;r&lt;/mi&gt;&lt;mo stretchy=&quot;false&quot;&gt;&amp;#x21A6;&lt;/mo&gt;&lt;mn&gt;0&lt;/mn&gt;&lt;/math&gt;" role="presentation"><span id="MJXc-Node-796" class="mjx-math" aria-hidden="true"><span id="MJXc-Node-797" class="mjx-mrow"><span id="MJXc-Node-798" class="mjx-mi"><span class="mjx-char MJXc-TeX-math-I" style="padding-top: 0.23em; padding-bottom: 0.457em;">p</span></span><span id="MJXc-Node-799" class="mjx-mo MJXc-space3"><span class="mjx-char MJXc-TeX-main-R" style="padding-top: 0.23em; padding-bottom: 0.344em;">↦</span></span><span id="MJXc-Node-800" class="mjx-mn MJXc-space3"><span class="mjx-char MJXc-TeX-main-R" style="padding-top: 0.401em; padding-bottom: 0.344em;">0</span></span><span id="MJXc-Node-801" class="mjx-mo"><span class="mjx-char MJXc-TeX-main-R" style="margin-top: -0.168em; padding-bottom: 0.514em;">,</span></span><span id="MJXc-Node-802" class="mjx-mi MJXc-space1"><span class="mjx-char MJXc-TeX-math-I" style="padding-top: 0.23em; padding-bottom: 0.457em; padding-right: 0.014em;">q</span></span><span id="MJXc-Node-803" class="mjx-mo MJXc-space3"><span class="mjx-char MJXc-TeX-main-R" style="padding-top: 0.23em; padding-bottom: 0.344em;">↦</span></span><span id="MJXc-Node-804" class="mjx-mn MJXc-space3"><span class="mjx-char MJXc-TeX-main-R" style="padding-top: 0.401em; padding-bottom: 0.344em;">0</span></span><span id="MJXc-Node-805" class="mjx-mo"><span class="mjx-char MJXc-TeX-main-R" style="margin-top: -0.168em; padding-bottom: 0.514em;">,</span></span><span id="MJXc-Node-806" class="mjx-mi MJXc-space1"><span class="mjx-char MJXc-TeX-math-I" style="padding-top: 0.23em; padding-bottom: 0.287em;">r</span></span><span id="MJXc-Node-807" class="mjx-mo MJXc-space3"><span class="mjx-char MJXc-TeX-main-R" style="padding-top: 0.23em; padding-bottom: 0.344em;">↦</span></span><span id="MJXc-Node-808" class="mjx-mn MJXc-space3"><span class="mjx-char MJXc-TeX-main-R" style="padding-top: 0.401em; padding-bottom: 0.344em;">0</span></span></span></span><span class="MJX_Assistive_MathML" role="presentation"><math xmlns="http://www.w3.org/1998/Math/MathML"><mi>p</mi><mo stretchy="false">↦</mo><mn>0</mn><mo>,</mo><mi>q</mi><mo stretchy="false">↦</mo><mn>0</mn><mo>,</mo><mi>r</mi><mo stretchy="false">↦</mo><mn>0</mn></math></span></span><script type="math/tex" id="MathJax-Element-41">p \mapsto 0, q \mapsto 0, r \mapsto 0</script></span>.</p>
 <section id="id1">
-<h2>Судоку<a class="headerlink" href="#id1" title="Permalink to this heading" target="_blank">¶</a></h2>
+<h2>Судоку</h2>
 <p>Прикажимо сада како можемо искористити SAT решавач да решимо логичку
 загонетку Судоку. Ова загонетка захтева да се поље димензије <span class="math notranslate nohighlight"><span class="MathJax_Preview" style="color: inherit;"></span><span id="MathJax-Element-42-Frame" class="mjx-chtml MathJax_CHTML" tabindex="0" style="font-size: 110%; position: relative;" data-mathml="&lt;math xmlns=&quot;http://www.w3.org/1998/Math/MathML&quot;&gt;&lt;mn&gt;9&lt;/mn&gt;&lt;mo&gt;&amp;#x00D7;&lt;/mo&gt;&lt;mn&gt;9&lt;/mn&gt;&lt;/math&gt;" role="presentation"><span id="MJXc-Node-809" class="mjx-math" aria-hidden="true"><span id="MJXc-Node-810" class="mjx-mrow"><span id="MJXc-Node-811" class="mjx-mn"><span class="mjx-char MJXc-TeX-main-R" style="padding-top: 0.401em; padding-bottom: 0.344em;">9</span></span><span id="MJXc-Node-812" class="mjx-mo MJXc-space2"><span class="mjx-char MJXc-TeX-main-R" style="padding-top: 0.23em; padding-bottom: 0.344em;">×</span></span><span id="MJXc-Node-813" class="mjx-mn MJXc-space2"><span class="mjx-char MJXc-TeX-main-R" style="padding-top: 0.401em; padding-bottom: 0.344em;">9</span></span></span></span><span class="MJX_Assistive_MathML" role="presentation"><math xmlns="http://www.w3.org/1998/Math/MathML"><mn>9</mn><mo>×</mo><mn>9</mn></math></span></span><script type="math/tex" id="MathJax-Element-42">9
 \times 9</script></span> попуни бројевима од 1 до 9 тако да су у свакој врсти, у
@@ -480,3 +489,5 @@ v = ((p - 1)\ \mathrm{div}\ 81) + 1\end{split}</script></div>
                     </button>
                 </div>
             </div>
+</body>
+</html>

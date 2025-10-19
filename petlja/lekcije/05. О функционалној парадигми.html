@@ -1,10 +1,19 @@
+﻿<!DOCTYPE html>
+<html lang="sr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Функционална парадигма - Програмске парадигме</title>
+    <link rel="stylesheet" href="../stil.css">
+</head>
+<body>
 <div id="lectureContent-7785" class="lectureContentMaterial active">
 
 
 
     
-  <section id="id1">
-<h1>Функционална парадигма<a class="headerlink" href="#id1" title="Permalink to this heading" target="_blank">¶</a></h1>
+  <nav style="margin-bottom: 1em;"><a href="../programske_paradigme.html">← Назад на листу лекција</a></nav><section id="id1">
+<h1>Функционална парадигма</h1>
 <p>Покушајмо да илуструјемо основне идеје функционалне парадигме кроз
 један једноставан пример. Пример је веома једноставан и његово
 императивно решење није наоричито компликовано. Ипак, кроз низ
@@ -24,9 +33,9 @@
 језицима, какав је C# (за њега слободно можемо рећи да је
 мултипарадигматичан).</p>
 <section id="c">
-<h2>Решење у језику C#<a class="headerlink" href="#c" title="Permalink to this heading" target="_blank">¶</a></h2>
+<h2>Решење у језику C#</h2>
 <section id="id2">
-<h3>Полазни проблем<a class="headerlink" href="#id2" title="Permalink to this heading" target="_blank">¶</a></h3>
+<h3>Полазни проблем</h3>
 <p>Напишимо програм за одређивање збира квадрата непарних цифара унетог
 позитивног природног броја. То је задатак какав сте сигурно сретали у
 првом разреду и сигурно бисте га коришћењем императивне парадигме
@@ -59,7 +68,7 @@
 </div>
 </section>
 <section id="id3">
-<h3>Декомпозиција проблема<a class="headerlink" href="#id3" title="Permalink to this heading" target="_blank">¶</a></h3>
+<h3>Декомпозиција проблема</h3>
 <p>Размотримо да ли бисмо могли да идентификујемо појединачне алгоритме
 које смо употребили у овом решењу. Размислимо, да ли бисмо неки од
 њих, у складу са добром праксом процедуралног програмирања, могли да
@@ -230,7 +239,7 @@
     </div></div>
 </section>
 <section id="id4">
-<h3>Лењост<a class="headerlink" href="#id4" title="Permalink to this heading" target="_blank">¶</a></h3>
+<h3>Лењост</h3>
 <p>Уз све његове предности, претходно решење не можемо сматрати
 прихватљивим. Свако компоновање две функције подразумевало је да прва
 функција свој резултат врати другој, која онда тај резултат преузима
@@ -428,7 +437,7 @@
     </div></div>
 </section>
 <section id="id5">
-<h3>Апстракција и функције вишег реда<a class="headerlink" href="#id5" title="Permalink to this heading" target="_blank">¶</a></h3>
+<h3>Апстракција и функције вишег реда</h3>
 <p>Решење које смо написали је лепо и довољно ефикасно. Декомпозиција је
 омогућила да се сваки алгоритам појединачно имплементира и свака од
 ових функција се једноставније разуме него полазна сложена
@@ -587,7 +596,7 @@
 подаци!</p>
 </section>
 <section id="linq">
-<h3>Библиотека Linq<a class="headerlink" href="#linq" title="Permalink to this heading" target="_blank">¶</a></h3>
+<h3>Библиотека Linq</h3>
 <p>Ако упоредимо добијену верзију програма са почетном, императивном, и
 даље се с правом може замерити да је добијено решење доста
 компликованије од полазног, јер су све функције имплементиране ручно.
@@ -684,7 +693,7 @@ C# и није је потребно посебно инсталирати.</p>
 </section>
 </section>
 <section id="haskell">
-<h2>Решење у језику Haskell<a class="headerlink" href="#haskell" title="Permalink to this heading" target="_blank">¶</a></h2>
+<h2>Решење у језику Haskell</h2>
 <p>Размотримо сада како се претходни пример може испрограмирати у
 програмском језику Haskell, којим ћемо се детаљније бавити у наставку
 овог курса. Циљ овог поглавља је само да повучемо паралелу и приметимо
@@ -713,7 +722,7 @@ C# и није је потребно посебно инсталирати.</p>
 <p>Видећемо да је, осим синтаксичких разлика, овај програм у свом духу
 прилично сличан програму који смо написали у језику C#.</p>
 <section id="id6">
-<h3>Анотације типова<a class="headerlink" href="#id6" title="Permalink to this heading" target="_blank">¶</a></h3>
+<h3>Анотације типова</h3>
 <p>Претходни програм садржи дефиницију две функције: <code class="docutils literal notranslate"><span class="pre">cifre</span></code> и
 <code class="docutils literal notranslate"><span class="pre">zbirKvadrataNeparnihCifara</span></code>. Линије <code class="docutils literal notranslate"><span class="pre">cifre</span> <span class="pre">::</span> <span class="pre">Int</span> <span class="pre">-&gt;</span> <span class="pre">[Int]</span></code> и
 <code class="docutils literal notranslate"><span class="pre">zbirKvadrataNeparnihCifara</span> <span class="pre">::</span> <span class="pre">Int</span> <span class="pre">-&gt;</span> <span class="pre">Int</span></code> одговарају декларацијама
@@ -729,7 +738,7 @@ C# и није је потребно посебно инсталирати.</p>
 <code class="docutils literal notranslate"><span class="pre">Int</span></code>).</p>
 </section>
 <section id="id7">
-<h3>Рекурзивне дефиниције<a class="headerlink" href="#id7" title="Permalink to this heading" target="_blank">¶</a></h3>
+<h3>Рекурзивне дефиниције</h3>
 <p>Прво је дефинисана функција која на основу броја одређује листу
 његових цифара. Примећујете, наравно, коришћена је рекурзија о којој
 смо већ много говорили у другом и трећем разреду. Наиме, функционални
@@ -757,7 +766,7 @@ C# и није је потребно посебно инсталирати.</p>
 наравно, дати у наредним поглављима.</p>
 </section>
 <section id="id8">
-<h3>Поклапање шаблона<a class="headerlink" href="#id8" title="Permalink to this heading" target="_blank">¶</a></h3>
+<h3>Поклапање шаблона</h3>
 <p>Приметимо да смо дефиниције обе функције (<code class="docutils literal notranslate"><span class="pre">cifre</span></code> и
 <code class="docutils literal notranslate"><span class="pre">zbirNeparnihCifaraBroja</span></code>) дате помоћу математичких једнакости. Веза
 функционалног програмирања и математике је веома дубока и о њој ћемо
@@ -784,7 +793,7 @@ matching</em>).</p>
 уклапањем шаблона обично елегантније.</p>
 </section>
 <section id="id9">
-<h3>Лењост<a class="headerlink" href="#id9" title="Permalink to this heading" target="_blank">¶</a></h3>
+<h3>Лењост</h3>
 <p>У C# решењу истакли смо зашто нам је веома важно да функција не враћа
 целу листу одједном, већ да резултат даје у облику лењог тока. Haskell
 је језик који је по својој дефиницији лењ и код њега ће се управо
@@ -816,7 +825,7 @@ matching</em>).</p>
     </div></div>
 </section>
 <section id="sum-map-filter">
-<h3>Функција sum, функционали map и filter и ламбда изрази<a class="headerlink" href="#sum-map-filter" title="Permalink to this heading" target="_blank">¶</a></h3>
+<h3>Функција sum, функционали map и filter и ламбда изрази</h3>
 <p>Размотримо сада израз помоћу којег је дефинисана функција
 <code class="docutils literal notranslate"><span class="pre">zbirNeparnihCifaraBroja</span></code>.</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span>sum (map (\x -&gt; x * x) (filter (\ x -&gt; x `mod` 2 /= 0) (cifre n)))
@@ -857,7 +866,7 @@ matching</em>).</p>
     </div></div>
 </section>
 <section id="id10">
-<h3>Компрехенсија<a class="headerlink" href="#id10" title="Permalink to this heading" target="_blank">¶</a></h3>
+<h3>Компрехенсија</h3>
 <p>Пресликавање и филтрирање тј. функционали <code class="docutils literal notranslate"><span class="pre">map</span></code> и <code class="docutils literal notranslate"><span class="pre">filter</span></code> су
 толико чести да су имплицитно присутни у математичкој
 нотацији. Размотримо следеће решење истог задатка.</p>
@@ -879,7 +888,7 @@ matching</em>).</p>
 </ul>
 </section>
 <section id="id11">
-<h3>Композиција функција<a class="headerlink" href="#id11" title="Permalink to this heading" target="_blank">¶</a></h3>
+<h3>Композиција функција</h3>
 <p>Често се наглашава да је функционално програмирање тесно повезано са
 математиком. Урадимо сада још један корак карактеристичан у
 функционалном стилу програмирања али и математици, који ће нам
@@ -929,7 +938,7 @@ matching</em>).</p>
 </ul>
 </section>
 <section id="id12">
-<h3>Каријеве функције<a class="headerlink" href="#id12" title="Permalink to this heading" target="_blank">¶</a></h3>
+<h3>Каријеве функције</h3>
 <p>Нашу функцију смо сада експлицитно изразили као композицију четири
 функције. Прва здесна је функција <code class="docutils literal notranslate"><span class="pre">cifre</span></code> која узима број и враћа
 листу његових цифара и њен тип је <code class="docutils literal notranslate"><span class="pre">Int</span> <span class="pre">-&gt;</span> <span class="pre">[Int]</span></code>. Међутим, код
@@ -995,9 +1004,9 @@ matching</em>).</p>
 </section>
 </section>
 <section id="id13">
-<h2>Предности функционалне парадигме<a class="headerlink" href="#id13" title="Permalink to this heading" target="_blank">¶</a></h2>
+<h2>Предности функционалне парадигме</h2>
 <section id="id14">
-<h3>Везе са математиком и формална верификација<a class="headerlink" href="#id14" title="Permalink to this heading" target="_blank">¶</a></h3>
+<h3>Везе са математиком и формална верификација</h3>
 <p>Видели смо да се у програмима у императивним програмским језицима
 вредности променљивих мењају током извршавања програма. Зато је кључни
 појам за анализу програма стање, које је одређено тренутним
@@ -1132,7 +1141,7 @@ Coq.</p></li>
     </div></div>
 </section>
 <section id="id15">
-<h3>Декларативност<a class="headerlink" href="#id15" title="Permalink to this heading" target="_blank">¶</a></h3>
+<h3>Декларативност</h3>
 <p>На крају, када упоредимо ово решење са оним полазним, можемо приметити
 да смо након дивергенције у програм са много више линија кода заправо
 дошли до програма који је много краћи, али и разумљивији од полазног
@@ -1156,7 +1165,7 @@ C# решења (ако вам се тако не чини, верујте да 
 није декларативан, већ процедуралан).</p>
 </section>
 <section id="id16">
-<h3>Паралелизација<a class="headerlink" href="#id16" title="Permalink to this heading" target="_blank">¶</a></h3>
+<h3>Паралелизација</h3>
 <p>На крају, рецимо и да изражавање програма у функционалном облику често
 може да допринесе паралелизацији. На пример и filter и map су такве
 функције да анализирају независно један по један елемент листе и веома
@@ -1215,7 +1224,7 @@ C# решења (ако вам се тако не чини, верујте да 
 </section>
 </section>
 <section id="id17">
-<h2>Задаци за самостални рад<a class="headerlink" href="#id17" title="Permalink to this heading" target="_blank">¶</a></h2>
+<h2>Задаци за самостални рад</h2>
 <ol class="arabic simple">
 <li><p>Потражити на интернету податке о првом масивно паралелном рачунару
 који се звао <em>Connection Machine</em> (настао средином
@@ -1261,3 +1270,5 @@ C# решења (ако вам се тако не чини, верујте да 
                     </button>
                 </div>
             </div>
+</body>
+</html>
