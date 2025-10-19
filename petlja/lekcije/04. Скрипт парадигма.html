@@ -1,0 +1,353 @@
+<div id="lectureContent-8408" class="lectureContentMaterial active">
+
+
+
+    
+  <section id="id1">
+<h1>Скрипт парадигма<a class="headerlink" href="#id1" title="Permalink to this heading" target="_blank">¶</a></h1>
+<p><strong>Скрипт језици</strong> су посебно дизајнирани програмски језици који се
+користе за писање <strong>скриптова</strong>. Скрипт језици оригинално нису били
+намењени програмирању самосталних апликација, већ је основни циљ
+скриптова био да се коришћењем програмирања постојеће апликације
+подесе, прилагоде и прошире неком новом функционалношћу као и да
+допринесу аутоматизацију разних задатака. То значи да се скриптови не
+компилирају већ се интерпретирају (често из система који проширују).
+Ова парадигма се истиче својом једноставношћу и брзином развоја,
+чинећи је идеалним алатом за администрирање система, веб-програмирање,
+анализу података и многе друге области.</p>
+<section id="id2">
+<h2>Скриптови на вебу<a class="headerlink" href="#id2" title="Permalink to this heading" target="_blank">¶</a></h2>
+<p>На пример, језик <strong>JavaScript</strong> је био намењен проширивању могућности
+веб-прегледача тако да се до тада пасивним веб-страницама може додати
+могућност аутоматског генерисања одређеног садржаја и интеракције са
+корисницима. Иако се скриптови написани у језику JavaScript и даље
+најчешће извршавају у склопу прегледача веба (мада постоје платформе
+потпут Node.js које омогућавају самостално извршавање JavaScript
+скриптова на веб-серверу, ван прегледача), ови скриптови су постали
+толико важни на савременом вебу, али и толико комплексни да се данас
+често сматрају самосталним веб-апликацијама.</p>
+
+    <div class="note-wrapper infonote-type">
+        <div class="note-icon-holder"> </div>
+        <img src="/_runestone/_static/img/infonote-img.svg" class="note-image infonote-image"> 
+        <div class="course-content">
+            
+<p>Размотримо један мали пример скрипта написаног у језику JavaScript (о
+овом језику ћете детаљније учити у курсу веб-програмирање).</p>
+<div class="highlight-html notranslate"><div class="highlight"><pre><span></span><span class="p">&lt;</span><span class="nt">p</span> <span class="na">id</span><span class="o">=</span><span class="s">"pasus"</span><span class="p">&gt;</span>Tekst u ovom pasusu se može sakriti.<span class="p">&lt;/</span><span class="nt">p</span><span class="p">&gt;</span>
+<span class="p">&lt;</span><span class="nt">button</span> <span class="na">id</span><span class="o">=</span><span class="s">"dugme"</span><span class="p">&gt;</span>Sakrij pasus<span class="p">&lt;/</span><span class="nt">button</span><span class="p">&gt;</span>
+<span class="p">&lt;</span><span class="nt">script</span> <span class="na">type</span><span class="o">=</span><span class="s">"text/javascript"</span><span class="p">&gt;</span>
+<span class="w">   </span><span class="kd">const</span><span class="w"> </span><span class="nx">dugme</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">document</span><span class="p">.</span><span class="nx">getElementById</span><span class="p">(</span><span class="s2">"dugme"</span><span class="p">);</span>
+<span class="w">   </span><span class="nx">dugme</span><span class="p">.</span><span class="nx">getEventListener</span><span class="p">(</span><span class="s2">"click"</span><span class="p">,</span><span class="w"> </span><span class="kd">function</span><span class="p">(</span><span class="nx">event</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">         </span><span class="kd">const</span><span class="w"> </span><span class="nx">pasus</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">document</span><span class="p">.</span><span class="nx">getElementById</span><span class="p">(</span><span class="s2">"pasus"</span><span class="p">);</span>
+<span class="w">         </span><span class="nx">pasus</span><span class="p">.</span><span class="nx">style</span><span class="p">.</span><span class="nx">display</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">"none"</span><span class="p">;</span>
+<span class="w">   </span><span class="p">});</span>
+<span class="p">&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
+</pre></div>
+</div>
+<p>Веб-страница садржи пасус и дугме. Када корисник притиска дугме,
+пасус се сакрива. Цео скрипт ћеш разумети када научиш JavaScript, а
+за сада је довољно само да видиш како отприлике изгледа додавање
+функционалности веб-странама.</p>
+
+    </div></div>
+<p>Поред скриптова који се извршавају унутар прегледача веба (кажемо на
+страни клијента), на вебу се користе и скриптови који се извршавају на
+веб-серверу (кажемо на страни сервера). Они се обично пишу у језицима
+<strong>PHP</strong>, <strong>C# / ASP.NET</strong>, <strong>Java / JSP</strong>, <strong>Python</strong>, <strong>JavaScript /
+Node.js</strong> итд. Ти скриптови обично примају податке са клијента, на
+основу њих прибављају податке из базе (или их уписују у базу), након
+чега резултате уписују у веб-страницу коју формирају (записану у
+формату HTML) и шаљу назад клијенту да је прикаже.</p>
+</section>
+<section id="id3">
+<h2>Скриптови у играма<a class="headerlink" href="#id3" title="Permalink to this heading" target="_blank">¶</a></h2>
+<p>Још један пример примене скриптова су скриптови у рачунарским играма,
+који се користе за њихово прилагођавање. Игре су обично испрограмиране
+у језицима попут језика C или C++, који служе за програмирање веома
+ефикасних апликација. Неке игре допуштају напредним корисницима да
+коришћењем једноставнијих, специјализованих скрипт језика подесе неке
+елементе игре (на пример, положај и изглед неких ликова у игри,
+понашање непријатељских ликова и слично). Игра написана у ефикасном
+језику чита и извршава такве скриптове током свог извршавања. На тај
+начин онај ко подешава игру има на располагању изражајност које
+програмирање нуди (на пример, сам може да осмисли и опише алгоритам
+кретања неких ликова), а са друге стране не мора да има приступ
+целокупном изворном коду ире који је веома компликован и написан у
+напредном језику. На пример, популарна игра <em>World of Warcraft</em> је
+имплементирана у језику C++, а корисницима нуди могућност писања
+скриптова у језику <strong>Lua</strong> којима могу, на пример, да прилагођавају и
+подешавају изглед корисничког интерфејса у овој игри.</p>
+
+    <div class="note-wrapper infonote-type">
+        <div class="note-icon-holder"> </div>
+        <img src="/_runestone/_static/img/infonote-img.svg" class="note-image infonote-image"> 
+        <div class="course-content">
+            
+<p>Размотримо један пример скрипта написаног у језику Lua за игру
+World of Warcraft.</p>
+<div class="highlight-lua notranslate"><div class="highlight"><pre><span></span><span class="kr">function</span><span class="w"> </span><span class="nf">castFire</span><span class="p">(</span><span class="nv">pUnit</span><span class="p">,</span><span class="w"> </span><span class="nv">Event</span><span class="p">)</span>
+<span class="w">   </span><span class="kr">if</span><span class="w"> </span><span class="nv">pUnit</span><span class="p">:</span><span class="nf">GetHealthPct</span><span class="p">()</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="mi">50</span><span class="w"> </span><span class="kr">then</span>
+<span class="w">      </span><span class="nv">pUnit</span><span class="p">:</span><span class="nf">RemoveEvents</span><span class="p">();</span>
+<span class="w">      </span><span class="nv">pUnit</span><span class="p">:</span><span class="nf">SendChatMessage</span><span class="p">(</span><span class="mi">12</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="s2">"Burning Fire!"</span><span class="p">)</span>
+<span class="w">      </span><span class="nv">pUnit</span><span class="p">:</span><span class="nf">FullCastSpellOnTarget</span><span class="p">(</span><span class="mi">30926</span><span class="p">)</span>
+<span class="w">   </span><span class="kr">end</span>
+<span class="kr">end</span>
+
+<span class="kr">function</span><span class="w"> </span><span class="nf">OnCombat</span><span class="p">(</span><span class="nv">pUnit</span><span class="p">,</span><span class="w"> </span><span class="nv">Event</span><span class="p">)</span>
+<span class="w">    </span><span class="nv">pUnit</span><span class="p">:</span><span class="nf">RegisterEvent</span><span class="p">(</span><span class="s2">"castFire"</span><span class="p">)</span>
+<span class="kr">end</span>
+
+<span class="nf">RegisterpUnitEvent</span><span class="p">(</span><span class="nv">ID</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="s2">"OnCombat"</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Играчу са идентификатором 1 се придружује додатно понашање – када
+му проценат здравља падне испод 50%, он аутоматски баца ватрену чин
+(и обавештава све о томе поруком „Burnihg Fire!”). Ако те занима да
+разумеш све детаље ове технике, можеш самостално кренути да
+проучаваш језик Lua и његову примену у игри WoW (овде смо га навели
+чисто да добијеш неку основну идеју функционише скриптовање у
+играма).</p>
+
+    </div></div>
+</section>
+<section id="id4">
+<h2>Командни скриптови<a class="headerlink" href="#id4" title="Permalink to this heading" target="_blank">¶</a></h2>
+<p>Скриптови се често пишу и да олакшају послове администрирања
+(одржавања) рачунара. Оперативни системи подржавају извршавање
+скриптова написаних у специјализованим скрипт језицима. Краћи
+скриптови се могу навести директно у командној линији (до које се
+долази када се покрене посебан програм који се у систему Windows
+назива Command Prompt, а у системима Linux обично Terminal или
+Console). На пример, ако желимо да направимо резервну копију сваке
+текстуалне датотеке у командој линији система Windows можемо
+употребити наредну команду:</p>
+<div class="highlight-batch notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="se">%%</span>i <span class="k">in</span> <span class="p">(</span>*.txt<span class="p">)</span> <span class="k">do</span> <span class="p">(</span><span class="k">copy</span> <span class="s2">"</span><span class="se">%%</span><span class="s2">i"</span> <span class="s2">"</span><span class="se">%%</span><span class="s2">i.bak"</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Исти задатак би се у оперативном систему и његовом командом
+интерпретатору <strong>Bash</strong> извршио следећом командом:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="k">for</span><span class="w"> </span>f<span class="w"> </span><span class="k">in</span><span class="w"> </span>*.txt<span class="p">;</span><span class="w"> </span><span class="k">do</span><span class="w"> </span>cp<span class="w"> </span><span class="nv">$f</span><span class="w"> </span><span class="nv">$f</span>.bak<span class="p">;</span><span class="w"> </span><span class="k">done</span>
+</pre></div>
+</div>
+<p>Дужи скриптови се често смештају у такозване <strong>беч датотеке</strong>
+(енгл. <em>batch files</em>). У систему Windows оне имају екстензију
+<code class="docutils literal notranslate"><span class="pre">bat</span></code>. У систему Линукс се оне обично чувају у датотекама које имају
+екстензију <code class="docutils literal notranslate"><span class="pre">sh</span></code> (енгл. <em>shell scripts</em>).</p>
+
+    <div class="note-wrapper infonote-type">
+        <div class="note-icon-holder"> </div>
+        <img src="/_runestone/_static/img/infonote-img.svg" class="note-image infonote-image"> 
+        <div class="course-content">
+            
+<p>Име <strong>беч обрада</strong> потиче још из доба рачунара који су се
+програмирали бушеним картицама. Рачунару се тада кутија
+(енгл. batch) картица које су се обрађивале једна за другом. Тако
+беч датотека садржи команде које се извршавају серијски, једна за
+другом.</p>
+
+    </div></div>
+
+    <div class="note-wrapper infonote-type">
+        <div class="note-icon-holder"> </div>
+        <img src="/_runestone/_static/img/infonote-img.svg" class="note-image infonote-image"> 
+        <div class="course-content">
+            
+<p>Размотримо беч датотеку која прави резервну копију датотеке чије се
+име задаје као аргумент приликом покретања беч датотеке. Резервна
+копија се креира у директоријуму <code class="docutils literal notranslate"><span class="pre">backup</span></code> а на име датотеке се
+додаје текући датум. На пример, <code class="docutils literal notranslate"><span class="pre">beleske.txt</span></code> се назива
+<code class="docutils literal notranslate"><span class="pre">beleske_23-09-2023.txt</span></code>). Наравно, у овом тренутку не можете
+разумети све детаље наведених скриптова, али на основу наведених
+коментара у коду можете стећи неку идеју како изгледају командни
+скриптови.</p>
+<div class="highlight-batch notranslate"><div class="highlight"><pre><span></span><span class="p">@</span><span class="k">echo</span> off
+
+<span class="c1">rem Ime datoteke se zadaje kao argument komandne linije</span>
+<span class="k">set</span> <span class="s2">"sourceFile=</span><span class="nv">%1</span><span class="s2">"</span>
+<span class="k">set</span> <span class="s2">"backupFolder=backup"</span>
+
+<span class="c1">rem Određujemo sistemski datum i postavljamo odgovarajuće promenljive</span>
+<span class="k">for</span> <span class="k">/f</span> <span class="s2">"tokens=2-4 delims=/ "</span> <span class="se">%%</span>a <span class="k">in</span> <span class="p">(</span><span class="s1">'date /t'</span><span class="p">)</span> <span class="k">do</span> <span class="p">(</span>
+    <span class="k">set</span> <span class="s2">"year=</span><span class="se">%%</span><span class="s2">c"</span>
+    <span class="k">set</span> <span class="s2">"month=</span><span class="se">%%</span><span class="s2">a"</span>
+    <span class="k">set</span> <span class="s2">"day=</span><span class="se">%%</span><span class="s2">b"</span>
+<span class="p">)</span>
+
+<span class="c1">rem Kreiramo nisku koja sadrži tekući datum</span>
+<span class="k">set</span> <span class="s2">"date=</span><span class="nv">%year%%month%%day%</span><span class="s2">"</span>
+
+<span class="c1">rem Izdvajamo naziv datoteke i ekstenziju</span>
+<span class="k">for</span> <span class="se">%%</span>i <span class="k">in</span> <span class="p">(</span><span class="s2">"</span><span class="nv">%sourceFile%</span><span class="s2">"</span><span class="p">)</span> <span class="k">do</span> <span class="p">(</span>
+    <span class="k">set</span> <span class="s2">"filename=</span><span class="se">%%</span><span class="s2">~ni"</span>
+    <span class="k">set</span> <span class="s2">"extension=</span><span class="se">%%</span><span class="s2">~xi"</span>
+<span class="p">)</span>
+
+<span class="c1">rem Kreiramo ceo naziv rezervne kopije</span>
+<span class="k">set</span> <span class="s2">"backupFile=</span><span class="nv">%sourceFile:.=_%</span><span class="s2">date</span><span class="nv">%.%</span><span class="s2">extension%"</span>
+
+<span class="c1">rem Ako ne postoji, kreiramo direktorijum u koji ćemo smestiti rezervnu kopiju</span>
+<span class="k">if</span> <span class="k">not</span> <span class="k">exist</span> <span class="s2">"</span><span class="nv">%backupFolder%</span><span class="s2">"</span> <span class="p">(</span>
+    <span class="k">mkdir</span> <span class="s2">"</span><span class="nv">%backupFolder%</span><span class="s2">"</span>
+<span class="p">)</span>
+
+<span class="c1">rem Kopiramo originalnu datoteku</span>
+<span class="k">copy</span> <span class="s2">"</span><span class="nv">%sourceFile%</span><span class="s2">"</span> <span class="s2">"</span><span class="nv">%backupFolder%</span><span class="s2">\</span><span class="nv">%backupFile%</span><span class="s2">"</span>
+
+<span class="c1">rem Ispisujemo poruku da je napravljena rezervna kopija</span>
+<span class="k">echo</span> Backed up <span class="s2">"</span><span class="nv">%sourceFile%</span><span class="s2">"</span> to <span class="s2">"</span><span class="nv">%backupFolder%</span><span class="s2">\</span><span class="nv">%backupFile%</span><span class="s2">"</span>
+</pre></div>
+</div>
+<p>Наведимо и еквивалентан скрипт написан за командни интерпретатор
+Bash који се користи у систему Linux.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="ch">#!/bin/bash</span>
+
+<span class="c1"># Ime datoteke se zadaje kao argument komandne linije</span>
+<span class="nv">sourceFile</span><span class="o">=</span><span class="s2">"</span><span class="nv">$1</span><span class="s2">"</span>
+<span class="nv">backupFolder</span><span class="o">=</span><span class="s2">"backup"</span>
+
+<span class="c1"># Ako nije navedeno ime datoteke, štampa se poruka o grešci</span>
+<span class="k">if</span><span class="w"> </span><span class="o">[</span><span class="w"> </span>-z<span class="w"> </span><span class="s2">"</span><span class="nv">$sourceFile</span><span class="s2">"</span><span class="w"> </span><span class="o">]</span><span class="p">;</span><span class="w"> </span><span class="k">then</span>
+<span class="w">    </span><span class="nb">echo</span><span class="w"> </span><span class="s2">"Usage: </span><span class="nv">$0</span><span class="s2"> source_file"</span>
+<span class="w">    </span><span class="nb">exit</span><span class="w"> </span><span class="m">1</span>
+<span class="k">fi</span>
+
+<span class="c1"># Kreiramo nisku koja sadrži tekući datum</span>
+<span class="nv">timestamp</span><span class="o">=</span><span class="k">$(</span>date<span class="w"> </span>+<span class="s2">"%Y%m%d"</span><span class="k">)</span>
+
+<span class="c1"># Izdvajamo naziv datoteke i ekstenziju</span>
+<span class="nv">filename</span><span class="o">=</span><span class="k">$(</span>basename<span class="w"> </span>--<span class="w"> </span><span class="s2">"</span><span class="nv">$sourceFile</span><span class="s2">"</span><span class="k">)</span>
+<span class="nv">extension</span><span class="o">=</span><span class="s2">"</span><span class="si">${</span><span class="nv">filename</span><span class="p">##*.</span><span class="si">}</span><span class="s2">"</span>
+<span class="nv">filename</span><span class="o">=</span><span class="s2">"</span><span class="si">${</span><span class="nv">filename</span><span class="p">%.*</span><span class="si">}</span><span class="s2">"</span>
+
+<span class="c1"># Kreiramo ceo naziv rezervne kopije</span>
+<span class="nv">backupFile</span><span class="o">=</span><span class="s2">"</span><span class="si">${</span><span class="nv">filename</span><span class="si">}</span><span class="s2">_</span><span class="si">${</span><span class="nv">timestamp</span><span class="si">}</span><span class="s2">.</span><span class="si">${</span><span class="nv">extension</span><span class="si">}</span><span class="s2">"</span>
+
+<span class="c1"># Ako ne postoji, kreiramo direktorijum u koji ćemo smestiti rezervnu kopiju</span>
+<span class="k">if</span><span class="w"> </span><span class="o">[</span><span class="w"> </span>!<span class="w"> </span>-d<span class="w"> </span><span class="s2">"</span><span class="nv">$backupFolder</span><span class="s2">"</span><span class="w"> </span><span class="o">]</span><span class="p">;</span><span class="w"> </span><span class="k">then</span>
+<span class="w">    </span>mkdir<span class="w"> </span><span class="s2">"</span><span class="nv">$backupFolder</span><span class="s2">"</span>
+<span class="k">fi</span>
+
+<span class="c1"># Kopiramo originalnu datoteku</span>
+cp<span class="w"> </span><span class="s2">"</span><span class="nv">$sourceFile</span><span class="s2">"</span><span class="w"> </span><span class="s2">"</span><span class="nv">$backupFolder</span><span class="s2">/</span><span class="nv">$backupFile</span><span class="s2">"</span>
+
+<span class="c1"># Ispisujemo poruku da je napravljena rezervna kopija</span>
+<span class="nb">echo</span><span class="w"> </span><span class="s2">"Backed up \"</span><span class="nv">$sourceFile</span><span class="s2">\" to \"</span><span class="nv">$backupFolder</span><span class="s2">/</span><span class="nv">$backupFile</span><span class="s2">\""</span>
+</pre></div>
+</div>
+
+    </div></div>
+<p>Још један чест избор за писање командних скриптова данас је језик
+<strong>Python</strong>. У његовој стандардној библиотеци присутна је подршка за
+све основне операције над датотекама и директоријумима. Важна предност
+коришења језика Python је то што се тако написани скриптови могу
+користити на разним оперативним системима (кажемо да су преносиви, за
+разлику од скриптова написаних у командном интерпретатору неког
+специфичног оперативног система).</p>
+
+    <div class="note-wrapper infonote-type">
+        <div class="note-icon-holder"> </div>
+        <img src="/_runestone/_static/img/infonote-img.svg" class="note-image infonote-image"> 
+        <div class="course-content">
+            
+<p>Претходни скрипт се може написати у језику Python на следећи начин.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">os</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">sys</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">shutil</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">datetime</span><span class="w"> </span><span class="kn">import</span> <span class="n">datetime</span>
+
+<span class="c1"># Ime datoteke se zadaje kao argument komandne linije</span>
+<span class="c1"># Ako argument nije naveden, prijavljuje se greška</span>
+<span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">sys</span><span class="o">.</span><span class="n">argv</span><span class="p">)</span> <span class="o">!=</span> <span class="mi">2</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">"Usage: python backup_script.py source_file"</span><span class="p">)</span>
+    <span class="n">sys</span><span class="o">.</span><span class="n">exit</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+
+<span class="n">source_file</span> <span class="o">=</span> <span class="n">sys</span><span class="o">.</span><span class="n">argv</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+<span class="n">backup_folder</span> <span class="o">=</span> <span class="s2">"backup"</span>
+
+<span class="c1"># Ako originalna datoteka ne postoji, prijavljuje se greška</span>
+<span class="k">if</span> <span class="ow">not</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">exists</span><span class="p">(</span><span class="n">source_file</span><span class="p">):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Error: Source file '</span><span class="si">{</span><span class="n">source_file</span><span class="si">}</span><span class="s2">' does not exist."</span><span class="p">)</span>
+    <span class="n">sys</span><span class="o">.</span><span class="n">exit</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+
+<span class="c1"># Kreiramo nisku koja sadrži tekući datum</span>
+<span class="n">timestamp</span> <span class="o">=</span> <span class="n">datetime</span><span class="o">.</span><span class="n">now</span><span class="p">()</span><span class="o">.</span><span class="n">strftime</span><span class="p">(</span><span class="s2">"%Y%m</span><span class="si">%d</span><span class="s2">"</span><span class="p">)</span>
+
+<span class="c1"># Izdvajamo naziv datoteke i ekstenziju</span>
+<span class="n">filename</span><span class="p">,</span> <span class="n">extension</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">splitext</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">basename</span><span class="p">(</span><span class="n">source_file</span><span class="p">))</span>
+
+<span class="c1"># Konstruišemo naziv rezervne kopije</span>
+<span class="n">backup_file</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="n">filename</span><span class="si">}</span><span class="s2">.</span><span class="si">{</span><span class="n">timestamp</span><span class="si">}{</span><span class="n">extension</span><span class="si">}</span><span class="s2">"</span>
+
+<span class="c1"># Ako ne postoji, kreiramo direktorijum u koji ćemo smestiti rezervnu kopiju</span>
+<span class="k">if</span> <span class="ow">not</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">exists</span><span class="p">(</span><span class="n">backup_folder</span><span class="p">):</span>
+    <span class="n">os</span><span class="o">.</span><span class="n">makedirs</span><span class="p">(</span><span class="n">backup_folder</span><span class="p">)</span>
+
+<span class="c1"># Kopiramo originalnu datoteku</span>
+<span class="n">destination_file</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">backup_folder</span><span class="p">,</span> <span class="n">backup_file</span><span class="p">)</span>
+<span class="n">shutil</span><span class="o">.</span><span class="n">copy2</span><span class="p">(</span><span class="n">source_file</span><span class="p">,</span> <span class="n">destination_file</span><span class="p">)</span>
+
+<span class="c1"># Ispisujemo poruku da je napravljena rezervna kopija</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Backed up '</span><span class="si">{</span><span class="n">source_file</span><span class="si">}</span><span class="s2">' to '</span><span class="si">{</span><span class="n">destination_file</span><span class="si">}</span><span class="s2">'"</span><span class="p">)</span>
+</pre></div>
+</div>
+
+    </div></div>
+</section>
+</section>
+<section id="id5">
+<h1>Задаци за самостални рад<a class="headerlink" href="#id5" title="Permalink to this heading" target="_blank">¶</a></h1>
+<ol class="arabic simple">
+<li><p>Проучи историјат језика JavaScript. Када је и како настао, за шта
+се у почетку користио, а како се сада све користи. Какав је однос
+језика JavaScript са језиком Java?</p></li>
+</ol>
+<ol class="arabic simple">
+<li><p>Проучи шта је PowerShell, која компанија га је развила, чему служи
+и на којим све оперативним системима може да се користи.</p></li>
+</ol>
+<ol class="arabic simple">
+<li><p>Пронађи на интернету неколико примера рачунарских игара које
+допуштају прилагођавање коришћењем скриптова. Ако имаш неку од тих
+игара, покушај да је прилегодиш писањем неког једноставног скрипта.</p></li>
+</ol>
+<ol class="arabic simple">
+<li><p>Покушај да напишеш командни скрипт за твој оперативни систем који
+пребројава колико слика у формату <code class="docutils literal notranslate"><span class="pre">jpg</span></code> и <code class="docutils literal notranslate"><span class="pre">png</span></code> се налази у
+задатом директоријуму.</p></li>
+</ol>
+<ol class="arabic simple">
+<li><p>Покушај да напишеш командни скрипт за твој оперативни систем који
+уклања све помоћне датотеке (са екстензојом <code class="docutils literal notranslate"><span class="pre">bak</span></code>, <code class="docutils literal notranslate"><span class="pre">log</span></code> и
+слично) у текућем директоријуму и свим његовим поддиректоријумима.</p></li>
+</ol>
+</section>
+
+
+    
+                <div class="finish-lecture-label" id="finishLectureLabel-8408">Mark activity as completed</div>
+                <button type="button" class="finish-lecture-btn not-checked-finish-activity" id="finishLecture-8408" aria-labelledby="MarkLectureComplitedBtn">
+                    <img src="/images/check (2) 2@3x.png" alt="Icon for marking the activity as completed">
+                </button>
+                <div role="button" class="finish-lecture-btn checked-finish-activity d-none" id="checkmark-8408" aria-labelledby="LectureMarkedComplitedBtn">
+                    <div class="checked-finish-activity-label">
+                        Activity completed!
+                    </div>
+                    <img src="/images/check (2) 2@3x white.png" alt="Icon indicating the activity is completed">
+                </div>
+                <div class="lecture-prev-next-toggle">
+                    <button type="button" id="prevLecture" class="lecture-toggler-arrows" aria-labelledby="Button to go on previous activity">
+                        <span aria-hidden="true">
+                            <i class="fas fa-arrow-left fa"></i>
+                        </span>
+                        <span class="lecture-toggler-arrows-text">Previous activity</span>
+                    </button>
+
+                    <button type="button" id="nextLecture" class="lecture-toggler-arrows" aria-labelledby="Button to go on next activity">
+                        <span class="lecture-toggler-arrows-text">Next activity</span>
+                        <span aria-hidden="true">
+                            <i class="fas fa-arrow-right fa"></i>
+                        </span>
+                    </button>
+                </div>
+            </div>

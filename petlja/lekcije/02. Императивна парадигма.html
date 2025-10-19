@@ -1,0 +1,651 @@
+<div id="lectureContent-7783" class="lectureContentMaterial active">
+
+
+
+    
+  <section id="id1">
+<h1>Императивна парадигма<a class="headerlink" href="#id1" title="Permalink to this heading" target="_blank">¶</a></h1>
+<p>Императивна парадигма је најстарија парадигма и тесно је повезана са
+начином функционисања хардвера. Императивни програми се састоје из
+<strong>наредби</strong> којима се рачунару задаје како да измени податке који су
+смештени у меморији рачунара. Сви машински и асемблерски језици су
+императивни (при чему су наредбе тамо заправо инструкције којима се
+процесору задаје како да податке обради).</p>
+<p>Кључан појам при извршавању сваког императивног програма је његово
+текуће <strong>стање</strong> које одређују променљиве које тај програм користи и
+које се мења током извршавања програма (кажемо да је стање
+<strong>мутабилно</strong>). Основна наредба којом се мења стање програма је
+<strong>наредба доделе</strong>, којом се променљивој додељује вредност. Поред
+наредбе доделе, користе се наредбе за контролу тока: гранање
+(нпр. наредба <code class="docutils literal notranslate"><span class="pre">if</span></code>) и петље (нпр. наредбе <code class="docutils literal notranslate"><span class="pre">while</span></code> и <code class="docutils literal notranslate"><span class="pre">for</span></code>). У
+изградњи наредби користе се <strong>изрази</strong> (на пример, изрази се наводе са
+десне стране наредбе доделе и у условима петљи и наредби
+гранања). Алгоритам се описује низом наредби које рачунар извршава
+секвенцијално, једну за другом (при чему гранање и петље дефинишу
+другачију контролу тока).</p>
+<p>На пример, размотримо наредни фрагмент императивног кода у језику C#:</p>
+<div class="highlight-csharp notranslate"><div class="highlight"><pre><span></span><span class="kt">int</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">3</span><span class="p">;</span>
+<span class="kt">int</span><span class="w"> </span><span class="n">n</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">4</span><span class="p">;</span>
+<span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+<span class="kt">int</span><span class="w"> </span><span class="n">stepen</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span>
+<span class="k">while</span><span class="w"> </span><span class="p">(</span><span class="n">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">n</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="n">stepen</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">stepen</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">x</span><span class="p">;</span>
+<span class="w">    </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>У њему учествују 4 променљиве (<code class="docutils literal notranslate"><span class="pre">x</span></code>, <code class="docutils literal notranslate"><span class="pre">n</span></code>, <code class="docutils literal notranslate"><span class="pre">i</span></code> и <code class="docutils literal notranslate"><span class="pre">stepen</span></code>). На
+почетку програма врши се њихова иницијализација и пре уласка у петљу
+вредности ових променљивих су редом 3, 4, 0 и 1. Током петље стање
+програма се мења на следећи начин:</p>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>x</p></th>
+<th class="head"><p>n</p></th>
+<th class="head"><p>i</p></th>
+<th class="head"><p>stepen</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>3</p></td>
+<td><p>4</p></td>
+<td><p>0</p></td>
+<td><p>1</p></td>
+</tr>
+<tr class="row-odd"><td><p>3</p></td>
+<td><p>4</p></td>
+<td><p>1</p></td>
+<td><p>3</p></td>
+</tr>
+<tr class="row-even"><td><p>3</p></td>
+<td><p>4</p></td>
+<td><p>2</p></td>
+<td><p>9</p></td>
+</tr>
+<tr class="row-odd"><td><p>3</p></td>
+<td><p>4</p></td>
+<td><p>3</p></td>
+<td><p>27</p></td>
+</tr>
+<tr class="row-even"><td><p>3</p></td>
+<td><p>4</p></td>
+<td><p>4</p></td>
+<td><p>81</p></td>
+</tr>
+</tbody>
+</table>
+<p>Промена вредности променљиве је специфична особина императивних
+програма и не среће се у математици. Почетнике често збуњује наредба
+доделе <code class="docutils literal notranslate"><span class="pre">i</span> <span class="pre">=</span> <span class="pre">i</span> <span class="pre">+</span> <span class="pre">1;</span></code>, јер је тумаче као математичку једначину, што,
+наравно, нема смисла. Семантика ове наредбе је <em>променљивој i
+треба доделити вредност која је за један већа од тренутне вредности
+променљиве i</em>.</p>
+<p>Основна техника изражавања алгоритама је <strong>итерација</strong>, која
+подразумева да се до коначне вредности долази тако што се мало по мало
+ажурира вредност неке променљиве (као што је у претходном примеру
+вредност променљиве <code class="docutils literal notranslate"><span class="pre">stepen</span></code> ажурирана мало–по–мало, све док није
+достигла жељену вредност 81). Итерација се остварује уз помоћ петљи и
+често се појам итерације поистовећује са петљама (додуше, ако је
+унапред познато колико пута је потребно променити вредност неке
+променљиве, итерацију је могуће извршити и без петљи).</p>
+<p>Наредба доделе јесте главни, али није и једини начин да се промени
+вредност неке променљиве, тј. стање програма. На пример, оператори
+<code class="docutils literal notranslate"><span class="pre">++</span></code> и <code class="docutils literal notranslate"><span class="pre">--</span></code> у програмском језику C# увећавају односно умањују
+вредност променљиве за 1. Кажемо да ти оператори имају <strong>бочне
+ефекте</strong> (можемо рећи и <em>пропратне ефекте</em> или <em>споредне ефекте</em>,
+енг. <em>side effect</em>). Бочни ефекат могу имати и функције које приликом
+позива мењају вредности неких глобалних променљивих.</p>
+<p>Основно стање програма заиста сачињава вредност његових променљивих.
+Међутим, сви програми врше и неку интеракцију са улазно-излазним
+уређајима (исписују или исцртавају нешто на екран, реагују на тастере
+тастатуре или померање миша и слично, записују нешто у датотеку или
+читају нешто из датотеке, комуницирају преко мреже и слично). И за
+функције које врше овакве интеракције се такође каже да имају бочне
+ефекте.</p>
+<section id="id2">
+<h2>Структурирано програмирање<a class="headerlink" href="#id2" title="Permalink to this heading" target="_blank">¶</a></h2>
+<p>Процесор контролу тока програма остварује помоћу условних и
+безусловних скокова. Наредбе у програму могу бити означене
+тзв. лабелама и постоје инструкције којима се задаје скок на неку
+лабелу (што значи да извршавање програма треба да се настави од
+инструкције на задатој лабели) и инструкције којима се задаје скок на
+неку лабелу под неким условом (ако тај услов није испуњен, онда се
+програм наставља нормалним током, од инструкције која се налази иза
+инструкције скока). На пример:</p>
+<div class="highlight-asm notranslate"><div class="highlight"><pre><span></span><span class="w">   </span><span class="nf">mov</span><span class="w"> </span><span class="no">eax</span><span class="p">,</span><span class="w"> </span><span class="mi">5</span>
+<span class="nl">pocetak:</span>
+<span class="w">   </span><span class="nf">cmp</span><span class="w"> </span><span class="no">eax</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span>
+<span class="w">   </span><span class="nf">je</span><span class="w"> </span><span class="no">kraj</span>
+<span class="w">   </span><span class="nf">dec</span><span class="w"> </span><span class="no">eax</span>
+<span class="w">   </span><span class="nf">jmp</span><span class="w"> </span><span class="no">pocetak</span>
+<span class="nl">kraj:</span>
+<span class="w">   </span><span class="nf">call</span><span class="w"> </span><span class="no">print</span>
+</pre></div>
+</div>
+<p>У претходном асемблерском програму је реализована једна једноставна
+петља. У првој инструкцији уписује се вредност 5 у регистар <code class="docutils literal notranslate"><span class="pre">eax</span></code>.
+У наредној се помоћу инструкције <code class="docutils literal notranslate"><span class="pre">cmp</span></code> пореди вредност у регистру
+<code class="docutils literal notranslate"><span class="pre">eax</span></code> са 0. Затим следи условни скок на крај петље где се налази
+инструкција којом се позива функција исписа. Инструкција <code class="docutils literal notranslate"><span class="pre">je</span></code> врши
+скок, ако је у претходном поређењу откривена једнакост. Дакле, ако у
+<code class="docutils literal notranslate"><span class="pre">eax</span></code> јесте вредност 0, скаче се на крај петље, а ако није, наставља
+се са следећом инструкцијом у петљи, а то је <code class="docutils literal notranslate"><span class="pre">dec</span> <span class="pre">eax</span></code> којом се
+вредност у регистру <code class="docutils literal notranslate"><span class="pre">eax</span></code> умањује за 1. Након тога следи инструкција
+безусловног скока <code class="docutils literal notranslate"><span class="pre">jmp</span></code> којом се контрола тока враћа на почетак наше
+петље. Дакле, у телу петље се вредност у регистру <code class="docutils literal notranslate"><span class="pre">eax</span></code> смањује за 1
+све док не дође до нуле, када се искаче из тела петље.</p>
+<p>Под утицајем хардвера, тј. асемберских језика који директно осликавају
+процесорске инструкције рани виши програмски језици имали су наредбу
+скока која је обично називана GOTO. Она је била карактеристична за
+језике попут језика Fortran и BASIC. Претходна петља би се у језику
+BASIC могла записати овако.</p>
+<div class="highlight-basic notranslate"><div class="highlight"><pre><span></span><span class="nl">10</span><span class="w"> </span><span class="vg">X</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="il">5</span>
+<span class="nl">20</span><span class="w"> </span><span class="kr">IF</span><span class="w"> </span><span class="vg">X</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="il">0</span><span class="w"> </span><span class="kr">THEN</span><span class="w"> </span><span class="kr">GOTO</span><span class="w"> </span><span class="nl">50</span>
+<span class="nl">30</span><span class="w"> </span><span class="vg">X</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="vg">X</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="il">1</span>
+<span class="nl">40</span><span class="w"> </span><span class="kr">GOTO</span><span class="w"> </span><span class="nl">20</span>
+<span class="nl">50</span><span class="w"> </span><span class="kr">PRINT</span><span class="p">(</span><span class="vg">X</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Свака наредба има свој број и наредбом GOTO врши се скок на наредбу са
+задатим бројем.</p>
+<p>Парадигма у којој се наредбе извршавају секвенцијално, једна за
+другом, а ток програма се мења наредбом скока (GOTO) назива се понекад
+<strong>композитна парадигма</strong>.</p>
+<p>У савременом програмском језику претходни програм би се записао као</p>
+<div class="highlight-csharp notranslate"><div class="highlight"><pre><span></span><span class="kt">int</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">5</span><span class="p">;</span>
+<span class="k">while</span><span class="w"> </span><span class="p">(</span><span class="n">x</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span>
+<span class="w">    </span><span class="n">x</span><span class="o">--</span><span class="p">;</span>
+<span class="n">print</span><span class="p">(</span><span class="n">x</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>Иако је овакав стил програмирања успешно коришћен у раном развоју
+рачунарства, врло брзо је уочено да програми који користе наредбу GOTO
+могу да постану веома тешки за разумевање и одржавање. Размотримо
+следећи пример.</p>
+<div class="highlight-basic notranslate"><div class="highlight"><pre><span></span><span class="nl">10</span><span class="w"> </span><span class="kr">INPUT</span><span class="p">(</span><span class="vg">A</span><span class="p">)</span>
+<span class="nl">20</span><span class="w"> </span><span class="kr">IF</span><span class="w"> </span><span class="vg">A</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="il">0</span><span class="w"> </span><span class="kr">THEN</span><span class="w"> </span><span class="kr">GOTO</span><span class="w"> </span><span class="nl">60</span>
+<span class="nl">30</span><span class="w"> </span><span class="kr">IF</span><span class="w"> </span><span class="vg">A</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="il">0</span><span class="w"> </span><span class="kr">THEN</span><span class="w"> </span><span class="kr">GOTO</span><span class="w"> </span><span class="nl">80</span>
+<span class="nl">40</span><span class="w"> </span><span class="kr">PRINT</span><span class="p">(</span><span class="s2">"NULA"</span><span class="p">)</span>
+<span class="nl">50</span><span class="w"> </span><span class="kr">GOTO</span><span class="w"> </span><span class="nl">100</span>
+<span class="nl">60</span><span class="w"> </span><span class="kr">PRINT</span><span class="p">(</span><span class="s2">"NEGATIVAN"</span><span class="p">)</span>
+<span class="nl">70</span><span class="w"> </span><span class="kr">GOTO</span><span class="w"> </span><span class="nl">90</span>
+<span class="nl">80</span><span class="w"> </span><span class="kr">PRINT</span><span class="p">(</span><span class="s2">"POZITIVAN"</span><span class="p">)</span>
+<span class="nl">90</span><span class="w"> </span><span class="kr">GOTO</span><span class="w"> </span><span class="nl">10</span>
+<span class="nl">100</span><span class="w"> </span><span class="kr">END</span>
+</pre></div>
+</div>
+<p>Да ли можете да погодите шта овај програм ради? Размислите како би се
+он могао записати у савременом језику? Ево еквивалентног кода у језику
+C#.</p>
+<div class="highlight-csharp notranslate"><div class="highlight"><pre><span></span><span class="kt">int</span><span class="w"> </span><span class="n">a</span><span class="p">;</span>
+<span class="k">do</span><span class="w"> </span><span class="p">{</span>
+<span class="w">   </span><span class="n">a</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kt">int</span><span class="p">.</span><span class="n">Parse</span><span class="p">(</span><span class="n">Console</span><span class="p">.</span><span class="n">ReadLine</span><span class="p">());</span>
+<span class="w">   </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">a</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span>
+<span class="w">      </span><span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="s">"NEGATIVAN"</span><span class="p">);</span>
+<span class="w">   </span><span class="k">else</span><span class="w"> </span><span class="nf">if</span><span class="w"> </span><span class="p">(</span><span class="n">a</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span>
+<span class="w">      </span><span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="s">"POZITIVAN"</span><span class="p">);</span>
+<span class="w">   </span><span class="k">else</span>
+<span class="w">      </span><span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="s">"NULA"</span><span class="p">);</span>
+<span class="p">}</span><span class="w"> </span><span class="k">while</span><span class="w"> </span><span class="p">(</span><span class="n">a</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="mi">0</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>Из овог доба долазе и чувени дијаграми тока програма на којима се
+графички приказују скокови и везе измећу наредби.</p>
+<a class="reference internal image-reference" href="https://petljamediastorage.blob.core.windows.net/root/Media/Default/Kursevi/OnlineNastava/specit4_paradigme_logicko/flowchart.jpg" target="_blank"><img alt="https://petljamediastorage.blob.core.windows.net/root/Media/Default/Kursevi/OnlineNastava/specit4_paradigme_logicko/flowchart.jpg" class="align-center" src="https://petljamediastorage.blob.core.windows.net/root/Media/Default/Kursevi/OnlineNastava/specit4_paradigme_logicko/flowchart.jpg" style="width: 500px;"></a>
+<p>У компликованијим програмима наредбе скока толико „запетљају“ контролу
+тока, да су такви програми шаљиво називани „шпагети“ програми. Долази
+до тзв. „софтверске кризе“, што је термин у ком се описује период када
+због лоше методологије није могуће довољно брзо развити софтвер који
+би искористио све расположиве могућности савременог хардвера тј. када
+развој софтвера значајно заостаје за развојем хардвера. Криза се
+препознаје по томе што софтверски пројекти трају дуже и троше више
+новца него што је предвиђено, софтвер који се направи је обично ниског
+квалитета, неефикасан је, незадовољава захтеве корисника и јако тешко
+се одржава и проширује зато што је програмски кôд превише компликован.
+Криза током 1960-их је прва софтверска криза. Чувени информатичар
+Дајкстра који је први и употребио термин „софтверска криза“ је
+1968. објавио чланак <a class="reference external" href="https://homepages.cwi.nl/~storm/teaching/reader/Dijkstra68.pdf" target="_blank">GOTO statement considered harmful</a>, у
+ком је критиковао коришћење наредбе GOTO. Пре тога Бем и Јакопини су
+показали да се наредба GOTO може изоставити из програмских језика ако
+програмски језици подржавају следећа три типа наредби за контролу
+тока:</p>
+<ol class="arabic simple">
+<li><p>секвенцијално извршавање наредби, једну за другом;</p></li>
+<li><p>наредбу гранања;</p></li>
+<li><p>наредбу понављања (петљу).</p></li>
+</ol>
+<p>И један тип петље у комбинацији са наредбом гранања је довољно
+изражајан да одмени произвољан ток изражен помоћу скокова тј. наредбе
+GOTO. Ипак, с временом се усталило да програмски језици обично имају
+три типа петљи: бројачку петљу у којој променљива редом узима
+вредности неког правилног скупа бројева (петља <code class="docutils literal notranslate"><span class="pre">for</span></code>), условну петљу
+с провером услова на почетку (петља <code class="docutils literal notranslate"><span class="pre">while</span></code>), и условну петљу с
+провером услова на крају (петља <code class="docutils literal notranslate"><span class="pre">do-while</span></code>). Информатичари
+инсистирају на томе да се „структура програма“ (данас кажемо контрола
+тока) одређује без коришћења скокова, само коришћењем гранања и петљи
+(тј. фиксног броја „програмских структура“, како је то тада називано).
+Тако се долази до парадигме која је названа <strong>структурирано
+програмирање</strong>. Теоријску основу структурног програмирања даје
+поменута теорема Бема и Јакопинија. Појављују се и програмски језици
+који подржавају ову дисциплину (пре свега Pascal, па затим и
+C). Структурирано програмирање уноси дисциплину и доводи до побољшања
+квалитета програма (програми се лакше разумеју и одржавају) и данас се
+у свим императивним програмским језицима инсистира на дисциплини
+структурираног програмирања. Ако програм уопште нема скокова, тада
+сваки блок наредби има тачно једну улазну и једну излазну тачку, што
+знатно олакшава анализу програма. Због свега наведеног, наредба GOTO у
+данашњим језицима или уопште не постоји или се веома ретко користи.</p>
+
+    <div class="note-wrapper infonote-type">
+        <div class="note-icon-holder"> </div>
+        <img src="/_runestone/_static/img/infonote-img.svg" class="note-image infonote-image"> 
+        <div class="course-content">
+            
+<p>Можда једини „оправдани“ случај коришћења GOTO може бити ситуација
+у којој се жели прекид неколико угнежђених петљи, мада се и та
+ситуација релативно једноставно решава без наредбе GOTO.</p>
+<div class="highlight-csharp notranslate"><div class="highlight"><pre><span></span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">n</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="o">++</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">j</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">j</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">n</span><span class="p">;</span><span class="w"> </span><span class="n">j</span><span class="o">++</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">k</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">k</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">n</span><span class="p">;</span><span class="w"> </span><span class="n">k</span><span class="o">++</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="n">obrada</span><span class="p">(</span><span class="n">i</span><span class="p">,</span><span class="w"> </span><span class="n">j</span><span class="p">,</span><span class="w"> </span><span class="n">k</span><span class="p">)</span>
+<span class="w">            </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">uslov</span><span class="p">(</span><span class="n">i</span><span class="p">,</span><span class="w"> </span><span class="n">j</span><span class="p">,</span><span class="w"> </span><span class="n">k</span><span class="p">))</span>
+<span class="w">               </span><span class="k">goto</span><span class="w"> </span><span class="n">kraj</span><span class="p">;</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+<span class="n">kraj</span><span class="p">:</span>
+</pre></div>
+</div>
+<p>GOTO можемо уклонити коришћењем помоћне логичке променљиве.</p>
+<div class="highlight-csharp notranslate"><div class="highlight"><pre><span></span><span class="kt">bool</span><span class="w"> </span><span class="n">kraj</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">false</span><span class="p">;</span>
+<span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">n</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="o">!</span><span class="n">kraj</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="o">++</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">j</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">j</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">n</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="o">!</span><span class="n">kraj</span><span class="p">;</span><span class="w"> </span><span class="n">j</span><span class="o">++</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">k</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">k</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">n</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="o">!</span><span class="n">kraj</span><span class="p">;</span><span class="w"> </span><span class="n">k</span><span class="o">++</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="n">obrada</span><span class="p">(</span><span class="n">i</span><span class="p">,</span><span class="w"> </span><span class="n">j</span><span class="p">,</span><span class="w"> </span><span class="n">k</span><span class="p">);</span>
+<span class="w">            </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">uslov</span><span class="p">(</span><span class="n">i</span><span class="p">,</span><span class="w"> </span><span class="n">j</span><span class="p">,</span><span class="w"> </span><span class="n">k</span><span class="p">))</span>
+<span class="w">               </span><span class="n">kraj</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">true</span><span class="p">;</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>Закључимо ову дискусију једноставним саветом – нема потребе да у
+својим програмима користите наредбу GOTO.</p>
+
+    </div></div>
+<p>И у структурираном програмирању неки програмски језици уводе две
+посебне наредбе које донекле одговарају наредбама скока. То су наредба
+<code class="docutils literal notranslate"><span class="pre">break</span></code> којом се безусловно врши прекид петље и наредба
+<code class="docutils literal notranslate"><span class="pre">continue</span></code>, којом се врши прекид тренутног корака (тренутне
+итерације) у петљи. Слично, и наредба <code class="docutils literal notranslate"><span class="pre">return</span></code> може довести до
+прекида петље током њеног извршавања. Иако су неки аутори сматрали да
+и ове наредбе, слично осталим наредбама скока, доприносе конфузији и
+компликују програме, с временом се показало да ако се оне користе у
+разумној мери, програми остају читљиви и разумљиви, тако да се у
+савременом програмирању наредбе <code class="docutils literal notranslate"><span class="pre">break</span></code> и <code class="docutils literal notranslate"><span class="pre">continue</span></code> користе.</p>
+
+    <div class="note-wrapper infonote-type">
+        <div class="note-icon-holder"> </div>
+        <img src="/_runestone/_static/img/infonote-img.svg" class="note-image infonote-image"> 
+        <div class="course-content">
+            
+<p>Овде видимо први „сукоб“ између доследног држања парадигме и
+потреба практичног програмирања. Теоретичари обично инсистирају на
+„чистом“ коду који се остварује тиме што се стриктно увек држимо
+принципа које нека парадигма прописује (у овом примеру тај принцип
+би био „програм не сме да садржи наредбе скока“). Практичари, са
+друге стране, заговарају често став да је одступање од строгих
+закона неке парадигме допуштено у неким изнимним ситуацијама, у
+којима процењују да то доводи до кода који је на неки начин бољи
+(ефикаснији, краћи…). У овом примеру, увођење наредби <code class="docutils literal notranslate"><span class="pre">break</span></code> и
+<code class="docutils literal notranslate"><span class="pre">continue</span></code> јесте нарушавање правила да не сме бити наредби
+скокова. То заиста компликује анализу програма, јер, на пример, ако
+смо сигурни да нема наредби скока, знаћемо сигурно да након петље
+<code class="docutils literal notranslate"><span class="pre">while</span></code> услов петље није више испуњен, али ако петља садржи
+наредбу <code class="docutils literal notranslate"><span class="pre">break</span></code>, то више не мора бити тачно. Ипак, пракса
+показује да је корист коришћења наредбе <code class="docutils literal notranslate"><span class="pre">break</span></code> већа него штета
+(нарочито ако се она користи ограничено, у складу са неким честим
+идиомима) и данас се та два облика скока користе у програмирању,
+одступајући тиме од строгог канона који структурна парадигма
+заговара.</p>
+
+    </div></div>
+<p>Приметимо да структурна парадигма са једне стране уводи ограничење на
+употребу неких програмских конструкција (скокова и наредбе GOTO), а са
+друге уводи нове програмске конструкције (наредбе за организацију
+контроле тока, тј. гранања и петљи) које помажу да се не изгуби
+изражајност. Иако на први поглед делује да ограничавање употребе неких
+конструкција отежава посао програмерима, оно на дуже стазе доводи до
+бољег програмског кода који се лакше разуме, одржава и
+проширује. Видећемо да све програмске парадигме функционишу по сличном
+принципу: ограничавају неке конструкције за које се испоставља да
+имају лоше особине, а уместо њих уводе и фаворизују коришћење других
+конструкција, које имају боље особине.</p>
+<p>Важно је да нагласимо да да је до софтверске кризе дошло у софтверској
+индустрији и да је зато софтверска индустрија веома брзо одреаговала
+на теоријске резултате, прихвативши промену парадигме и усвојивши
+структурирано програмирање. Видећемо да је индустрија генерално
+отворена за прихватање нових парадигми и решења која доводе до развоја
+квалитетнијих програма.</p>
+</section>
+<section id="id3">
+<h2>Процедурално програмирање (у смислу потпрограма)<a class="headerlink" href="#id3" title="Permalink to this heading" target="_blank">¶</a></h2>
+<p>Структурирано програмирање и избегавање скокова су важан начин увођења
+дисциплине у императивну парадигму. Други важан корак је разбијање
+програма у мање целине. Основни механизам за то је дефинисање
+<strong>потпрограма</strong> (некада се каже и <strong>подрутине</strong>,
+енг. <em>subroutine</em>). Суштински постоје две врсте потпрограма:</p>
+<ul class="simple">
+<li><p><strong>Функције</strong> одговарају функцијама у математици и њихова улога је да
+на основу датих вредности аргумената израчунају резултат.</p></li>
+<li><p><strong>Процедуре</strong> служе да остваре неки бочни ефекат (испишу нешто на
+екрану, упишу нешто у датотеку, али и промене стање програма
+мењајући вредности неких глобалних променљивих).</p></li>
+</ul>
+<p>Програмски језик Pascal је чак користио различите кључне речи
+(<code class="docutils literal notranslate"><span class="pre">function</span></code> и <code class="docutils literal notranslate"><span class="pre">procedure</span></code>) за ове две врсте потпрограма, док се у
+језику C процедуре остварују као функције које не враћају вредност,
+тј. функције чији је повратни тип <code class="docutils literal notranslate"><span class="pre">void</span></code>. Пошто у већини програмских
+језика и функције често могу да имају бочне ефекте, што их удаљава од
+идеала математичких функција, раздвајање на процедуре и функције није
+претерано значајно (отуда се у језику C и његовим наследницима, а и
+многим другим савременим језицима, помињу само функције). Видећемо да
+у чистим функционалним језицима (какав је, на пример, Haskell)
+функције не могу да имају бочне ефекте и зато одговарају функцијама у
+математици, што у великом мери олакшава резоновање о њима, њихову
+анализу, као и анализу целих програма написаних коришћењем таквих
+функција.</p>
+<p>Као што је то обично случај у рачунарству, комплексни проблеми се
+најбоље решавају тако што се разложе на мање, једноставније
+потпроблеме. <strong>Процедурално програмирање</strong> (при чему под термином
+процедура мислимо на потпрограм, а не поступак тј. алгоритам)
+подразумева да се за сваки јасно дефинисан потпроблем дефинише засебна
+функција, тј. процедура којом се он решава. Потпрограми позивају једни
+друге, све до главног програма (који и сам може бити потпрограм, попут
+функције <code class="docutils literal notranslate"><span class="pre">main</span></code> у језику C) од кога креће извршавање. Изградња
+програма обично тече <strong>одозго-наниже</strong> (енг. <em>top-down</em>) и програмер
+даје опис главног програма у терминима позива потпрограма које тек
+касније разрађује.</p>
+<p>Пожељно је да развој сваке процедуре буде што независнији од остатка
+програма. Стога програмски језици уводе концепт <strong>локалних
+променљивих</strong>, преноса вредности у потпрограм и повратка резултата из
+њега. Комуникација између потпрограма се може вршити и преко глобалног
+стања програма, али то ствара велике зависности између различитих
+потпрограма и пожељно је избегавати тај облик комуникације.</p>
+<p>Подела великих програма на мање потпрограме је добар корак ка
+<strong>модуларизацији</strong>. Након издвајања појединачних потпрограма, јавља се
+потреба за организовањем сродних функција и података којима оне
+оперишу у модуле, тј. библиотеке које се затим могу укључити и
+користити у већем броју програма. То постаје уобичајена пракса у
+програмирању и припрема за нову, објектно–оријентисану парадигму у
+којој такви модули (објекти, класе) добијају и нове карактеристике
+(наслеђивање, полиморфизам).</p>
+<p>Имплементација потпрограма је захтевала унапређивање компилатора и
+реорганизацију меморије (поделу на програмски стек, хип, сегмент
+података и сегмент кода), а када су ти проблеми решени, дошло се до
+много боље организације сложених програма.</p>
+<p>Једна важна техничка могућност је та да потпрограми могу да позивају
+сами себе, чиме се долази до могућности <strong>рекурзивног</strong> описа
+алгоритама, који је често много једноставнији.</p>
+<p>На пример, упоредимо класичну итеративну имплементацију алгоритма
+степеновања и рекурзивну:</p>
+<div class="highlight-csharp notranslate"><div class="highlight"><pre><span></span><span class="kt">long</span><span class="w"> </span><span class="nf">stepen</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">x</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">n</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">     </span><span class="kt">long</span><span class="w"> </span><span class="n">s</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span>
+<span class="w">     </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">n</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="o">++</span><span class="p">)</span>
+<span class="w">         </span><span class="n">s</span><span class="w"> </span><span class="o">*=</span><span class="w"> </span><span class="n">x</span><span class="p">;</span>
+<span class="w">     </span><span class="k">return</span><span class="w"> </span><span class="n">s</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<div class="highlight-csharp notranslate"><div class="highlight"><pre><span></span><span class="kt">long</span><span class="w"> </span><span class="nf">stepen</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">x</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">n</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">   </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">n</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span>
+<span class="w">   </span><span class="k">return</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">stepen</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="w"> </span><span class="n">n</span><span class="o">-</span><span class="mi">1</span><span class="p">);</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>Друга, рекурзивна, дефинција је веома блиска класичној математичкој
+дефиницији степена:</p>
+<div class="math notranslate nohighlight">
+<span class="MathJax_Preview" style="color: inherit;"></span><span class="mjx-chtml MJXc-display" style="text-align: center;"><span id="MathJax-Element-1-Frame" class="mjx-chtml MathJax_CHTML" tabindex="0" style="font-size: 110%; text-align: center; position: relative;" data-mathml="&lt;math xmlns=&quot;http://www.w3.org/1998/Math/MathML&quot; display=&quot;block&quot;&gt;&lt;mtable columnalign=&quot;right left&quot; rowspacing=&quot;3pt&quot; columnspacing=&quot;0em&quot; displaystyle=&quot;true&quot;&gt;&lt;mtr&gt;&lt;mtd&gt;&lt;mtable columnalign=&quot;right left right left right left right left right left right left&quot; rowspacing=&quot;3pt&quot; columnspacing=&quot;0em 2em 0em 2em 0em 2em 0em 2em 0em 2em 0em&quot; displaystyle=&quot;true&quot;&gt;&lt;mtr&gt;&lt;mtd /&gt;&lt;mtd&gt;&lt;msup&gt;&lt;mi&gt;x&lt;/mi&gt;&lt;mn&gt;0&lt;/mn&gt;&lt;/msup&gt;&lt;mo&gt;=&lt;/mo&gt;&lt;mn&gt;1&lt;/mn&gt;&lt;/mtd&gt;&lt;/mtr&gt;&lt;mtr&gt;&lt;mtd /&gt;&lt;mtd&gt;&lt;msup&gt;&lt;mi&gt;x&lt;/mi&gt;&lt;mi&gt;n&lt;/mi&gt;&lt;/msup&gt;&lt;mo&gt;=&lt;/mo&gt;&lt;mi&gt;x&lt;/mi&gt;&lt;mo&gt;&amp;#x22C5;&lt;/mo&gt;&lt;msup&gt;&lt;mi&gt;x&lt;/mi&gt;&lt;mrow class=&quot;MJX-TeXAtom-ORD&quot;&gt;&lt;mi&gt;n&lt;/mi&gt;&lt;mo&gt;&amp;#x2212;&lt;/mo&gt;&lt;mn&gt;1&lt;/mn&gt;&lt;/mrow&gt;&lt;/msup&gt;&lt;mo&gt;,&lt;/mo&gt;&lt;mtext&gt;&amp;#xA0;za&amp;#xA0;&lt;/mtext&gt;&lt;mi&gt;n&lt;/mi&gt;&lt;mo&gt;&amp;gt;&lt;/mo&gt;&lt;mn&gt;0&lt;/mn&gt;&lt;/mtd&gt;&lt;/mtr&gt;&lt;/mtable&gt;&lt;/mtd&gt;&lt;/mtr&gt;&lt;/mtable&gt;&lt;/math&gt;" role="presentation"><span id="MJXc-Node-1" class="mjx-math" aria-hidden="true"><span id="MJXc-Node-2" class="mjx-mrow"><span id="MJXc-Node-3" class="mjx-mtable" style="vertical-align: -1.011em; padding: 0px 0.167em;"><span class="mjx-table"><span id="MJXc-Node-4" class="mjx-mtr" style="height: 2.522em;"><span id="MJXc-Node-5" class="mjx-mtd" style="padding: 0px; text-align: right; width: 10.25em;"><span id="MJXc-Node-6" class="mjx-mrow"><span id="MJXc-Node-7" class="mjx-mtable" style="vertical-align: -1.011em; padding: 0px 0.167em;"><span class="mjx-table"><span id="MJXc-Node-8" class="mjx-mtr" style="height: 1.252em;"><span id="MJXc-Node-9" class="mjx-mtd" style="padding: 0px; text-align: right; width: 0px;"><span id="MJXc-Node-10" class="mjx-mrow" style="margin-top: -0.098em;"><span class="mjx-strut"></span></span></span><span id="MJXc-Node-11" class="mjx-mtd" style="padding: 0px; text-align: left; width: 9.917em;"><span id="MJXc-Node-12" class="mjx-mrow" style="margin-top: -0.098em;"><span id="MJXc-Node-13" class="mjx-msubsup"><span class="mjx-base"><span id="MJXc-Node-14" class="mjx-mi"><span class="mjx-char MJXc-TeX-math-I" style="padding-top: 0.23em; padding-bottom: 0.287em;">x</span></span></span><span class="mjx-sup" style="font-size: 70.7%; vertical-align: 0.584em; padding-left: 0px; padding-right: 0.071em;"><span id="MJXc-Node-15" class="mjx-mn" style=""><span class="mjx-char MJXc-TeX-main-R" style="padding-top: 0.401em; padding-bottom: 0.344em;">0</span></span></span></span><span id="MJXc-Node-16" class="mjx-mo MJXc-space3"><span class="mjx-char MJXc-TeX-main-R" style="padding-top: 0.06em; padding-bottom: 0.344em;">=</span></span><span id="MJXc-Node-17" class="mjx-mn MJXc-space3"><span class="mjx-char MJXc-TeX-main-R" style="padding-top: 0.401em; padding-bottom: 0.344em;">1</span></span><span class="mjx-strut"></span></span></span></span><span id="MJXc-Node-18" class="mjx-mtr" style="height: 1.271em;"><span id="MJXc-Node-19" class="mjx-mtd" style="padding: 0.15em 0px 0px; text-align: right;"><span id="MJXc-Node-20" class="mjx-mrow" style="margin-top: -0.098em;"><span class="mjx-strut"></span></span></span><span id="MJXc-Node-21" class="mjx-mtd" style="padding: 0.15em 0px 0px; text-align: left;"><span id="MJXc-Node-22" class="mjx-mrow" style="margin-top: -0.098em;"><span id="MJXc-Node-23" class="mjx-msubsup"><span class="mjx-base"><span id="MJXc-Node-24" class="mjx-mi"><span class="mjx-char MJXc-TeX-math-I" style="padding-top: 0.23em; padding-bottom: 0.287em;">x</span></span></span><span class="mjx-sup" style="font-size: 70.7%; vertical-align: 0.584em; padding-left: 0px; padding-right: 0.071em;"><span id="MJXc-Node-25" class="mjx-mi" style=""><span class="mjx-char MJXc-TeX-math-I" style="padding-top: 0.23em; padding-bottom: 0.287em;">n</span></span></span></span><span id="MJXc-Node-26" class="mjx-mo MJXc-space3"><span class="mjx-char MJXc-TeX-main-R" style="padding-top: 0.06em; padding-bottom: 0.344em;">=</span></span><span id="MJXc-Node-27" class="mjx-mi MJXc-space3"><span class="mjx-char MJXc-TeX-math-I" style="padding-top: 0.23em; padding-bottom: 0.287em;">x</span></span><span id="MJXc-Node-28" class="mjx-mo MJXc-space2"><span class="mjx-char MJXc-TeX-main-R" style="padding-top: 0.003em; padding-bottom: 0.344em;">⋅</span></span><span id="MJXc-Node-29" class="mjx-msubsup MJXc-space2"><span class="mjx-base"><span id="MJXc-Node-30" class="mjx-mi"><span class="mjx-char MJXc-TeX-math-I" style="padding-top: 0.23em; padding-bottom: 0.287em;">x</span></span></span><span class="mjx-sup" style="font-size: 70.7%; vertical-align: 0.584em; padding-left: 0px; padding-right: 0.071em;"><span id="MJXc-Node-31" class="mjx-texatom" style=""><span id="MJXc-Node-32" class="mjx-mrow"><span id="MJXc-Node-33" class="mjx-mi"><span class="mjx-char MJXc-TeX-math-I" style="padding-top: 0.23em; padding-bottom: 0.287em;">n</span></span><span id="MJXc-Node-34" class="mjx-mo"><span class="mjx-char MJXc-TeX-main-R" style="padding-top: 0.287em; padding-bottom: 0.401em;">−</span></span><span id="MJXc-Node-35" class="mjx-mn"><span class="mjx-char MJXc-TeX-main-R" style="padding-top: 0.401em; padding-bottom: 0.344em;">1</span></span></span></span></span></span><span id="MJXc-Node-36" class="mjx-mo"><span class="mjx-char MJXc-TeX-main-R" style="margin-top: -0.168em; padding-bottom: 0.514em;">,</span></span><span id="MJXc-Node-37" class="mjx-mtext MJXc-space1"><span class="mjx-char MJXc-TeX-main-R" style="padding-top: 0.173em; padding-bottom: 0.344em;">&nbsp;za&nbsp;</span></span><span id="MJXc-Node-38" class="mjx-mi"><span class="mjx-char MJXc-TeX-math-I" style="padding-top: 0.23em; padding-bottom: 0.287em;">n</span></span><span id="MJXc-Node-39" class="mjx-mo MJXc-space3"><span class="mjx-char MJXc-TeX-main-R" style="padding-top: 0.23em; padding-bottom: 0.401em;">&gt;</span></span><span id="MJXc-Node-40" class="mjx-mn MJXc-space3"><span class="mjx-char MJXc-TeX-main-R" style="padding-top: 0.401em; padding-bottom: 0.344em;">0</span></span><span class="mjx-strut"></span></span></span></span></span></span><span class="mjx-strut"></span></span></span></span></span></span></span></span><span class="MJX_Assistive_MathML MJX_Assistive_MathML_Block" role="presentation"><math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><mtable columnalign="right left" rowspacing="3pt" columnspacing="0em" displaystyle="true"><mtr><mtd><mtable columnalign="right left right left right left right left right left right left" rowspacing="3pt" columnspacing="0em 2em 0em 2em 0em 2em 0em 2em 0em 2em 0em" displaystyle="true"><mtr><mtd></mtd><mtd><msup><mi>x</mi><mn>0</mn></msup><mo>=</mo><mn>1</mn></mtd></mtr><mtr><mtd></mtd><mtd><msup><mi>x</mi><mi>n</mi></msup><mo>=</mo><mi>x</mi><mo>⋅</mo><msup><mi>x</mi><mrow class="MJX-TeXAtom-ORD"><mi>n</mi><mo>−</mo><mn>1</mn></mrow></msup><mo>,</mo><mtext>&nbsp;za&nbsp;</mtext><mi>n</mi><mo>&gt;</mo><mn>0</mn></mtd></mtr></mtable></mtd></mtr></mtable></math></span></span></span><script type="math/tex; mode=display" id="MathJax-Element-1">\begin{split}\begin{align*}
+& x^0 = 1 \\
+& x^n = x \cdot x^{n-1}, \text{ za } n > 0
+\end{align*}\end{split}</script></div>
+<p>Рекурзивна функција даје много декларативнији опис него класична
+итеративна имплменентација, јер се рачунару заправо не описује како
+ова вредност треба да се израчуна (алгоритам израчунавања вредности
+рекурзивних функција помоћу стека је познат и њега компилатор генерише
+на основу нашег рекурзивног описа). Рекурзија се много интензивније
+користи у склопу функционалног и логичког програмирања, о чему ће
+много више речи бити касније.</p>
+</section>
+<section id="id4">
+<h2>Предности и мане императивне парадигме<a class="headerlink" href="#id4" title="Permalink to this heading" target="_blank">¶</a></h2>
+<p>Основна предност императивне парадигме је то што је она веома блиска
+принципима функционисања хардвера тако да се програми прилично
+директно могу превести на асемблерски и машински језик. Императивни
+програми су, у принципу, најефикаснији.</p>
+<p>Мане су низак степен декларативности и обавеза програмера да опише
+велики број детаља алгоритма (што штеди „процесорско време“, али троши
+„програмерско време“).</p>
+<p>Бочни ефектни могу прилично да закомпликују анализу програма. Ако
+функција користи и мења глобалне променљиве, тада је могуће да се иста
+функција позове са истим аргументима више пута и да сваки пут да
+различит резултат и произведе различит ефекат.  Размотримо следећи
+пример функције за генерисање насумичних бројева.</p>
+<div class="highlight-csharp notranslate"><div class="highlight"><pre><span></span><span class="k">class</span><span class="w"> </span><span class="nc">Program</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="k">const</span><span class="w"> </span><span class="kt">uint</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1664525</span><span class="p">;</span>
+<span class="w">    </span><span class="k">const</span><span class="w"> </span><span class="kt">uint</span><span class="w"> </span><span class="n">c</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1013904223</span><span class="p">;</span>
+<span class="w">    </span><span class="kt">uint</span><span class="w"> </span><span class="n">num</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+
+<span class="w">    </span><span class="k">static</span><span class="w"> </span><span class="k">void</span><span class="w"> </span><span class="nf">seed</span><span class="p">(</span><span class="kt">uint</span><span class="w"> </span><span class="n">seed</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">       </span><span class="n">num</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">seed</span><span class="p">;</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="k">static</span><span class="w"> </span><span class="kt">uint</span><span class="w"> </span><span class="nf">random</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">       </span><span class="n">num</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">num</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">c</span><span class="p">;</span>
+<span class="w">       </span><span class="k">return</span><span class="w"> </span><span class="n">num</span><span class="p">;</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="k">static</span><span class="w"> </span><span class="k">void</span><span class="w"> </span><span class="nf">Main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">       </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">random</span><span class="p">()</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">random</span><span class="p">()</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">random</span><span class="p">())</span>
+<span class="w">          </span><span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="s">"Jednako"</span><span class="p">);</span>
+<span class="w">       </span><span class="k">else</span>
+<span class="w">          </span><span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="s">"Različito"</span><span class="p">);</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>Сваки пут када се та функција позове, она ће да врати различит
+резултат (што је у овом случају управо оно што и желимо). Она мења
+глобално стање (променљиву <code class="docutils literal notranslate"><span class="pre">num</span></code>) и сваки наредни резултат зависи од
+претходног. Са друге стране, услов наредбе <code class="docutils literal notranslate"><span class="pre">if</span></code> у функцији <code class="docutils literal notranslate"><span class="pre">Main</span></code>
+неће бити испуњен и биће исписано <code class="docutils literal notranslate"><span class="pre">Različito</span></code>, иако неко може
+очекивати да је ово математичка истина (у математици увек важи да је
+<span class="math notranslate nohighlight"><span class="MathJax_Preview" style="color: inherit;"></span><span id="MathJax-Element-2-Frame" class="mjx-chtml MathJax_CHTML" tabindex="0" style="font-size: 110%; position: relative;" data-mathml="&lt;math xmlns=&quot;http://www.w3.org/1998/Math/MathML&quot;&gt;&lt;mn&gt;2&lt;/mn&gt;&lt;mi&gt;f&lt;/mi&gt;&lt;mo stretchy=&quot;false&quot;&gt;(&lt;/mo&gt;&lt;mi&gt;x&lt;/mi&gt;&lt;mo stretchy=&quot;false&quot;&gt;)&lt;/mo&gt;&lt;mo&gt;=&lt;/mo&gt;&lt;mi&gt;f&lt;/mi&gt;&lt;mo stretchy=&quot;false&quot;&gt;(&lt;/mo&gt;&lt;mi&gt;x&lt;/mi&gt;&lt;mo stretchy=&quot;false&quot;&gt;)&lt;/mo&gt;&lt;mo&gt;+&lt;/mo&gt;&lt;mi&gt;f&lt;/mi&gt;&lt;mo stretchy=&quot;false&quot;&gt;(&lt;/mo&gt;&lt;mi&gt;x&lt;/mi&gt;&lt;mo stretchy=&quot;false&quot;&gt;)&lt;/mo&gt;&lt;/math&gt;" role="presentation"><span id="MJXc-Node-41" class="mjx-math" aria-hidden="true"><span id="MJXc-Node-42" class="mjx-mrow"><span id="MJXc-Node-43" class="mjx-mn"><span class="mjx-char MJXc-TeX-main-R" style="padding-top: 0.401em; padding-bottom: 0.344em;">2</span></span><span id="MJXc-Node-44" class="mjx-mi"><span class="mjx-char MJXc-TeX-math-I" style="padding-top: 0.457em; padding-bottom: 0.457em; padding-right: 0.06em;">f</span></span><span id="MJXc-Node-45" class="mjx-mo"><span class="mjx-char MJXc-TeX-main-R" style="padding-top: 0.457em; padding-bottom: 0.571em;">(</span></span><span id="MJXc-Node-46" class="mjx-mi"><span class="mjx-char MJXc-TeX-math-I" style="padding-top: 0.23em; padding-bottom: 0.287em;">x</span></span><span id="MJXc-Node-47" class="mjx-mo"><span class="mjx-char MJXc-TeX-main-R" style="padding-top: 0.457em; padding-bottom: 0.571em;">)</span></span><span id="MJXc-Node-48" class="mjx-mo MJXc-space3"><span class="mjx-char MJXc-TeX-main-R" style="padding-top: 0.06em; padding-bottom: 0.344em;">=</span></span><span id="MJXc-Node-49" class="mjx-mi MJXc-space3"><span class="mjx-char MJXc-TeX-math-I" style="padding-top: 0.457em; padding-bottom: 0.457em; padding-right: 0.06em;">f</span></span><span id="MJXc-Node-50" class="mjx-mo"><span class="mjx-char MJXc-TeX-main-R" style="padding-top: 0.457em; padding-bottom: 0.571em;">(</span></span><span id="MJXc-Node-51" class="mjx-mi"><span class="mjx-char MJXc-TeX-math-I" style="padding-top: 0.23em; padding-bottom: 0.287em;">x</span></span><span id="MJXc-Node-52" class="mjx-mo"><span class="mjx-char MJXc-TeX-main-R" style="padding-top: 0.457em; padding-bottom: 0.571em;">)</span></span><span id="MJXc-Node-53" class="mjx-mo MJXc-space2"><span class="mjx-char MJXc-TeX-main-R" style="padding-top: 0.287em; padding-bottom: 0.401em;">+</span></span><span id="MJXc-Node-54" class="mjx-mi MJXc-space2"><span class="mjx-char MJXc-TeX-math-I" style="padding-top: 0.457em; padding-bottom: 0.457em; padding-right: 0.06em;">f</span></span><span id="MJXc-Node-55" class="mjx-mo"><span class="mjx-char MJXc-TeX-main-R" style="padding-top: 0.457em; padding-bottom: 0.571em;">(</span></span><span id="MJXc-Node-56" class="mjx-mi"><span class="mjx-char MJXc-TeX-math-I" style="padding-top: 0.23em; padding-bottom: 0.287em;">x</span></span><span id="MJXc-Node-57" class="mjx-mo"><span class="mjx-char MJXc-TeX-main-R" style="padding-top: 0.457em; padding-bottom: 0.571em;">)</span></span></span></span><span class="MJX_Assistive_MathML" role="presentation"><math xmlns="http://www.w3.org/1998/Math/MathML"><mn>2</mn><mi>f</mi><mo stretchy="false">(</mo><mi>x</mi><mo stretchy="false">)</mo><mo>=</mo><mi>f</mi><mo stretchy="false">(</mo><mi>x</mi><mo stretchy="false">)</mo><mo>+</mo><mi>f</mi><mo stretchy="false">(</mo><mi>x</mi><mo stretchy="false">)</mo></math></span></span><script type="math/tex" id="MathJax-Element-2">2f(x) = f(x) + f(x)</script></span>).</p>
+<p>Размотримо и следећи скрипт написан у језику JavaScript.</p>
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="kd">const</span><span class="w"> </span><span class="nx">canvas</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">document</span><span class="p">.</span><span class="nx">getElementById</span><span class="p">(</span><span class="s2">"myCanvas"</span><span class="p">);</span>
+<span class="kd">const</span><span class="w"> </span><span class="nx">context</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">canvas</span><span class="p">.</span><span class="nx">getContext</span><span class="p">(</span><span class="s2">"2d"</span><span class="p">);</span>
+
+<span class="kd">function</span><span class="w"> </span><span class="nx">drawCircle</span><span class="p">(</span><span class="nx">x</span><span class="p">,</span><span class="w"> </span><span class="nx">y</span><span class="p">,</span><span class="w"> </span><span class="nx">radius</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">   </span><span class="c1">// Postavljamo crvenu boju</span>
+<span class="w">   </span><span class="nx">context</span><span class="p">.</span><span class="nx">fillStyle</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">"red"</span><span class="p">;</span>
+
+<span class="w">   </span><span class="c1">// Crtamo krug</span>
+<span class="w">   </span><span class="nx">context</span><span class="p">.</span><span class="nx">beginPath</span><span class="p">();</span>
+<span class="w">   </span><span class="nx">context</span><span class="p">.</span><span class="nx">arc</span><span class="p">(</span><span class="nx">x</span><span class="p">,</span><span class="w"> </span><span class="nx">y</span><span class="p">,</span><span class="w"> </span><span class="nx">radius</span><span class="p">,</span><span class="w"> </span><span class="mf">0</span><span class="p">,</span><span class="w"> </span><span class="mf">2</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="nb">Math</span><span class="p">.</span><span class="nx">PI</span><span class="p">);</span>
+<span class="w">   </span><span class="nx">context</span><span class="p">.</span><span class="nx">fill</span><span class="p">();</span>
+<span class="p">}</span>
+
+<span class="kd">function</span><span class="w"> </span><span class="nx">drawRectangle</span><span class="p">(</span><span class="nx">x</span><span class="p">,</span><span class="w"> </span><span class="nx">y</span><span class="p">,</span><span class="w"> </span><span class="nx">width</span><span class="p">,</span><span class="w"> </span><span class="nx">height</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">   </span><span class="c1">// Crtamo pravougaonik</span>
+<span class="w">   </span><span class="nx">context</span><span class="p">.</span><span class="nx">fillRect</span><span class="p">(</span><span class="nx">x</span><span class="p">,</span><span class="w"> </span><span class="nx">y</span><span class="p">,</span><span class="w"> </span><span class="nx">width</span><span class="p">,</span><span class="w"> </span><span class="nx">height</span><span class="p">);</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>У овом коду су дате две функције: прва која црта црвени круг, а друга
+која црта правоугаоник. Само цртање је, наравно, бочни ефекат,
+међутим, у овом имплементацији је нарочито проблематична наредба
+<code class="docutils literal notranslate"><span class="pre">context.fillStyle</span> <span class="pre">=</span> <span class="pre">"red"</span></code>, тј.  бочни ефекат који она производи. У
+њој се мења стање глобалног објекта <code class="docutils literal notranslate"><span class="pre">context</span></code> тако што се поставља
+црвена боја попуњавања. Сваки наредни позив функција за цртање
+попуњених објеката (функција <code class="docutils literal notranslate"><span class="pre">fill</span></code>, али и <code class="docutils literal notranslate"><span class="pre">fillRect</span></code>) ће попунити
+нацртани ојбекат том бојом. Ако се прво нацрта правоугаоник, па онда
+круг, правоугаоник ће бити нацртан подразумеваном бојом (црном), а
+круг црвеном, јер ће се пре цртања круга боја променити на црвену. Са
+друге стране, ако се прво нацрта круг, па правоугаоник, оба облика ће
+бити нацртана црвено, јер јер приликом цртања круга, кроз бочни
+ефекат, измењен глобални објекат.</p>
+<p>Дакле, постојање бочних ефеката у функцијама намеће програмеру обавезу
+да мисли о редоследу и историји позива функција. Да би се анализирао
+неки позив функције, потребно је да се зна који су све позиви функција
+раније били извршени, што може бити компликовано. На пример, није
+свеједно да ли је функција <code class="docutils literal notranslate"><span class="pre">seed</span></code> која иницијализује генератор
+насумичних бројева на неку почетну вредност позвана пре или после
+функције <code class="docutils literal notranslate"><span class="pre">random</span></code>. Да бисмо могли да одредимо који ће број бити
+враћен у позиву функције <code class="docutils literal notranslate"><span class="pre">random</span></code> морамо да знамо све позиве
+функције <code class="docutils literal notranslate"><span class="pre">seed</span></code> и <code class="docutils literal notranslate"><span class="pre">random</span></code> који су се извршили од почетка рада
+програма. Због тога није могуће анализирати функцију само гледањем
+њеног кода, већ је увек потребно анализирати је у контексту целокупног
+стања програма, тј. гледајући програм као целину (јер свака функција
+може да приступи и измени глобално стање програма). На пример, ако
+нека глобална променљива има погрешну вредност, пошто било која
+функција може да јој приступи и да је промени, дебаговање подразумева
+да се проанализирају све функције и да се провери која од њих приступа
+и мења ту глобалну променљиву, што може бити веома
+компликовано. Наравно, увођење дисциплине у програмирање и обичај
+избегавања глобалног стања и бочних ефеката доводи до бољих програма.
+Међутим, императивни програмски језици не терају програмера да се
+придржава тих правила.</p>
+<p>Тестирање функција са бочним ефектима је проблематично. Наиме, чисте
+функције се једноставно тестирају, тако што се једном покрену на
+карактеристичним тест-примерима. Са друге стране, функције са бочним
+ефектима није могуће тестирати изоловано од остатка програма.</p>
+<p>Кажемо да функције са бочним ефектима немају особину <strong>референцијалне
+транспарентности</strong> што значи да се у коду не могу заменити са својим
+повратним вредностима. На пример, где год се у програмском коду јави
+позив функције <cite>faktorijel(5)</cite>, он може бити замењен вредношћу 120 без
+икаквог утицаја на остатак програма (под претпоставком да је
+израчунавање факторијела имплементирано на уобичајени начин, без
+споредних ефеката). Са друге стране, ако функција <cite>random</cite> у свом
+првом позиву врати број 1013904223, није могуће остале позиве заменити
+тим бројем (јер ће остали позиви враћати друге вредности). Видећемо да
+су све функције у чистим функционалном језицима референцијално
+транспарентне, што отвара простор за многе оптимизације (на пример,
+уместо да исти позиви функције вршимо више пута, могуће је упамтити
+повратну вредност функције и користити је у будућности када год се тај
+позив понови).</p>
+
+    <div class="note-wrapper infonote-type">
+        <div class="note-icon-holder"> </div>
+        <img src="/_runestone/_static/img/infonote-img.svg" class="note-image infonote-image"> 
+        <div class="course-content">
+            
+<p>Термин Референцијална транспарентност долази из лингвистике.
+Размотримо реченицу <em>Лондон се налази на реци Темзи</em>. Ако реч
+<em>Лондон</em> заменимо синтагмом <em>главни град Енглеске</em>, значење
+реченице се не мења и она остаје тачна. Ова реченица је, дакле,
+референцијално транспарентна. Са друге стране, размотримо реченицу
+<em>Реч Лондон има 6 слова</em> која је очигледно тачна. Заменом речи
+<em>Лондон</em> синтагмом <em>главни град Енглеске</em>, добијамо сасвим
+другачију, нетачну реченицу. Дакле, ова реченица није
+референцијално транспарентна.</p>
+
+    </div></div>
+</section>
+<section id="id5">
+<h2>Задаци за самостални рад<a class="headerlink" href="#id5" title="Permalink to this heading" target="_blank">¶</a></h2>
+<ol class="arabic">
+<li><p>Покушајте да докажете теорему Бема и Јакопинија. Ево једне
+идеје. Претпоставимо да су све наредбе програма нумерисане (на
+пример, број наредбе може бити број линије у језику BASIC или број
+блока на блок дијаграму). Уведите променљиву која садржи број
+наредбе коју треба наредну извршити. Извршавање програма треба да
+се заврши када та променљива добије вредност нула. Дакле, на
+почетку се бројач поставља на број прве наредбе у програму и затим
+се програм извршава док је вредност те променљивве различита од
+нуле. У телу петље се врши анализа броја наредбе и за сваки број
+наредбе се извршава та наредба и вредност бројача се поставља на
+број следеће наредбе коју треба извршити. Ево како то функционише
+на примеру. Наредба GOTO је заиста елиминисана, мада је програм
+остао веома непрегледан. Да ли можеш да осмислиш трансформацију
+која би довела до боље структурираног програма?</p>
+<div class="highlight-basic notranslate"><div class="highlight"><pre><span></span><span class="nl">10</span><span class="w"> </span><span class="vg">X</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="il">5</span>
+<span class="nl">20</span><span class="w"> </span><span class="kr">IF</span><span class="w"> </span><span class="vg">X</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="il">0</span><span class="w"> </span><span class="kr">THEN</span><span class="w"> </span><span class="kr">GOTO</span><span class="w"> </span><span class="nl">50</span>
+<span class="nl">30</span><span class="w"> </span><span class="vg">X</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="vg">X</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="il">1</span>
+<span class="nl">40</span><span class="w"> </span><span class="kr">GOTO</span><span class="w"> </span><span class="nl">20</span>
+<span class="nl">50</span><span class="w"> </span><span class="kr">PRINT</span><span class="p">(</span><span class="vg">X</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="highlight-basic notranslate"><div class="highlight"><pre><span></span><span class="vg">naredba</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="il">10</span><span class="p">;</span>
+<span class="vg">while</span><span class="w"> </span><span class="p">(</span><span class="vg">naredba</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="il">0</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">   </span><span class="vg">if</span><span class="w"> </span><span class="p">(</span><span class="vg">naredba</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="il">10</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">       </span><span class="vg">X</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="il">5</span><span class="p">;</span>
+<span class="w">       </span><span class="vg">naredba</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="il">20</span><span class="p">;</span>
+<span class="w">   </span><span class="p">}</span>
+
+<span class="w">   </span><span class="vg">if</span><span class="w"> </span><span class="p">(</span><span class="vg">naredba</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="il">20</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="vg">if</span><span class="w"> </span><span class="p">(</span><span class="vg">X</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="il">0</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">         </span><span class="vg">naredba</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="il">50</span><span class="p">;</span>
+<span class="w">      </span><span class="p">}</span><span class="w"> </span><span class="vg">else</span>
+<span class="w">         </span><span class="vg">naredba</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="il">30</span><span class="p">;</span>
+<span class="w">   </span><span class="p">}</span>
+
+<span class="w">   </span><span class="vg">if</span><span class="w"> </span><span class="p">(</span><span class="vg">naredba</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="il">30</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="vg">X</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="vg">X</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="il">1</span><span class="p">;</span>
+<span class="w">      </span><span class="vg">naredba</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="il">40</span><span class="p">;</span>
+<span class="w">   </span><span class="p">}</span>
+
+<span class="w">   </span><span class="vg">if</span><span class="w"> </span><span class="p">(</span><span class="vg">naredba</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="il">40</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">       </span><span class="vg">naredba</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="il">20</span><span class="p">;</span>
+<span class="w">   </span><span class="p">}</span>
+
+<span class="w">   </span><span class="vg">if</span><span class="w"> </span><span class="p">(</span><span class="vg">naredba</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="il">50</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="vg">print</span><span class="p">(</span><span class="vg">x</span><span class="p">);</span>
+<span class="w">      </span><span class="vg">naredba</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="il">0</span><span class="p">;</span>
+<span class="w">   </span><span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</li>
+<li><p>Механизам потпрограма (функција и процедура) увео је и нова правила
+везана за област видљивости (тзв. <strong>досег</strong>, енгл. scope) и
+<strong>животни век</strong> (енгл. lifetime) променљивих.  Покушај да на
+интернету пронађеш детаљне информације о ова два појма и да видиш
+везе и разлике међу њима.</p></li>
+<li><p>Бочни ефекти су присутни и у објектно-оријентисаним језицима,
+међутим, у њима се много ређе користи глобално стање и функције
+које га мењају. Уместо тога се користе методе које мењају поља
+објеката. Размислите и продискутујте колико то може да умањи или
+реши проблеме који су описани у овој лекцији.</p></li>
+</ol>
+</section>
+</section>
+
+
+    
+                <div class="finish-lecture-label" id="finishLectureLabel-7783">Mark activity as completed</div>
+                <button type="button" class="finish-lecture-btn not-checked-finish-activity" id="finishLecture-7783" aria-labelledby="MarkLectureComplitedBtn">
+                    <img src="/images/check (2) 2@3x.png" alt="Icon for marking the activity as completed">
+                </button>
+                <div role="button" class="finish-lecture-btn checked-finish-activity d-none" id="checkmark-7783" aria-labelledby="LectureMarkedComplitedBtn">
+                    <div class="checked-finish-activity-label">
+                        Activity completed!
+                    </div>
+                    <img src="/images/check (2) 2@3x white.png" alt="Icon indicating the activity is completed">
+                </div>
+                <div class="lecture-prev-next-toggle">
+                    <button type="button" id="prevLecture" class="lecture-toggler-arrows" aria-labelledby="Button to go on previous activity">
+                        <span aria-hidden="true">
+                            <i class="fas fa-arrow-left fa"></i>
+                        </span>
+                        <span class="lecture-toggler-arrows-text">Previous activity</span>
+                    </button>
+
+                    <button type="button" id="nextLecture" class="lecture-toggler-arrows" aria-labelledby="Button to go on next activity">
+                        <span class="lecture-toggler-arrows-text">Next activity</span>
+                        <span aria-hidden="true">
+                            <i class="fas fa-arrow-right fa"></i>
+                        </span>
+                    </button>
+                </div>
+            </div>
