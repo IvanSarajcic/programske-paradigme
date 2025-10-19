@@ -1,0 +1,240 @@
+<div id="lectureContent-8413" class="lectureContentMaterial active">
+
+
+
+    
+  <section id="id1">
+<h1>Дрво извођења<a class="headerlink" href="#id1" title="Permalink to this heading" target="_blank">¶</a></h1>
+<p>Задатак програмера је да кроз базу знања опише чињенице и правила
+закључивања, а задатак Prolog система је да провери да ли је дати упит
+логичка последица базе знања. Иако програмер не би требало да води
+рачуна о томе како се та провера врши (рекли смо да се у основи крије
+механизам резолуције), често се ипак тај механизам представља дрветом
+које помаже да се разуме шта се у позадини дешава.</p>
+<p>Постоје разни начин да се дрво извођења прикаже. Један начин је дрво
+које садржи сва решења упита. Оно може да се нацрта на основу следећих
+правила.</p>
+<p>Размотримо неколико примера над следећом базом знања.</p>
+<div class="highlight-prolog notranslate"><div class="highlight"><pre><span></span><span class="nf">musko</span><span class="p">(</span><span class="s s-Atom">homer</span><span class="p">).</span>
+<span class="nf">musko</span><span class="p">(</span><span class="s s-Atom">bart</span><span class="p">).</span>
+<span class="nf">zensko</span><span class="p">(</span><span class="s s-Atom">mardz</span><span class="p">).</span>
+<span class="nf">zensko</span><span class="p">(</span><span class="s s-Atom">liza</span><span class="p">).</span>
+<span class="nf">zensko</span><span class="p">(</span><span class="s s-Atom">meri</span><span class="p">).</span>
+<span class="nf">roditelj</span><span class="p">(</span><span class="s s-Atom">homer</span><span class="p">,</span> <span class="s s-Atom">bart</span><span class="p">).</span>
+<span class="nf">roditelj</span><span class="p">(</span><span class="s s-Atom">homer</span><span class="p">,</span> <span class="s s-Atom">liza</span><span class="p">).</span>
+<span class="nf">osoba</span><span class="p">(</span><span class="nv">X</span><span class="p">)</span> <span class="p">:-</span> <span class="nf">musko</span><span class="p">(</span><span class="nv">X</span><span class="p">).</span>
+<span class="nf">osoba</span><span class="p">(</span><span class="nv">X</span><span class="p">)</span> <span class="p">:-</span> <span class="nf">zensko</span><span class="p">(</span><span class="nv">X</span><span class="p">).</span>
+<span class="nf">rodjak</span><span class="p">(</span><span class="nv">X</span><span class="p">,</span> <span class="nv">Y</span><span class="p">)</span> <span class="p">:-</span> <span class="nf">roditelj</span><span class="p">(</span><span class="nv">Z</span><span class="p">,</span> <span class="nv">X</span><span class="p">),</span> <span class="nf">roditelj</span><span class="p">(</span><span class="nv">Z</span><span class="p">,</span> <span class="nv">Y</span><span class="p">).</span>
+</pre></div>
+</div>
+<p>Наредно дрво описује израчунавање резултата  упита <code class="docutils literal notranslate"><span class="pre">osoba(bart).</span></code></p>
+<a class="reference internal image-reference" href="https://petljamediastorage.blob.core.windows.net/root/Media/Default/Kursevi/OnlineNastava/specit4_paradigme_logicko/prolog_svedrvo1.png" target="_blank"><img alt="https://petljamediastorage.blob.core.windows.net/root/Media/Default/Kursevi/OnlineNastava/specit4_paradigme_logicko/prolog_svedrvo1.png" class="align-center" src="https://petljamediastorage.blob.core.windows.net/root/Media/Default/Kursevi/OnlineNastava/specit4_paradigme_logicko/prolog_svedrvo1.png" style="width: 400px;"></a>
+<p>У корену дрвета се налази упит. Пошто постоје две дефиниције за
+предикат <code class="docutils literal notranslate"><span class="pre">osoba</span></code>, корен има два наследника. Са леве се на основу
+правила <code class="docutils literal notranslate"><span class="pre">osoba(X)</span> <span class="pre">:-</span> <span class="pre">musko(X).</span></code> добија нови упит <code class="docutils literal notranslate"><span class="pre">musko(bart)</span></code>
+(јер је <code class="docutils literal notranslate"><span class="pre">X</span></code> унификовано са <code class="docutils literal notranslate"><span class="pre">bart</span></code>), а са десне се на основу
+правила <code class="docutils literal notranslate"><span class="pre">osoba(X)</span> <span class="pre">:-</span> <span class="pre">zensko(X).</span></code> добија нови упит <code class="docutils literal notranslate"><span class="pre">zensko(bart)</span></code>
+(јер је <code class="docutils literal notranslate"><span class="pre">X</span></code> унификовано са <code class="docutils literal notranslate"><span class="pre">bart</span></code>). На основу чињеница у бази
+знања први упит успева, а други не успева. Дакле, видимо да је овај
+упит произвео једно решење и одговор је <code class="docutils literal notranslate"><span class="pre">true</span></code>.</p>
+<p>Наредно дрво описује израчунавање резултата упита <code class="docutils literal notranslate"><span class="pre">osoba(A).</span></code>.</p>
+<a class="reference internal image-reference" href="https://petljamediastorage.blob.core.windows.net/root/Media/Default/Kursevi/OnlineNastava/specit4_paradigme_logicko/prolog_svedrvo2.png" target="_blank"><img alt="https://petljamediastorage.blob.core.windows.net/root/Media/Default/Kursevi/OnlineNastava/specit4_paradigme_logicko/prolog_svedrvo2.png" class="align-center" src="https://petljamediastorage.blob.core.windows.net/root/Media/Default/Kursevi/OnlineNastava/specit4_paradigme_logicko/prolog_svedrvo2.png" style="width: 600px;"></a>
+<p>На дрвету се види да постоји 5 различитих решења. У корену дрвета се
+налази упит <code class="docutils literal notranslate"><span class="pre">osoba(X)</span></code>. Пошто постоје две дефиниције за предикат
+<code class="docutils literal notranslate"><span class="pre">osoba</span></code>, корен има два наследника. Са леве се на основу правила
+<code class="docutils literal notranslate"><span class="pre">osoba(X)</span> <span class="pre">:-</span> <span class="pre">musko(X).</span></code> добија нови упит <code class="docutils literal notranslate"><span class="pre">musko(X)</span></code> (при чему се
+нотира да је <code class="docutils literal notranslate"><span class="pre">A</span></code> унификовано са <code class="docutils literal notranslate"><span class="pre">X</span></code>), а са десне се на основу
+правила <code class="docutils literal notranslate"><span class="pre">osoba(X)</span> <span class="pre">:-</span> <span class="pre">zensko(X).</span></code> добија нови упит <code class="docutils literal notranslate"><span class="pre">zensko(X)</span></code> (при
+чему се нотира да је <code class="docutils literal notranslate"><span class="pre">A</span></code> унификовано са <code class="docutils literal notranslate"><span class="pre">X</span></code>). Пошто у бази постоје
+две дефиниције за предикат <code class="docutils literal notranslate"><span class="pre">musko</span></code>, чвор <code class="docutils literal notranslate"><span class="pre">musko(X)</span></code> има два
+наследника. Оба су успешна, при чему се за први нотира да је <code class="docutils literal notranslate"><span class="pre">X</span></code>
+унификовано са <code class="docutils literal notranslate"><span class="pre">homer</span></code>, а за други da je <code class="docutils literal notranslate"><span class="pre">X</span></code> унификовано са
+<code class="docutils literal notranslate"><span class="pre">bart</span></code>. Када се дође до успешног чвора пријављује се решење. На
+пример, код првог успешног чвора нотирано да је <code class="docutils literal notranslate"><span class="pre">A</span></code> унификовано са
+<code class="docutils literal notranslate"><span class="pre">X</span></code>, а да је <code class="docutils literal notranslate"><span class="pre">X</span></code> унификовано са <code class="docutils literal notranslate"><span class="pre">homer</span></code>, па се може дати решење
+<code class="docutils literal notranslate"><span class="pre">A=homer</span></code>. Слично се дешава и у остатку дрвета.</p>
+<p>Наредно дрво описује израчунавање резултата упита <code class="docutils literal notranslate"><span class="pre">rodjak(A,</span> <span class="pre">B).</span></code></p>
+<a class="reference internal image-reference" href="https://petljamediastorage.blob.core.windows.net/root/Media/Default/Kursevi/OnlineNastava/specit4_paradigme_logicko/prolog_svedrvo3.png" target="_blank"><img alt="https://petljamediastorage.blob.core.windows.net/root/Media/Default/Kursevi/OnlineNastava/specit4_paradigme_logicko/prolog_svedrvo3.png" class="align-center" src="https://petljamediastorage.blob.core.windows.net/root/Media/Default/Kursevi/OnlineNastava/specit4_paradigme_logicko/prolog_svedrvo3.png" style="width: 600px;"></a>
+<p>У корену дрвета се налази упит. Пошто постоји само једно правило на
+основу ког је дефинисан предикат <code class="docutils literal notranslate"><span class="pre">rodjak</span></code>, корен има само једног
+наследника. Бележи се унификатор <code class="docutils literal notranslate"><span class="pre">A=X</span></code>, <code class="docutils literal notranslate"><span class="pre">B=Y</span></code>, а у новом чвору се
+налази десна страна правила <code class="docutils literal notranslate"><span class="pre">roditelj(Z,</span> <span class="pre">X),</span> <span class="pre">roditelj(Z,</span> <span class="pre">Y)</span></code>. Први
+пут имамо пример упита који је конјункција тј. који садржи два
+предиката који морају бити задовољени. Они се обрађују један по један.
+Прво се посматра предикат <code class="docutils literal notranslate"><span class="pre">roditelj(Z,</span> <span class="pre">X)</span></code>. Пошто постоје две
+дефиниције за предикат <code class="docutils literal notranslate"><span class="pre">roditelj</span></code>, овај чвор ће имати два
+наследника. Први одговара дефиницији <code class="docutils literal notranslate"><span class="pre">roditelj(homer,</span> <span class="pre">bart)</span></code>. Бележи
+се унификатор <code class="docutils literal notranslate"><span class="pre">Z=homer</span></code> и <code class="docutils literal notranslate"><span class="pre">X=bart</span></code>. Пошто је упит био конјункција,
+није довољно да буде задовољен само први предикат, већ се прелази на
+наредни. Зато се као дете чвора <code class="docutils literal notranslate"><span class="pre">roditelj(Z,</span> <span class="pre">X)</span></code> додаје чвор
+<code class="docutils literal notranslate"><span class="pre">roditelj(homer,</span> <span class="pre">Y)</span></code>. Он потиче од предиката <code class="docutils literal notranslate"><span class="pre">roditelj(Z,</span> <span class="pre">Y)</span></code>,
+међутим, пошто је направљена унификатор <code class="docutils literal notranslate"><span class="pre">Z=homer</span></code>, променљива <code class="docutils literal notranslate"><span class="pre">Z</span></code>
+је замењена константом <code class="docutils literal notranslate"><span class="pre">homer</span></code>. Пошто постоје две дефиниције за
+предикат родитељ, овај чвор има два наследника. У провм се налази
+успешно решење уз унификатор <code class="docutils literal notranslate"><span class="pre">Y=bart</span></code>. Дуж пута од корена до тог
+чвора забележен је унификатор <code class="docutils literal notranslate"><span class="pre">A=X,</span> <span class="pre">B=Y,</span> <span class="pre">X=bart,</span> <span class="pre">Z=homer,</span> <span class="pre">Y=bart</span></code>,
+па се пријављује решење <code class="docutils literal notranslate"><span class="pre">A=bart</span></code>, <code class="docutils literal notranslate"><span class="pre">B=bart</span></code>. Мало необично, али из
+дате базе знања и правила закључивања заиста следи да је Барт сам свој
+рођак. У другом случају се налази успешно решење уз инфикатор
+<code class="docutils literal notranslate"><span class="pre">Y=liza</span></code>, одакле следи да су Барт и Лиза рођаци. Десна страна дрвета
+је аналогна левој.</p>
+</section>
+<section id="id2">
+<h1>Сечење (рез)<a class="headerlink" href="#id2" title="Permalink to this heading" target="_blank">¶</a></h1>
+<p>У циљу смањења простора претраге, спречавања нежељеног бектрекинга и
+на тај начин изостављања неких нетачних одговора или оптимизације
+времена извршавања Prolog уводи <strong>оператор сечења</strong> или <strong>рез</strong>
+(енг. <em>cut</em>). Оператор сечења је често нужно примењивати да би се
+добили довољно ефикасни програми. Нажалост, применом реза нарушава се
+јасна логичка структура Prolog програма и разумевање њиховог значења
+престаје да буде засновано на примени чистих логичких закона и правила
+извођења, већ је приликом анализе програма потребно узети у обзир
+механизам израчунавања (рез се најбоље разуме тако што се прати његов
+ефекат на стабло израчунавања), што је много компликованије. Дакле,
+рез се слободно може посматрати као још једна слаба тачка језика
+Prolog – поред све теорије на којој се заснива логичка парадигма,
+нелогички елемент као што је рез постаје кључан за ефикасно решавање
+проблема употребом логичке парадигме!</p>
+<p>Рез се означава са <code class="docutils literal notranslate"><span class="pre">!</span></code>, увек успева (када се наведе у правилу,
+сматра се да је резултат његовог израчунавања тачан), али у повратку
+спречава бектрекинг и враћање преко њега здесна налево. Размотримо
+неколико примера.</p>
+<p>Максимум се може дефинисати на следећи начин (релацијски оператори
+<code class="docutils literal notranslate"><span class="pre">=&lt;</span></code> и <code class="docutils literal notranslate"><span class="pre">&lt;</span></code>, наравно, представљају релације <em>мање једнако</em> и <em>мање</em>
+и детаљније су описане у поглављу о аритметици).</p>
+<div class="highlight-prolog notranslate"><div class="highlight"><pre><span></span><span class="nf">min</span><span class="p">(</span><span class="nv">X</span><span class="p">,</span> <span class="nv">Y</span><span class="p">,</span> <span class="nv">X</span><span class="p">)</span> <span class="p">:-</span> <span class="nv">X</span> <span class="o">=&lt;</span> <span class="nv">Y</span><span class="p">.</span>
+<span class="nf">min</span><span class="p">(</span><span class="nv">X</span><span class="p">,</span> <span class="nv">Y</span><span class="p">,</span> <span class="nv">Y</span><span class="p">)</span> <span class="p">:-</span> <span class="nv">Y</span> <span class="o">&lt;</span> <span class="nv">X</span><span class="p">.</span>
+</pre></div>
+</div>
+<p>Израчунавање резултата упита <code class="docutils literal notranslate"><span class="pre">max(3,</span> <span class="pre">5,</span> <span class="pre">M).</span></code> и упита <code class="docutils literal notranslate"><span class="pre">max(5,</span> <span class="pre">3,</span>
+<span class="pre">M).</span></code> су представљени следећим дрветима израчунавања.</p>
+<img alt="https://petljamediastorage.blob.core.windows.net/root/Media/Default/Kursevi/OnlineNastava/specit4_paradigme_logicko/prolog_svedrvo_max.png" class="align-center" src="https://petljamediastorage.blob.core.windows.net/root/Media/Default/Kursevi/OnlineNastava/specit4_paradigme_logicko/prolog_svedrvo_max.png">
+<p>Ако се на основу првог правила одреди да је <code class="docutils literal notranslate"><span class="pre">X</span> <span class="pre">=&lt;</span> <span class="pre">Y</span></code> (што се дешава
+приликом израчунавања резултата упита <code class="docutils literal notranslate"><span class="pre">min(3,</span> <span class="pre">5,</span> <span class="pre">M).</span></code>), тада нема
+потребе приликом бектрекинга проверавати друго правило јер унапред
+знамо да његов услов неће бити испуњен. Зато се програм може убрзати
+тако што се иза услова у првом правилу дода рез.</p>
+<div class="highlight-prolog notranslate"><div class="highlight"><pre><span></span><span class="nf">min</span><span class="p">(</span><span class="nv">X</span><span class="p">,</span> <span class="nv">Y</span><span class="p">,</span> <span class="nv">X</span><span class="p">)</span> <span class="p">:-</span> <span class="nv">X</span> <span class="o">=&lt;</span> <span class="nv">Y</span><span class="p">,</span> <span class="p">!.</span>
+<span class="nf">min</span><span class="p">(</span><span class="nv">X</span><span class="p">,</span> <span class="nv">Y</span><span class="p">,</span> <span class="nv">Y</span><span class="p">)</span> <span class="p">:-</span> <span class="nv">Y</span> <span class="o">&lt;</span> <span class="nv">X</span><span class="p">.</span>
+</pre></div>
+</div>
+<p>Приликом упита <code class="docutils literal notranslate"><span class="pre">?-</span> <span class="pre">max(3,</span> <span class="pre">5,</span> <span class="pre">M)</span></code> извршиће се унификација којом ће се
+везати променљива <code class="docutils literal notranslate"><span class="pre">X</span></code> са вредношћу 3, <code class="docutils literal notranslate"><span class="pre">Y</span></code> са вредношћу 5 и <code class="docutils literal notranslate"><span class="pre">M</span></code>
+са вредношћу <code class="docutils literal notranslate"><span class="pre">X</span></code>, тј. 3, провериће се услов <code class="docutils literal notranslate"><span class="pre">3</span> <span class="pre">=&lt;</span> <span class="pre">5</span></code> који ће бити
+тачан, провериће се рез који је тачан када се рачуна слева надесно и
+доћи ће се до краја правила и пријавиће се резултат <code class="docutils literal notranslate"><span class="pre">M=3</span></code>. Међутим,
+након тога ће се престати са испитивањем алтернатива и друго правило
+неће бити испробано. Ово можемо представити дрветом израчунавања на
+ком је означена грана која је исечена због реза.</p>
+<p>Приликом израчунавања другог упита, у левој грани се испитује услов
+<code class="docutils literal notranslate"><span class="pre">5</span> <span class="pre">=&lt;</span> <span class="pre">3</span></code> који није тачан, па се до реза ни не стиже и у том случају
+рез нема никаквог ефекта на извршавање претраге.</p>
+<img alt="https://petljamediastorage.blob.core.windows.net/root/Media/Default/Kursevi/OnlineNastava/specit4_paradigme_logicko/prolog_svedrvo_rez1.png" class="align-center" src="https://petljamediastorage.blob.core.windows.net/root/Media/Default/Kursevi/OnlineNastava/specit4_paradigme_logicko/prolog_svedrvo_rez1.png">
+<p>Претходна употреба оператора сечења је <strong>зелена</strong>, јер се оператором
+сечења програм само убрзава и не мења му се значење.</p>
+<p>Можемо отићи и корак даље и из другог правила изоставити услов <code class="docutils literal notranslate"><span class="pre">Y</span> <span class="pre">&lt;</span>
+<span class="pre">X</span></code>. Наиме, пошто у првом правилу постоји сечење, јасно је да ће се до
+провере другог правила стићи само ако услов првог правила није испуњен,
+тј. ако не важи <code class="docutils literal notranslate"><span class="pre">X</span> <span class="pre">=&lt;</span> <span class="pre">Y</span></code>, тј. сигурно тада знамо да важи <code class="docutils literal notranslate"><span class="pre">Y</span> <span class="pre">&gt;</span> <span class="pre">X</span></code>.</p>
+<div class="highlight-prolog notranslate"><div class="highlight"><pre><span></span><span class="nf">max</span><span class="p">(</span><span class="nv">X</span><span class="p">,</span> <span class="nv">Y</span><span class="p">,</span> <span class="nv">X</span><span class="p">)</span> <span class="p">:-</span> <span class="nv">X</span> <span class="o">=&lt;</span> <span class="nv">Y</span><span class="p">,</span> <span class="p">!.</span>
+<span class="nf">max</span><span class="p">(</span><span class="nv">X</span><span class="p">,</span> <span class="nv">Y</span><span class="p">,</span> <span class="nv">Y</span><span class="p">).</span>
+</pre></div>
+</div>
+<p>Вредност максимума бројева 3 и 5 можемо израчунати у било ком
+редоследу да су задати.</p>
+<ul class="simple">
+<li><p>Упит <code class="docutils literal notranslate"><span class="pre">?-</span> <span class="pre">max(3,</span> <span class="pre">5,</span> <span class="pre">M)</span></code> се извршава на већ описани начин, добија се
+резултат <code class="docutils literal notranslate"><span class="pre">M=5</span></code> и због сечења се не траже друга решења.</p></li>
+<li><p>Упит <code class="docutils literal notranslate"><span class="pre">?-</span> <span class="pre">max(5,</span> <span class="pre">3,</span> <span class="pre">M)</span></code> се извршава тако што се унификује <code class="docutils literal notranslate"><span class="pre">X</span></code> са
+5, <code class="docutils literal notranslate"><span class="pre">Y</span></code> са 3, проверава се <code class="docutils literal notranslate"><span class="pre">5</span> <span class="pre">=&lt;</span> <span class="pre">3</span></code> и пошто тај услов није
+испуњен, одустаје се од овог правила. Затим се прелази на друго
+правило, унификују се <code class="docutils literal notranslate"><span class="pre">X</span></code> и 5, <code class="docutils literal notranslate"><span class="pre">Y</span></code> и <code class="docutils literal notranslate"><span class="pre">3</span></code> и <code class="docutils literal notranslate"><span class="pre">M</span></code> и <code class="docutils literal notranslate"><span class="pre">Y</span></code>,
+тј. 3, након чега се пријављује резултат <code class="docutils literal notranslate"><span class="pre">M=3</span></code>. Приликом тражења
+других решења враћамо се уназад, наилазимо на сечење и бектрекинг се
+прекида.</p></li>
+</ul>
+<p>Ово је приказано на наредним дрветима.</p>
+<img alt="https://petljamediastorage.blob.core.windows.net/root/Media/Default/Kursevi/OnlineNastava/specit4_paradigme_logicko/prolog_svedrvo_rez2.png" class="align-center" src="https://petljamediastorage.blob.core.windows.net/root/Media/Default/Kursevi/OnlineNastava/specit4_paradigme_logicko/prolog_svedrvo_rez2.png">
+<p>Ипак, ова употреба реза је <strong>црвена</strong>, јер се резом мења значење
+програма. Заиста, наредни упит сасвим неочекивано враћа нетачан
+одговор <code class="docutils literal notranslate"><span class="pre">true</span></code>.</p>
+<div class="highlight-prolog notranslate"><div class="highlight"><pre><span></span><span class="s s-Atom">?-</span> <span class="nf">min</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">5</span><span class="p">).</span>
+</pre></div>
+</div>
+<p>Приликом његовог извршавања, покушава се унификација са левом страном
+првог правила, што не успева. Унификација са левом страном другог
+правила успева и пошто више нема услова на десној страни тог правила,
+пријављује се одговор <code class="docutils literal notranslate"><span class="pre">true</span></code>. Ово је приказано наредним дрветом.</p>
+<a class="reference internal image-reference" href="https://petljamediastorage.blob.core.windows.net/root/Media/Default/Kursevi/OnlineNastava/specit4_paradigme_logicko/prolog_svedrvo_rez3.png" target="_blank"><img alt="https://petljamediastorage.blob.core.windows.net/root/Media/Default/Kursevi/OnlineNastava/specit4_paradigme_logicko/prolog_svedrvo_rez3.png" class="align-center" src="https://petljamediastorage.blob.core.windows.net/root/Media/Default/Kursevi/OnlineNastava/specit4_paradigme_logicko/prolog_svedrvo_rez3.png" style="width: 500px;"></a>
+<p>Дакле, иако сечење може скратити програм и омогућити нам да неке
+услове не морамо да пишемо, треба бити веома обазрив јер такав програм
+може исправно радити за неке услове, а престати да ради исправно за
+неке друге упите. Приликом употребе реза пожељно је увек користити
+зелени, а не црвени облик.</p>
+<p>У наставку ћемо на неким местима употребљавати рез за оптимизацију и
+поједностављивање наших програма. У тим ситуацијама ће то бити
+наглашено и додатно објашњено.</p>
+<p>Размотримо још један, мало компликованији пример.</p>
+<div class="highlight-prolog notranslate"><div class="highlight"><pre><span></span><span class="nf">zivotinja</span><span class="p">(</span><span class="nv">X</span><span class="p">)</span> <span class="p">:-</span> <span class="nf">kicmenjak</span><span class="p">(</span><span class="nv">X</span><span class="p">).</span>
+<span class="nf">zivotinja</span><span class="p">(</span><span class="nv">X</span><span class="p">)</span> <span class="p">:-</span> <span class="nf">beskicmenjak</span><span class="p">(</span><span class="nv">X</span><span class="p">).</span>
+<span class="nf">kicmenjak</span><span class="p">(</span><span class="nv">X</span><span class="p">)</span> <span class="p">:-</span> <span class="nf">sisar</span><span class="p">(</span><span class="nv">X</span><span class="p">).</span>
+<span class="nf">kicmenjak</span><span class="p">(</span><span class="nv">X</span><span class="p">)</span> <span class="p">:-</span> <span class="nf">ptica</span><span class="p">(</span><span class="nv">X</span><span class="p">).</span>
+<span class="nf">beskicmenjak</span><span class="p">(</span><span class="s s-Atom">skoljka</span><span class="p">).</span>
+<span class="nf">beskicmenjak</span><span class="p">(</span><span class="s s-Atom">pauk</span><span class="p">).</span>
+<span class="nf">sisar</span><span class="p">(</span><span class="s s-Atom">mis</span><span class="p">).</span>
+<span class="nf">sisar</span><span class="p">(</span><span class="s s-Atom">slon</span><span class="p">).</span>
+<span class="nf">ptica</span><span class="p">(</span><span class="s s-Atom">soko</span><span class="p">).</span>
+</pre></div>
+</div>
+<p>Наредно стабло израчунавања приказује израчунавање резултата упита
+<code class="docutils literal notranslate"><span class="pre">zivotinja(X).</span></code></p>
+<img alt="https://petljamediastorage.blob.core.windows.net/root/Media/Default/Kursevi/OnlineNastava/specit4_paradigme_logicko/prolog_svedrvo_zivotinje.png" class="align-center" src="https://petljamediastorage.blob.core.windows.net/root/Media/Default/Kursevi/OnlineNastava/specit4_paradigme_logicko/prolog_svedrvo_zivotinje.png">
+<p>Види се да се исправно проналази свих пет решења.  Вежбе ради,
+размотримо шта би се догодило да се у једну од клаузула дода рез.
+На пример,</p>
+<div class="highlight-prolog notranslate"><div class="highlight"><pre><span></span><span class="nf">kicmenjak</span><span class="p">(</span><span class="nv">X</span><span class="p">)</span> <span class="p">:-</span> <span class="nf">sisar</span><span class="p">(</span><span class="nv">X</span><span class="p">),</span> <span class="p">!.</span>
+</pre></div>
+</div>
+<p>Стабло израчунавања које се добија у том случају је приказано на
+следећој слици.</p>
+<img alt="https://petljamediastorage.blob.core.windows.net/root/Media/Default/Kursevi/OnlineNastava/specit4_paradigme_logicko/prolog_svedrvo_zivotinje_rez.png" class="align-center" src="https://petljamediastorage.blob.core.windows.net/root/Media/Default/Kursevi/OnlineNastava/specit4_paradigme_logicko/prolog_svedrvo_zivotinje_rez.png">
+<p>Примећујемо да су се због реза изгубила два решења (<code class="docutils literal notranslate"><span class="pre">X=slon</span></code> и
+<code class="docutils literal notranslate"><span class="pre">X=soko</span></code>), па је у питању црвени рез, који мења значење програма.
+Рез је проузроковао исецање две отворене гране, али не и треће, која
+се налази при врху дрвета. Наиме, рез сече све отворене гране у
+поддрвету чији је корен предикат који је проузроковао увођење реза. У
+нашем примеру рез је уведен приликом разрешавања предиката
+<code class="docutils literal notranslate"><span class="pre">kicmenjak(X)</span></code>, тако да су исечене гране испод тог чвора, док је
+грана преостала изнад, код предиката <code class="docutils literal notranslate"><span class="pre">zivotinja(X)</span></code> и даље присутна
+тј. након реза не испитују се алтернативна решења за <code class="docutils literal notranslate"><span class="pre">kicmenjak(X)</span></code>,
+али се испитују алтернативна решења за <code class="docutils literal notranslate"><span class="pre">zivotinja(X)</span></code>.</p>
+</section>
+
+
+    
+                <div class="finish-lecture-label" id="finishLectureLabel-8413">Mark activity as completed</div>
+                <button type="button" class="finish-lecture-btn not-checked-finish-activity" id="finishLecture-8413" aria-labelledby="MarkLectureComplitedBtn">
+                    <img src="/images/check (2) 2@3x.png" alt="Icon for marking the activity as completed">
+                </button>
+                <div role="button" class="finish-lecture-btn checked-finish-activity d-none" id="checkmark-8413" aria-labelledby="LectureMarkedComplitedBtn">
+                    <div class="checked-finish-activity-label">
+                        Activity completed!
+                    </div>
+                    <img src="/images/check (2) 2@3x white.png" alt="Icon indicating the activity is completed">
+                </div>
+                <div class="lecture-prev-next-toggle">
+                    <button type="button" id="prevLecture" class="lecture-toggler-arrows" aria-labelledby="Button to go on previous activity">
+                        <span aria-hidden="true">
+                            <i class="fas fa-arrow-left fa"></i>
+                        </span>
+                        <span class="lecture-toggler-arrows-text">Previous activity</span>
+                    </button>
+
+                    <button type="button" id="nextLecture" class="lecture-toggler-arrows" aria-labelledby="Button to go on next activity">
+                        <span class="lecture-toggler-arrows-text">Next activity</span>
+                        <span aria-hidden="true">
+                            <i class="fas fa-arrow-right fa"></i>
+                        </span>
+                    </button>
+                </div>
+            </div>

@@ -1,0 +1,317 @@
+<div id="lectureContent-8417" class="lectureContentMaterial active">
+
+
+
+    
+  <section id="prolog">
+<h1>Prolog - задаци за самостални рад<a class="headerlink" href="#prolog" title="Permalink to this heading" target="_blank">¶</a></h1>
+
+    <div class="note-wrapper questionnote-type">
+        <div class="note-icon-holder"> </div>
+        <img src="/_runestone/_static/img/question-mark.png" class="note-image questionnote-image"> 
+        <div class="course-content">
+<p>Дефинисати Prolog предикат <code class="docutils literal notranslate"><span class="pre">same_length</span></code> који проверава да ли су
+две дате листе исте димензије.</p>
+
+    </div></div>
+
+    <div><div id="prologresenje1" style="display: none;">
+    <div class="highlight-prolog notranslate"><div class="highlight"><pre><span></span><span class="nf">same_length</span><span class="p">([],</span> <span class="p">[]).</span>
+<span class="nf">same_length</span><span class="p">([</span><span class="k">_</span><span class="p">|</span><span class="nv">T1</span><span class="p">],</span> <span class="p">[</span><span class="k">_</span><span class="p">|</span><span class="nv">T2</span><span class="p">])</span> <span class="p">:-</span> <span class="nf">same_length</span><span class="p">(</span><span class="nv">T1</span><span class="p">,</span> <span class="nv">T2</span><span class="p">).</span>
+</pre></div>
+</div>
+
+    </div><button class="btn btn-default reveal_button" id="prologresenje1_show" style="margin-bottom: 10px;">Прикажи решење</button><button class="btn btn-default reveal_button" id="prologresenje1_hide" style="display: none; margin-bottom: 10px;">Сакриј решење</button></div>
+    
+    <div class="note-wrapper questionnote-type">
+        <div class="note-icon-holder"> </div>
+        <img src="/_runestone/_static/img/question-mark.png" class="note-image questionnote-image"> 
+        <div class="course-content">
+<p>Дефинисати Prolog предикат <code class="docutils literal notranslate"><span class="pre">sum</span></code> који одређује збир свих
+елемената дате листе.</p>
+
+    </div></div>
+
+    <div><div id="prologresenje2" style="display: none;">
+    <div class="highlight-prolog notranslate"><div class="highlight"><pre><span></span><span class="nf">sum</span><span class="p">([],</span> <span class="mi">0</span><span class="p">).</span>
+<span class="nf">sum</span><span class="p">([</span><span class="nv">H</span><span class="p">|</span><span class="nv">T</span><span class="p">],</span> <span class="nv">S</span><span class="p">)</span> <span class="p">:-</span> <span class="nf">sum</span><span class="p">(</span><span class="nv">T</span><span class="p">,</span> <span class="nv">ST</span><span class="p">),</span> <span class="nv">S</span> <span class="o">is</span> <span class="nv">H</span> <span class="o">+</span> <span class="nv">ST</span><span class="p">.</span>
+</pre></div>
+</div>
+
+    </div><button class="btn btn-default reveal_button" id="prologresenje2_show" style="margin-bottom: 10px;">Прикажи решење</button><button class="btn btn-default reveal_button" id="prologresenje2_hide" style="display: none; margin-bottom: 10px;">Сакриј решење</button></div>
+    
+    <div class="note-wrapper questionnote-type">
+        <div class="note-icon-holder"> </div>
+        <img src="/_runestone/_static/img/question-mark.png" class="note-image questionnote-image"> 
+        <div class="course-content">
+<p>Дефинисати Prolog предикат <code class="docutils literal notranslate"><span class="pre">min_list</span></code> који одређује најамњи
+елемент дате непразне листе.</p>
+
+    </div></div>
+
+    <div><div id="prologresenje3" style="display: none;">
+    <div class="highlight-prolog notranslate"><div class="highlight"><pre><span></span><span class="nf">min</span><span class="p">(</span><span class="nv">X</span><span class="p">,</span> <span class="nv">Y</span><span class="p">,</span> <span class="nv">X</span><span class="p">)</span> <span class="p">:-</span> <span class="nv">X</span> <span class="o">=&lt;</span> <span class="nv">Y</span><span class="p">.</span>
+<span class="nf">min</span><span class="p">(</span><span class="nv">X</span><span class="p">,</span> <span class="nv">Y</span><span class="p">,</span> <span class="nv">Y</span><span class="p">)</span> <span class="s s-Atom">:=</span> <span class="nv">X</span> <span class="o">&gt;</span> <span class="nv">Y</span><span class="p">.</span>
+<span class="nf">min_list</span><span class="p">([</span><span class="nv">X</span><span class="p">],</span> <span class="nv">X</span><span class="p">).</span>
+<span class="nf">min_list</span><span class="p">([</span><span class="nv">H</span><span class="p">|</span><span class="nv">T</span><span class="p">],</span> <span class="nv">M</span><span class="p">)</span> <span class="p">:-</span> <span class="nf">min_list</span><span class="p">(</span><span class="nv">T</span><span class="p">,</span> <span class="nv">MT</span><span class="p">),</span> <span class="nf">min</span><span class="p">(</span><span class="nv">H</span><span class="p">,</span> <span class="nv">MT</span><span class="p">,</span> <span class="nv">M</span><span class="p">).</span>
+</pre></div>
+</div>
+
+    </div><button class="btn btn-default reveal_button" id="prologresenje3_show" style="margin-bottom: 10px;">Прикажи решење</button><button class="btn btn-default reveal_button" id="prologresenje3_hide" style="display: none; margin-bottom: 10px;">Сакриј решење</button></div>
+    
+    <div class="note-wrapper questionnote-type">
+        <div class="note-icon-holder"> </div>
+        <img src="/_runestone/_static/img/question-mark.png" class="note-image questionnote-image"> 
+        <div class="course-content">
+<p>Дефинисати Prolog предикат <code class="docutils literal notranslate"><span class="pre">digits</span></code> који одређује листу цифара
+датог броја.</p>
+
+    </div></div>
+
+    <div><div id="prologresenje4" style="display: none;">
+    <div class="highlight-prolog notranslate"><div class="highlight"><pre><span></span><span class="nf">digits</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="p">[]).</span>
+<span class="nf">digits</span><span class="p">(</span><span class="nv">N</span><span class="p">,</span> <span class="p">[</span><span class="nv">D</span><span class="p">|</span><span class="nv">T</span><span class="p">])</span> <span class="p">:-</span> <span class="nv">N</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">,</span> <span class="nv">D</span> <span class="o">is</span> <span class="nv">N</span> <span class="o">mod</span> <span class="mi">10</span><span class="p">,</span> <span class="nv">N1</span> <span class="o">is</span> <span class="nv">N</span> <span class="o">div</span> <span class="mi">10</span><span class="p">,</span> <span class="nf">digits</span><span class="p">(</span><span class="nv">N1</span><span class="p">,</span> <span class="nv">T</span><span class="p">).</span>
+</pre></div>
+</div>
+
+    </div><button class="btn btn-default reveal_button" id="prologresenje4_show" style="margin-bottom: 10px;">Прикажи решење</button><button class="btn btn-default reveal_button" id="prologresenje4_hide" style="display: none; margin-bottom: 10px;">Сакриј решење</button></div>
+    
+    <div class="note-wrapper questionnote-type">
+        <div class="note-icon-holder"> </div>
+        <img src="/_runestone/_static/img/question-mark.png" class="note-image questionnote-image"> 
+        <div class="course-content">
+<p>Дефинисати предикат <code class="docutils literal notranslate"><span class="pre">odd_elements</span></code> који издваја све непарне
+елементе дате листе бројева.</p>
+
+    </div></div>
+
+    <div><div id="prologresenje5" style="display: none;">
+    <div class="highlight-prolog notranslate"><div class="highlight"><pre><span></span><span class="nf">odd_elements</span><span class="p">([],</span> <span class="p">[]).</span>
+<span class="nf">odd_elements</span><span class="p">([</span><span class="nv">H</span><span class="p">|</span><span class="nv">T</span><span class="p">],</span> <span class="p">[</span><span class="nv">H</span><span class="p">|</span><span class="nv">T1</span><span class="p">])</span> <span class="p">:-</span> <span class="nv">H1</span> <span class="o">is</span> <span class="nv">H</span> <span class="o">mod</span> <span class="mi">2</span><span class="p">,</span> <span class="nv">H1</span> <span class="o">==</span> <span class="mi">1</span><span class="p">,</span> <span class="nf">odd_elements</span><span class="p">(</span><span class="nv">T</span><span class="p">,</span> <span class="nv">T1</span><span class="p">),</span> <span class="p">!.</span>
+<span class="nf">odd_elements</span><span class="p">([</span><span class="k">_</span><span class="p">|</span><span class="nv">T</span><span class="p">],</span> <span class="nv">T1</span><span class="p">)</span> <span class="p">:-</span> <span class="nf">odd_elements</span><span class="p">(</span><span class="nv">T</span><span class="p">,</span> <span class="nv">T1</span><span class="p">).</span>
+</pre></div>
+</div>
+
+    </div><button class="btn btn-default reveal_button" id="prologresenje5_show" style="margin-bottom: 10px;">Прикажи решење</button><button class="btn btn-default reveal_button" id="prologresenje5_hide" style="display: none; margin-bottom: 10px;">Сакриј решење</button></div>
+    
+    <div class="note-wrapper questionnote-type">
+        <div class="note-icon-holder"> </div>
+        <img src="/_runestone/_static/img/question-mark.png" class="note-image questionnote-image"> 
+        <div class="course-content">
+<p>Дефинисати предикат <code class="docutils literal notranslate"><span class="pre">squares</span></code> који одређује листу квадрата свих
+елемената дате листе.</p>
+
+    </div></div>
+
+    <div><div id="prologresenje6" style="display: none;">
+    <div class="highlight-prolog notranslate"><div class="highlight"><pre><span></span><span class="nf">squares</span><span class="p">([],</span> <span class="p">[]).</span>
+<span class="nf">squares</span><span class="p">([</span><span class="nv">H</span><span class="p">|</span><span class="nv">T</span><span class="p">],</span> <span class="p">[</span><span class="nv">H1</span><span class="p">|</span><span class="nv">T1</span><span class="p">])</span> <span class="p">:-</span> <span class="nv">H1</span> <span class="o">is</span> <span class="nv">H</span><span class="o">*</span><span class="nv">H</span><span class="p">,</span> <span class="nf">squares</span><span class="p">(</span><span class="nv">T</span><span class="p">,</span> <span class="nv">T1</span><span class="p">).</span>
+</pre></div>
+</div>
+
+    </div><button class="btn btn-default reveal_button" id="prologresenje6_show" style="margin-bottom: 10px;">Прикажи решење</button><button class="btn btn-default reveal_button" id="prologresenje6_hide" style="display: none; margin-bottom: 10px;">Сакриј решење</button></div>
+    
+    <div class="note-wrapper questionnote-type">
+        <div class="note-icon-holder"> </div>
+        <img src="/_runestone/_static/img/question-mark.png" class="note-image questionnote-image"> 
+        <div class="course-content">
+<p>Дефинисати Prolog предикат који одређује збир квадрата непарних
+цифара датог броја.</p>
+
+    </div></div>
+
+    <div><div id="prologresenje7" style="display: none;">
+    <p>У решењу употребити све функције из претходних задатака.</p>
+<div class="highlight-prolog notranslate"><div class="highlight"><pre><span></span><span class="nf">sum_squares_odd_digits</span><span class="p">(</span><span class="nv">N</span><span class="p">,</span> <span class="nv">M</span><span class="p">)</span> <span class="p">:-</span>
+    <span class="nf">digits</span><span class="p">(</span><span class="nv">N</span><span class="p">,</span> <span class="nv">D</span><span class="p">),</span> <span class="nf">odd_elements</span><span class="p">(</span><span class="nv">D</span><span class="p">,</span> <span class="nv">DO</span><span class="p">),</span> <span class="nf">squares</span><span class="p">(</span><span class="nv">DO</span><span class="p">,</span> <span class="nv">DOS</span><span class="p">),</span> <span class="nf">sum</span><span class="p">(</span><span class="nv">DOS</span><span class="p">,</span> <span class="nv">M</span><span class="p">).</span>
+</pre></div>
+</div>
+<p>Решење без коришћења помоћних предиката би било веома компликовано.</p>
+
+    </div><button class="btn btn-default reveal_button" id="prologresenje7_show" style="margin-bottom: 10px;">Прикажи решење</button><button class="btn btn-default reveal_button" id="prologresenje7_hide" style="display: none; margin-bottom: 10px;">Сакриј решење</button></div>
+    
+    <div class="note-wrapper questionnote-type">
+        <div class="note-icon-holder"> </div>
+        <img src="/_runestone/_static/img/question-mark.png" class="note-image questionnote-image"> 
+        <div class="course-content">
+<p>Дефинисати Prolog предикат <code class="docutils literal notranslate"><span class="pre">insert</span></code> који умеће елемент на његово
+место у сортираној листи. Дефинисати предикат <code class="docutils literal notranslate"><span class="pre">insertion_sort</span></code>
+који сортира листу алгоритмом сортирања уметањем.</p>
+
+    </div></div>
+
+    <div><div id="prologresenje8" style="display: none;">
+    <div class="highlight-prolog notranslate"><div class="highlight"><pre><span></span><span class="nf">insert</span><span class="p">(</span><span class="nv">X</span><span class="p">,</span> <span class="p">[],</span> <span class="p">[</span><span class="nv">X</span><span class="p">]).</span>
+<span class="nf">insert</span><span class="p">(</span><span class="nv">X</span><span class="p">,</span> <span class="p">[</span><span class="nv">H</span><span class="p">|</span><span class="nv">T</span><span class="p">],</span> <span class="p">[</span><span class="nv">X</span><span class="p">,</span><span class="nv">H</span><span class="p">|</span><span class="nv">T</span><span class="p">])</span> <span class="p">:-</span> <span class="nv">X</span> <span class="o">&lt;</span> <span class="nv">H</span><span class="p">,</span> <span class="p">!.</span>
+<span class="nf">insert</span><span class="p">(</span><span class="nv">X</span><span class="p">,</span> <span class="p">[</span><span class="nv">H</span><span class="p">|</span><span class="nv">T</span><span class="p">],</span> <span class="p">[</span><span class="nv">H</span><span class="p">|</span><span class="nv">T1</span><span class="p">])</span> <span class="p">:-</span> <span class="nf">insert</span><span class="p">(</span><span class="nv">X</span><span class="p">,</span> <span class="nv">T</span><span class="p">,</span> <span class="nv">T1</span><span class="p">).</span>
+
+<span class="nf">insertion_sort</span><span class="p">([],</span> <span class="p">[]).</span>
+<span class="nf">insertion_sort</span><span class="p">([</span><span class="nv">H</span><span class="p">|</span><span class="nv">T</span><span class="p">],</span> <span class="nv">S</span><span class="p">)</span> <span class="p">:-</span> <span class="nf">insertion_sort</span><span class="p">(</span><span class="nv">T</span><span class="p">,</span> <span class="nv">ST</span><span class="p">),</span> <span class="nf">insert</span><span class="p">(</span><span class="nv">H</span><span class="p">,</span> <span class="nv">ST</span><span class="p">,</span> <span class="nv">S</span><span class="p">).</span>
+</pre></div>
+</div>
+
+    </div><button class="btn btn-default reveal_button" id="prologresenje8_show" style="margin-bottom: 10px;">Прикажи решење</button><button class="btn btn-default reveal_button" id="prologresenje8_hide" style="display: none; margin-bottom: 10px;">Сакриј решење</button></div>
+    
+    <div class="note-wrapper questionnote-type">
+        <div class="note-icon-holder"> </div>
+        <img src="/_runestone/_static/img/question-mark.png" class="note-image questionnote-image"> 
+        <div class="course-content">
+<p>Дефинисати Prolog предикат <code class="docutils literal notranslate"><span class="pre">permutations</span></code> који набраја све
+пермутације елемената дате листе.</p>
+
+    </div></div>
+
+    <div><div id="prologresenje9" style="display: none;">
+    <p>Једно решење се заснива на идеји да на све могуће начине из листе
+извадимо неки елемент тј. да листу раздвојимо на тај елемент и
+листу свих осталих елемената. Дефинисаћемо предикат који то ради.
+Пермутације добијамо тако што на све могуће начине одаберемо први
+елемент у пермутацији, а затим рекурзивно пермутујемо остале
+елементе листе.</p>
+<div class="highlight-prolog notranslate"><div class="highlight"><pre><span></span><span class="nf">permutations</span><span class="p">([],</span> <span class="p">[]).</span>
+<span class="nf">permutations</span><span class="p">(</span><span class="nv">L</span><span class="p">,</span> <span class="p">[</span><span class="nv">H</span><span class="p">|</span><span class="nv">T</span><span class="p">])</span> <span class="p">:-</span> <span class="nf">select</span><span class="p">(</span><span class="nv">H</span><span class="p">,</span> <span class="nv">L</span><span class="p">,</span> <span class="nv">L1</span><span class="p">),</span> <span class="nf">permutations</span><span class="p">(</span><span class="nv">L1</span><span class="p">,</span> <span class="nv">T</span><span class="p">).</span>
+
+<span class="nf">select</span><span class="p">(</span><span class="nv">H</span><span class="p">,</span> <span class="p">[</span><span class="nv">H</span><span class="p">|</span><span class="nv">T</span><span class="p">],</span> <span class="nv">T</span><span class="p">).</span>
+<span class="nf">select</span><span class="p">(</span><span class="nv">X</span><span class="p">,</span> <span class="p">[</span><span class="nv">H</span><span class="p">|</span><span class="nv">T</span><span class="p">],</span> <span class="p">[</span><span class="nv">H</span><span class="p">|</span><span class="nv">T1</span><span class="p">])</span> <span class="p">:-</span>  <span class="nf">select</span><span class="p">(</span><span class="nv">X</span><span class="p">,</span> <span class="nv">T</span><span class="p">,</span> <span class="nv">T1</span><span class="p">).</span>
+</pre></div>
+</div>
+<p>Друго могуће решење се заснива на убацивању датог елемента на
+произвољну позицију у листи, што реализујемо помоћу предиката
+<code class="docutils literal notranslate"><span class="pre">interleave</span></code>. Каква год да је листа, елемент се може убацити на
+њен почетак. Ако је листа непразна, онда може бити убачен и иза
+првог елемента.</p>
+<p>Пермутације празне листе чини једино празна листа. Ако је листа
+непразна, онда можемо рекурзивно да пермутујемо њен реп, а главу да
+убацимо на произвољно место у листи.</p>
+<div class="highlight-prolog notranslate"><div class="highlight"><pre><span></span><span class="nf">interleave</span><span class="p">(</span><span class="nv">X</span><span class="p">,</span> <span class="nv">L</span><span class="p">,[</span><span class="nv">X</span><span class="p">|</span><span class="nv">L</span><span class="p">]).</span>
+<span class="nf">interleave</span><span class="p">(</span><span class="nv">X</span><span class="p">,</span> <span class="p">[</span><span class="nv">H</span><span class="p">|</span><span class="nv">T</span><span class="p">],</span> <span class="p">[</span><span class="nv">H</span><span class="p">|</span><span class="nv">T1</span><span class="p">])</span> <span class="p">:-</span> <span class="nf">interleave</span><span class="p">(</span><span class="nv">X</span><span class="p">,</span> <span class="nv">T</span><span class="p">,</span> <span class="nv">T1</span><span class="p">).</span>
+
+<span class="nf">permutations</span><span class="p">([],</span> <span class="p">[]).</span>
+<span class="nf">permutations</span><span class="p">([</span><span class="nv">H</span><span class="p">|</span><span class="nv">T</span><span class="p">],</span> <span class="nv">P</span><span class="p">)</span> <span class="p">:-</span> <span class="nf">permutations</span><span class="p">(</span><span class="nv">T</span><span class="p">,</span> <span class="nv">T1</span><span class="p">),</span> <span class="nf">interleave</span><span class="p">(</span><span class="nv">H</span><span class="p">,</span> <span class="nv">T1</span><span class="p">,</span> <span class="nv">P</span><span class="p">).</span>
+</pre></div>
+</div>
+
+    </div><button class="btn btn-default reveal_button" id="prologresenje9_show" style="margin-bottom: 10px;">Прикажи решење</button><button class="btn btn-default reveal_button" id="prologresenje9_hide" style="display: none; margin-bottom: 10px;">Сакриј решење</button></div>
+    
+    <div class="note-wrapper questionnote-type">
+        <div class="note-icon-holder"> </div>
+        <img src="/_runestone/_static/img/question-mark.png" class="note-image questionnote-image"> 
+        <div class="course-content">
+<p>Дефинисати Prolog предикат који проверава да ли је листа <code class="docutils literal notranslate"><span class="pre">P</span></code>
+подскуп листе <code class="docutils literal notranslate"><span class="pre">S</span></code> (обе су сортиране и имају све различите
+елементе. Предикат треба да може да се употреби и за генерисање
+свих подскупова дате листе.</p>
+
+    </div></div>
+
+    <div><div id="prologresenje10" style="display: none;">
+    <div class="highlight-prolog notranslate"><div class="highlight"><pre><span></span><span class="nf">podskup</span><span class="p">([],</span> <span class="p">[]).</span>
+<span class="nf">podskup</span><span class="p">([</span><span class="nv">X</span><span class="p">|</span><span class="nv">Xs</span><span class="p">],</span> <span class="p">[</span><span class="nv">Y</span><span class="p">|</span><span class="nv">Ys</span><span class="p">])</span> <span class="p">:-</span> <span class="nv">X</span> <span class="o">=</span> <span class="nv">Y</span><span class="p">,</span> <span class="nf">podskup</span><span class="p">(</span><span class="nv">Xs</span><span class="p">,</span> <span class="nv">Ys</span><span class="p">).</span>
+<span class="nf">podskup</span><span class="p">(</span><span class="nv">Xs</span><span class="p">,</span> <span class="p">[</span><span class="k">_</span><span class="p">|</span><span class="nv">Ys</span><span class="p">])</span> <span class="p">:-</span> <span class="nf">podskup</span><span class="p">(</span><span class="nv">Xs</span><span class="p">,</span> <span class="nv">Ys</span><span class="p">)</span>
+</pre></div>
+</div>
+
+    </div><button class="btn btn-default reveal_button" id="prologresenje10_show" style="margin-bottom: 10px;">Прикажи решење</button><button class="btn btn-default reveal_button" id="prologresenje10_hide" style="display: none; margin-bottom: 10px;">Сакриј решење</button></div>
+    
+    <div class="note-wrapper questionnote-type">
+        <div class="note-icon-holder"> </div>
+        <img src="/_runestone/_static/img/question-mark.png" class="note-image questionnote-image"> 
+        <div class="course-content">
+<p>Напиши Prolog предикат који решава следећу загонетку:</p>
+<p>Неколико пријатеља је гласало које би градове желели да посете.</p>
+<ol class="arabic simple">
+<li><p>Гласали су за Каиро, Лондон, Пекинг, Москву, Бомбај, Најроби и Џакарту.</p></li>
+<li><p>Један град је добио 4 гласа, два града по 2 гласа, два града по 1 глас
+и два града нису добили ниједан глас.</p></li>
+<li><p>Каиро и Пекинг су добили различит број гласова.</p></li>
+<li><p>Москва је добила или најмање или највише гласова од свих градова.</p></li>
+<li><p>Каиро је добио више гласова од Џакарте.</p></li>
+<li><p>Гледајући листу из тачке 1, тачно два пута се догодило да је
+град са два гласа досао непосредно иза града без гласова.</p></li>
+<li><p>Џакарта је добила или један глас мање од Лондона или један
+глас мање од Пекинга.</p></li>
+</ol>
+
+    </div></div>
+
+    <div><div id="prologresenje11" style="display: none;">
+    <p>Решење се може представити листом бројева, која мора бити
+пермутација листе <code class="docutils literal notranslate"><span class="pre">[4,</span> <span class="pre">2,</span> <span class="pre">2,</span> <span class="pre">1,</span> <span class="pre">1,</span> <span class="pre">0,</span> <span class="pre">0]</span></code>. Сви услови осим оног
+под бројем 6 се онда могу веома једноставно кодирати. За услов из
+тачке 6 дефинишемо помоћу функцију која проверава колико се пута
+двочлана подлиста јавља унутар дате листе.</p>
+<div class="highlight-prolog notranslate"><div class="highlight"><pre><span></span><span class="nf">brojPojavljivanjaPara</span><span class="p">([],</span> <span class="k">_</span><span class="p">,</span> <span class="mi">0</span><span class="p">).</span>
+<span class="nf">brojPojavljivanjaPara</span><span class="p">([</span><span class="nv">X1</span><span class="p">,</span><span class="nv">X2</span><span class="p">|</span><span class="nv">XS</span><span class="p">],</span> <span class="p">[</span><span class="nv">X1</span><span class="p">,</span><span class="nv">X2</span><span class="p">],</span> <span class="nv">N</span><span class="p">)</span> <span class="p">:-</span>
+    <span class="nf">brojPojavljivanjaPara</span><span class="p">(</span><span class="nv">XS</span><span class="p">,</span> <span class="p">[</span><span class="nv">X1</span><span class="p">,</span> <span class="nv">X2</span><span class="p">],</span> <span class="nv">N1</span><span class="p">),</span> <span class="nv">N</span> <span class="o">is</span> <span class="nv">N1</span> <span class="o">+</span> <span class="mi">1</span><span class="p">,</span> <span class="p">!.</span>
+<span class="nf">brojPojavljivanjaPara</span><span class="p">([</span><span class="k">_</span><span class="p">|</span><span class="nv">XS</span><span class="p">],</span> <span class="p">[</span><span class="nv">X1</span><span class="p">,</span><span class="nv">X2</span><span class="p">],</span> <span class="nv">N</span><span class="p">)</span> <span class="p">:-</span>
+    <span class="nf">brojPojavljivanjaPara</span><span class="p">(</span><span class="nv">XS</span><span class="p">,</span> <span class="p">[</span><span class="nv">X1</span><span class="p">,</span> <span class="nv">X2</span><span class="p">],</span> <span class="nv">N</span><span class="p">).</span>
+
+<span class="nf">glasovi</span><span class="p">(</span><span class="nv">Gradovi</span><span class="p">)</span> <span class="p">:-</span>
+    <span class="nv">Gradovi</span> <span class="o">=</span> <span class="p">[</span><span class="nv">Kairo</span><span class="p">,</span> <span class="nv">London</span><span class="p">,</span> <span class="nv">Peking</span><span class="p">,</span> <span class="nv">Moskva</span><span class="p">,</span> <span class="nv">Bombaj</span><span class="p">,</span> <span class="nv">Najrobi</span><span class="p">,</span> <span class="nv">Dzakarta</span><span class="p">],</span>
+    <span class="nf">permutation</span><span class="p">(</span><span class="nv">Gradovi</span><span class="p">,</span> <span class="p">[</span><span class="mi">4</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">]),</span>
+    <span class="p">(</span><span class="nv">Kairo</span> <span class="o">&lt;</span> <span class="nv">Peking</span><span class="p">;</span> <span class="nv">Kairo</span> <span class="o">&gt;</span> <span class="nv">Peking</span><span class="p">),</span>
+    <span class="p">(</span><span class="nv">Moskva</span> <span class="o">=</span> <span class="mi">0</span> <span class="p">;</span> <span class="nv">Moskva</span> <span class="o">=</span> <span class="mi">4</span><span class="p">),</span>
+    <span class="nv">Kairo</span> <span class="o">&gt;</span> <span class="nv">Dzakarta</span><span class="p">,</span>
+    <span class="nf">brojPojavljivanjaPara</span><span class="p">(</span><span class="nv">Gradovi</span><span class="p">,</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="p">],</span> <span class="mi">2</span><span class="p">),</span>
+    <span class="p">(</span><span class="nv">Dzakarta</span> <span class="o">is</span> <span class="p">(</span><span class="nv">London</span><span class="o">-</span><span class="mi">1</span><span class="p">);</span> <span class="nv">Dzakarta</span> <span class="o">is</span> <span class="p">(</span><span class="nv">Peking</span><span class="o">-</span><span class="mi">1</span><span class="p">)).</span>
+</pre></div>
+</div>
+
+    </div><button class="btn btn-default reveal_button" id="prologresenje11_show" style="margin-bottom: 10px;">Прикажи решење</button><button class="btn btn-default reveal_button" id="prologresenje11_hide" style="display: none; margin-bottom: 10px;">Сакриј решење</button></div>
+    
+    <div class="note-wrapper questionnote-type">
+        <div class="note-icon-holder"> </div>
+        <img src="/_runestone/_static/img/question-mark.png" class="note-image questionnote-image"> 
+        <div class="course-content">
+<p>Напиши Prolog решење следеће логичке загонетке, дате у облику
+песме.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>1  Four couples in all
+   Attended a costume ball.
+2  The lady dressed as a cat
+   Arrived with her husband Matt.
+3  Two couples were already there,
+   One man dressed like a bear.
+4  First to arrive wasn't Vince,
+   But he got there before the Prince.
+5  The witch (not Sue) is married to Chuck,
+   Who was dressed as Donald Duck.
+6  Mary came in after Lou,
+   Both were there before Sue.
+7  The Gipsy arrived before Ann,
+   Neither is wed to Batman.
+8  If Snow White arrived after Tess,
+   Then how was each couple dressed?
+</pre></div>
+</div>
+
+    </div></div>
+</section>
+
+
+    
+                <div class="finish-lecture-label" id="finishLectureLabel-8417">Mark activity as completed</div>
+                <button type="button" class="finish-lecture-btn not-checked-finish-activity" id="finishLecture-8417" aria-labelledby="MarkLectureComplitedBtn">
+                    <img src="/images/check (2) 2@3x.png" alt="Icon for marking the activity as completed">
+                </button>
+                <div role="button" class="finish-lecture-btn checked-finish-activity d-none" id="checkmark-8417" aria-labelledby="LectureMarkedComplitedBtn">
+                    <div class="checked-finish-activity-label">
+                        Activity completed!
+                    </div>
+                    <img src="/images/check (2) 2@3x white.png" alt="Icon indicating the activity is completed">
+                </div>
+                <div class="lecture-prev-next-toggle">
+                    <button type="button" id="prevLecture" class="lecture-toggler-arrows" aria-labelledby="Button to go on previous activity">
+                        <span aria-hidden="true">
+                            <i class="fas fa-arrow-left fa"></i>
+                        </span>
+                        <span class="lecture-toggler-arrows-text">Previous activity</span>
+                    </button>
+
+                    <button type="button" id="nextLecture" class="lecture-toggler-arrows invisible" aria-labelledby="Button to go on next activity">
+                        <span class="lecture-toggler-arrows-text">Next activity</span>
+                        <span aria-hidden="true">
+                            <i class="fas fa-arrow-right fa"></i>
+                        </span>
+                    </button>
+                </div>
+            </div>

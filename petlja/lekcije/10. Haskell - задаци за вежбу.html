@@ -1,0 +1,357 @@
+<div id="lectureContent-7789" class="lectureContentMaterial active">
+
+
+
+    
+  <section id="id1">
+<h1>Задаци за вежбу<a class="headerlink" href="#id1" title="Permalink to this heading" target="_blank">¶</a></h1>
+
+    <div class="note-wrapper questionnote-type">
+        <div class="note-icon-holder"> </div>
+        <img src="/_runestone/_static/img/question-mark.png" class="note-image questionnote-image"> 
+        <div class="course-content">
+<p>Дефинисати рекурзивну функцију којом се одређује највећи елемент
+непразне листе.</p>
+
+    </div></div>
+
+    <div><div id="haskellresenje1" style="display: block;">
+    <div class="highlight-haskell notranslate"><div class="highlight"><pre><span></span><span class="nf">my_maximum</span><span class="w"> </span><span class="ow">::</span><span class="w"> </span><span class="kt">Ord</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="ow">=&gt;</span><span class="w"> </span><span class="p">[</span><span class="n">a</span><span class="p">]</span><span class="w"> </span><span class="ow">-&gt;</span><span class="w"> </span><span class="n">a</span>
+<span class="nf">my_maximum</span><span class="w"> </span><span class="p">[</span><span class="n">x</span><span class="p">]</span><span class="w"> </span><span class="ow">=</span><span class="w"> </span><span class="n">x</span>
+<span class="nf">my_maximum</span><span class="w"> </span><span class="p">(</span><span class="n">x</span><span class="kt">:</span><span class="n">xs</span><span class="p">)</span><span class="w"> </span><span class="ow">=</span><span class="w"> </span><span class="n">max</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="p">(</span><span class="n">my_maximum</span><span class="w"> </span><span class="n">xs</span><span class="p">)</span>
+</pre></div>
+</div>
+
+    </div><button class="btn btn-default reveal_button" id="haskellresenje1_show" style="margin-bottom: 10px; display: none;">Прикажи решење</button><button class="btn btn-default reveal_button" id="haskellresenje1_hide" style="margin-bottom: 10px; display: inline-block;">Сакриј решење</button></div>
+    
+    <div class="note-wrapper questionnote-type">
+        <div class="note-icon-holder"> </div>
+        <img src="/_runestone/_static/img/question-mark.png" class="note-image questionnote-image"> 
+        <div class="course-content">
+<p>Дефинисати рекурзивну функцију којом се издвајају сви позитивни
+елементи дате листе. Упореди ову функцију са функцијом заснованом
+на функционалу <code class="docutils literal notranslate"><span class="pre">filter</span></code>.</p>
+
+    </div></div>
+
+    <div><div id="haskellresenje" style="display: none;">
+    <div class="highlight-haskell notranslate"><div class="highlight"><pre><span></span><span class="nf">positive</span><span class="w"> </span><span class="ow">::</span><span class="w"> </span><span class="kt">Num</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="ow">=&gt;</span><span class="w"> </span><span class="p">[</span><span class="n">a</span><span class="p">]</span><span class="w"> </span><span class="ow">-&gt;</span><span class="w"> </span><span class="p">[</span><span class="n">a</span><span class="p">]</span>
+<span class="nf">positive</span><span class="w"> </span><span class="kt">[]</span><span class="w"> </span><span class="ow">=</span><span class="w"> </span><span class="kt">[]</span>
+<span class="nf">positive</span><span class="w"> </span><span class="p">(</span><span class="n">x</span><span class="kt">:</span><span class="n">xs</span><span class="p">)</span><span class="w"> </span><span class="ow">=</span><span class="w"> </span><span class="p">(</span><span class="kr">if</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="kr">then</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="kt">:</span><span class="w"> </span><span class="n">positive</span><span class="w"> </span><span class="n">xs</span><span class="w"> </span><span class="kr">else</span><span class="w"> </span><span class="n">positive</span><span class="w"> </span><span class="n">xs</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Решење помоћу <code class="docutils literal notranslate"><span class="pre">filter</span></code> је неупоредиво јасније и једноставније.</p>
+<div class="highlight-haskell notranslate"><div class="highlight"><pre><span></span><span class="nf">positive</span><span class="w"> </span><span class="ow">::</span><span class="w"> </span><span class="kt">Num</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="ow">=&gt;</span><span class="w"> </span><span class="p">[</span><span class="n">a</span><span class="p">]</span><span class="w"> </span><span class="ow">-&gt;</span><span class="w"> </span><span class="p">[</span><span class="n">a</span><span class="p">]</span>
+<span class="nf">positive</span><span class="w"> </span><span class="ow">=</span><span class="w"> </span><span class="n">filter</span><span class="w"> </span><span class="p">(</span><span class="o">&gt;</span><span class="mi">0</span><span class="p">)</span>
+</pre></div>
+</div>
+
+    </div><button class="btn btn-default reveal_button" id="haskellresenje_show" style="margin-bottom: 10px;">Прикажи решење</button><button class="btn btn-default reveal_button" id="haskellresenje_hide" style="display: none; margin-bottom: 10px;">Сакриј решење</button></div>
+    
+    <div class="note-wrapper questionnote-type">
+        <div class="note-icon-holder"> </div>
+        <img src="/_runestone/_static/img/question-mark.png" class="note-image questionnote-image"> 
+        <div class="course-content">
+<p>Дефинисати рекурзивну функцију којом се израчунавају корени свих
+елемената дате листе реалних бројева. Упореди ову функцију са
+функцијом заснованом на функционалу <code class="docutils literal notranslate"><span class="pre">map</span></code>.</p>
+
+    </div></div>
+
+    <div><div id="haskellresenje3" style="display: none;">
+    <div class="highlight-haskell notranslate"><div class="highlight"><pre><span></span><span class="nf">square_roots</span><span class="w"> </span><span class="ow">::</span><span class="w"> </span><span class="p">[</span><span class="kt">Double</span><span class="p">]</span><span class="w"> </span><span class="ow">-&gt;</span><span class="w"> </span><span class="p">[</span><span class="kt">Double</span><span class="p">]</span>
+<span class="nf">square_roots</span><span class="w"> </span><span class="kt">[]</span><span class="w"> </span><span class="ow">=</span><span class="w"> </span><span class="kt">[]</span>
+<span class="nf">square_roots</span><span class="w"> </span><span class="p">(</span><span class="n">x</span><span class="kt">:</span><span class="n">xs</span><span class="p">)</span><span class="w"> </span><span class="ow">=</span><span class="w"> </span><span class="n">sqrt</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="kt">:</span><span class="w"> </span><span class="n">square_roots</span><span class="w"> </span><span class="n">xs</span>
+</pre></div>
+</div>
+<p>Решење помоћу <code class="docutils literal notranslate"><span class="pre">map</span></code> је неупоредиво јасније и једноставније.</p>
+<div class="highlight-haskell notranslate"><div class="highlight"><pre><span></span><span class="nf">square_roots</span><span class="w"> </span><span class="ow">::</span><span class="w"> </span><span class="p">[</span><span class="kt">Double</span><span class="p">]</span><span class="w"> </span><span class="ow">-&gt;</span><span class="w"> </span><span class="p">[</span><span class="kt">Double</span><span class="p">]</span>
+<span class="nf">square_roots</span><span class="w"> </span><span class="ow">=</span><span class="w"> </span><span class="n">map</span><span class="w"> </span><span class="n">sqrt</span>
+</pre></div>
+</div>
+
+    </div><button class="btn btn-default reveal_button" id="haskellresenje3_show" style="margin-bottom: 10px;">Прикажи решење</button><button class="btn btn-default reveal_button" id="haskellresenje3_hide" style="display: none; margin-bottom: 10px;">Сакриј решење</button></div>
+    
+    <div class="note-wrapper questionnote-type">
+        <div class="note-icon-holder"> </div>
+        <img src="/_runestone/_static/img/question-mark.png" class="note-image questionnote-image"> 
+        <div class="course-content">
+<p>Рекурзивно дефинисати функционале <code class="docutils literal notranslate"><span class="pre">my_map</span></code> и <code class="docutils literal notranslate"><span class="pre">my_filter</span></code> који
+одговарају библиотечким функционалима <code class="docutils literal notranslate"><span class="pre">map</span></code> и <code class="docutils literal notranslate"><span class="pre">filter</span></code>.</p>
+
+    </div></div>
+
+    <div><div id="haskellresenje4" style="display: none;">
+    <div class="highlight-haskell notranslate"><div class="highlight"><pre><span></span><span class="nf">my_map</span><span class="w"> </span><span class="ow">::</span><span class="w"> </span><span class="p">(</span><span class="n">a</span><span class="w"> </span><span class="ow">-&gt;</span><span class="w"> </span><span class="n">b</span><span class="p">)</span><span class="w"> </span><span class="ow">-&gt;</span><span class="w"> </span><span class="p">[</span><span class="n">a</span><span class="p">]</span><span class="w"> </span><span class="ow">-&gt;</span><span class="w"> </span><span class="p">[</span><span class="n">b</span><span class="p">]</span>
+<span class="nf">my_map</span><span class="w"> </span><span class="n">f</span><span class="w"> </span><span class="kt">[]</span><span class="w"> </span><span class="ow">=</span><span class="w"> </span><span class="kt">[]</span>
+<span class="nf">my_map</span><span class="w"> </span><span class="n">f</span><span class="w"> </span><span class="p">(</span><span class="n">x</span><span class="w"> </span><span class="kt">:</span><span class="w"> </span><span class="n">xs</span><span class="p">)</span><span class="w"> </span><span class="ow">=</span><span class="w"> </span><span class="p">(</span><span class="n">f</span><span class="w"> </span><span class="n">x</span><span class="p">)</span><span class="w"> </span><span class="kt">:</span><span class="w"> </span><span class="n">my_map</span><span class="w"> </span><span class="n">f</span><span class="w"> </span><span class="n">xs</span>
+
+<span class="nf">my_filter</span><span class="w"> </span><span class="ow">::</span><span class="w"> </span><span class="p">(</span><span class="n">a</span><span class="w"> </span><span class="ow">-&gt;</span><span class="w"> </span><span class="kt">Bool</span><span class="p">)</span><span class="w"> </span><span class="ow">-&gt;</span><span class="w"> </span><span class="p">[</span><span class="n">a</span><span class="p">]</span><span class="w"> </span><span class="ow">-&gt;</span><span class="w"> </span><span class="p">[</span><span class="n">a</span><span class="p">]</span>
+<span class="nf">my_filter</span><span class="w"> </span><span class="kt">P</span><span class="w"> </span><span class="kt">[]</span><span class="w"> </span><span class="ow">=</span><span class="w"> </span><span class="kt">[]</span>
+<span class="nf">my_filter</span><span class="w"> </span><span class="kt">P</span><span class="w"> </span><span class="p">(</span><span class="n">x</span><span class="w"> </span><span class="kt">:</span><span class="w"> </span><span class="n">xs</span><span class="p">)</span><span class="w"> </span><span class="ow">=</span><span class="w"> </span><span class="p">(</span><span class="kr">if</span><span class="w"> </span><span class="kt">P</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="kr">then</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="kt">:</span><span class="w"> </span><span class="n">my_filter</span><span class="w"> </span><span class="kt">P</span><span class="w"> </span><span class="n">xs</span><span class="w"> </span><span class="kr">else</span><span class="w"> </span><span class="n">my_filter</span><span class="w"> </span><span class="kt">P</span><span class="w"> </span><span class="n">xs</span><span class="p">)</span>
+</pre></div>
+</div>
+
+    </div><button class="btn btn-default reveal_button" id="haskellresenje4_show" style="margin-bottom: 10px;">Прикажи решење</button><button class="btn btn-default reveal_button" id="haskellresenje4_hide" style="display: none; margin-bottom: 10px;">Сакриј решење</button></div>
+    
+    <div class="note-wrapper questionnote-type">
+        <div class="note-icon-holder"> </div>
+        <img src="/_runestone/_static/img/question-mark.png" class="note-image questionnote-image"> 
+        <div class="course-content">
+<p>Применом функције <code class="docutils literal notranslate"><span class="pre">fold</span></code> дефинисати функцију која надовезује све
+листе које су елементи дате листе (овај ефекат има библиотечка
+функција <code class="docutils literal notranslate"><span class="pre">concat</span></code>). На пример, <code class="docutils literal notranslate"><span class="pre">concat</span> <span class="pre">[[1,</span> <span class="pre">2],</span> <span class="pre">[3,</span> <span class="pre">4]]</span> <span class="pre">=</span> <span class="pre">[1,</span> <span class="pre">2,</span> <span class="pre">3,</span> <span class="pre">4]</span></code>.</p>
+
+    </div></div>
+
+    <div><div id="haskellresenje5" style="display: none;">
+    <p>До решења се једноставно долази ако се примети да се резултат добија
+тако што се резултат иницијализује на празну листу, затим се обрађује
+једна по једна листа из дате листе и у саком кораку се резултат
+ажурира тако што се текућа листа надовеже на почетак резултата.</p>
+<div class="highlight-haskell notranslate"><div class="highlight"><pre><span></span><span class="nf">my_concat</span><span class="w"> </span><span class="ow">::</span><span class="w"> </span><span class="p">[[</span><span class="n">a</span><span class="p">]]</span><span class="w"> </span><span class="ow">-&gt;</span><span class="w"> </span><span class="p">[</span><span class="n">a</span><span class="p">]</span>
+<span class="nf">my_concat</span><span class="w"> </span><span class="ow">=</span><span class="w"> </span><span class="n">foldr</span><span class="w"> </span><span class="p">(</span><span class="o">++</span><span class="p">)</span><span class="w"> </span><span class="kt">[]</span>
+</pre></div>
+</div>
+
+    </div><button class="btn btn-default reveal_button" id="haskellresenje5_show" style="margin-bottom: 10px;">Прикажи решење</button><button class="btn btn-default reveal_button" id="haskellresenje5_hide" style="display: none; margin-bottom: 10px;">Сакриј решење</button></div>
+    
+    <div class="note-wrapper questionnote-type">
+        <div class="note-icon-holder"> </div>
+        <img src="/_runestone/_static/img/question-mark.png" class="note-image questionnote-image"> 
+        <div class="course-content">
+<p>За свако возило на ауто-плацу познат је произвођач, година
+производње и цена. Дефинсати функцију која израчунава просечну цену
+возила произведених 2020. године и касније.</p>
+
+    </div></div>
+
+    <div><div id="haskellresenje6" style="display: none;">
+    <div class="highlight-haskell notranslate"><div class="highlight"><pre><span></span><span class="kr">data</span><span class="w"> </span><span class="kt">Vehicle</span><span class="w"> </span><span class="ow">=</span><span class="w"> </span><span class="kt">Vehicle</span>
+<span class="w">  </span><span class="p">{</span><span class="w">  </span><span class="n">brand</span><span class="w"> </span><span class="ow">::</span><span class="w"> </span><span class="kt">String</span><span class="p">,</span>
+<span class="w">     </span><span class="n">year</span><span class="w"> </span><span class="ow">::</span><span class="w"> </span><span class="kt">Int</span><span class="p">,</span>
+<span class="w">     </span><span class="n">price</span><span class="w"> </span><span class="ow">::</span><span class="w"> </span><span class="kt">Double</span>
+<span class="w">  </span><span class="p">}</span>
+
+<span class="nf">vehicles</span><span class="w"> </span><span class="ow">::</span><span class="w"> </span><span class="p">[</span><span class="kt">Vehicle</span><span class="p">]</span>
+<span class="nf">vehicles</span><span class="w"> </span><span class="ow">=</span><span class="w"> </span><span class="p">[</span>
+<span class="w">   </span><span class="kt">Vehicle</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="n">brand</span><span class="ow">=</span><span class="s">"Toyota"</span><span class="p">,</span><span class="w"> </span><span class="n">year</span><span class="ow">=</span><span class="mi">2020</span><span class="p">,</span><span class="w"> </span><span class="n">price</span><span class="ow">=</span><span class="mi">18400</span><span class="w"> </span><span class="p">},</span>
+<span class="w">   </span><span class="kt">Vehicle</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="n">brand</span><span class="ow">=</span><span class="s">"Ford"</span><span class="p">,</span><span class="w"> </span><span class="n">year</span><span class="ow">=</span><span class="mi">2019</span><span class="p">,</span><span class="w"> </span><span class="n">price</span><span class="ow">=</span><span class="mi">17300</span><span class="w"> </span><span class="p">},</span>
+<span class="w">   </span><span class="kt">Vehicle</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="n">brand</span><span class="ow">=</span><span class="s">"Mazda"</span><span class="p">,</span><span class="w"> </span><span class="n">year</span><span class="ow">=</span><span class="mi">2007</span><span class="p">,</span><span class="w"> </span><span class="n">price</span><span class="ow">=</span><span class="mi">12200</span><span class="w"> </span><span class="p">},</span>
+<span class="w">   </span><span class="kt">Vehicle</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="n">brand</span><span class="ow">=</span><span class="s">"BMW"</span><span class="p">,</span><span class="w"> </span><span class="n">year</span><span class="ow">=</span><span class="mi">2022</span><span class="p">,</span><span class="w"> </span><span class="n">price</span><span class="ow">=</span><span class="mi">24000</span><span class="w"> </span><span class="p">}]</span>
+
+<span class="nf">averagePriceAfter2020</span><span class="w"> </span><span class="ow">::</span><span class="w"> </span><span class="kt">Double</span>
+<span class="nf">averagePriceAfter2020</span><span class="w"> </span><span class="ow">=</span>
+<span class="w">  </span><span class="n">average</span><span class="w"> </span><span class="o">$</span><span class="w"> </span><span class="n">map</span><span class="w"> </span><span class="n">price</span><span class="w"> </span><span class="o">$</span><span class="w"> </span><span class="n">filter</span><span class="w"> </span><span class="p">(</span><span class="nf">\</span><span class="n">vehicle</span><span class="w"> </span><span class="ow">-&gt;</span><span class="w"> </span><span class="n">year</span><span class="w"> </span><span class="n">vehicle</span><span class="w"> </span><span class="o">&gt;=</span><span class="w"> </span><span class="mi">2020</span><span class="p">)</span><span class="w"> </span><span class="n">vehicles</span>
+<span class="w">  </span><span class="kr">where</span>
+<span class="w">    </span><span class="n">average</span><span class="w"> </span><span class="ow">::</span><span class="w"> </span><span class="p">[</span><span class="kt">Double</span><span class="p">]</span><span class="w"> </span><span class="ow">-&gt;</span><span class="w"> </span><span class="kt">Double</span>
+<span class="w">    </span><span class="n">average</span><span class="w"> </span><span class="n">xs</span><span class="w"> </span><span class="ow">=</span><span class="w"> </span><span class="n">sum</span><span class="w"> </span><span class="n">xs</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="n">fromIntegral</span><span class="w"> </span><span class="p">(</span><span class="n">length</span><span class="w"> </span><span class="n">xs</span><span class="p">)</span>
+</pre></div>
+</div>
+
+    </div><button class="btn btn-default reveal_button" id="haskellresenje6_show" style="margin-bottom: 10px;">Прикажи решење</button><button class="btn btn-default reveal_button" id="haskellresenje6_hide" style="display: none; margin-bottom: 10px;">Сакриј решење</button></div>
+    
+    <div class="note-wrapper questionnote-type">
+        <div class="note-icon-holder"> </div>
+        <img src="/_runestone/_static/img/question-mark.png" class="note-image questionnote-image"> 
+        <div class="course-content">
+<p>Дефинисати функцију која одређује листу простих чинилаца датог броја
+<span class="math notranslate nohighlight"><span class="MathJax_Preview" style="color: inherit;"></span><span id="MathJax-Element-1-Frame" class="mjx-chtml MathJax_CHTML" tabindex="0" style="font-size: 110%; position: relative;" data-mathml="&lt;math xmlns=&quot;http://www.w3.org/1998/Math/MathML&quot;&gt;&lt;mi&gt;n&lt;/mi&gt;&lt;/math&gt;" role="presentation"><span id="MJXc-Node-1" class="mjx-math" aria-hidden="true"><span id="MJXc-Node-2" class="mjx-mrow"><span id="MJXc-Node-3" class="mjx-mi"><span class="mjx-char MJXc-TeX-math-I" style="padding-top: 0.23em; padding-bottom: 0.287em;">n</span></span></span></span><span class="MJX_Assistive_MathML" role="presentation"><math xmlns="http://www.w3.org/1998/Math/MathML"><mi>n</mi></math></span></span><script type="math/tex" id="MathJax-Element-1">n</script></span>.</p>
+
+    </div></div>
+
+    <div><div id="haskellresenje7" style="display: none;">
+    <p>Користимо уобичајени алгоритам факторизације бројева који је обрађен у
+другом разреду.</p>
+<div class="highlight-csharp notranslate"><div class="highlight"><pre><span></span><span class="n">List</span><span class="o">&lt;</span><span class="kt">ulong</span><span class="o">&gt;</span><span class="w"> </span><span class="n">PrimeFactors</span><span class="p">(</span><span class="kt">ulong</span><span class="w"> </span><span class="n">n</span><span class="p">)</span>
+<span class="p">{</span>
+<span class="w">   </span><span class="n">List</span><span class="o">&lt;</span><span class="kt">ulong</span><span class="o">&gt;</span><span class="w"> </span><span class="n">factors</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">List</span><span class="o">&lt;</span><span class="kt">ulong</span><span class="o">&gt;</span><span class="p">();</span>
+<span class="w">   </span><span class="kt">ulong</span><span class="w"> </span><span class="n">d</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">2</span><span class="p">;</span>
+<span class="w">   </span><span class="k">while</span><span class="w"> </span><span class="p">(</span><span class="n">d</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">d</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="n">n</span><span class="p">)</span>
+<span class="w">   </span><span class="p">{</span>
+<span class="w">       </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">n</span><span class="w"> </span><span class="o">%</span><span class="w"> </span><span class="n">d</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span>
+<span class="w">       </span><span class="p">{</span>
+<span class="w">           </span><span class="n">factors</span><span class="p">.</span><span class="n">Add</span><span class="p">(</span><span class="n">d</span><span class="p">);</span>
+<span class="w">           </span><span class="n">n</span><span class="w"> </span><span class="o">/=</span><span class="w"> </span><span class="n">d</span><span class="p">;</span>
+<span class="w">       </span><span class="p">}</span><span class="w"> </span><span class="k">else</span>
+<span class="w">         </span><span class="n">d</span><span class="o">++</span><span class="p">;</span>
+<span class="w">   </span><span class="p">}</span>
+<span class="w">   </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">n</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mi">1</span><span class="p">)</span>
+<span class="w">      </span><span class="n">factors</span><span class="p">.</span><span class="n">Add</span><span class="p">(</span><span class="n">n</span><span class="p">);</span>
+<span class="w">   </span><span class="k">return</span><span class="w"> </span><span class="n">factors</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>Исти се алгоритам лако изражава рекурзивно и имплементира у језику Haskell:</p>
+<div class="highlight-haskell notranslate"><div class="highlight"><pre><span></span><span class="nf">primeFactors</span><span class="w"> </span><span class="ow">::</span><span class="w"> </span><span class="kt">Integer</span><span class="w"> </span><span class="ow">-&gt;</span><span class="w"> </span><span class="p">[</span><span class="kt">Integer</span><span class="p">]</span>
+<span class="nf">primeFactors</span><span class="w"> </span><span class="n">n</span><span class="w"> </span><span class="ow">=</span><span class="w"> </span><span class="n">factorize</span><span class="w"> </span><span class="n">n</span><span class="w"> </span><span class="mi">2</span>
+<span class="w">  </span><span class="kr">where</span>
+<span class="w">     </span><span class="n">factorize</span><span class="w"> </span><span class="n">k</span><span class="w"> </span><span class="n">d</span>
+<span class="w">        </span><span class="o">|</span><span class="w"> </span><span class="n">d</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">d</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="n">k</span><span class="w">        </span><span class="ow">=</span><span class="w"> </span><span class="p">[</span><span class="n">k</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="n">k</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mi">1</span><span class="p">]</span>
+<span class="w">        </span><span class="o">|</span><span class="w"> </span><span class="n">k</span><span class="w"> </span><span class="p">`</span><span class="n">mod</span><span class="p">`</span><span class="w"> </span><span class="n">d</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">0</span><span class="w">   </span><span class="ow">=</span><span class="w"> </span><span class="n">d</span><span class="w"> </span><span class="kt">:</span><span class="w"> </span><span class="n">factorize</span><span class="w"> </span><span class="p">(</span><span class="n">k</span><span class="w"> </span><span class="p">`</span><span class="n">div</span><span class="p">`</span><span class="w"> </span><span class="n">d</span><span class="p">)</span><span class="w"> </span><span class="n">d</span>
+<span class="w">        </span><span class="o">|</span><span class="w"> </span><span class="n">otherwise</span><span class="w">        </span><span class="ow">=</span><span class="w"> </span><span class="n">factorize</span><span class="w"> </span><span class="n">k</span><span class="w"> </span><span class="p">(</span><span class="n">d</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Прикажимо и извршавање овог алгоритма на једном примеру:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">primeFactors</span> <span class="mi">168</span> <span class="o">=</span>
+<span class="n">factorize</span> <span class="mi">168</span> <span class="mi">2</span> <span class="o">=</span>
+<span class="mi">2</span> <span class="p">:</span> <span class="n">factorize</span> <span class="mi">84</span> <span class="mi">2</span> <span class="o">=</span>
+<span class="mi">2</span> <span class="p">:</span> <span class="mi">2</span> <span class="p">:</span> <span class="n">factorize</span> <span class="mi">42</span> <span class="mi">2</span> <span class="o">=</span>
+<span class="mi">2</span> <span class="p">:</span> <span class="mi">2</span> <span class="p">:</span> <span class="mi">2</span> <span class="p">:</span> <span class="n">factorize</span> <span class="mi">21</span> <span class="mi">2</span> <span class="o">=</span>
+<span class="mi">2</span> <span class="p">:</span> <span class="mi">2</span> <span class="p">:</span> <span class="mi">2</span> <span class="p">:</span> <span class="n">factorize</span> <span class="mi">21</span> <span class="mi">3</span> <span class="o">=</span>
+<span class="mi">2</span> <span class="p">:</span> <span class="mi">2</span> <span class="p">:</span> <span class="mi">2</span> <span class="p">:</span> <span class="mi">3</span> <span class="p">:</span> <span class="n">factorize</span> <span class="mi">7</span> <span class="mi">3</span> <span class="o">=</span>
+<span class="mi">2</span> <span class="p">:</span> <span class="mi">2</span> <span class="p">:</span> <span class="mi">2</span> <span class="p">:</span> <span class="mi">3</span> <span class="p">:</span> <span class="mi">7</span> <span class="o">=</span>
+<span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">7</span><span class="p">]</span>
+</pre></div>
+</div>
+
+    </div><button class="btn btn-default reveal_button" id="haskellresenje7_show" style="margin-bottom: 10px;">Прикажи решење</button><button class="btn btn-default reveal_button" id="haskellresenje7_hide" style="display: none; margin-bottom: 10px;">Сакриј решење</button></div>
+    
+    <div class="note-wrapper questionnote-type">
+        <div class="note-icon-holder"> </div>
+        <img src="/_runestone/_static/img/question-mark.png" class="note-image questionnote-image"> 
+        <div class="course-content">
+<p>Дефинисати функцију која одређује вредност израза датог у
+постфиксној нотацији. На пример, вредност израза <code class="docutils literal notranslate"><span class="pre">3</span> <span class="pre">4</span> <span class="pre">+</span> <span class="pre">5</span> <span class="pre">*</span></code>
+је 35. У имплементацији је могуће користити функцију <code class="docutils literal notranslate"><span class="pre">words</span></code> која
+разбија ниску на подниске раздвојене размацима и функцију <code class="docutils literal notranslate"><span class="pre">read</span></code>
+која претвара ниску у број.</p>
+
+    </div></div>
+
+    <div><div id="haskellresenje8" style="display: none;">
+    <p>Основни алгоритам је да се крене од празног стека, да се пролази кроз
+листу токена (бројева или ознака операција) добијених разбијањем
+израза и да се у сваком кораку стек ажурира имајући у виду тренутни
+токен. Ако је тренутни токен број, тада се његова бројна вредност
+додаје на стек, а ако је оператор, тада се скидају две вредности са
+врха стека, на њих се примењује операција и резултат се додаје на
+почетак стека. Резултат се на крају налази на врху стека (под
+претпоставком да је израз исправн, то ће бити и једини елемент на
+стеку).</p>
+<p>Прво треба да буде примењена функција <code class="docutils literal notranslate"><span class="pre">words</span></code>. Након тога се врши
+обрада једног по једног елемента листе слева надесно, ажурирајући при
+том стек. Јасно је да је у питању операција <code class="docutils literal notranslate"><span class="pre">foldl</span></code>, при чему морамо
+да дефинишемо помоћну функцију <code class="docutils literal notranslate"><span class="pre">updateStack</span></code> која врши ажурирање
+стека.  Њена дефиниција је једноставна (анализирамо случајеве и
+користимо поклапање шаблона). При том је важно напоменути да ћемо стек
+имплементирати уз помоћ листе, где ће врх стека бити на почетку листе
+(да бисмо ефикасно могли скидати елементе са врха стека и додавати их
+на стек). На крају издвајамо елемент са врха стека (функцијом
+<code class="docutils literal notranslate"><span class="pre">head</span></code>, јер је у питању листа).</p>
+<div class="highlight-haskell notranslate"><div class="highlight"><pre><span></span><span class="nf">rpn</span><span class="w"> </span><span class="ow">::</span><span class="w"> </span><span class="p">[</span><span class="kt">Char</span><span class="p">]</span><span class="w"> </span><span class="ow">-&gt;</span><span class="w"> </span><span class="kt">Integer</span>
+<span class="nf">rpn</span><span class="w"> </span><span class="ow">=</span><span class="w"> </span><span class="n">head</span><span class="w"> </span><span class="o">.</span><span class="w"> </span><span class="n">foldl</span><span class="w"> </span><span class="n">updateStack</span><span class="w"> </span><span class="kt">[]</span><span class="w"> </span><span class="o">.</span><span class="w"> </span><span class="n">words</span>
+<span class="w">  </span><span class="kr">where</span>
+<span class="w">    </span><span class="n">updateStack</span><span class="w"> </span><span class="p">(</span><span class="n">x</span><span class="w"> </span><span class="kt">:</span><span class="w"> </span><span class="n">y</span><span class="w"> </span><span class="kt">:</span><span class="w"> </span><span class="n">xs</span><span class="p">)</span><span class="w"> </span><span class="s">"+"</span><span class="w"> </span><span class="ow">=</span><span class="w"> </span><span class="p">(</span><span class="n">x</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">y</span><span class="p">)</span><span class="w"> </span><span class="kt">:</span><span class="w"> </span><span class="n">xs</span>
+<span class="w">    </span><span class="n">updateStack</span><span class="w"> </span><span class="p">(</span><span class="n">x</span><span class="w"> </span><span class="kt">:</span><span class="w"> </span><span class="n">y</span><span class="w"> </span><span class="kt">:</span><span class="w"> </span><span class="n">xs</span><span class="p">)</span><span class="w"> </span><span class="s">"*"</span><span class="w"> </span><span class="ow">=</span><span class="w"> </span><span class="p">(</span><span class="n">x</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">y</span><span class="p">)</span><span class="w"> </span><span class="kt">:</span><span class="w"> </span><span class="n">xs</span>
+<span class="w">    </span><span class="n">updateStack</span><span class="w">          </span><span class="n">xs</span><span class="w">  </span><span class="n">num</span><span class="w"> </span><span class="ow">=</span><span class="w"> </span><span class="n">read</span><span class="w"> </span><span class="n">num</span><span class="w"> </span><span class="kt">:</span><span class="w"> </span><span class="n">xs</span>
+</pre></div>
+</div>
+
+    </div><button class="btn btn-default reveal_button" id="haskellresenje8_show" style="margin-bottom: 10px;">Прикажи решење</button><button class="btn btn-default reveal_button" id="haskellresenje8_hide" style="display: none; margin-bottom: 10px;">Сакриј решење</button></div>
+    
+    <div class="note-wrapper questionnote-type">
+        <div class="note-icon-holder"> </div>
+        <img src="/_runestone/_static/img/question-mark.png" class="note-image questionnote-image"> 
+        <div class="course-content">
+<p>Дефинисати рекурзивну функцију која одређује све префиксе дате листе.</p>
+
+    </div></div>
+
+    <div><div id="haskellresenje9" style="display: none;">
+    <p>Празна листа је једини префикс празне листе. Ако одредимо све префиксе
+репа листе, тада све непразне префиксе листе можемо добити њиховим
+проширивањем тако што се глава листе дода на почетак. Поред њих, не
+треба да заборавимо и на празан префикс. На пример, ако имамо листу
+<code class="docutils literal notranslate"><span class="pre">[1,</span> <span class="pre">2,</span> <span class="pre">3]</span></code>, префикси репа листе (рекурзивно одређени) су
+<code class="docutils literal notranslate"><span class="pre">[[],</span> <span class="pre">[2],</span> <span class="pre">[2,</span> <span class="pre">3]]</span></code>. Дописивањем јединице на сваки од њих добијамо
+<code class="docutils literal notranslate"><span class="pre">[[1],</span> <span class="pre">[1,</span> <span class="pre">2],</span> <span class="pre">[1,</span> <span class="pre">2,</span> <span class="pre">3]]</span></code>. Додавањем празне листе на почетак, добијамо
+листу <code class="docutils literal notranslate"><span class="pre">[[],</span> <span class="pre">[1],</span> <span class="pre">[1,</span> <span class="pre">2],</span> <span class="pre">[1,</span> <span class="pre">2,</span> <span class="pre">3]]</span></code> која садржи све
+префиксе полазне листе. Дописивање главе на почетак сваке листе можемо
+лако остварити применом функције <code class="docutils literal notranslate"><span class="pre">map</span></code>.</p>
+<div class="highlight-haskell notranslate"><div class="highlight"><pre><span></span><span class="nf">my_prefixes</span><span class="w"> </span><span class="ow">::</span><span class="w"> </span><span class="p">[</span><span class="n">a</span><span class="p">]</span><span class="w"> </span><span class="ow">-&gt;</span><span class="w"> </span><span class="p">[[</span><span class="n">a</span><span class="p">]]</span>
+<span class="nf">my_prefixes</span><span class="w"> </span><span class="kt">[]</span><span class="w"> </span><span class="ow">=</span><span class="w"> </span><span class="p">[</span><span class="kt">[]</span><span class="p">]</span>
+<span class="nf">my_prefixes</span><span class="w"> </span><span class="p">(</span><span class="n">x</span><span class="kt">:</span><span class="n">xs</span><span class="p">)</span><span class="w"> </span><span class="ow">=</span><span class="w"> </span><span class="kt">[]</span><span class="w"> </span><span class="kt">:</span><span class="w"> </span><span class="n">map</span><span class="w"> </span><span class="p">(</span><span class="n">x</span><span class="kt">:</span><span class="p">)</span><span class="w"> </span><span class="p">(</span><span class="n">my_prefixes</span><span class="w"> </span><span class="n">xs</span><span class="p">)</span>
+</pre></div>
+</div>
+
+    </div><button class="btn btn-default reveal_button" id="haskellresenje9_show" style="margin-bottom: 10px;">Прикажи решење</button><button class="btn btn-default reveal_button" id="haskellresenje9_hide" style="display: none; margin-bottom: 10px;">Сакриј решење</button></div>
+    
+    <div class="note-wrapper questionnote-type">
+        <div class="note-icon-holder"> </div>
+        <img src="/_runestone/_static/img/question-mark.png" class="note-image questionnote-image"> 
+        <div class="course-content">
+<p>Дефинисати функцију која генерише листу која садржи све варијације
+са понављањем дужине n састављене од елемената дате листе. На пример,</p>
+<div class="highlight-haskell notranslate"><div class="highlight"><pre><span></span><span class="kt">Prelude</span><span class="o">&gt;</span><span class="w"> </span><span class="n">variations</span><span class="w"> </span><span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="mi">3</span><span class="p">]</span><span class="w"> </span><span class="mi">2</span>
+<span class="p">[[</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">],[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">],[</span><span class="mi">1</span><span class="p">,</span><span class="mi">3</span><span class="p">],[</span><span class="mi">2</span><span class="p">,</span><span class="mi">1</span><span class="p">],[</span><span class="mi">2</span><span class="p">,</span><span class="mi">2</span><span class="p">],[</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">],[</span><span class="mi">3</span><span class="p">,</span><span class="mi">1</span><span class="p">],[</span><span class="mi">3</span><span class="p">,</span><span class="mi">2</span><span class="p">],[</span><span class="mi">3</span><span class="p">,</span><span class="mi">3</span><span class="p">]]</span>
+</pre></div>
+</div>
+
+    </div></div>
+
+    <div><div id="haskellresenje10" style="display: none;">
+    <p>Задатак решавамо рекурзијом по дужини варијације. Претпоставимо да смо
+рекурзивно направили све варијације дужине <span class="math notranslate nohighlight"><span class="MathJax_Preview" style="color: inherit;"></span><span id="MathJax-Element-2-Frame" class="mjx-chtml MathJax_CHTML" tabindex="0" data-mathml="&lt;math xmlns=&quot;http://www.w3.org/1998/Math/MathML&quot;&gt;&lt;mi&gt;n&lt;/mi&gt;&lt;mo&gt;&amp;#x2212;&lt;/mo&gt;&lt;mn&gt;1&lt;/mn&gt;&lt;/math&gt;" role="presentation" style="font-size: 110%; position: relative;"><span id="MJXc-Node-4" class="mjx-math" aria-hidden="true"><span id="MJXc-Node-5" class="mjx-mrow"><span id="MJXc-Node-6" class="mjx-mi"><span class="mjx-char MJXc-TeX-math-I" style="padding-top: 0.23em; padding-bottom: 0.287em;">n</span></span><span id="MJXc-Node-7" class="mjx-mo MJXc-space2"><span class="mjx-char MJXc-TeX-main-R" style="padding-top: 0.287em; padding-bottom: 0.401em;">−</span></span><span id="MJXc-Node-8" class="mjx-mn MJXc-space2"><span class="mjx-char MJXc-TeX-main-R" style="padding-top: 0.401em; padding-bottom: 0.344em;">1</span></span></span></span><span class="MJX_Assistive_MathML" role="presentation"><math xmlns="http://www.w3.org/1998/Math/MathML"><mi>n</mi><mo>−</mo><mn>1</mn></math></span></span><script type="math/tex" id="MathJax-Element-2">n-1</script></span>. Сваку од њих
+треба на све могуће начине проширити елементима дате листе. То се
+најједноставније може изразити компрехенсијом. Излаз из рекурзије су
+варијације дужине 0. Тај случај је пипав јер резултат није празна
+листа, већ листа која садржи празну листу (увек постоји тачно једна
+варијација дужине 0 и она је празна).</p>
+<div class="highlight-haskell notranslate"><div class="highlight"><pre><span></span><span class="nf">variations</span><span class="w"> </span><span class="n">xs</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="ow">=</span><span class="w"> </span><span class="p">[</span><span class="kt">[]</span><span class="p">]</span>
+<span class="nf">variations</span><span class="w"> </span><span class="n">xs</span><span class="w"> </span><span class="n">n</span><span class="w"> </span><span class="ow">=</span><span class="w"> </span><span class="kr">let</span><span class="w"> </span><span class="n">vs</span><span class="w"> </span><span class="ow">=</span><span class="w"> </span><span class="n">variations</span><span class="w"> </span><span class="n">xs</span><span class="w"> </span><span class="p">(</span><span class="n">n</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span>
+<span class="w">                   </span><span class="kr">in</span><span class="w"> </span><span class="p">[</span><span class="n">x</span><span class="kt">:</span><span class="n">v</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="ow">&lt;-</span><span class="w"> </span><span class="n">xs</span><span class="p">,</span><span class="w"> </span><span class="n">v</span><span class="w"> </span><span class="ow">&lt;-</span><span class="w"> </span><span class="n">vs</span><span class="p">]</span>
+</pre></div>
+</div>
+
+    <div class="note-wrapper questionnote-type">
+        <div class="note-icon-holder"> </div>
+        <img src="/_runestone/_static/img/question-mark.png" class="note-image questionnote-image"> 
+        <div class="course-content">
+<p>Дефинисати рекурзивну функцију која уз помоћ функције <code class="docutils literal notranslate"><span class="pre">dropWhile</span></code>
+уклања све узастопне дупликате из листе. На пример, за листу
+<code class="docutils literal notranslate"><span class="pre">[1,</span> <span class="pre">1,</span> <span class="pre">2,</span> <span class="pre">2,</span> <span class="pre">1,</span> <span class="pre">1,</span> <span class="pre">1]</span></code> треба да се добије резултат <code class="docutils literal notranslate"><span class="pre">[1,</span> <span class="pre">2,</span> <span class="pre">1]</span></code>.</p>
+
+    </div></div>
+<p>Уклањањем дупликата из празне листе добија се празна листа. Ако је
+листа непразна њен први елемент (глава) се задржава, уклањају се сва
+његова појављивања са почетка репа (за то се може употребити функција
+<code class="docutils literal notranslate"><span class="pre">dropWhile</span></code>), након чега се рекурзивно уклањају сви дупликати из
+репа.</p>
+<div class="highlight-haskell notranslate"><div class="highlight"><pre><span></span><span class="nf">remConsecutiveDups</span><span class="w"> </span><span class="ow">::</span><span class="w"> </span><span class="kt">Eq</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="ow">=&gt;</span><span class="w"> </span><span class="p">[</span><span class="n">a</span><span class="p">]</span><span class="w"> </span><span class="ow">-&gt;</span><span class="w"> </span><span class="p">[</span><span class="n">a</span><span class="p">]</span>
+<span class="nf">remConsecutiveDups</span><span class="w"> </span><span class="kt">[]</span><span class="w"> </span><span class="ow">=</span><span class="w"> </span><span class="kt">[]</span>
+<span class="nf">remConsecutiveDups</span><span class="w"> </span><span class="p">(</span><span class="n">x</span><span class="kt">:</span><span class="n">xs</span><span class="p">)</span><span class="w"> </span><span class="ow">=</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="kt">:</span><span class="w"> </span><span class="n">remConsecutiveDups</span><span class="w"> </span><span class="p">(</span><span class="n">dropWhile</span><span class="w"> </span><span class="p">(</span><span class="o">==</span><span class="w"> </span><span class="n">x</span><span class="p">)</span><span class="w"> </span><span class="n">xs</span><span class="p">)</span>
+</pre></div>
+</div>
+
+    </div><button class="btn btn-default reveal_button" id="haskellresenje10_show" style="margin-bottom: 10px;">Прикажи решење</button><button class="btn btn-default reveal_button" id="haskellresenje10_hide" style="display: none; margin-bottom: 10px;">Сакриј решење</button></div>
+    </section>
+
+
+    
+                <div class="finish-lecture-label" id="finishLectureLabel-7789">Mark activity as completed</div>
+                <button type="button" class="finish-lecture-btn not-checked-finish-activity" id="finishLecture-7789" aria-labelledby="MarkLectureComplitedBtn">
+                    <img src="/images/check (2) 2@3x.png" alt="Icon for marking the activity as completed">
+                </button>
+                <div role="button" class="finish-lecture-btn checked-finish-activity d-none" id="checkmark-7789" aria-labelledby="LectureMarkedComplitedBtn">
+                    <div class="checked-finish-activity-label">
+                        Activity completed!
+                    </div>
+                    <img src="/images/check (2) 2@3x white.png" alt="Icon indicating the activity is completed">
+                </div>
+                <div class="lecture-prev-next-toggle">
+                    <button type="button" id="prevLecture" class="lecture-toggler-arrows" aria-labelledby="Button to go on previous activity">
+                        <span aria-hidden="true">
+                            <i class="fas fa-arrow-left fa"></i>
+                        </span>
+                        <span class="lecture-toggler-arrows-text">Previous activity</span>
+                    </button>
+
+                    <button type="button" id="nextLecture" class="lecture-toggler-arrows" aria-labelledby="Button to go on next activity">
+                        <span class="lecture-toggler-arrows-text">Next activity</span>
+                        <span aria-hidden="true">
+                            <i class="fas fa-arrow-right fa"></i>
+                        </span>
+                    </button>
+                </div>
+            </div>
