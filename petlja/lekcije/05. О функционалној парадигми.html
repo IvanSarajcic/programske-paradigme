@@ -150,11 +150,7 @@
 полазне функције која сабира квадрате непарних цифара броја и функција
 која издваја појединачне цифре и функција која сабира елементе листе
 бројева корисна и у другим програмима програмима).</p>
-
-    <div class="note-wrapper infonote-type">
-        <div class="note-icon-holder"> </div>
-        <img src="/_runestone/_static/img/infonote-img.svg" class="note-image infonote-image"> 
-        <div class="course-content">
+        <div class="course-content info">
             
 <p>Суштина функционалног програмирања долази у изражавању свих
 израчунавања у облику већег броја мањих функција, по могућности
@@ -230,8 +226,7 @@
 програма истовремено чува у меморији. Ово је веома важна идеја,
 која се користи и у функционалном програмирању и сада ћемо је дубље
 размотрити.</p>
-
-    </div></div>
+    </div>
 </section>
 <section id="id4">
 <h3>Лењост</h3>
@@ -337,11 +332,7 @@
 оператори <cite>&amp;&amp;</cite> и <cite>||</cite> се израчунавају лењо: када је први операнд такав
 да се на основу њега може закључити вредност целог израза, вредност
 другог операнда се не израчунава.</p>
-
-    <div class="note-wrapper infonote-type">
-        <div class="note-icon-holder"> </div>
-        <img src="/_runestone/_static/img/infonote-img.svg" class="note-image infonote-image"> 
-        <div class="course-content">
+        <div class="course-content info">
             
 <p>Помало изненађујуће, лењост омогућава да се у програмима користе
 бесконачне колекције података (на пример, листа свих природних или
@@ -428,8 +419,7 @@
 <cite>ulong</cite> који је ограничен, па може доћи до прекорачења, међутим,
 није је тешко поправити је тако што би се користили неограничени
 цели бројеви (на пример, тип <code class="docutils literal notranslate"><span class="pre">BigInteger</span></code>).</p>
-
-    </div></div>
+    </div>
 </section>
 <section id="id5">
 <h3>Апстракција и функције вишег реда</h3>
@@ -601,11 +591,7 @@
 и <code class="docutils literal notranslate"><span class="pre">Preslikaj</span></code> и која подршку за функционални стил програмирања у том
 језику је библиотека <strong>Linq</strong>. Она је део стандардне библиотеке језика
 C# и није је потребно посебно инсталирати.</p>
-
-    <div class="note-wrapper infonote-type">
-        <div class="note-icon-holder"> </div>
-        <img src="/_runestone/_static/img/infonote-img.svg" class="note-image infonote-image"> 
-        <div class="course-content">
+        <div class="course-content info">
             
 <p>Библиотека Language Integrated Query (LINQ) је интегрални део
 развојног оквира .NET и језика C#, која омогућава програмерима да
@@ -615,8 +601,7 @@ C# и није је потребно посебно инсталирати.</p>
 подацима, филтрирање, пресликавање, груписање, пројектовање и
 спајање података, чиме олакшава развој апликација и побољшава
 читљивост кода.</p>
-
-    </div></div>
+    </div>
 <p>Метода <code class="docutils literal notranslate"><span class="pre">Where</span></code> пружа исту функционалност као наша функција
 <code class="docutils literal notranslate"><span class="pre">Izdvoj</span></code> (издваја елементе на основу датог услова), метода
 <code class="docutils literal notranslate"><span class="pre">Select</span></code> пружа исту функционалност као наша функција <code class="docutils literal notranslate"><span class="pre">Preslikaj</span></code>
@@ -796,11 +781,7 @@ matching</em>).</p>
 <code class="docutils literal notranslate"><span class="pre">IEnumerable</span></code> и <code class="docutils literal notranslate"><span class="pre">yield</span> <span class="pre">return</span></code>. Дакле, у језику Haskell не морамо
 да бринемо да ће се компоновањем функција које раде над листама добити
 неефикасан програми.</p>
-
-    <div class="note-wrapper infonote-type">
-        <div class="note-icon-holder"> </div>
-        <img src="/_runestone/_static/img/infonote-img.svg" class="note-image infonote-image"> 
-        <div class="course-content">
+        <div class="course-content info">
             
 <p>И у језику Haskell је могуће дефинисати бесконачне колекције.
 Рекурзивна функција којом се израчунава Колацова секвенца (за коју
@@ -816,8 +797,7 @@ matching</em>).</p>
 <p>Првих 10 елемената секвенце која почиње од броја 100 можемо добити
 изразом <code class="docutils literal notranslate"><span class="pre">take</span> <span class="pre">10</span> <span class="pre">(collatz</span> <span class="pre">100)</span></code> (функцијом <code class="docutils literal notranslate"><span class="pre">take</span></code> се издвајају
 почетни елементи листе).</p>
-
-    </div></div>
+    </div>
 </section>
 <section id="sum-map-filter">
 <h3>Функција sum, функционали map и filter и ламбда изрази</h3>
@@ -848,17 +828,12 @@ matching</em>).</p>
 <code class="docutils literal notranslate"><span class="pre">filter</span> <span class="pre">(x</span> <span class="pre">-&gt;</span> <span class="pre">x</span> <span class="pre">`mod`</span> <span class="pre">2</span> <span class="pre">/=</span> <span class="pre">0)</span></code> издвајају парне цифре,
 затим се функцијом <code class="docutils literal notranslate"><span class="pre">map</span> <span class="pre">(\x</span> <span class="pre">-&gt;</span> <span class="pre">x</span> <span class="pre">*</span> <span class="pre">x)</span></code> оне квадрирају и на крају се
 функцијом <code class="docutils literal notranslate"><span class="pre">sum</span></code> добијени квадрати сабирају.</p>
-
-    <div class="note-wrapper infonote-type">
-        <div class="note-icon-holder"> </div>
-        <img src="/_runestone/_static/img/infonote-img.svg" class="note-image infonote-image"> 
-        <div class="course-content">
+        <div class="course-content info">
             
 <p>Теорију иза ламбда–израза као механизма за опис израчунавања
 дефинисао је Алонзо Черч још 1930-их година и она и данас
 представља теоријску основу функционалних програмских језика.</p>
-
-    </div></div>
+    </div>
 </section>
 <section id="id10">
 <h3>Компрехенсија</h3>
@@ -1097,11 +1072,7 @@ matching</em>).</p>
 када функције <span class="math notranslate nohighlight"><span class="MathJax_Preview" style="color: inherit;"></span><span id="MathJax-Element-37-Frame" class="mjx-chtml MathJax_CHTML" tabindex="0" style="font-size: 110%; position: relative;" data-mathml="&lt;math xmlns=&quot;http://www.w3.org/1998/Math/MathML&quot;&gt;&lt;mi&gt;f&lt;/mi&gt;&lt;/math&gt;" role="presentation"><span id="MJXc-Node-296" class="mjx-math" aria-hidden="true"><span id="MJXc-Node-297" class="mjx-mrow"><span id="MJXc-Node-298" class="mjx-mi"><span class="mjx-char MJXc-TeX-math-I" style="padding-top: 0.457em; padding-bottom: 0.457em; padding-right: 0.06em;">f</span></span></span></span><span class="MJX_Assistive_MathML" role="presentation"><math xmlns="http://www.w3.org/1998/Math/MathML"><mi>f</mi></math></span></span><script type="math/tex" id="MathJax-Element-37">f</script></span> и <span class="math notranslate nohighlight"><span class="MathJax_Preview" style="color: inherit;"></span><span id="MathJax-Element-38-Frame" class="mjx-chtml MathJax_CHTML" tabindex="0" style="font-size: 110%; position: relative;" data-mathml="&lt;math xmlns=&quot;http://www.w3.org/1998/Math/MathML&quot;&gt;&lt;mi&gt;g&lt;/mi&gt;&lt;/math&gt;" role="presentation"><span id="MJXc-Node-299" class="mjx-math" aria-hidden="true"><span id="MJXc-Node-300" class="mjx-mrow"><span id="MJXc-Node-301" class="mjx-mi"><span class="mjx-char MJXc-TeX-math-I" style="padding-top: 0.23em; padding-bottom: 0.457em; padding-right: 0.003em;">g</span></span></span></span><span class="MJX_Assistive_MathML" role="presentation"><math xmlns="http://www.w3.org/1998/Math/MathML"><mi>g</mi></math></span></span><script type="math/tex" id="MathJax-Element-38">g</script></span> не би биле чисте, тј. када би
 имале бочне ефекте, овај закон не би морао да важи (покушајте да
 нађете пример који то илуструје).</p>
-
-    <div class="note-wrapper infonote-type">
-        <div class="note-icon-holder"> </div>
-        <img src="/_runestone/_static/img/infonote-img.svg" class="note-image infonote-image"> 
-        <div class="course-content">
+        <div class="course-content info">
             
 <p>Када би се докази коректности писали на папиру, постојала би
 опасност да они садрже грешке. Стога се верификација врши помоћу
@@ -1132,8 +1103,7 @@ Coq.</p></li>
 <li><p>Систем Event-B је употребљен за формалну верификацију линије 11
 париском метроа, којом уместо људских возача управља софтвер.</p></li>
 </ul>
-
-    </div></div>
+    </div>
 </section>
 <section id="id15">
 <h3>Декларативност</h3>
@@ -1168,11 +1138,7 @@ C# решења (ако вам се тако не чини, верујте да 
 део дугачке листе, а други процесор други део). Захваљујући овоме,
 функционални стил програмирања је веома популаран у оквиру развоја
 паралелних и дистрибуираних система.</p>
-
-    <div class="note-wrapper infonote-type">
-        <div class="note-icon-holder"> </div>
-        <img src="/_runestone/_static/img/infonote-img.svg" class="note-image infonote-image"> 
-        <div class="course-content">
+        <div class="course-content info">
             
 <p>Један од веома важних разлога за рани успех компаније <em>Google</em> је
 систем за паралелно и дистрибуирано израчунавање назван
@@ -1214,8 +1180,7 @@ C# решења (ако вам се тако не чини, верујте да 
 верујемо у резултат претраге ако на хиљаде рачунара мапирамо упит
 који није имплементиран као чиста функција и како би могло да се
 гарантује да бочни ефекти нису нешто побрљали у резултату функције?</p>
-
-    </div></div>
+    </div>
 </section>
 </section>
 <section id="id17">

@@ -1,0 +1,31 @@
+/* reset body margin and set background color */
+body {
+    margin: 0;
+    background-color: rgb(253, 240, 160);
+}
+
+ol, ul {
+    /* set margin and padding for lists to be separated a bit from paragraphs */
+    margin: 2rem 0;
+    padding-left: 1.5rem;
+}
+
+img {
+    /* make images responsive */
+    max-width: 100%;
+    height: auto;
+}
+
+.course-content.info {
+    background-color: blanchedalmond;
+    padding: 2rem;
+    border-left: 6px solid orange;
+}
+
+main {
+    /* should have max-width and margin auto for centering */
+    max-width: 40rem;
+    margin: auto;
+    padding: 3rem;
+    background-color: white;
+}

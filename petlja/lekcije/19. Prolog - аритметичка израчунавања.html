@@ -159,17 +159,12 @@
 <code class="docutils literal notranslate"><span class="pre">no</span></code>. Решавање једначина, дакле, није могуће.</p>
 <p>Оператори поређења на једнакост <code class="docutils literal notranslate"><span class="pre">=:=</span></code> и различитост <code class="docutils literal notranslate"><span class="pre">=\=</span></code> такође
 врше израчунавање термова пре поређења.</p>
-
-    <div class="note-wrapper infonote-type">
-        <div class="note-icon-holder"> </div>
-        <img src="/_runestone/_static/img/infonote-img.svg" class="note-image infonote-image"> 
-        <div class="course-content">
+        <div class="course-content info">
             
 <p>Када год употребљавате аритметичке операторе, морате употребити и
 оператор <code class="docutils literal notranslate"><span class="pre">is</span></code>, <code class="docutils literal notranslate"><span class="pre">=:=</span></code> или <code class="docutils literal notranslate"><span class="pre">=\=</span></code> којим ћете натерати систем да
 их примени, тј. да изврши потребна израчунавања!</p>
-
-    </div></div>
+    </div>
 <p>Релацијски оператори су описани у следећој табели.</p>
 <table class="docutils align-default">
 <thead>
@@ -245,8 +240,7 @@
         <div class="course-content">
 <p>Дефинисати предикат који израчунава степен броја (изложилац је
 ненегативан цео број).</p>
-
-    </div></div>
+    </div>
 <p>Основна идеја је да пратимо рекурзивну дефиницију која је у језику
 Haskell била изражена на следећи начин:</p>
 <div class="highlight-haskell notranslate"><div class="highlight"><pre><span></span><span class="nf">stepen</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="ow">=</span><span class="w"> </span><span class="mi">1</span>
@@ -309,8 +303,7 @@ Haskell била изражена на следећи начин:</p>
         <div class="course-content">
 <p>Дефинисати предикат који Еуклидовим алгоритмом израчунава НЗД два
 дата природна броја.</p>
-
-    </div></div>
+    </div>
 <div class="highlight-prolog notranslate"><div class="highlight"><pre><span></span><span class="nf">nzd</span><span class="p">(</span><span class="nv">A</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="nv">A</span><span class="p">).</span>
 <span class="nf">nzd</span><span class="p">(</span><span class="nv">A</span><span class="p">,</span> <span class="nv">B</span><span class="p">,</span> <span class="nv">N</span><span class="p">)</span> <span class="p">:-</span> <span class="nv">B</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">,</span> <span class="nv">M</span> <span class="o">is</span> <span class="nv">A</span> <span class="o">mod</span> <span class="nv">B</span><span class="p">,</span> <span class="nf">nzd</span><span class="p">(</span><span class="nv">B</span><span class="p">,</span> <span class="nv">M</span><span class="p">,</span> <span class="nv">N</span><span class="p">).</span>
 </pre></div>

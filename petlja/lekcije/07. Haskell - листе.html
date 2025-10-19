@@ -70,18 +70,13 @@
 од нуле) могуће је урадити оператором <code class="docutils literal notranslate"><span class="pre">!!</span></code>, међутим, његова
 сложеност је линеарна у односу на дужину листе и овај оператор би
 требало избегавати.</p>
-
-    <div class="note-wrapper infonote-type">
-        <div class="note-icon-holder"> </div>
-        <img src="/_runestone/_static/img/infonote-img.svg" class="note-image infonote-image"> 
-        <div class="course-content">
+        <div class="course-content info">
             
 <p>Листе у Haskell-у не треба схватати као колекције које се користе
 за чување података и приступ подацима на основу њихове позиције!
 Као што ћемо видети, њихова улога је пре да одмене петље него
 низове на које смо навикли у императивним програмским језицима.</p>
-
-    </div></div>
+    </div>
 <p>Две листе се могу надовезати коришћењем оператора <code class="docutils literal notranslate"><span class="pre">++</span></code>. Враћа се
 нова листа, а сложеност ове операције је линеарна.</p>
 <div class="highlight-haskell notranslate"><div class="highlight"><pre><span></span><span class="kt">Prelude</span><span class="o">&gt;</span><span class="w"> </span><span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="mi">3</span><span class="p">]</span><span class="w"> </span><span class="o">++</span><span class="w"> </span><span class="p">[</span><span class="mi">4</span><span class="p">,</span><span class="w"> </span><span class="mi">5</span><span class="p">,</span><span class="w"> </span><span class="mi">6</span><span class="p">]</span>
@@ -189,8 +184,7 @@
         <img src="/_runestone/_static/img/question-mark.png" class="note-image questionnote-image"> 
         <div class="course-content">
 <p>Дефинишимо функцију која израчунава факторијел броја <span class="math notranslate nohighlight"><span class="MathJax_Preview" style="color: inherit;"></span><span id="MathJax-Element-3-Frame" class="mjx-chtml MathJax_CHTML" tabindex="0" style="font-size: 110%; position: relative;" data-mathml="&lt;math xmlns=&quot;http://www.w3.org/1998/Math/MathML&quot;&gt;&lt;mi&gt;n&lt;/mi&gt;&lt;/math&gt;" role="presentation"><span id="MJXc-Node-10" class="mjx-math" aria-hidden="true"><span id="MJXc-Node-11" class="mjx-mrow"><span id="MJXc-Node-12" class="mjx-mi"><span class="mjx-char MJXc-TeX-math-I" style="padding-top: 0.23em; padding-bottom: 0.287em;">n</span></span></span></span><span class="MJX_Assistive_MathML" role="presentation"><math xmlns="http://www.w3.org/1998/Math/MathML"><mi>n</mi></math></span></span><script type="math/tex" id="MathJax-Element-3">n</script></span>.</p>
-
-    </div></div>
+    </div>
 <div class="highlight-haskell notranslate"><div class="highlight"><pre><span></span><span class="nf">factorial</span><span class="w"> </span><span class="ow">::</span><span class="w"> </span><span class="kt">Integer</span><span class="w"> </span><span class="ow">-&gt;</span><span class="w"> </span><span class="kt">Integer</span>
 <span class="nf">factorial</span><span class="w"> </span><span class="n">n</span><span class="w"> </span><span class="ow">=</span><span class="w"> </span><span class="n">prod</span><span class="w"> </span><span class="p">[</span><span class="mi">1</span><span class="o">..</span><span class="n">n</span><span class="p">]</span>
 
@@ -213,8 +207,7 @@
         <div class="course-content">
 <p>Дефинишимо функцију која дели листу на две половине приближно
 једнаке дужине. Функција прима листу и враћа уређени пар листи.</p>
-
-    </div></div>
+    </div>
 <p>Када функцијом <code class="docutils literal notranslate"><span class="pre">length</span></code> израчунамо дужину листе, целобројним дељењем
 са 2 (оператором <code class="docutils literal notranslate"><span class="pre">div</span></code>) можемо израчунати дужину једне половине
 (дужина друге је једнака или за један већа). Када знамо дужину једне
@@ -239,8 +232,7 @@
         <div class="course-content">
 <p>Дефинишимо функцију која гради листу која садржи све уређене парове
 узастопних елемената листе.</p>
-
-    </div></div>
+    </div>
 <p>За листу <code class="docutils literal notranslate"><span class="pre">[1,</span> <span class="pre">2,</span> <span class="pre">3,</span> <span class="pre">4]</span></code> желимо да добијемо листу <code class="docutils literal notranslate"><span class="pre">[(1,</span> <span class="pre">2),</span> <span class="pre">(2,</span> <span class="pre">3),</span>
 <span class="pre">(3,</span> <span class="pre">4)]</span></code>. Видимо да су први елементи ових парова <code class="docutils literal notranslate"><span class="pre">[1,</span> <span class="pre">2,</span> <span class="pre">3]</span></code>, а
 други елементи <code class="docutils literal notranslate"><span class="pre">[2,</span> <span class="pre">3,</span> <span class="pre">4]</span></code>. Ова друга листа је заправо реп
@@ -334,8 +326,7 @@
         <img src="/_runestone/_static/img/question-mark.png" class="note-image questionnote-image"> 
         <div class="course-content">
 <p>Дефинисати функцију која проверава да ли је листа сортирана.</p>
-
-    </div></div>
+    </div>
 <p>Провера да ли је листа сортирана се своди на проверу да ли су сви
 узастопни парови елемената такви да је први елемент мањи од или једнак
 другом.</p>
@@ -371,11 +362,7 @@
 <span class="nf">sorted</span><span class="w"> </span><span class="ow">=</span><span class="w"> </span><span class="n">all</span><span class="w"> </span><span class="p">(</span><span class="n">uncurry</span><span class="w"> </span><span class="p">(</span><span class="o">&lt;=</span><span class="p">))</span><span class="w"> </span><span class="o">.</span><span class="w"> </span><span class="n">pairs</span>
 </pre></div>
 </div>
-
-    <div class="note-wrapper infonote-type">
-        <div class="note-icon-holder"> </div>
-        <img src="/_runestone/_static/img/infonote-img.svg" class="note-image infonote-image"> 
-        <div class="course-content">
+        <div class="course-content info">
             
 <p>Наравно, чак и да функција <code class="docutils literal notranslate"><span class="pre">uncurry</span></code> није постојала у библиотеци,
 она би лако могла бити дефинисана.</p>
@@ -405,8 +392,7 @@
 <span class="nf">curry</span><span class="w"> </span><span class="n">f</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="n">y</span><span class="w"> </span><span class="ow">=</span><span class="w"> </span><span class="n">f</span><span class="w"> </span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="w"> </span><span class="n">y</span><span class="p">)</span>
 </pre></div>
 </div>
-
-    </div></div>
+    </div>
 <p>Проверу сортираности можемо имплементирати и на друге начине. У
 наредној имплементацији се коришћењем функције <code class="docutils literal notranslate"><span class="pre">zipWith</span></code> прави листа
 вредности типа <code class="docutils literal notranslate"><span class="pre">Bool</span></code>, а затим се помоћу функције <code class="docutils literal notranslate"><span class="pre">and</span></code> врши њена
@@ -442,17 +428,12 @@
 <span class="p">[</span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="mi">4</span><span class="p">,</span><span class="w"> </span><span class="mi">6</span><span class="p">]</span>
 </pre></div>
 </div>
-
-    <div class="note-wrapper infonote-type">
-        <div class="note-icon-holder"> </div>
-        <img src="/_runestone/_static/img/infonote-img.svg" class="note-image infonote-image"> 
-        <div class="course-content">
+        <div class="course-content info">
             
 <p>Функционал <code class="docutils literal notranslate"><span class="pre">filter</span></code> користимо када желимо да филтрирамо серију
 елемената, тј. да издвојимо све оне елементе који задовољавају
 неко својство.</p>
-
-    </div></div>
+    </div>
 </li>
 <li><p>Функција <code class="docutils literal notranslate"><span class="pre">map</span></code> прихвата функцију <code class="docutils literal notranslate"><span class="pre">f</span></code> и листу <code class="docutils literal notranslate"><span class="pre">list</span></code> и гради
 нову листу тако што на сваки елемент листе <code class="docutils literal notranslate"><span class="pre">list</span></code> примени функцију
@@ -469,16 +450,11 @@
 <span class="p">[</span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="mi">8</span><span class="p">,</span><span class="w"> </span><span class="mi">4</span><span class="p">,</span><span class="w"> </span><span class="mi">16</span><span class="p">]</span>
 </pre></div>
 </div>
-
-    <div class="note-wrapper infonote-type">
-        <div class="note-icon-holder"> </div>
-        <img src="/_runestone/_static/img/infonote-img.svg" class="note-image infonote-image"> 
-        <div class="course-content">
+        <div class="course-content info">
             
 <p>Функционал <code class="docutils literal notranslate"><span class="pre">map</span></code> користимо када желимо да исто израчунавање
 применимо на сваки елемент неке серије елемената.</p>
-
-    </div></div>
+    </div>
 </li>
 <li><p>Функционал <code class="docutils literal notranslate"><span class="pre">fold</span></code> (у варијантама <code class="docutils literal notranslate"><span class="pre">foldl</span></code> и <code class="docutils literal notranslate"><span class="pre">foldr</span></code>) служи да
 извршимо агрегацију неке серије елемената, узастопном применом неке
@@ -568,8 +544,7 @@ x_1) + x_2</script></span> или као <span class="math notranslate nohighlig
         <div class="course-content">
 <p>Дефинисати функцију која одређује све делиоце броја. Није потребно
 водити рачуна о ефикасности.</p>
-
-    </div></div>
+    </div>
 <p>Ако не водимо рачуна о ефикасности, сви делиоци броја се могу лако
 одредити коришћењем филтрирања, директно на основу дефиниције.</p>
 <div class="highlight-haskell notranslate"><div class="highlight"><pre><span></span><span class="nf">divisors</span><span class="w"> </span><span class="ow">::</span><span class="w"> </span><span class="kt">Integer</span><span class="w"> </span><span class="ow">-&gt;</span><span class="w"> </span><span class="p">[</span><span class="kt">Integer</span><span class="p">]</span>
@@ -585,8 +560,7 @@ x_1) + x_2</script></span> или као <span class="math notranslate nohighlig
 бројева. Армстронгови бројеви су они k–тоцифрени бројеви чији је
 збир k–тих степена цифара једнак самом броју. Није потребно водити
 рачуна о ефикасности.</p>
-
-    </div></div>
+    </div>
 <p>Употребићемо раније дефинисану функцију <code class="docutils literal notranslate"><span class="pre">digits</span></code> за одређивање
 цифара броја.</p>
 <div class="highlight-haskell notranslate"><div class="highlight"><pre><span></span><span class="nf">digits</span><span class="w"> </span><span class="ow">::</span><span class="w"> </span><span class="kt">Integer</span><span class="w"> </span><span class="ow">-&gt;</span><span class="w"> </span><span class="p">[</span><span class="kt">Integer</span><span class="p">]</span>
@@ -626,8 +600,7 @@ x_1) + x_2</script></span> или као <span class="math notranslate nohighlig
 (што ради функција <code class="docutils literal notranslate"><span class="pre">all</span></code>), да ли неки елемент листе задовољава
 дато својство (што ради функција <code class="docutils literal notranslate"><span class="pre">any</span></code>) и да ли листа садржи дати
 елемент (што ради функција <code class="docutils literal notranslate"><span class="pre">elem</span></code>).</p>
-
-    </div></div>
+    </div>
 <div class="highlight-haskell notranslate"><div class="highlight"><pre><span></span><span class="nf">my_all</span><span class="w"> </span><span class="ow">::</span><span class="w"> </span><span class="p">(</span><span class="n">a</span><span class="w"> </span><span class="ow">-&gt;</span><span class="w"> </span><span class="kt">Bool</span><span class="p">)</span><span class="w"> </span><span class="ow">-&gt;</span><span class="w"> </span><span class="p">[</span><span class="n">a</span><span class="p">]</span><span class="w"> </span><span class="ow">-&gt;</span><span class="w"> </span><span class="kt">Bool</span>
 <span class="nf">my_all</span><span class="w"> </span><span class="n">p</span><span class="w"> </span><span class="n">xs</span><span class="w"> </span><span class="ow">=</span><span class="w"> </span><span class="n">and</span><span class="w"> </span><span class="p">(</span><span class="n">map</span><span class="w"> </span><span class="n">p</span><span class="w"> </span><span class="n">xs</span><span class="p">)</span>
 </pre></div>
@@ -652,8 +625,7 @@ x_1) + x_2</script></span> или као <span class="math notranslate nohighlig
         <div class="course-content">
 <p>Применом функција <code class="docutils literal notranslate"><span class="pre">foldl</span></code> или <code class="docutils literal notranslate"><span class="pre">foldr</span></code> дефинисати функције за
 израчунавање производа листе, минумума и обртање листе.</p>
-
-    </div></div>
+    </div>
 <p>Дефинисање производа је веома једноставно (крећемо од резултата 1 и у
 сваком кораку множимо текући елемент и текући резултат).</p>
 <div class="highlight-haskell notranslate"><div class="highlight"><pre><span></span><span class="nf">my_prod</span><span class="w"> </span><span class="ow">::</span><span class="w"> </span><span class="kt">Num</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="ow">=&gt;</span><span class="w"> </span><span class="p">[</span><span class="n">a</span><span class="p">]</span><span class="w"> </span><span class="ow">-&gt;</span><span class="w"> </span><span class="n">a</span>
@@ -686,11 +658,7 @@ x_1) + x_2</script></span> или као <span class="math notranslate nohighlig
 <span class="nf">my_reverse</span><span class="w"> </span><span class="ow">=</span><span class="w"> </span><span class="n">foldl</span><span class="w"> </span><span class="p">(</span><span class="n">flip</span><span class="w"> </span><span class="p">(</span><span class="kt">:</span><span class="p">))</span><span class="w">  </span><span class="kt">[]</span>
 </pre></div>
 </div>
-
-    <div class="note-wrapper infonote-type">
-        <div class="note-icon-holder"> </div>
-        <img src="/_runestone/_static/img/infonote-img.svg" class="note-image infonote-image"> 
-        <div class="course-content">
+        <div class="course-content info">
             
 <p>Чак и да функција <code class="docutils literal notranslate"><span class="pre">flip</span></code> није дефинисана, она би се лако могла
 дефинисати.</p>
@@ -698,8 +666,7 @@ x_1) + x_2</script></span> или као <span class="math notranslate nohighlig
 <span class="nf">my_flip</span><span class="w"> </span><span class="n">f</span><span class="w"> </span><span class="n">b</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="ow">=</span><span class="w"> </span><span class="n">f</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">b</span>
 </pre></div>
 </div>
-
-    </div></div>
+    </div>
 
     <div class="note-wrapper questionnote-type">
         <div class="note-icon-holder"> </div>
@@ -709,8 +676,7 @@ x_1) + x_2</script></span> или као <span class="math notranslate nohighlig
 дефинисати функцију која уклања све дупликате из листе,
 задржавајући редослед елемената (задржати само прво појављивање
 сваког елемента).</p>
-
-    </div></div>
+    </div>
 <p>Задатак можемо решити тако што елементе обрађујемо један по један,
 здесна налево, и текући елемент додајемо на почетак резултујуће листе,
 али тек након што смо из резултујуће листе уклонили сва његова
@@ -791,8 +757,7 @@ x_1) + x_2</script></span> или као <span class="math notranslate nohighlig
 <p>Применом компрехенсије дефинисати функцију која надовезује све
 листе које су елементи дате листе (овај ефекат има библиотечка
 функција <code class="docutils literal notranslate"><span class="pre">concat</span></code>). На пример, <code class="docutils literal notranslate"><span class="pre">concat</span> <span class="pre">[[1,</span> <span class="pre">2],</span> <span class="pre">[3,</span> <span class="pre">4]]</span> <span class="pre">=</span> <span class="pre">[1,</span> <span class="pre">2,</span> <span class="pre">3,</span> <span class="pre">4]</span></code>.</p>
-
-    </div></div>
+    </div>
 <div class="highlight-haskell notranslate"><div class="highlight"><pre><span></span><span class="nf">my_concat</span><span class="w"> </span><span class="ow">::</span><span class="w"> </span><span class="p">[[</span><span class="n">a</span><span class="p">]]</span><span class="w"> </span><span class="ow">-&gt;</span><span class="w"> </span><span class="p">[</span><span class="n">a</span><span class="p">]</span>
 <span class="nf">my_concat</span><span class="w"> </span><span class="n">xs</span><span class="w"> </span><span class="ow">=</span><span class="w"> </span><span class="p">[</span><span class="n">x</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="n">ys</span><span class="w"> </span><span class="ow">&lt;-</span><span class="w"> </span><span class="n">xs</span><span class="p">,</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="ow">&lt;-</span><span class="w"> </span><span class="n">ys</span><span class="p">]</span>
 </pre></div>
@@ -817,8 +782,7 @@ x_1) + x_2</script></span> или као <span class="math notranslate nohighlig
         <img src="/_runestone/_static/img/question-mark.png" class="note-image questionnote-image"> 
         <div class="course-content">
 <p>Дефинисати рекурзивну функцију која одређује дужину дате листе.</p>
-
-    </div></div>
+    </div>
 <div class="highlight-haskell notranslate"><div class="highlight"><pre><span></span><span class="nf">my_length</span><span class="w"> </span><span class="ow">::</span><span class="w"> </span><span class="p">[</span><span class="n">a</span><span class="p">]</span><span class="w"> </span><span class="ow">-&gt;</span><span class="w"> </span><span class="kt">Int</span>
 <span class="nf">my_length</span><span class="w"> </span><span class="kt">[]</span><span class="w"> </span><span class="ow">=</span><span class="w"> </span><span class="mi">0</span>
 <span class="nf">my_length</span><span class="w"> </span><span class="p">(</span><span class="n">x</span><span class="kt">:</span><span class="n">xs</span><span class="p">)</span><span class="w"> </span><span class="ow">=</span><span class="w"> </span><span class="n">my_length</span><span class="w"> </span><span class="n">xs</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span>
@@ -846,8 +810,7 @@ x_1) + x_2</script></span> или као <span class="math notranslate nohighlig
         <img src="/_runestone/_static/img/question-mark.png" class="note-image questionnote-image"> 
         <div class="course-content">
 <p>Дефинисати функцију која одређује последњи елемент дате листе.</p>
-
-    </div></div>
+    </div>
 <div class="highlight-haskell notranslate"><div class="highlight"><pre><span></span><span class="nf">my_last</span><span class="w"> </span><span class="ow">::</span><span class="w"> </span><span class="p">[</span><span class="n">a</span><span class="p">]</span><span class="w"> </span><span class="ow">-&gt;</span><span class="w"> </span><span class="n">a</span>
 <span class="nf">my_last</span><span class="w"> </span><span class="p">[</span><span class="n">x</span><span class="p">]</span><span class="w"> </span><span class="ow">=</span><span class="w"> </span><span class="n">x</span>
 <span class="nf">my_last</span><span class="w"> </span><span class="p">(</span><span class="kr">_</span><span class="kt">:</span><span class="n">xs</span><span class="p">)</span><span class="w"> </span><span class="ow">=</span><span class="w"> </span><span class="n">my_last</span><span class="w"> </span><span class="n">xs</span>
@@ -863,8 +826,7 @@ x_1) + x_2</script></span> или као <span class="math notranslate nohighlig
         <div class="course-content">
 <p>Дефинисати функцију која испитује да ли дати елемент припада датој
 листи (аналогно  библиотечкој функцији <code class="docutils literal notranslate"><span class="pre">elem</span></code>).</p>
-
-    </div></div>
+    </div>
 <p>Ниједан елемент не припада празној листи, а непразној листи припада
 ако и само ако је или једнак њеној глави или припада њеном репу.</p>
 <div class="highlight-haskell notranslate"><div class="highlight"><pre><span></span><span class="nf">my_elem</span><span class="w"> </span><span class="ow">::</span><span class="w"> </span><span class="kt">Eq</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="ow">=&gt;</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="ow">-&gt;</span><span class="w"> </span><span class="p">[</span><span class="n">a</span><span class="p">]</span><span class="w"> </span><span class="ow">-&gt;</span><span class="w"> </span><span class="kt">Bool</span>
@@ -884,8 +846,7 @@ x_1) + x_2</script></span> или као <span class="math notranslate nohighlig
         <div class="course-content">
 <p>Дефинисати функцију која одређује елемент листе на позицији n (она
 одговара оператору индексног приступа <code class="docutils literal notranslate"><span class="pre">!!</span></code>).</p>
-
-    </div></div>
+    </div>
 <p>Подсетимо се, овим оператором се може прочитати елемент листе
 са дате позиције (позиције се броје од нуле).</p>
 <div class="highlight-haskell notranslate"><div class="highlight"><pre><span></span><span class="kt">Prelude</span><span class="o">&gt;</span><span class="w"> </span><span class="p">[</span><span class="mi">5</span><span class="p">,</span><span class="w"> </span><span class="mi">4</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">]</span><span class="w"> </span><span class="o">!!</span><span class="w"> </span><span class="mi">2</span>
@@ -909,8 +870,7 @@ x_1) + x_2</script></span> или као <span class="math notranslate nohighlig
         <div class="course-content">
 <p>Дефинисати функцију која надовезује две листе (она одговара
 оператору <code class="docutils literal notranslate"><span class="pre">++</span></code> којим се надовезују две листе).</p>
-
-    </div></div>
+    </div>
 <div class="highlight-haskell notranslate"><div class="highlight"><pre><span></span><span class="kt">Prelude</span><span class="o">&gt;</span><span class="w"> </span><span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="mi">3</span><span class="p">]</span><span class="w"> </span><span class="o">++</span><span class="w"> </span><span class="p">[</span><span class="mi">4</span><span class="p">,</span><span class="w"> </span><span class="mi">5</span><span class="p">]</span>
 <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="p">]</span>
 </pre></div>
@@ -927,8 +887,7 @@ x_1) + x_2</script></span> или као <span class="math notranslate nohighlig
         <img src="/_runestone/_static/img/question-mark.png" class="note-image questionnote-image"> 
         <div class="course-content">
 <p>Дефинисати функцију која додаје дати елемент на крај дате листе.</p>
-
-    </div></div>
+    </div>
 <p>У језику Haskell не постоји оператор додавања елемента на крај
 листе. То није случајно, јер та операција мора бити сложености
 <span class="math notranslate nohighlight"><span class="MathJax_Preview" style="color: inherit;"></span><span id="MathJax-Element-19-Frame" class="mjx-chtml MathJax_CHTML" tabindex="0" style="font-size: 110%; position: relative;" data-mathml="&lt;math xmlns=&quot;http://www.w3.org/1998/Math/MathML&quot;&gt;&lt;mi&gt;O&lt;/mi&gt;&lt;mo stretchy=&quot;false&quot;&gt;(&lt;/mo&gt;&lt;mi&gt;n&lt;/mi&gt;&lt;mo stretchy=&quot;false&quot;&gt;)&lt;/mo&gt;&lt;/math&gt;" role="presentation"><span id="MJXc-Node-218" class="mjx-math" aria-hidden="true"><span id="MJXc-Node-219" class="mjx-mrow"><span id="MJXc-Node-220" class="mjx-mi"><span class="mjx-char MJXc-TeX-math-I" style="padding-top: 0.457em; padding-bottom: 0.287em;">O</span></span><span id="MJXc-Node-221" class="mjx-mo"><span class="mjx-char MJXc-TeX-main-R" style="padding-top: 0.457em; padding-bottom: 0.571em;">(</span></span><span id="MJXc-Node-222" class="mjx-mi"><span class="mjx-char MJXc-TeX-math-I" style="padding-top: 0.23em; padding-bottom: 0.287em;">n</span></span><span id="MJXc-Node-223" class="mjx-mo"><span class="mjx-char MJXc-TeX-main-R" style="padding-top: 0.457em; padding-bottom: 0.571em;">)</span></span></span></span><span class="MJX_Assistive_MathML" role="presentation"><math xmlns="http://www.w3.org/1998/Math/MathML"><mi>O</mi><mo stretchy="false">(</mo><mi>n</mi><mo stretchy="false">)</mo></math></span></span><script type="math/tex" id="MathJax-Element-19">O(n)</script></span>. Синтаксички је овај ефекат могуће постићи помоћу
@@ -952,8 +911,7 @@ x_1) + x_2</script></span> или као <span class="math notranslate nohighlig
 <p>Без коришћења уграђених функција имплементирати функцију која обрће
 листу (чији је ефекат исти као ефекат библиотечке функције
 <code class="docutils literal notranslate"><span class="pre">reverse</span></code>).</p>
-
-    </div></div>
+    </div>
 <p>Обртањем празне листе добија се празна листа, док се непразна листа
 обрће тако што се иза обрнутог репа дода глава листе. Зато ћемо у овој
 имплементацији употребити и претходно дефинисану функцију за додавање
@@ -1006,8 +964,7 @@ x_1) + x_2</script></span> или као <span class="math notranslate nohighlig
         <div class="course-content">
 <p>Дефинисати функцију која проверава да ли су две листе једнаке (њен
 ефекат треба да буде исти као ефекат оператора <code class="docutils literal notranslate"><span class="pre">==</span></code>).</p>
-
-    </div></div>
+    </div>
 <p>Једнакост две листе може да се провери оператором <code class="docutils literal notranslate"><span class="pre">==</span></code> (наравно, у
 сложености <span class="math notranslate nohighlight"><span class="MathJax_Preview" style="color: inherit;"></span><span id="MathJax-Element-23-Frame" class="mjx-chtml MathJax_CHTML" tabindex="0" style="font-size: 110%; position: relative;" data-mathml="&lt;math xmlns=&quot;http://www.w3.org/1998/Math/MathML&quot;&gt;&lt;mi&gt;O&lt;/mi&gt;&lt;mo stretchy=&quot;false&quot;&gt;(&lt;/mo&gt;&lt;mi&gt;n&lt;/mi&gt;&lt;mo stretchy=&quot;false&quot;&gt;)&lt;/mo&gt;&lt;/math&gt;" role="presentation"><span id="MJXc-Node-244" class="mjx-math" aria-hidden="true"><span id="MJXc-Node-245" class="mjx-mrow"><span id="MJXc-Node-246" class="mjx-mi"><span class="mjx-char MJXc-TeX-math-I" style="padding-top: 0.457em; padding-bottom: 0.287em;">O</span></span><span id="MJXc-Node-247" class="mjx-mo"><span class="mjx-char MJXc-TeX-main-R" style="padding-top: 0.457em; padding-bottom: 0.571em;">(</span></span><span id="MJXc-Node-248" class="mjx-mi"><span class="mjx-char MJXc-TeX-math-I" style="padding-top: 0.23em; padding-bottom: 0.287em;">n</span></span><span id="MJXc-Node-249" class="mjx-mo"><span class="mjx-char MJXc-TeX-main-R" style="padding-top: 0.457em; padding-bottom: 0.571em;">)</span></span></span></span><span class="MJX_Assistive_MathML" role="presentation"><math xmlns="http://www.w3.org/1998/Math/MathML"><mi>O</mi><mo stretchy="false">(</mo><mi>n</mi><mo stretchy="false">)</mo></math></span></span><script type="math/tex" id="MathJax-Element-23">O(n)</script></span>). Вежбе ради, дефинишимо рекурзивну функцију
 која ово ради. Ако су обе листе празне, оне су једнаке. Ако су обе
@@ -1030,8 +987,7 @@ x_1) + x_2</script></span> или као <span class="math notranslate nohighlig
         <img src="/_runestone/_static/img/question-mark.png" class="note-image questionnote-image"> 
         <div class="course-content">
 <p>Имплементирати алгоритам сортирања уметањем (енгл. <em>insertion sort</em>).</p>
-
-    </div></div>
+    </div>
 <p>Дефинисаћемо прво рекурзивну функцију <code class="docutils literal notranslate"><span class="pre">insert</span></code> која умеће елемент на
 његово место у сортираној листи, а затим ћемо имплементирати и
 функцију <code class="docutils literal notranslate"><span class="pre">insertion_sort</span></code> која сортира листу коришћењем функције
@@ -1073,8 +1029,7 @@ x_1) + x_2</script></span> или као <span class="math notranslate nohighlig
         <div class="course-content">
 <p>Имплементирати алгоритам сортирања обједињавањем (енгл. <em>merge
 sort</em>).</p>
-
-    </div></div>
+    </div>
 <p>Дефинисаћемо три функције. Прва од њих, функција <code class="docutils literal notranslate"><span class="pre">merge</span></code> обједињава
 две сортиране листе у трећу, такође сортирану.</p>
 <p>Ако је било која од две листе празна, надовезивањем се добија она
@@ -1171,8 +1126,7 @@ sort</em>).</p>
         <img src="/_runestone/_static/img/question-mark.png" class="note-image questionnote-image"> 
         <div class="course-content">
 <p>Имплементирати алгоритам брзог сортирања (енгл. <em>quick sort</em>).</p>
-
-    </div></div>
+    </div>
 <p>Основна идеја брзог сортирања је да се један елемент листе изабере за
 тзв. пивотирајући елемент, да се остали елементи листе раздвоје на оне
 који су мањи од пивота и оне који то нису, да се сваки од та два дела
@@ -1193,11 +1147,7 @@ sort</em>).</p>
 само разменама елемената низа, тако да је ова функционална
 имплементација мало неефикаснија, али је неупоредиво једноставнија и
 разумљивија.</p>
-
-    <div class="note-wrapper infonote-type">
-        <div class="note-icon-holder"> </div>
-        <img src="/_runestone/_static/img/infonote-img.svg" class="note-image infonote-image"> 
-        <div class="course-content">
+        <div class="course-content info">
             
 <p>Ово је добар тренутак да застанемо и да упоредимо ове
 имплементације са класичним, императивним. Размотримо прво
@@ -1268,8 +1218,7 @@ sort</em>).</p>
 <span class="p">}</span>
 </pre></div>
 </div>
-
-    </div></div>
+    </div>
 </section>
 </section>
 </main>
