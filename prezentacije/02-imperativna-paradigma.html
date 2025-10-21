@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="sr">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Императивна парадигма</title>
+    
+    <!-- Google Fonts - Noto Sans for Serbian Cyrillic italic support -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,400;0,700;1,400;1,700&family=Noto+Serif:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="../reveal.js/dist/reset.css">
+    <link rel="stylesheet" href="../reveal.js/dist/reveal.css">
+    <link rel="stylesheet" href="../reveal.js/dist/theme/black.css">
+    <link rel="stylesheet" href="../reveal.js/plugin/highlight/monokai.css">
+    <style>
+        /* Custom styling to match your dark IDE theme */
+        .reveal {
+            font-family: 'Noto Sans', sans-serif;
+        }
+        
+        .reveal h1, .reveal h2, .reveal h3, .reveal h4, .reveal h5, .reveal h6 {
+            font-family: 'Noto Sans', sans-serif;
+            text-transform: none;
+        }
+        
+        .reveal pre {
+            background-color: #1e1e1e;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.5);
+        }
+        
+        .reveal code {
+            font-family: 'Consolas', 'Monaco', 'Courier New', monospace;
+        }
+        
+        .reveal table {
+            font-size: 0.8em;
+        }
+        
+        .reveal em {
+            font-style: italic;
+        }
+        
+        .reveal strong {
+            font-weight: 700;
+        }
+    </style>
+</head>
+<body>
+    <div class="reveal">
+        <div class="slides">
+            
+            <!-- Slide 1: Title -->
+            <section>
+                <h1>Императивна парадигма</h1>
+                <p>Програмске парадигме</p>
+            </section>
+
+            <!-- Slide 2: Шта је императивна парадигма -->
+            <section>
+                <h2>Шта је императивна парадигма?</h2>
+                <ul>
+                    <li class="fragment">Најстарија програмска парадигма</li>
+                    <li class="fragment">Тесно повезана са хардвером</li>
+                    <li class="fragment">Програм = низ <strong>наредби</strong></li>
+                    <li class="fragment">Наредбе мењају податке у меморији</li>
+                </ul>
+            </section>
+
+            <!-- Slide 3: Кључни појмови -->
+            <section>
+                <h2>Кључни појмови</h2>
+                <ul>
+                    <li class="fragment"><strong>Стање</strong> - вредности променљивих</li>
+                    <li class="fragment"><strong>Мутабилно стање</strong> - мења се током извршавања</li>
+                    <li class="fragment"><strong>Наредба доделе</strong> - <code>x = 5;</code></li>
+                    <li class="fragment"><strong>Контрола тока</strong> - <code>if</code>, <code>while</code>, <code>for</code></li>
+                    <li class="fragment"><strong>Итерација</strong> - понављање кроз петље</li>
+                </ul>
+            </section>
+
+            <!-- Slide 4: Пример кода -->
+            <section>
+                <h2>Пример императивног кода</h2>
+                <pre><code class="cpp" data-trim data-line-numbers>
+#include &lt;iostream&gt;
+
+int main() {
+    int x = 3, n = 4, i = 0, stepen = 1;
+    while (i &lt; n) {
+        stepen *= x;
+        i++;
+    }
+    std::cout &lt;&lt; stepen &lt;&lt; std::endl;
+    return 0;
+}
+                </code></pre>
+                <p class="fragment">Резултат: 81 (3<sup>4</sup>)</p>
+            </section>
+
+            <!-- Slide 5: Промена стања -->
+            <section>
+                <h2>Промена стања програма</h2>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>x</th>
+                            <th>n</th>
+                            <th>i</th>
+                            <th>stepen</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr class="fragment"><td>3</td><td>4</td><td>0</td><td>1</td></tr>
+                        <tr class="fragment"><td>3</td><td>4</td><td>1</td><td>3</td></tr>
+                        <tr class="fragment"><td>3</td><td>4</td><td>2</td><td>9</td></tr>
+                        <tr class="fragment"><td>3</td><td>4</td><td>3</td><td>27</td></tr>
+                        <tr class="fragment"><td>3</td><td>4</td><td>4</td><td>81</td></tr>
+                    </tbody>
+                </table>
+            </section>
+
+            <!-- Slide 6: Наредба доделе -->
+            <section>
+                <h2>Наредба доделе</h2>
+                <pre><code class="cpp" data-trim>
+i = i + 1;
+                </code></pre>
+                <p class="fragment">Ово <strong>није</strong> математичка једначина!</p>
+                <p class="fragment">Значење: <em>Променљивој i додели вредност која је за 1 већа од тренутне вредности i</em></p>
+            </section>
+
+            <!-- Slide 7: Итерација -->
+            <section>
+                <h2>Итерација</h2>
+                <ul>
+                    <li class="fragment">Основна техника императивних програма</li>
+                    <li class="fragment">Вредност се мења корак по корак</li>
+                    <li class="fragment">Остварује се помоћу петљи</li>
+                    <li class="fragment">У примеру: <code>stepen</code> се мења од 1 → 3 → 9 → 27 → 81</li>
+                </ul>
+            </section>
+
+            <!-- Slide 8: Бочни ефекти -->
+            <section>
+                <h2>Бочни ефекти</h2>
+                <p>Операције које мењају стање програма:</p>
+                <ul>
+                    <li class="fragment">Оператори <code>++</code> и <code>--</code></li>
+                    <li class="fragment">Функције које мењају глобалне променљиве</li>
+                    <li class="fragment">Улазно-излазне операције (испис, читање)</li>
+                    <li class="fragment">Рад са датотекама, мрежом...</li>
+                </ul>
+            </section>
+
+            <!-- Slide 9: Структурирано програмирање - Наслов -->
+            <section>
+                <h1>Структурирано програмирање</h1>
+            </section>
+
+            <!-- Slide 10: Скокови у асемблеру -->
+            <section>
+                <h2>Скокови у асемблеру</h2>
+                <pre><code class="asm" data-trim data-line-numbers>
+   mov eax, 5
+pocetak:
+   cmp eax, 0
+   je kraj
+   dec eax
+   jmp pocetak
+kraj:
+   call print
+                </code></pre>
+                <p class="fragment">Петља реализована скоковима (условним и безусловним)</p>
+            </section>
+
+            <!-- Slide 11: GOTO наредба -->
+            <section>
+                <h2>GOTO у раним језицима (BASIC)</h2>
+                <pre><code class="basic" data-trim data-line-numbers>
+10 X = 5
+20 IF X = 0 THEN GOTO 50
+30 X = X - 1
+40 GOTO 20
+50 PRINT(X)
+                </code></pre>
+                <p class="fragment"><strong>Композитна парадигма</strong> - секвенцијално извршавање са скоковима</p>
+            </section>
+
+            <!-- Slide 12: Савремени приступ -->
+            <section>
+                <h2>Савремени приступ (без GOTO)</h2>
+                <pre><code class="csharp" data-trim data-line-numbers>
+int x = 5;
+while (x != 0)
+    x--;
+Console.WriteLine(x);
+                </code></pre>
+                <p class="fragment">Структурирано програмирање - петље уместо скокова</p>
+            </section>
+
+            <!-- Slide 13: Зашто без GOTO? -->
+            <section>
+                <h2>Проблеми са GOTO</h2>
+                <ul>
+                    <li class="fragment">"Спагети кôд" - тешко пратити ток програма</li>
+                    <li class="fragment">Тешко разумевање и одржавање</li>
+                    <li class="fragment">Склоно грешкама</li>
+                    <li class="fragment">Dijkstra: "GOTO statement considered harmful" (1968)</li>
+                </ul>
+                <p class="fragment" style="margin-top: 20px;"><strong>Решење:</strong> Структурне наредбе (<code>if</code>, <code>while</code>, <code>for</code>)</p>
+            </section>
+
+            <!-- Slide 14: Резиме -->
+            <section>
+                <h2>Резиме</h2>
+                <ul>
+                    <li>Императивна парадигма = наредбе + стање</li>
+                    <li>Итерација кроз петље</li>
+                    <li>Бочни ефекти мењају стање</li>
+                    <li>Структурирано програмирање > GOTO</li>
+                    <li>Језици: C, C++, Java, Python, C#...</li>
+                </ul>
+            </section>
+
+            <!-- Slide 15: Питања -->
+            <section>
+                <h1>Питања?</h1>
+            </section>
+
+        </div>
+    </div>
+
+    <script src="../reveal.js/dist/reveal.js"></script>
+    <script src="../reveal.js/plugin/notes/notes.js"></script>
+    <script src="../reveal.js/plugin/markdown/markdown.js"></script>
+    <script src="../reveal.js/plugin/highlight/highlight.js"></script>
+    <script>
+        Reveal.initialize({
+            hash: true,
+            slideNumber: true,
+            transition: 'slide',
+            controls: true,
+            progress: true,
+            center: true,
+            plugins: [ RevealMarkdown, RevealHighlight, RevealNotes ]
+        });
+    </script>
+</body>
+</html>
