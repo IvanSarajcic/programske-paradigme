@@ -1,3 +1,5 @@
 *.pdf
 backup/*
 backup
+reveal.js/
+node_modules/
