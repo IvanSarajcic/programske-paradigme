@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="sr">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Наслов презентације</title>
+    
+    <!-- Google Fonts - Noto Sans for Serbian Cyrillic italic support -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,400;0,700;1,400;1,700&family=Noto+Serif:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="../reveal.js/dist/reset.css">
+    <link rel="stylesheet" href="../reveal.js/dist/reveal.css">
+    <link rel="stylesheet" href="../reveal.js/dist/theme/black.css">
+    <link rel="stylesheet" href="../reveal.js/plugin/highlight/monokai.css">
+    
+    <!-- Custom theme - load after reveal.js theme to override -->
+    <link rel="stylesheet" href="custom-theme.css">
+</head>
+<body>
+    <div class="reveal">
+        <div class="slides">
+            
+            <!-- Slide 1: Title -->
+            <section>
+                <h1>Наслов презентације</h1>
+                <p>Подназив или опис</p>
+            </section>
+
+            <!-- Slide 2: Example content -->
+            <section>
+                <h2>Наслов слајда</h2>
+                <ul>
+                    <li>Први елемент</li>
+                    <li>Други елемент</li>
+                    <li>Трећи елемент</li>
+                </ul>
+                <p><small>Напомена: Ако желите да се елементи појављују корак-по-корак, додајте <code>class="fragment"</code></small></p>
+            </section>
+
+            <!-- Slide 3: Code example -->
+            <section>
+                <h2>Пример кода</h2>
+                <pre><code class="cpp" data-trim data-line-numbers>
+#include &lt;iostream&gt;
+
+int main() {
+    std::cout &lt;&lt; "Hello, World!" &lt;&lt; std::endl;
+    return 0;
+}
+                </code></pre>
+            </section>
+
+            <!-- Slide 4: Two columns -->
+            <section>
+                <h2>Два стуба</h2>
+                <div style="display: flex; gap: 2rem;">
+                    <div style="flex: 1;">
+                        <h3>Лева страна</h3>
+                        <p>Садржај...</p>
+                    </div>
+                    <div style="flex: 1;">
+                        <h3>Десна страна</h3>
+                        <p>Садржај...</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Slide 5: Image examples -->
+            <section>
+                <h2>Слајд са сликом</h2>
+                <img src="images/example.png" alt="Опис слике" style="max-width: 60%; height: auto;">
+                <p><small>Ставите слике у фолдер prezentacije/images/</small></p>
+            </section>
+
+            <!-- Slide 6: Image and text side by side -->
+            <section>
+                <h2>Слика и текст</h2>
+                <div style="display: flex; align-items: center; gap: 2rem;">
+                    <div style="flex: 1;">
+                        <img src="images/example.png" alt="Опис" style="width: 100%;">
+                    </div>
+                    <div style="flex: 1;">
+                        <ul>
+                            <li>Први елемент</li>
+                            <li>Други елемент</li>
+                            <li>Трећи елемент</li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Slide 7: Multiple images -->
+            <section>
+                <h2>Више слика</h2>
+                <div style="display: flex; gap: 1rem; justify-content: center;">
+                    <img src="images/img1.png" alt="Слика 1" style="width: 30%;">
+                    <img src="images/img2.png" alt="Слика 2" style="width: 30%;">
+                    <img src="images/img3.png" alt="Слика 3" style="width: 30%;">
+                </div>
+            </section>
+
+            <!-- Slide 8: Vertical slides (press down arrow) -->
+            <section>
+                <section>
+                    <h2>Главна тема</h2>
+                    <p>Притисни стрелицу надоле за детаље</p>
+                </section>
+                <section>
+                    <h3>Детаљ 1</h3>
+                    <p>Додатне информације</p>
+                </section>
+                <section>
+                    <h3>Детаљ 2</h3>
+                    <p>Још информација</p>
+                </section>
+            </section>
+
+            <!-- Slide 9: With speaker notes -->
+            <section>
+                <h2>Слајд са напоменама</h2>
+                <p>Овај текст виде сви</p>
+                <aside class="notes">
+                    Ове напомене виде само у режиму говорника (притисни S).
+                    Користи их за детаље који не треба да буду на слајду.
+                </aside>
+            </section>
+
+            <!-- Last slide: Questions -->
+            <section>
+                <h1>Питања?</h1>
+            </section>
+
+        </div>
+    </div>
+
+    <script src="../reveal.js/dist/reveal.js"></script>
+    <script src="../reveal.js/plugin/notes/notes.js"></script>
+    <script src="../reveal.js/plugin/markdown/markdown.js"></script>
+    <script src="../reveal.js/plugin/highlight/highlight.js"></script>
+    <script>
+        Reveal.initialize({
+            hash: true,
+            slideNumber: true,
+            transition: 'slide',
+            controls: true,
+            progress: true,
+            center: true,
+            plugins: [ RevealMarkdown, RevealHighlight, RevealNotes ]
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,43 @@
+/* Custom theme overrides for Serbian Cyrillic presentations */
+
+/* Apply Noto Sans font family */
+.reveal {
+    font-family: 'Noto Sans', sans-serif;
+}
+
+.reveal h1, 
+.reveal h2, 
+.reveal h3, 
+.reveal h4, 
+.reveal h5, 
+.reveal h6 {
+    font-family: 'Noto Sans', sans-serif;
+    font-weight: 700;
+}
+
+/* Ensure proper italic rendering for Cyrillic */
+.reveal em {
+    font-style: italic;
+}
+
+.reveal strong {
+    font-weight: 700;
+}
+
+/* Code block styling */
+.reveal pre {
+    background-color: #1e1e1e;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.5);
+}
+
+.reveal code {
+    font-family: 'Consolas', 'Monaco', 'Courier New', monospace;
+}
+
+/* Table styling */
+.reveal table {
+    font-size: 0.8em;
+}
+
+/* Add any other custom styles below */
